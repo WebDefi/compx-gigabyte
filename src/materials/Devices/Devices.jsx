@@ -2,13 +2,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { Component, useState } from "react";
 import Slider from "react-slick";
-import slider1 from "../../static/images/product1.png"
-import slider2 from '../../static/images/product2.png'
-import slider3 from '../../static/images/product3.png'
-import deviceBg from '../../static/images/deviceBg.png'
-import { Container } from 'reactstrap';
+import slider1 from "../../static/images/product1.png";
+import slider2 from "../../static/images/product2.png";
+import slider3 from "../../static/images/product3.png";
+import deviceBg from "../../static/images/deviceBg.png";
+import bg from "../../static/images/bg.png";
+import { Container } from "reactstrap";
 import DevicesComponent from "./components/DevicesComponent";
-import styles from './Devices.scss'
+import styles from "./Devices.scss";
+import SectionContent from "../../common/SectionContent/SectionContent";
 
 export default class Devices extends Component {
   render() {
@@ -22,17 +24,48 @@ export default class Devices extends Component {
       autoplaySpeed: true,
     };
     return (
-      <Container>
-        <h2 style={{textTransform:"uppercase"}}> Геймерские девайсы </h2>
-        <Slider {...settings}>
-            <DevicesComponent title="Видеокарты Премиум-Класса" deviceImg={slider1} deviceBg={deviceBg} /> 
-            <DevicesComponent title="Игровые Ноутбуки" deviceImg={slider2} deviceBg={deviceBg}/>
-            <DevicesComponent title="Игровые Мониторы" deviceImg={slider3} deviceBg={deviceBg} />
-            <DevicesComponent title="Игровые Ноутбуки" deviceImg={slider2} deviceBg={deviceBg} />
-            <DevicesComponent title="Видеокарты Премиум-Класса" deviceImg={slider1} deviceBg={deviceBg} />
-            <DevicesComponent title="Игровые Мониторы" deviceImg={slider3} deviceBg={deviceBg} />
-        </Slider>
-      </Container>
+      <div>
+        <div style={{ backgroundImage: `url(${bg})`, height: 200 }}>
+          <SectionContent
+            title="Gaming devices"
+            subtitle="AORUS - ведущая компания по производству высокопроизводительных материнских плат, видеокарт, ноутбуков, игрового оборудования и систем. Мы стремимся объединиться с игроками, чтобы без страха преодолевать ограничения и продолжать борьбу, пока мы стремимся к высшей славе!"
+          ></SectionContent>
+        </div>
+        <Container style={{marginTop:60}}>
+          <Slider {...settings}>
+            <DevicesComponent
+              title="Видеокарты Премиум-Класса"
+              deviceImg={slider1}
+              deviceBg={deviceBg}
+            />
+            <DevicesComponent
+              title="Игровые Ноутбуки"
+              deviceImg={slider2}
+              deviceBg={deviceBg}
+            />
+            <DevicesComponent
+              title="Игровые Мониторы"
+              deviceImg={slider3}
+              deviceBg={deviceBg}
+            />
+            <DevicesComponent
+              title="Игровые Ноутбуки"
+              deviceImg={slider2}
+              deviceBg={deviceBg}
+            />
+            <DevicesComponent
+              title="Видеокарты Премиум-Класса"
+              deviceImg={slider1}
+              deviceBg={deviceBg}
+            />
+            <DevicesComponent
+              title="Игровые Мониторы"
+              deviceImg={slider3}
+              deviceBg={deviceBg}
+            />
+          </Slider>
+        </Container>
+      </div>
     );
   }
 }
@@ -44,7 +77,7 @@ export default class Devices extends Component {
 //     CarouselIndicators,
 //     CarouselCaption
 //   } from 'reactstrap';
-  
+
 //   const items = [
 //     {
 //       src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa1d%20text%20%7B%20fill%3A%23555%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa1d%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22285.921875%22%20y%3D%22218.3%22%3EFirst%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
@@ -62,28 +95,28 @@ export default class Devices extends Component {
 //       caption: 'Slide 3'
 //     }
 //   ];
-  
+
 //   const Devices = (props) => {
 //     const [activeIndex, setActiveIndex] = useState(0);
 //     const [animating, setAnimating] = useState(false);
-  
+
 //     const next = () => {
 //       if (animating) return;
 //       const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
 //       setActiveIndex(nextIndex);
 //     }
-  
+
 //     const previous = () => {
 //       if (animating) return;
 //       const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
 //       setActiveIndex(nextIndex);
 //     }
-  
+
 //     const goToIndex = (newIndex) => {
 //       if (animating) return;
 //       setActiveIndex(newIndex);
 //     }
-  
+
 //     const slides = items.map((item) => {
 //       return (
 //         <CarouselItem
@@ -96,7 +129,7 @@ export default class Devices extends Component {
 //         </CarouselItem>
 //       );
 //     });
-  
+
 //     return (
 //       <Carousel
 //         activeIndex={activeIndex}
@@ -110,5 +143,5 @@ export default class Devices extends Component {
 //       </Carousel>
 //     );
 //   }
-  
+
 //   export default Devices;
