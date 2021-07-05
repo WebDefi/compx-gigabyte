@@ -1,0 +1,26 @@
+@import "./src/static/fonts.scss";
+@import "./src/static/colors.scss";
+
+.sliderAorus {
+  background: $mainBg center / cover no-repeat;
+
+  &_block {
+    padding: 299px 594px 221px 135px;
+  }
+
+  &__title {
+    font-family: "Aldrich", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 46px;
+    margin-bottom: 13px;
+  }
+
+  &__subtitle {
+    font-family: Titillium Web;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    margin-bottom: 13px;
+  }
+}
