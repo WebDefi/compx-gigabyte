@@ -1,15 +1,17 @@
 import React from "react";
 import { Row, Col, Container } from "reactstrap";
-import styles from "./NewsComponent.module.scss";
+import styles from "./NewsComponent.scss";
 import OutlinedBtn from '../../../common/Buttons/OutlinedBtn'
+import { Button } from 'reactstrap';
 
 const NewsComponent = ({ description, img }) => {
   return (
-    <div>
-      <div className={styles.imgBox}>
+    <div className='divvv'>
+      <div className='imgBox'>
         <img src={img} style={{ display: "inline-block" }}></img>
       </div>
-      <p className={styles.newsDescription}>{description}</p> 
+      <p className='newsDescription'>{description}</p> 
+      <a href='/'><Button className="myBtn" outline color="danger" size="xl"  style={{width:"95%", borderRadius:0,}}>"Подробнее"</Button></a>
     </div>
   );
 };
