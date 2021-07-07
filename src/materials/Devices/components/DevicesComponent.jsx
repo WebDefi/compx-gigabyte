@@ -1,25 +1,24 @@
 import React from "react";
 
-import styles from "./DevicesComponent.module.scss";
+import styles from "./DevicesComponent.scss";
 
-const DevicesComponent = ({ deviceImg, deviceBg, title }) => {
+const DevicesComponent = ({ deviceImg, link="/", title }) => {
   return (
-    <div className={styles.DevicesComponent} style={{ position: "relative" }}>
+    <a href={link}>
+      <div className="DevicesComponent">
       <img
         height="auto"
         width="65%"
         src={deviceImg}
-        className={styles.deviceImg}
+        className='deviceImg'
         style={{
           display: "inline-block",
-          bottom: 0,
-          backgroundImage: `url(${deviceBg})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "100% 12%",
+  
         }}
       ></img>
-      <h5 className={styles.deviceName}>{title}</h5>
+      <h5 className="deviceName">{title}</h5>
     </div>
+    </a>
   );
 };
 

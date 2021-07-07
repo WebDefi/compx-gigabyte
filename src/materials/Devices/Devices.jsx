@@ -24,7 +24,7 @@ export default class Devices extends Component {
       autoplaySpeed: true,
     };
     return (
-      <div>
+      <div style={{marginTop:500}}>
         <div style={{ backgroundImage: `url(${bg})`, height: 200 }}>
           <SectionContent
             title="Gaming devices"
