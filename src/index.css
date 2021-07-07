@@ -1,17 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap');
 
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
 
 body {
   margin: 0;
   font-family: 'Titillium Web', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #050307;
+  background: #000;
   color:#fff;
-  
 }
+
+
 a {
   text-decoration: none;
+  color:#c3c3c3;
 }
 li {
   list-style: none;
