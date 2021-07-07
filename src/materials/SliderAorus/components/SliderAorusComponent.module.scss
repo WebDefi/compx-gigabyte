@@ -24,3 +24,17 @@
     margin-bottom: 13px;
   }
 }
+
+.blackFooter {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.firstBlack {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 34px;
+  background: black;
+}
