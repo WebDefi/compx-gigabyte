@@ -4,6 +4,7 @@ import Devices from "./materials/Devices/Devices";
 import SliderAorus from "./materials/SliderAorus/SliderAorus";
 import News from "./materials/News/News";
 import Footer from "./materials/Footer/Footer";
+import Gallery from "./materials/Gallery/Gallery";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <SliderAorus />
       <Devices />
       <News />
+      <Gallery />
       <Footer />
     </div>
   );

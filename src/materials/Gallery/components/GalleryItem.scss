@@ -1,0 +1,65 @@
+@import "./src/static/fonts.scss";
+@import "./src/static/colors.scss";
+
+.gallery {
+  margin-bottom: 90px;
+  &_lines {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  &__thin {
+    display: inline-block;
+    width: 49px;
+    height: 4px;
+    background: $lineDark;
+  }
+
+  &__bold {
+    display: inline-block;
+    width: 49px;
+    height: 7px;
+    background: $lineLight;
+  }
+
+  &__white {
+    display: inline-block;
+    width: 875px;
+    height: 10px;
+    background: $white;
+  }
+
+  &__orange {
+    display: inline-block;
+    width: 875px;
+    height: 10px;
+    background: $primary;
+  }
+
+  &_btn {
+    margin-top: 27px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: $white;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+
+    &__Arrow {
+      border: solid $white;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 4px;
+      margin: 5px;
+      transform: rotate(45deg);
+    }
+  }
+
+  &__img {
+    width: 210px;
+    height: 210px;
+  }
+}
