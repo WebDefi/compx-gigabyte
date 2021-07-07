@@ -1,0 +1,27 @@
+@import "./src/static/fonts.scss";
+@import "./src/static/colors.scss";
+
+.sliderAorus__btn {
+  display: inline-block;
+  border: none;
+  outline: none;
+  width: 120px;
+  height: 40px;
+  padding: 0 12px;
+  color: #fff;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  background: $primary;
+  cursor: pointer;
+  clip-path: polygon(
+    10px 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%,
+    0 10px
+  );
+}

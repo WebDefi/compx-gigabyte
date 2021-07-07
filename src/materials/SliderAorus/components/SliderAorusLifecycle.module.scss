@@ -1,0 +1,16 @@
+.progress {
+  width: 2px;
+  background: hsla(0, 0%, 100%, 0.4);
+
+  &Div {
+    background: #fff;
+    transition: 5s ease;
+  }
+}
+
+.sliderAorus__lifecycle {
+  position: absolute;
+  top: 185px;
+  // margin-left: 1200px;
+  margin-left: -60px;
+}

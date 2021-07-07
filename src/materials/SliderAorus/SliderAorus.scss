@@ -1,0 +1,26 @@
+@import "./src/static/fonts.scss";
+@import "./src/static/colors.scss";
+
+.slick-dots {
+  position: relative;
+  &--position {
+    position: absolute;
+    bottom: 90px;
+    right: 149px;
+  }
+  & li {
+    width: 20px;
+    height: 8px;
+    transform: skewX(45deg);
+    background: $colGray;
+  }
+
+  & li.slick-active {
+    background: $secondary;
+    width: 84px;
+  }
+
+  & li button:before {
+    content: " ";
+  }
+}
