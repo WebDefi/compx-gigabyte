@@ -1,0 +1,80 @@
+@import "../../../static/_colors";
+
+.newsDescription {
+  padding-top: 8px;
+  color: $secondaryLight;
+  display: inline-block;
+  max-width: 400px;
+}
+.imgBox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 999;
+  clip-path: polygon(0% 0%, 0% 100%, 60% 96%, 15% 0, 86% 0, 83% 3%, 16% 3%, 8% 100%, 100% 100%, 100% 0%, );
+  
+
+
+
+  img {
+    width: 95%;
+    height: 380px;
+    transition: all 0.3s;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+}
+
+.divvv{
+  &::before {
+    display: none;
+    transition: 0.3s;
+    content: " ";
+    border-radius: 20px;
+    width: 230px;
+    left: 25%;
+    height: 12px;
+    bottom: 506px;
+    background: $primary;
+    z-index: 1000;
+    position: absolute;
+
+  }
+}
+
+.container {
+  .slick-slider {
+    .slick-slide {
+      .divvv {
+        &:hover {
+          &::before {
+            display: block;
+          }
+          .newsDescription {
+            transition: 0.4s;
+            color:#fff;
+          }
+          .myBtn {
+            transition: 0.4s;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.myBtn {
+  
+  display: none;
+  color: $primary;
+  border-color: $primary;
+  &:hover {
+      background: $primary;
+  }
+  &:focus {
+     border:none;
+  }
+}

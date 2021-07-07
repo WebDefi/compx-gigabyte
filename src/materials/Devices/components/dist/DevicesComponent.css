@@ -1,0 +1,46 @@
+.container .slick-slider .slick-prev:before,
+.container .slick-slider .slick-next:before {
+  color: #FA6812;
+  font-size: 26px;
+}
+.container .slick-slider .slick-slide .DevicesComponent::before {
+  position: absolute;
+  content: " ";
+  width: 180px;
+  height: 180px;
+  bottom: 67px;
+  margin-left: 65px;
+  z-index: 2;
+  background-image: url(../../../static/images/deviceBg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.container .slick-slider .slick-slide .DevicesComponent .deviceImg {
+  z-index: 22;
+  position: relative;
+}
+.container .slick-slider .slick-slide .DevicesComponent:hover {
+  transition: 0.4s;
+  color: #FA6812;
+}
+.container .slick-slider .slick-slide .DevicesComponent:hover::before {
+  transition: 0.3s;
+  position: absolute;
+  content: " ";
+  width: 220px;
+  height: 190px;
+  top: 0px;
+  margin-right: 220px;
+  z-index: 1;
+  background-image: url(../../../static/images/deviceBg1.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.container .slick-slider .slick-slide .DevicesComponent:hover .deviceName {
+  font-size: 21px;
+}
+.container .slick-slider .slick-slide .DevicesComponent:hover img {
+  transition: 0.4s;
+  transform: scale(1.2);
+}

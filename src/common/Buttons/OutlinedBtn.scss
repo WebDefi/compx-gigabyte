@@ -1,0 +1,12 @@
+@import "../../static/colors";
+
+.myBtn {
+    color: $primary;
+    border-color: $primary;
+    &:hover {
+        background: $primary;
+    }
+    &:focus {
+       border:none;
+    }
+}

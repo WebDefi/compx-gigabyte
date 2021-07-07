@@ -1,0 +1,71 @@
+.headerMain {
+  width: 100%;
+  height: 100px;
+  background: #0c0a0a;
+}
+
+.headerTop {
+  position: relative;
+}
+
+.infoLink {
+  margin: 0px 10px;
+}
+.infoLink a {
+  font-size: 12px;
+}
+.infoLink a:hover {
+  color: #FA6812;
+}
+
+.headerInfo {
+  background: #0c0a0a;
+}
+
+.autoContainer {
+  height: 65px;
+  position: static;
+  max-width: 1200px;
+  padding: 0px 15px;
+  margin: 0 auto;
+}
+
+.topLeft {
+  position: relative;
+  float: left;
+}
+
+.topRight {
+  position: relative;
+  float: right;
+}
+
+.headerUpper {
+  position: relative;
+  background: #0c0a0a;
+}
+
+.logoOuter {
+  position: absolute;
+  left: 50%;
+  top: 75px;
+  z-index: 20;
+  margin-top: -20px;
+  transform: translateX(-50%);
+}
+
+.navOuter {
+  position: relative;
+  top: 56px;
+  z-index: 19;
+  left: 2%;
+}
+
+.divchick {
+  background: #000;
+  width: 100%;
+  height: 81px;
+  position: static;
+  z-index: 12;
+  top: 65px;
+}

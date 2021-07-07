@@ -1,0 +1,10 @@
+.myBtn {
+  color: #FA6812;
+  border-color: #FA6812;
+}
+.myBtn:hover {
+  background: #FA6812;
+}
+.myBtn:focus {
+  border: none;
+}
