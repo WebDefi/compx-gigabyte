@@ -1,5 +1,5 @@
 import styles from './App.module.scss';
-// import Header from './materials/Header/Header'
+import Header from './materials/Header/Header'
 import Devices from './materials/Devices/Devices'
 import News from './materials/News/News';
 import Footer from './materials/Footer/Footer';
@@ -7,10 +7,10 @@ import Footer from './materials/Footer/Footer';
 function App() {
   return (
     <div className={styles.App}>
-      {/* <Header /> */}
-      <Devices />
+      <Header />
+       <Devices />
       <News />
-      <Footer />
+      <Footer /> 
     </div>
   );
 }
