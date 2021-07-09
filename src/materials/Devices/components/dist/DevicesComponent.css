@@ -24,7 +24,7 @@
   color: #FA6812;
 }
 .container .slick-slider .slick-slide .DevicesComponent:hover::before {
-  transition: 0.3s;
+  transition: 0.4s;
   position: absolute;
   content: " ";
   width: 220px;

@@ -69,3 +69,12 @@
   z-index: 12;
   top: 65px;
 }
+
+.socialImg path {
+  fill: red;
+}
+
+.btn {
+  background: none;
+  border: none;
+}

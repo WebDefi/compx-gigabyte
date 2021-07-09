@@ -4,7 +4,7 @@ import styles from './sectionContent.module.scss'
 
 const SectionContent = ({ title, subtitle }) => {
   return (
-    <Container style={{paddingTop: 60}}>
+    <Container style={{padding:"60px 0"}}>
       <Row>
         <Col xs="12">
           <h2 className={styles.title}>{title}</h2>

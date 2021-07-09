@@ -6,17 +6,18 @@ import { Container } from "reactstrap";
 import SliderAorusComponent from "./components/SliderAorusComponent";
 import SliderBcg1 from "../../static/images/slider.jpg";
 import "./SliderAorus.scss";
+import headerUpper from '../../static/images/headerUpper.png'
 
 export default class SlideAorus extends Component {
   render() {
     const settings = {
       dots: true,
       infinite: true,
-      speed: 500,
+      speed: 1000,
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
-      // autoplay: true,
+      autoplay: true,
       // speed: 2000,
       // autoplaySpeed: 5000,
       appendDots: (dots) => (
@@ -28,7 +29,8 @@ export default class SlideAorus extends Component {
       ),
     };
     return (
-      <Container fluid style={{ padding: 0 }}>
+      <Container fluid style={{ padding: 0,marginTop:92 }}>
+        
         <Slider {...settings}>
           <SliderAorusComponent
             sliderTitle="GEAR UP WITH AORUS"
@@ -55,7 +57,9 @@ export default class SlideAorus extends Component {
             sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
             sliderBcg={SliderBcg1}
           ></SliderAorusComponent>
+          
         </Slider>
+        <img src={headerUpper} style={{position:'relative', bottom:56}}></img>
       </Container>
     );
   }

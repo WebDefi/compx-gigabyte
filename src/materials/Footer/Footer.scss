@@ -6,3 +6,9 @@
   height: 400px;
   background: #0C0A0A;
 }
+
+.logoDescr {
+    &:hover {
+        color: #fff;
+    }
+}

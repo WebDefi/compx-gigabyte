@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../static/images/logo.svg";
 import "./Header.scss";
 import headerlower from "../../static/images/headerlower.png";
 import inst from "../../static/images/instagram.svg";
+import twitter from "../../static/images/twitter.svg";
+import facebook from "../../static/images/facebook.svg";
 import Aorus from "../../static/images/aorus.png";
 import { Container, Row, Col } from "reactstrap";
+import {
+  ButtonDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap";
 
 const Header = () => {
+  const [dropdownOpen, setOpen] = useState(false);
+  const toggle = () => setOpen(!dropdownOpen);
+  const [dropOpen, seOpen] = useState(false);
+
+  const togg = () => seOpen(!dropOpen);
   return (
     <header className="headerMain">
       <div className="headerInfo">
@@ -60,24 +73,24 @@ const Header = () => {
               <ul style={{ display: "flex" }}>
                 <li style={{ margin: "0px 6px" }}>
                   <a href="/">
-                    <img src={inst} />
+                    <img src={inst} className="socialImg" />
                   </a>
                 </li>
                 <li style={{ margin: "0px 6px" }}>
                   <a href="/">
-                    <img src={inst} />
+                    <img src={twitter} className="socialImg" />
                   </a>
                 </li>
                 <li style={{ margin: "0px 6px" }}>
                   <a href="/">
-                    <img src={inst} />
+                    <img src={facebook} className="socialImg" />
                   </a>
                 </li>
                 <li>
                   <span>Ru</span>
                 </li>
                 <li>
-                  <span>|</span>
+                  <span style={{ padding: "0 5px" }}>|</span>
                 </li>
                 <li>
                   <span>Ukr</span>
@@ -111,8 +124,26 @@ const Header = () => {
                   paddingTop: 25,
                 }}
               >
-                <li style={{ margin: "0 20px" }}>asd</li>
-                <li>asd</li>
+                <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
+                  <DropdownToggle caret>Button Dropdown</DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem header>Header</DropdownItem>
+                    <DropdownItem disabled>Action</DropdownItem>
+                    <DropdownItem>Another Action</DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>Another Action</DropdownItem>
+                  </DropdownMenu>
+                </ButtonDropdown>
+                <ButtonDropdown isOpen={dropOpen} toggle={togg}>
+                  <DropdownToggle caret>Button Dropdown</DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem header>Header</DropdownItem>
+                    <DropdownItem disabled>Action</DropdownItem>
+                    <DropdownItem>Another Action</DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>Another Action</DropdownItem>
+                  </DropdownMenu>
+                </ButtonDropdown>
               </ul>
             </div>
           </Container>

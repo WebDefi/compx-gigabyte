@@ -16,7 +16,7 @@ export default class Devices extends Component {
       slidesToShow: 3,
       slidesToScroll: 1,
       arrows: false,
-      autoplay:false,
+      autoplay:true,
       autoplaySpeed: 2500,
     
     };

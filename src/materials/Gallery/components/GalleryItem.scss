@@ -5,7 +5,7 @@
   margin-bottom: 90px;
   &_lines {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     text-align: center;
   }
 
@@ -17,6 +17,7 @@
   }
 
   &__bold {
+    margin: 0 10px;
     display: inline-block;
     width: 49px;
     height: 7px;
@@ -24,6 +25,7 @@
   }
 
   &__white {
+    margin: 0 10px;
     display: inline-block;
     width: 875px;
     height: 10px;
@@ -59,7 +61,7 @@
   }
 
   &__img {
-    width: 210px;
-    height: 210px;
+    width: 100%;
+    height: auto;
   }
 }

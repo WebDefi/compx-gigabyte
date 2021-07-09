@@ -11,7 +11,7 @@ const NewsComponent = ({ description, img }) => {
         <img src={img} style={{ display: "inline-block" }}></img>
       </div>
       <p className='newsDescription'>{description}</p> 
-      <a href='/'><Button className="myBtn" outline color="danger" size="xl"  style={{width:"95%", borderRadius:0,}}>"Подробнее"</Button></a>
+      <button className="outlineButton"><span className="btn-text">Подробнее</span></button>
     </div>
   );
 };

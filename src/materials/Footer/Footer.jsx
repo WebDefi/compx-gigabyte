@@ -5,6 +5,9 @@ import upperFooter from "../../static/images/footerUpper.png";
 import Logo from "../../static/images/logo.svg";
 import { Container, Row, Col } from "reactstrap";
 //Сделать нормальный компонет лого
+import CategoryName from "./components/CategoryName";
+import FooterCol from "./components/FooterCol";
+import FooterContacts from "./components/FooterContacts";
 
 const Footer = () => {
   return (
@@ -16,16 +19,45 @@ const Footer = () => {
           style={{ position: "relative", bottom: 77, textAlign: "center" }}
         ></img>
         <div className="footerLine">
-          <img src={Logo} style={{ position: "relative", bottom: 25 }}></img>
-          <p style={{ position: "relative", bottom: 25, fontSize: 15 }}>
-            комп’ютерний магазин
-          </p>
+          <a href="/" className="logoDescr">
+            <img src={Logo} style={{ position: "relative", bottom: 25 }}></img>
+            <p className="logoDescr" style={{ position: "relative", bottom: 25, fontSize: 15 }}>
+              комп’ютерний магазин
+            </p>
+          </a>
           <Container>
             <Row>
-              <Col>.col</Col>
-              <Col>.col</Col>
-              <Col>.col</Col>
-              <Col>.col</Col>
+              <Col>
+                <CategoryName />
+                <FooterCol />
+                <FooterCol />
+                <FooterCol />
+                <FooterCol />
+                <FooterCol />
+                <FooterCol />
+                <FooterCol />
+              </Col>
+              <Col>
+                <CategoryName />
+                <FooterCol />
+                <FooterCol />
+                <FooterCol />
+                <FooterCol />
+                <FooterCol />
+                <FooterCol />
+                <FooterCol />
+              </Col>
+              <Col>
+                <CategoryName />
+                <FooterContacts />
+              </Col>
+              <Col>
+                <CategoryName name="*" />
+                <FooterCol />
+                <FooterCol />
+                <FooterCol />
+                <FooterCol />
+              </Col>
             </Row>
           </Container>
         </div>

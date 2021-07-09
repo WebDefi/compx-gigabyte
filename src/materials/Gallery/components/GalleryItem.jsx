@@ -26,25 +26,25 @@ const GalleryItem = ({
       </button>
       {show ? (
         <div className="gallery_content">
-          <Row style={{ padding: "64px 218px 0" }}>
-            <Col>
+          <Row style={{justifyContent:"center"}}>
+            <Col xs='3' style={{paddingTop:20}}>
               <img className="gallery__img" src={imgFirst} alt="1" />
             </Col>
-            <Col>
+            <Col xs="3" style={{paddingTop:20}}>
               <img className="gallery__img" src={imgSecond} alt="2" />
             </Col>
-            <Col>
+            <Col xs="3" style={{paddingTop:20}}>
               <img className="gallery__img" src={imgThird} alt="3" />
             </Col>
           </Row>
-          <Row style={{ padding: "24px 218px 0" }}>
-            <Col>
+          <Row style={{justifyContent:"center"}}>
+            <Col xs="3" style={{paddingTop:20}}>
               <img className="gallery__img" src={imgForth} alt="4" />
             </Col>
-            <Col>
+            <Col xs="3" style={{paddingTop:20}}>
               <img className="gallery__img" src={imgFifth} alt="5" />
             </Col>
-            <Col>
+            <Col xs="3" style={{paddingTop:20}}>
               <img className="gallery__img" src={imgSixth} alt="6" />
             </Col>
           </Row>

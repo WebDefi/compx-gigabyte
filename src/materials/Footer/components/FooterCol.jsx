@@ -1,10 +1,10 @@
 import React from "react";
-import { Row, Col, Container } from "reactstrap";
-import styles from './sectionContent.module.scss'
 
-const FooterCol = ({ title, link }) => {
+const FooterCol = ({ nav="item", link = "/" }) => {
   return (
-    <div className={styles.templateLeft}></div>
+    <li >
+      <a style={{color:"#fff",}} href={link}>{nav}</a>
+    </li>
   );
 };
 

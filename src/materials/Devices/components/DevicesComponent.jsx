@@ -13,7 +13,6 @@ const DevicesComponent = ({ deviceImg, link="/", title }) => {
         className='deviceImg'
         style={{
           display: "inline-block",
-  
         }}
       ></img>
       <h5 className="deviceName">{title}</h5>

@@ -2,6 +2,7 @@
 
 .myBtn {
     color: $primary;
+    z-index: 1;
     border-color: $primary;
     &:hover {
         background: $primary;
@@ -9,4 +10,25 @@
     &:focus {
        border:none;
     }
+    // &::after {
+    //     z-index: 20;
+    //     position: absolute  ;
+    //     content: " ";
+    //     width: 127px;
+    //     height: 13px;
+    //     background: inherit;
+    //     border: 1px solid $primary;
+    //     bottom:32px;
+         
+    // }
+    // &::before {
+    //     z-index: 21;
+    //     position: absolute  ;
+    //     content: " ";
+    //     width: 127px;
+    //     height: 13px;
+    //     background: #000;
+    //     border: 1px solid $primary;
+    //     bottom:-4px;
+    // }
 }

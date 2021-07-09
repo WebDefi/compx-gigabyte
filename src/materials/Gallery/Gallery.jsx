@@ -7,11 +7,12 @@ import imgThird from "../../static/images/galery3.jpg";
 import imgForth from "../../static/images/galery4.jpg";
 import imgFifth from "../../static/images/galery5.jpg";
 import imgSixth from "../../static/images/galery6.jpg";
+import SectionContent from "../../common/SectionContent/SectionContent";
 
 const Gallery = () => {
   return (
-    <div style={{ paddingTop: "150px" }}>
-      <h1 className={styles.gallery__title}>ГАЛЕРЕЯ</h1>
+    <div style={{ marginTop: "230px" }}>
+      <SectionContent title="ГАЛЕРЕЯ" />
       <GalleryItem
         titleItem="Item#2"
         imgFirst={imgFirst}

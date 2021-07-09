@@ -12,7 +12,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #000;
   color:#fff;
+  cursor: url('./static/images/cursor1.png'), auto;
 }
+::-webkit-scrollbar { /* 1 - скроллбар */
+    width: 4px;
+    height: 4px;
+    background-color: #050307;
+  }
+  ::-webkit-scrollbar-thumb { /* 5 - ползунок */
+    border-radius: 2px;
+    background-color: #FA6812;
+  }
 
 
 a {

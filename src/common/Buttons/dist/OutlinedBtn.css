@@ -1,5 +1,6 @@
 .myBtn {
   color: #FA6812;
+  z-index: 1;
   border-color: #FA6812;
 }
 .myBtn:hover {
