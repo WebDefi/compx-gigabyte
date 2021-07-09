@@ -3,7 +3,12 @@ import styles from "./SliderAorusComponent.module.scss";
 import SliderAorusBtn from "./SliderAorusBtn.jsx";
 import SliderAorusLifecycle from "./SliderAorusLifecycle.jsx";
 
-const SliderAorusComponent = ({ sliderTitle, sliderSubtitle, sliderBcg }) => {
+const SliderAorusComponent = ({
+  sliderTitle,
+  sliderSubtitle,
+  sliderBcg,
+  sliderBlack,
+}) => {
   return (
     <div
       className={styles.sliderAorus}
@@ -15,6 +20,14 @@ const SliderAorusComponent = ({ sliderTitle, sliderSubtitle, sliderBcg }) => {
         <SliderAorusBtn btnText="Ещё"></SliderAorusBtn>
       </div>
       <SliderAorusLifecycle height="286" percent={Number(1)} />
+      <div>
+        <div className={styles.firstBlack}></div>
+        <img
+          src={sliderBlack}
+          alt="black-footer"
+          className={styles.blackFooter}
+        />
+      </div>
     </div>
   );
 };

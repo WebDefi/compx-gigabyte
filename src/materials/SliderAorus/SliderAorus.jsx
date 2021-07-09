@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import { Container } from "reactstrap";
 import SliderAorusComponent from "./components/SliderAorusComponent";
 import SliderBcg1 from "../../static/images/slider.jpg";
+import SliderBlack from "../../static/images/pagers-curve1.png";
 import "./SliderAorus.scss";
 import headerUpper from '../../static/images/headerUpper.png'
 
@@ -36,26 +37,31 @@ export default class SlideAorus extends Component {
             sliderTitle="GEAR UP WITH AORUS"
             sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
             sliderBcg={SliderBcg1}
+            sliderBlack={SliderBlack}
           ></SliderAorusComponent>
           <SliderAorusComponent
             sliderTitle="2"
             sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
             sliderBcg={SliderBcg1}
+            sliderBlack={SliderBlack}
           ></SliderAorusComponent>
           <SliderAorusComponent
             sliderTitle="3"
             sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
             sliderBcg={SliderBcg1}
+            sliderBlack={SliderBlack}
           ></SliderAorusComponent>
           <SliderAorusComponent
             sliderTitle="4"
             sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
             sliderBcg={SliderBcg1}
+            sliderBlack={SliderBlack}
           ></SliderAorusComponent>
           <SliderAorusComponent
             sliderTitle="5"
             sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
             sliderBcg={SliderBcg1}
+            sliderBlack={SliderBlack}
           ></SliderAorusComponent>
           
         </Slider>
