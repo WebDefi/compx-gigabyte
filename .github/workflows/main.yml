@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Run production build
-        run: npm run build
+        run: CI= npm run build
 
       - name: Deploy to AWS S3 Bucket
         env:
@@ -33,4 +33,4 @@ jobs:
           aws s3 cp \
             --recursive \
             --region eu-west-1 \
-            build/compx-gigabyte s3://gigabyte-frontend
+            build/ s3://gigabyte-frontend
