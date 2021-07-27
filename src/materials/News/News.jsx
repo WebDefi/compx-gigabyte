@@ -18,7 +18,20 @@ export default class Devices extends Component {
       arrows: false,
       autoplay:true,
       autoplaySpeed: 2500,
-    
+      responsive: [
+        {
+          breakpoint: 1228,
+          settings: {
+            slidesToShow: 2,
+          }
+        },
+        {
+          breakpoint: 764,
+          settings: {
+            slidesToShow: 1,
+          }
+        },
+      ]
     };
     return (
       <div style={{marginTop: 100}}>
@@ -30,7 +43,7 @@ export default class Devices extends Component {
         <Container style={{marginTop:60}}>
           <Slider {...settings}>
             <NewsComponent
-              description="Купи материнскую плату B550 или B450 вместе с процессором AMD и получи до 7 тысяч рублей на покупку игр в Gabe store..."
+              description="Купи материнскую плату asdasd asdasdasd assdasdasd asda sdas dasdasdasdasd asd ad  asdasdasd asdasdasd asdasd asd  B550 или B450 вместе с процессором AMD и получи до 7 тысяч рублей на покупку игр в Gabe store... asdasd asd asdasd "
               img={newsImg}
             />
             <NewsComponent
