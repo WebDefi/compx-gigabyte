@@ -7,7 +7,7 @@ import SliderAorusComponent from "./components/SliderAorusComponent";
 import SliderBcg1 from "../../static/images/slider.jpg";
 import SliderBlack from "../../static/images/pagers-curve1.png";
 import "./SliderAorus.scss";
-import headerUpper from '../../static/images/headerUpper.png'
+import headerUpper from "../../static/images/headerUpper.png";
 
 export default class SlideAorus extends Component {
   render() {
@@ -30,42 +30,43 @@ export default class SlideAorus extends Component {
       ),
     };
     return (
-      <Container fluid style={{ padding: 0,marginTop:92 }}>
-        
+      <Container fluid style={{ padding: 0, marginTop: 92 }}>
         <Slider {...settings}>
           <SliderAorusComponent
             sliderTitle="GEAR UP WITH AORUS"
             sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
             sliderBcg={SliderBcg1}
-            sliderBlack={SliderBlack}
+            // sliderBlack={SliderBlack}
           ></SliderAorusComponent>
           <SliderAorusComponent
             sliderTitle="2"
             sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
             sliderBcg={SliderBcg1}
-            sliderBlack={SliderBlack}
+            // sliderBlack={SliderBlack}
           ></SliderAorusComponent>
           <SliderAorusComponent
             sliderTitle="3"
             sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
             sliderBcg={SliderBcg1}
-            sliderBlack={SliderBlack}
+            // sliderBlack={SliderBlack}
           ></SliderAorusComponent>
           <SliderAorusComponent
             sliderTitle="4"
             sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
             sliderBcg={SliderBcg1}
-            sliderBlack={SliderBlack}
+            // sliderBlack={SliderBlack}
           ></SliderAorusComponent>
           <SliderAorusComponent
             sliderTitle="5"
             sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
             sliderBcg={SliderBcg1}
-            sliderBlack={SliderBlack}
+            // sliderBlack={SliderBlack}
           ></SliderAorusComponent>
-          
         </Slider>
-        <img src={headerUpper} style={{position:'relative', bottom:56}}></img>
+        {/* <img
+          src={headerUpper}
+          style={{ position: "relative", bottom: 56 }}
+        ></img> */}
       </Container>
     );
   }

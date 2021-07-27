@@ -20,14 +20,14 @@ const SliderAorusComponent = ({
         <SliderAorusBtn btnText="Ещё"></SliderAorusBtn>
       </div>
       <SliderAorusLifecycle height="286" percent={Number(1)} />
-      <div>
+      {/* <div>
         <div className={styles.firstBlack}></div>
         <img
           src={sliderBlack}
           alt="black-footer"
           className={styles.blackFooter}
         />
-      </div>
+      </div> */}
     </div>
   );
 };
