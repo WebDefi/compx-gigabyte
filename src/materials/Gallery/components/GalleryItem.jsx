@@ -13,7 +13,7 @@ const GalleryItem = ({
 }) => {
   const [show, showState] = React.useState(false);
   return (
-    <Container className="gallery">
+    <Container className="gallery text-center">
       <div className="gallery_lines">
         <div className="gallery__thin"></div>
         <div className="gallery__bold"></div>
@@ -26,7 +26,7 @@ const GalleryItem = ({
       </button>
       {show ? (
         <div className="gallery_content">
-          <Row style={{ justifyContent: "center" }}>
+          <Row style={{ justifyContent: "center" }} >
             <Col xs="12" lg="3" style={{ paddingTop: 20 }}>
               <img className="gallery__img" src={imgFirst} alt="1" />
             </Col>
