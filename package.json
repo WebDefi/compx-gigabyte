@@ -1,6 +1,6 @@
 {
   "name": "compx-gigabyte",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -13,7 +13,8 @@
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "^1.1.5",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
     "react-slick": "^0.28.1",
     "reactstrap": "^8.9.0",
     "slick-carousel": "^1.8.1",
@@ -42,17 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "![Image alt](https://github.com/WebDefi/compx-gigabyte/blob/master/src/static/images/Template.jpg)",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WebDefi/compx-gigabyte.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/WebDefi/compx-gigabyte/issues"
-  },
-  "homepage": "https://github.com/WebDefi/compx-gigabyte#readme"
+  }
 }
