@@ -13,6 +13,7 @@ body {
   background: #000;
   color:#fff;
   cursor: url('./static/images/cursor1.png'), auto;
+  overflow-X: hidden;
 }
 ::-webkit-scrollbar { /* 1 - скроллбар */
     width: 4px;

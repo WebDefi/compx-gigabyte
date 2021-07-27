@@ -4,7 +4,7 @@
   padding-top: 8px;
   color: $secondaryLight;
   display: inline-block;
-  max-width: 400px;
+  max-width: 96%;
 }
 .imgBox {
   position: relative;
@@ -52,6 +52,9 @@
         &:hover {
           
           .newsDescription {
+            text-overflow: ellipsis;
+             
+            overflow: hidden;
             transition: 0.4s;
             color:#fff;
           }
@@ -68,7 +71,7 @@
 
 
   .outlineButton {
-    width: 100%;
+    width: 95%;
     display: none;
     position: relative;
      

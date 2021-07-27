@@ -11,7 +11,7 @@ import { Container } from "reactstrap";
 import DevicesComponent from "./components/DevicesComponent";
 import styles from "./Devices.scss";
 import SectionContent from "../../common/SectionContent/SectionContent";
-// import DevicesHeader from "./components/DevicesHeader";
+import DevicesHeader from "./components/DevicesHeader";
 import SliderBlack from "../../static/images/pagers-curve1.png";
 export default class Devices extends Component {
   render() {
@@ -23,17 +23,46 @@ export default class Devices extends Component {
       slidesToScroll: 1,
       arrows: true,
       autoplaySpeed: true,
-    };
+      responsive: [
+        {
+          breakpoint: 1400,
+          settings: {
+            slidesToShow: 3,
+          }
+        },
+        {
+          breakpoint: 994,
+          settings: {
+            slidesToShow: 2,
+          }
+        },
+        {
+          breakpoint: 790,
+          settings: {
+            slidesToShow: 1,
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1,
+          arrows:false,
+      }
+    },
+      
+        
+      ]
+    };  
     return (
       <div>
-        {/* <DevicesHeader sliderBlack={SliderBlack}></DevicesHeader> */}
+        <DevicesHeader sliderBlack={SliderBlack}></DevicesHeader>
         <div style={{ backgroundImage: `url(${bg})`, height: 200 }}>
           <SectionContent
             title="Gaming devices"
             subtitle="AORUS - ведущая компания по производству высокопроизводительных материнских плат, видеокарт, ноутбуков, игрового оборудования и систем. Мы стремимся объединиться с игроками, чтобы без страха преодолевать ограничения и продолжать борьбу, пока мы стремимся к высшей славе!"
           ></SectionContent>
         </div>
-        <Container style={{ marginTop: 60 }}>
+        <Container style={{ paddingTop: 200 }}>
           <Slider {...settings}>
             <DevicesComponent
               title="Видеокарты Премиум-Класса"

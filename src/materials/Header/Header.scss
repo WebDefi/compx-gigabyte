@@ -1,4 +1,6 @@
+
 @import "../../static/colors.scss";
+
 
 .headerMain {
   width: 100%;
@@ -21,8 +23,10 @@
   background: #0c0a0a;
 }
 .autoContainer {
+ 
   height: 65px;
-  position: static;
+  
+  z-index: 2000;
   max-width: 1200px;
   padding: 0px 15px;
   margin: 0 auto;
@@ -58,7 +62,7 @@
   position: relative;
   top: 56px;
   z-index: 19;
-  left: 2%;
+  left: 17%;
 }
 .divchick {
   background: #000;

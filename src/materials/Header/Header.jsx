@@ -64,12 +64,12 @@ const Header = () => {
       <div className="headerUpper">
         <div className="innerContainer">
           <div className="autoContainer" style={{ paddingTop: 9 }}>
-            <div style={{ float: "left" }}>
+            <div className="brand" style={{ float: "left" }}>
               <a href="#">
                 <img src={Aorus}></img>
               </a>
             </div>
-            <div style={{ float: "Right" }}>
+            <div className="social" style={{ float: "Right" }}>
               <ul style={{ display: "flex" }}>
                 <li style={{ margin: "0px 6px" }}>
                   <a href="/">
@@ -111,17 +111,18 @@ const Header = () => {
           <Container>
             <div
               style={{
-                float: "left",
-                maxWidth: "1200px",
-                position: "static",
-                margin: "0 auto",
+                 float:"left",
+  
+                 
               }}
             >
               <ul
                 style={{
                   display: "flex",
-                  justifyContent: "center",
+                   float:"left",
                   paddingTop: 25,
+                   
+                  marginLeft:"0",
                 }}
               >
                 <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
@@ -150,21 +151,6 @@ const Header = () => {
         </div>
       </div>
     </header>
-    // <div className="headerMain">
-    //   <div className='headerInfo'>
-    //     <ul style={{display:'flex',justifyContent:"space-around"}}>
-    //       <li>
-    //         <a href="#">Акции</a>
-    //       </li>
-    //       <li>
-    //         <a href="#">Оплата</a>
-    //       </li>
-    //       <li>
-    //         <a href="#">Some</a>
-    //       </li>
-    //     </ul>
-    //   </div>
-    // </div>
   );
 };
 
