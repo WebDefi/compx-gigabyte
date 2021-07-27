@@ -1,0 +1,54 @@
+ 
+
+@media only screen and (max-width: 1384px) {
+    .navOuter {
+        width: 415px;
+        height: 157px;
+        left: 23%;
+    }
+  }
+ 
+@media only screen and (max-width: 1200px) {
+    .brand {
+        display: none;
+    }
+    .social {
+        display: none;
+    }
+    .navOuter {
+        display: none;
+    }
+    .logoOuter {
+        left: 80%;
+          img {
+              margin-top: 40px;
+          }
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+     
+    .DevicesComponent {
+           
+          img {
+              width: 50%;
+          }
+      }
+     .footer-img {
+        display: none;
+     }
+     .logoDescr {
+        img {
+            padding-top: 100px;
+        }
+         
+     }
+  }
+
+
+
+
+
+ 
+  
+ 
