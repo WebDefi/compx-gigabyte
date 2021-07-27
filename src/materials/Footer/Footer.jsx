@@ -14,20 +14,28 @@ const Footer = () => {
     <div>
       <div style={{ height: 300, backgroundImage: `url(${footerBg})` }}></div>
       <div className={styles.Footer}>
-        <img
-          src={upperFooter}
-          style={{ position: "relative", bottom: 77, textAlign: "center" }}
-        ></img>
-        <div className="footerLine">
-          <a href="/" className="logoDescr">
+        <Row className="text-center">
+          <Col>
+            <img
+              className="footer-img"
+              src={upperFooter}
+              style={{ position: "relative", bottom: 77 }}
+            ></img>
+          </Col>
+        </Row>
+        <div className="footerLine text-center">
+          <a href="/" className="logoDescr text-center">
             <img src={Logo} style={{ position: "relative", bottom: 25 }}></img>
-            <p className="logoDescr" style={{ position: "relative", bottom: 25, fontSize: 15 }}>
+            <p
+              className="logoDescr"
+              style={{ position: "relative", bottom: 25, fontSize: 15 }}
+            >
               комп’ютерний магазин
             </p>
           </a>
-          <Container>
+          <Container fluid>
             <Row>
-              <Col>
+              <Col xs="12" sm="6" md="3">
                 <CategoryName />
                 <FooterCol />
                 <FooterCol />
@@ -37,7 +45,7 @@ const Footer = () => {
                 <FooterCol />
                 <FooterCol />
               </Col>
-              <Col>
+              <Col xs="12" sm="6" md="3">
                 <CategoryName />
                 <FooterCol />
                 <FooterCol />
@@ -47,11 +55,11 @@ const Footer = () => {
                 <FooterCol />
                 <FooterCol />
               </Col>
-              <Col>
+              <Col xs="12" sm="6" md="3">
                 <CategoryName />
                 <FooterContacts />
               </Col>
-              <Col>
+              <Col xs="12" sm="6" md="3">
                 <CategoryName name="*" />
                 <FooterCol />
                 <FooterCol />

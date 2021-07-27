@@ -1,6 +1,9 @@
 @import "../../../static/_colors";
 
- 
+.deviceName {
+  margin-left:20px;
+  text-align: center; 
+} 
 
 .container {
     
@@ -29,6 +32,7 @@
             .deviceImg {
                  z-index: 22;
                  position: relative;
+                 
                 
              }
             
