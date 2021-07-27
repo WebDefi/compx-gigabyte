@@ -1,4 +1,4 @@
-import styles from "./App.module.scss";
+import styles from "./App.scss";
 import Header from './materials/Header/Header'
 import Devices from "./materials/Devices/Devices";
 import SliderAorus from "./materials/SliderAorus/SliderAorus";
@@ -6,6 +6,7 @@ import News from "./materials/News/News";
 import Footer from "./materials/Footer/Footer";
 import Gallery from "./materials/Gallery/Gallery";
 import Products from "./materials/Products/Products";
+import React from 'react';
 
 function App() {
   return (

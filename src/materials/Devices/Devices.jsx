@@ -11,7 +11,7 @@ import { Container } from "reactstrap";
 import DevicesComponent from "./components/DevicesComponent";
 import styles from "./Devices.scss";
 import SectionContent from "../../common/SectionContent/SectionContent";
-import DevicesHeader from "./components/DevicesHeader";
+// import DevicesHeader from "./components/DevicesHeader";
 import SliderBlack from "../../static/images/pagers-curve1.png";
 export default class Devices extends Component {
   render() {
@@ -26,7 +26,7 @@ export default class Devices extends Component {
     };
     return (
       <div>
-        <DevicesHeader sliderBlack={SliderBlack}></DevicesHeader>
+        {/* <DevicesHeader sliderBlack={SliderBlack}></DevicesHeader> */}
         <div style={{ backgroundImage: `url(${bg})`, height: 200 }}>
           <SectionContent
             title="Gaming devices"
