@@ -11,6 +11,7 @@ import { getRoutes } from "./routes";
 import { withRouter } from "react-router-dom";
 import './static/breakpoints.scss'
 
+
 function App() {
   return (
     <div className={styles.App}>

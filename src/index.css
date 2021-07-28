@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap");
 
-*, ::after, ::before {
+*,
+::after,
+::before {
   box-sizing: border-box;
 }
-
 
 body {
   margin: 0;
@@ -11,24 +12,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #000;
-  color:#fff;
-  cursor: url('./static/images/cursor1.png'), auto;
-  overflow-X: hidden;
+  color: #fff;
+  cursor: url("./static/images/cursor1.png"), auto;
+  overflow-x: hidden;
 }
-::-webkit-scrollbar { /* 1 - скроллбар */
-    width: 4px;
-    height: 4px;
-    background-color: #050307;
-  }
-  ::-webkit-scrollbar-thumb { /* 5 - ползунок */
-    border-radius: 2px;
-    background-color: #FA6812;
-  }
-
+::-webkit-scrollbar {
+  /* 1 - скроллбар */
+  width: 4px;
+  height: 4px;
+  background-color: #050307;
+}
+::-webkit-scrollbar-thumb {
+  /* 5 - ползунок */
+  border-radius: 2px;
+  background-color: #fa6812;
+}
 
 a {
   text-decoration: none;
-  color:#c3c3c3;
+  color: #c3c3c3;
 }
 li {
   list-style: none;
@@ -36,3 +38,11 @@ li {
 code {
   font-family: "Titillium Web", sans-serif, monospace;
 }
+
+/* Bootstrap restyling */
+
+.bg-dark {
+  background: #000 !important;
+}
+
+
