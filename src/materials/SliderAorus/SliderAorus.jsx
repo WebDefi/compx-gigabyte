@@ -30,7 +30,7 @@ export default class SlideAorus extends Component {
       ),
     };
     return (
-      <Container fluid style={{ padding: 0, marginTop: 0 }}>
+      <Container fluid style={{ padding: 0, marginTop: 110 }}>
         <Slider {...settings}>
           <SliderAorusComponent
             sliderTitle="GEAR UP WITH AORUS"
