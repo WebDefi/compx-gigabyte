@@ -1,11 +1,17 @@
-import React from "react";
-
+import React, {useEffect} from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import styles from "./DevicesComponent.scss";
 
 const DevicesComponent = ({ deviceImg, link="/", title }) => {
+  useEffect(() => {
+    AOS.init({
+      duration : 1000
+    });
+  }, []);
   return (
     <a href={link} >
-      <div className="DevicesComponent text-center">
+      <div data-aos="fade-up" className="DevicesComponent text-center">
       <img
       
         height="auto"

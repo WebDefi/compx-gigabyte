@@ -1,6 +1,6 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import React, { Component, useState } from "react";
+import React, { Component, useEffect } from "react";
 import Slider from "react-slick";
 import slider1 from "../../static/images/product1.png";
 import slider2 from "../../static/images/product2.png";
@@ -39,9 +39,15 @@ export default class Devices extends Component {
         {
           breakpoint: 790,
           settings: {
-            slidesToShow: 1,
+            slidesToShow: 2,
         }
       },
+      {
+        breakpoint: 760,
+        settings: {
+          slidesToShow: 1,
+      }
+    },
       {
         breakpoint: 500,
         settings: {

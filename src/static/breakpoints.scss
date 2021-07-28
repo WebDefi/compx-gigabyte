@@ -26,6 +26,22 @@
     }
   }
 
+  @media only screen and (max-width: 790px) {
+    .DevicesComponent {
+        img {
+            width: 60%;
+        }
+    }
+  }
+  
+  @media only screen and (max-width: 766px) {
+    .DevicesComponent {
+        img {
+            width: 50%;
+        }
+    }
+  }
+
   @media only screen and (max-width: 500px) {
      
     .DevicesComponent {

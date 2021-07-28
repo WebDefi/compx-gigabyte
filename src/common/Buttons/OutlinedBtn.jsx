@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import './OutlinedBtn.scss'
 import { Button } from 'reactstrap';
+
 const OutlinedBtn = ({ description, img, link, article="Подробнее" }) => {
+  
   return (
-    <a href={link}><Button className="myBtn" outline color="danger" size="xl"  style={{width:"95%", borderRadius:0,}}>{article}</Button></a>
+    <a  href={link}><Button className="myBtn" outline color="danger" size="xl"  style={{width:"95%", borderRadius:0,}}>{article}</Button></a>
   );
 };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import footerBg from "../../static/images/footerBg.png";
 import styles from "./Footer.scss";
 import upperFooter from "../../static/images/footerUpper.png";
@@ -8,10 +8,17 @@ import { Container, Row, Col } from "reactstrap";
 import CategoryName from "./components/CategoryName";
 import FooterCol from "./components/FooterCol";
 import FooterContacts from "./components/FooterContacts";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Footer = () => {
+  useEffect(() => {
+    AOS.init({
+      duration : 2200
+    });
+  }, []);
   return (
-    <div>
+    <div data-aos="fade-up">
       <div style={{ height: 300, backgroundImage: `url(${footerBg})` }}></div>
       <div className={styles.Footer}>
         <Row className="text-center">
