@@ -39,9 +39,15 @@ export default class Devices extends Component {
         {
           breakpoint: 790,
           settings: {
-            slidesToShow: 1,
+            slidesToShow: 2,
         }
       },
+      {
+        breakpoint: 760,
+        settings: {
+          slidesToShow: 1,
+      }
+    },
       {
         breakpoint: 500,
         settings: {
