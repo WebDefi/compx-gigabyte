@@ -69,8 +69,8 @@ const Header = () => {
                 <img src={Aorus} />
               </NavbarBrand>
               <NavbarToggler onClick={toggle} />
-              <Collapse isOpen={isOpen} navbar >
-                <Nav className="mr-auto" navbar >
+              <Collapse isOpen={isOpen} navbar>
+                <Nav className="mr-auto" navbar>
                   <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
                       Options
@@ -137,6 +137,7 @@ const Header = () => {
               justifyContent: "center",
               background: "#000",
               padding: 3,
+              margin: 0,
             }}
           >
             <li className="infoLink">
@@ -166,26 +167,35 @@ const Header = () => {
             <li className="infoLink">
               <a href="#">Акции</a>
             </li>
+            <li className="infoLink" style={{marginLeft:"20px"}}>
+              <a href="/">Ru</a>
+            </li>
+            <li>
+              <a style={{ fontSize:13}}>|</a>
+            </li>
+            <li className="infoLink">
+              <a href="/">Ukr</a>
+            </li>
           </ul>
         </div>
 
         <div className="headerUpper">
           <div className="innerContainer">
-            <div className="autoContainer" style={{ paddingTop: 9 }}>
+            <div className="autoContainer" style={{ paddingTop: 15 }}>
               <div className="brand" style={{ float: "left" }}>
                 <a href="#">
                   <img src={Aorus}></img>
                 </a>
               </div>
               <div className="social" style={{ float: "right" }}>
-                <ul style={{ display: "flex"}}>
-                  <li >
+                <ul style={{ display: "flex" }}>
+                  <li>
                     <a href="/">
                       <img src={inst} className="socialImg" />
                     </a>
                   </li>
                   <li>
-                    <a href="/">
+                    <a href="/" style={{padding:"0 30px"}}>
                       <img src={twitter} className="socialImg" />
                     </a>
                   </li>
@@ -194,15 +204,6 @@ const Header = () => {
                       <img src={facebook} className="socialImg" />
                     </a>
                   </li>
-                  <li>
-                    <span>Ru</span>
-                  </li>
-                  <li>
-                    <span style={{ padding: "0 5px" }}>|</span>
-                  </li>
-                  <li>
-                    <span>Ukr</span>
-                  </li>
                 </ul>
               </div>
               <div className="logoOuter">
@@ -210,7 +211,14 @@ const Header = () => {
                   <a href="#">
                     <Row className="text-center">
                       <Col xs="12">
-                        <img src={logo} />
+                        <img
+                          src={logo}
+                          style={{
+                            position: "relative",
+                            top: "45px",
+                            zIndex: 9999,
+                          }}
+                        />
                       </Col>
                     </Row>
                   </a>
