@@ -2,7 +2,7 @@
 @import "./src/static/colors.scss";
 
 .sliderAorus__btn {
-  display: inline-block;
+  display: block;
   border: none;
   outline: none;
   width: 120px;
@@ -16,6 +16,7 @@
   text-transform: uppercase;
   background: $primary;
   cursor: pointer;
+  margin: 0 auto;
   clip-path: polygon(
     10px 0,
     100% 0,

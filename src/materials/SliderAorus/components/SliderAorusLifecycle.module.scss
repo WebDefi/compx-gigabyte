@@ -14,3 +14,16 @@
   // margin-left: 1200px;
   margin-left: -60px;
 }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 990.98px) {
+  .sliderAorus__lifecycle {
+    display: none;
+  }
+}
+
+@media (min-width: 991px) and (max-width: 1200px) {
+  .sliderAorus__lifecycle {
+    top: 100px;
+  }
+}

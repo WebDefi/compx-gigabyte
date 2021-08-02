@@ -1,0 +1,30 @@
+@import "./src/static/fonts.scss";
+@import "./src/static/colors.scss";
+
+.filterComponent {
+  &_ul {
+    list-style: none;
+  }
+
+  &_li {
+    margin-top: 15px;
+  }
+
+  &_div {
+    width: 100%;
+    padding: 0 15px;
+    font-weight: 400;
+    background-color: $filtercolor;
+    cursor: pointer;
+    height: auto;
+  }
+
+  &__title {
+    position: relative;
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    font-style: normal;
+    word-break: break-all;
+  }
+}

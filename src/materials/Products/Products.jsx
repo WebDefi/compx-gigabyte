@@ -1,11 +1,13 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import ProductItem from "./components/ProductItem";
+import ProductsPagination from "./components/ProductsPagination.jsx";
 
 const Products = () => {
   return (
-    <Container>
-        <ProductItem></ProductItem>
+    <Container fluid>
+      <ProductItem></ProductItem>
+      <ProductsPagination />
     </Container>
   );
 };
