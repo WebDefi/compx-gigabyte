@@ -7,6 +7,9 @@
 }
 
 @media only screen and (max-width: 1200px) {
+  .none {
+    display: flex;
+  }
   .header {
     display: none;
   }
@@ -28,6 +31,9 @@
 }
 
 @media only screen and (max-width: 790px) {
+  .devicesSection {
+    padding-top: 200px;
+  }
   .DevicesComponent {
     img {
       width: 60%;

@@ -34,7 +34,7 @@ export default class Devices extends Component {
       ]
     };
     return (
-      <div style={{marginTop: 100}}>
+      <div style={{paddingTop: 250}}>
         <div>
           <SectionContent
             title="новинки gigabyte"

@@ -45,4 +45,11 @@ code {
   background: #000 !important;
 }
 
+.nav-link {
+  color: #c3c3c3;
+}
+.nav-link:hover, .nav-link:focus{
+  color: #fa6812;
+}
+
 

@@ -68,7 +68,7 @@ export default class Devices extends Component {
             subtitle="AORUS - ведущая компания по производству высокопроизводительных материнских плат, видеокарт, ноутбуков, игрового оборудования и систем. Мы стремимся объединиться с игроками, чтобы без страха преодолевать ограничения и продолжать борьбу, пока мы стремимся к высшей славе!"
           ></SectionContent>
         </div>
-        <Container style={{ paddingTop: 200 }}>
+        <Container className="devicesSection">
           <Slider {...settings}>
             <DevicesComponent
               title="Видеокарты Премиум-Класса"

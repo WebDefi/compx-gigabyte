@@ -11,7 +11,7 @@ const SectionContent = ({ title, subtitle }) => {
     });
   }, []);
   return (
-    <Container data-aos="fade-up" style={{padding:"60px 0"}}>
+    <Container data-aos="fade-up" style={{paddingTop:"30px", paddingBottom:"20px"}}>
       <Row justify="center">
         <Col xs="12" className="text-center">
           <h2 className={styles.title}>{title}</h2>
