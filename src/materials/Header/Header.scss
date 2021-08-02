@@ -1,6 +1,11 @@
-
 @import "../../static/colors.scss";
 
+.dnone {
+  display: flex;
+}
+.none {
+  display: none;
+}
 
 .headerMain {
   width: 100%;
@@ -23,9 +28,7 @@
   background: #0c0a0a;
 }
 .autoContainer {
- 
   height: 65px;
-  
   z-index: 2000;
   max-width: 1200px;
   padding: 0px 15px;
@@ -51,18 +54,23 @@
   // };
 }
 .logoOuter {
-  position: absolute;
-  left: 50%;
-  top: 75px;
+  // position: absolute;
+  // top: 55px;
   z-index: 20;
-  margin-top: -20px;
-  transform: translateX(-50%);
 }
 .navOuter {
-  position: relative;
-  top: 56px;
+  // position: relative;
+
   z-index: 19;
-  left: 17%;
+}
+
+.headerLower {
+  position: absolute;
+  top: 143px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
 }
 .divchick {
   background: #000;
@@ -76,6 +84,7 @@
 .socialImg path {
   fill: red;
 }
+
 
 .btn {
   background: none;

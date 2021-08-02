@@ -1,54 +1,95 @@
- 
-
 @media only screen and (max-width: 1384px) {
-    .navOuter {
-        width: 415px;
-        height: 157px;
-        left: 23%;
-    }
+  .navOuter {
+    width: 415px;
+    height: 157px;
+    left: 23%;
   }
- 
+}
+
 @media only screen and (max-width: 1200px) {
-    .brand {
-        display: none;
-    }
-    .social {
-        display: none;
-    }
-    .navOuter {
-        display: none;
-    }
-    .logoOuter {
-        left: 80%;
-          img {
-              margin-top: 40px;
-          }
+  .none {
+    display: flex;
+  }
+  .header {
+    display: none;
+  }
+  .brand {
+    display: none;
+  }
+  .social {
+    display: none;
+  }
+  .navOuter {
+    display: none;
+  }
+  .logoOuter {
+    left: 80%;
+    img {
+      margin-top: 40px;
     }
   }
+}
 
-  @media only screen and (max-width: 500px) {
-     
-    .DevicesComponent {
-           
-          img {
-              width: 50%;
+@media only screen and (max-width: 790px) {
+  .devicesSection {
+    padding-top: 200px;
+  }
+  .DevicesComponent {
+    img {
+      width: 60%;
+    }
+  }
+}
+
+@media only screen and (max-width: 766px) {
+  .DevicesComponent {
+    img {
+      width: 45%;
+    }
+  }
+  .footerLine {
+    height: 35rem;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .footerLine {
+    height: 65rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    .slick-slider {
+      .slick-slide {
+        .DevicesComponent {
+          &::before {
+            margin-left: 16px;
+            bottom: 40px;
           }
-      }
-     .footer-img {
-        display: none;
-     }
-     .logoDescr {
-        img {
-            padding-top: 100px;
+          img {
+            width: 50%;
+          }
+
+          &:hover {
+            &::before {
+              width: 0;
+              height: 0;
+            }
+          }
         }
-         
-     }
+      }
+    }
   }
-
-
-
-
-
- 
-  
- 
+  .footer-img {
+    display: none;
+  }
+  .footerContent {
+    margin-top: 30;
+  }
+  .logoDescr {
+    img {
+      padding-top: 100px;
+    }
+  }
+}

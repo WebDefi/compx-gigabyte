@@ -1,6 +1,6 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import React, { Component, useState } from "react";
+import React, { Component, useEffect } from "react";
 import Slider from "react-slick";
 import slider1 from "../../static/images/product1.png";
 import slider2 from "../../static/images/product2.png";
@@ -39,9 +39,15 @@ export default class Devices extends Component {
         {
           breakpoint: 790,
           settings: {
-            slidesToShow: 1,
+            slidesToShow: 2,
         }
       },
+      {
+        breakpoint: 760,
+        settings: {
+          slidesToShow: 1,
+      }
+    },
       {
         breakpoint: 500,
         settings: {
@@ -62,7 +68,7 @@ export default class Devices extends Component {
             subtitle="AORUS - ведущая компания по производству высокопроизводительных материнских плат, видеокарт, ноутбуков, игрового оборудования и систем. Мы стремимся объединиться с игроками, чтобы без страха преодолевать ограничения и продолжать борьбу, пока мы стремимся к высшей славе!"
           ></SectionContent>
         </div>
-        <Container style={{ paddingTop: 200 }}>
+        <Container className="devicesSection">
           <Slider {...settings}>
             <DevicesComponent
               title="Видеокарты Премиум-Класса"
