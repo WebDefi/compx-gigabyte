@@ -1,11 +1,11 @@
 .product-cards {
-  width: 85vw;
+  width: 106vw;
   margin-right: 0;
   margin-left: auto;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
-  padding: 4em;
+  // justify-content: space-around;
+  padding: 4em 1em;
   transform-style: preserve-3d;
   perspective: 100em;
 }
@@ -28,6 +28,7 @@
   -moz-transform-origin: center;
   transition: 0.2s transform ease;
   cursor: pointer;
+  margin: 0 10px;
 }
 .product-card::before {
   content: "";

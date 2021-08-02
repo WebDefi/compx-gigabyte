@@ -1,0 +1,45 @@
+@import "./src/static/fonts.scss";
+@import "./src/static/colors.scss";
+
+.ProductsFilter {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0px 10px 0px 20px;
+  width: 390px;
+  height: auto;
+
+  &_block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+
+  &__filter {
+    cursor: pointer;
+  }
+
+  &__line {
+    margin-left: 60px;
+    display: inline-block;
+    width: 1px;
+    height: 40px;
+    margin: 0;
+    background: #616161;
+  }
+
+  &__clean {
+    cursor: pointer;
+  }
+
+  &__btn {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: $white;
+
+    &--gray {
+      background: $filtercolor;
+    }
+  }
+}

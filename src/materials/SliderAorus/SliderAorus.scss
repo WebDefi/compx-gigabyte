@@ -24,3 +24,23 @@
     content: " ";
   }
 }
+
+@media (max-width: 767.98px) {
+  .slick-ul {
+    margin: 16px 0 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .slick-ul {
+    margin: 16px 0 0;
+    margin-bottom: -30px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .slick-dots--position {
+    bottom: 66px;
+    right: 132px;
+  }
+}

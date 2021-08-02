@@ -1,0 +1,64 @@
+@import "./src/static/fonts.scss";
+@import "./src/static/colors.scss";
+
+.page-i {
+  border: 1px solid $white;
+  border-radius: 0% !important;
+  box-shadow: 1px 1px $btnpagination;
+  background: #202020;
+  cursor: pointer;
+  padding: 5px;
+  color: $white;
+  height: 30px;
+  margin: 6px;
+  text-align: center;
+  font-size: 15px;
+
+  &:hover {
+    background-color: transparent;
+    border: 1px solid $numpagination;
+    color: $white;
+  }
+
+  &:active {
+    background-color: transparent;
+    border: 1px solid $numpagination;
+    color: $numpagination;
+    box-shadow: none;
+    shape-outside: none;
+  }
+
+  &:focus {
+    background-color: transparent;
+    border: 1px solid $numpagination;
+    color: $white;
+  }
+}
+
+.page-num {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  color: $numpagination;
+}
+
+// span {
+//   display: none;
+// }
+
+.sr-only {
+  display: inline;
+  position: relative;
+}
+
+.page-item {
+  &:active {
+    border: none;
+  }
+}
+
+.pagination {
+  position: absolute;
+  right: 0;
+  margin-right: 150px;
+}
