@@ -14,7 +14,29 @@ import SectionContent from "../../common/SectionContent/SectionContent";
 import DevicesHeader from "./components/DevicesHeader";
 import SliderBlack from "../../static/images/pagers-curve1.png";
 export default class Devices extends Component {
+  constructor() {
+    super();
+    this.state = { 
+      data: [],
+    }
+  }
+
+  componentDidMount() {
+
+    const objThis = this;
+    fetch('http://3.249.81.155:3000/gigabyte/api/v1/categories')
+      .then((response) => response.json())
+      .then((findresponse) => {
+        console.log(findresponse.url)
+        this.setState({
+          data: [],
+        })
+      })
+  }
+
+  
   render() {
+    const { items } = this.state;
     const settings = {
       dots: false,
       infinite: true,
@@ -70,11 +92,9 @@ export default class Devices extends Component {
         </div>
         <Container className="devicesSection">
           <Slider {...settings}>
-            <DevicesComponent
-              title="Видеокарты Премиум-Класса"
-              deviceImg={slider1}
-              deviceBg={deviceBg}
-            />
+            {this.state.map((item) => {
+              return (<DevicesComponent title={this.state.item.name} />);
+              })}
             <DevicesComponent
               title="Игровые Ноутбуки"
               deviceImg={slider2}
