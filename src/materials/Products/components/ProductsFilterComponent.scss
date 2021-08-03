@@ -4,6 +4,7 @@
 .filterComponent {
   &_ul {
     list-style: none;
+    padding-left: 0;
   }
 
   &_li {
@@ -26,5 +27,8 @@
     line-height: 40px;
     font-style: normal;
     word-break: break-all;
+    &:hover {
+      color: $numpagination;
+    }
   }
 }

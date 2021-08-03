@@ -12,7 +12,7 @@ const ProductsFilter = ({ FilterBtn, CleanBtn, logoSrc }) => {
   ];
   return (
     <div className="ProductsFilter">
-      <Container>
+      <Container style={{ padding: "0" }}>
         <div className="ProductsFilter_block">
           <div>
             <img className="ProductsFilter__logo" src={logoSrc} />

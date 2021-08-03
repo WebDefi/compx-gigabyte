@@ -38,16 +38,6 @@ const Example = (props) => {
         </PaginationLink>
       </PaginationItem>
       <PaginationItem>
-        <PaginationLink className="page-i page-num" href="#">
-          4
-        </PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink className="page-i page-num" href="#">
-          5
-        </PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
         <PaginationLink
           aria-label="Наступна"
           className="page-i"

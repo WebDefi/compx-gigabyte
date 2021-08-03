@@ -4,7 +4,7 @@
 .ProductsFilter {
   display: inline-block;
   vertical-align: top;
-  padding: 0px 10px 0px 20px;
+  padding: 0px 10px 0px 0px;
   width: 390px;
   height: auto;
 
@@ -17,6 +17,9 @@
 
   &__filter {
     cursor: pointer;
+    &:hover {
+      color: $numpagination;
+    }
   }
 
   &__line {
@@ -30,6 +33,9 @@
 
   &__clean {
     cursor: pointer;
+    &:hover {
+      color: $numpagination;
+    }
   }
 
   &__btn {
