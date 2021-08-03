@@ -23,17 +23,17 @@ const Example = (props) => {
         />
       </PaginationItem>
       <PaginationItem>
-        <PaginationLink className="page-i page-num" href="#">
+        <PaginationLink className="page-i page-num page-num--none" href="#">
           1
         </PaginationLink>
       </PaginationItem>
       <PaginationItem>
-        <PaginationLink className="page-i page-num" href="#">
+        <PaginationLink className="page-i page-num page-num--none" href="#">
           2
         </PaginationLink>
       </PaginationItem>
       <PaginationItem>
-        <PaginationLink className="page-i page-num" href="#">
+        <PaginationLink className="page-i page-num page-num--none" href="#">
           3
         </PaginationLink>
       </PaginationItem>

@@ -1,3 +1,30 @@
+@media only screen and (max-width: 1920px) {
+  .product-card {
+    margin: 10px 0 0 33px;
+    width: 17vw;
+  }
+
+  .col-xl-3 {
+    padding: 0;
+  }
+
+  .ProductsFilter {
+    width: 309px;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .product-card {
+    width: 19vw;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .product-card {
+    width: 18vw;
+  }
+}
+
 @media only screen and (max-width: 1384px) {
   .navOuter {
     width: 415px;
@@ -138,5 +165,17 @@
     &::before {
       width: 55vw;
     }
+  }
+
+  .product-cards {
+    padding: 1em 1em;
+  }
+
+  .page-num--none {
+    display: none;
+  }
+
+  .pagination {
+    margin-right: -20px;
   }
 }
