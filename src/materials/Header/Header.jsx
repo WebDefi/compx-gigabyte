@@ -5,7 +5,9 @@ import headerlower from "../../static/images/headerlower.png";
 import inst from "../../static/images/instagram.svg";
 import twitter from "../../static/images/twitter.svg";
 import facebook from "../../static/images/facebook.svg";
-import Aorus from "../../static/images/aorus.png";
+
+import gigabyte from "../../static/images/gigabyte.png";
+
 import { Container, Row, Col } from "reactstrap";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -56,17 +58,18 @@ const Header = () => {
         data-aos="fade"
         style={{ position: "fixed", zIndex: 9999, width: "100%", top: 0 }}
       >
-        <div>
+        <div >
           <Navbar
-            data-aos="fade"
+            style={{opacity:"0.6"}}
             color="dark"
             dark
             expand="sm"
+            
             className={dnone ? " dnone" : "none"}
           >
             <Container>
               <NavbarBrand href="/">
-                <img src={Aorus} />
+                <img src={gigabyte} width="125px" />
               </NavbarBrand>
               <NavbarToggler onClick={toggle} />
               <Collapse isOpen={isOpen} navbar>
@@ -184,7 +187,7 @@ const Header = () => {
             <div className="autoContainer" style={{ paddingTop: 15 }}>
               <div className="brand" style={{ float: "left" }}>
                 <a href="#">
-                  <img src={Aorus}></img>
+                  <img src={gigabyte} width="125px"></img>
                 </a>
               </div>
               <div className="social" style={{ float: "right" }}>
