@@ -16,25 +16,23 @@ import SliderBlack from "../../static/images/pagers-curve1.png";
 export default class Devices extends Component {
   constructor() {
     super();
-    this.state = { 
+    this.state = {
       data: [],
-    }
+    };
   }
 
   componentDidMount() {
-
     const objThis = this;
-    fetch('http://3.249.81.155:3000/gigabyte/api/v1/categories')
+    fetch("http://3.249.81.155:3000/gigabyte/api/v1/categories")
       .then((response) => response.json())
       .then((findresponse) => {
-        console.log(findresponse.url)
+        console.log(findresponse.url);
         this.setState({
           data: [],
-        })
-      })
+        });
+      });
   }
 
-  
   render() {
     const { items } = this.state;
     const settings = {
@@ -50,37 +48,35 @@ export default class Devices extends Component {
           breakpoint: 1400,
           settings: {
             slidesToShow: 3,
-          }
+          },
         },
         {
           breakpoint: 994,
           settings: {
             slidesToShow: 2,
-          }
+          },
         },
         {
           breakpoint: 790,
           settings: {
             slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 760,
-        settings: {
-          slidesToShow: 1,
-      }
-    },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 1,
-          arrows:false,
-      }
-    },
-      
-        
-      ]
-    };  
+          },
+        },
+        {
+          breakpoint: 760,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 1,
+            arrows: false,
+          },
+        },
+      ],
+    };
     return (
       <div>
         <DevicesHeader sliderBlack={SliderBlack}></DevicesHeader>
@@ -93,8 +89,8 @@ export default class Devices extends Component {
         <Container className="devicesSection">
           <Slider {...settings}>
             {this.state.map((item) => {
-              return (<DevicesComponent title={this.state.item.name} />);
-              })}
+              return <DevicesComponent title={this.state.item.name} />;
+            })}
             <DevicesComponent
               title="Игровые Ноутбуки"
               deviceImg={slider2}
