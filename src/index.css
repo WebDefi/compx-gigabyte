@@ -52,4 +52,7 @@ code {
   color: #fa6812;
 }
 
+.slick-prev {
+  opacity: 0.8;
+}
 
