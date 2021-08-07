@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Container } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import ProductItem from "./components/ProductItem";
 import ProductsPagination from "./components/ProductsPagination.jsx";
+import ProductsFilter from "./components/ProductsFilter";
+import logoSrc from "../../static/images/filter.svg";
 
 const Products = () => {
   const [error, setError] = useState(null);
@@ -9,7 +11,7 @@ const Products = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://3.249.81.155:3000/gigabyte/api/v1/items/1134?start=0&end=1")
+    fetch("http://3.249.81.155:3000/gigabyte/api/v1/items/1134?start=0&end=100")
       .then((res) => res.json())
       .then(
         (result) => {
@@ -28,16 +30,29 @@ const Products = () => {
     return <div>Загрузка...</div>;
   } else {
     return (
-      <Container fluid style={{ padding: "100px 0 0" }}>
-        {items.map((item) => (
-          <ProductItem
-            key={item.id}
-            title={item.name}
-            price={item.price}
-          ></ProductItem>
-        ))}
-        <ProductsPagination />
-      </Container>
+      <section class="product-cards">
+        <Container fluid style={{ padding: "100px 0 0" }}>
+          <Row>
+            <Col md="3">
+              <ProductsFilter
+                FilterBtn="Фільтр"
+                CleanBtn="Очистити"
+                logoSrc={logoSrc}
+              ></ProductsFilter>
+            </Col>
+            <Col md={{size: "9", offset: "3"}}>
+              {items.map((item) => (
+                <ProductItem
+                  key={item.id}
+                  title={item.name}
+                  price={item.price}
+                ></ProductItem>
+              ))}
+            </Col>
+          </Row>
+          <ProductsPagination />
+        </Container>
+      </section>
     );
   }
 };

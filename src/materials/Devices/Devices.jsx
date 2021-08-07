@@ -13,28 +13,30 @@ import styles from "./Devices.scss";
 import SectionContent from "../../common/SectionContent/SectionContent";
 import DevicesHeader from "./components/DevicesHeader";
 import SliderBlack from "../../static/images/pagers-curve1.png";
+import axios from "axios";
+
 export default class Devices extends Component {
-  constructor() {
-    super();
-    this.state = {
-      data: [],
-    };
-  }
+  state = {
+    cats: [],
+  };
 
   componentDidMount() {
-    const objThis = this;
-    fetch("http://3.249.81.155:3000/gigabyte/api/v1/categories")
-      .then((response) => response.json())
-      .then((findresponse) => {
-        console.log(findresponse.url);
-        this.setState({
-          data: [],
-        });
+    axios
+      .get(`http://3.249.81.155:3000/gigabyte/api/v1/categories`)
+      .then((res) => {
+        const cats = res.data;
+        this.setState({ ...this.state, cats: cats.categories });
+        console.log(cats.categories);
       });
-  }
+  } // async componentDidMount() {
+  //   const url = "http://3.249.81.155:3000/gigabyte/api/v1/categories";
+  //   const response = await fetch(url);
+  //   const data = await response.json();
+  //   console.log(data);
+  // }
 
   render() {
-    const { items } = this.state;
+    // const { error, isLoaded, items } = this.state;
     const settings = {
       dots: false,
       infinite: true,
@@ -72,7 +74,6 @@ export default class Devices extends Component {
           breakpoint: 500,
           settings: {
             slidesToShow: 1,
-            arrows: false,
           },
         },
       ],
@@ -88,20 +89,27 @@ export default class Devices extends Component {
         </div>
         <Container className="devicesSection">
           <Slider {...settings}>
-            {this.state.map((item) => {
-              return <DevicesComponent title={this.state.item.name} />;
+            {this.state.cats.map((cat, idx) => {
+              return (
+                <DevicesComponent
+                  title={cat.name}
+                  key={idx.id}
+                  deviceImg={slider2}
+                ></DevicesComponent>
+              );
             })}
-            <DevicesComponent
-              title="Игровые Ноутбуки"
+
+            {/* <DevicesComponent
+              title="asdasd"
               deviceImg={slider2}
               deviceBg={deviceBg}
-            />
-            <DevicesComponent
+            /> 
+             <DevicesComponent
               title="Игровые Мониторы"
               deviceImg={slider3}
               deviceBg={deviceBg}
             />
-            <DevicesComponent
+             <DevicesComponent
               title="Игровые Ноутбуки"
               deviceImg={slider2}
               deviceBg={deviceBg}
@@ -115,7 +123,7 @@ export default class Devices extends Component {
               title="Игровые Мониторы"
               deviceImg={slider3}
               deviceBg={deviceBg}
-            />
+            />    */}
           </Slider>
         </Container>
       </div>

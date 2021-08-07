@@ -126,6 +126,12 @@
 }
 
 @media only screen and (max-width: 500px) {
+  .slick-prev {
+    left: 10%;
+  }
+  .slick-next {
+    right: 10%;
+  }
   .container {
     .slick-slider {
       .slick-slide {
