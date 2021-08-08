@@ -11,7 +11,7 @@ const Products = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://3.249.81.155:3000/gigabyte/api/v1/items/1134?start=0&end=100")
+    fetch("http://3.249.81.155:3000/gigabyte/api/v1/items/1?start=0&end=10")
       .then((res) => res.json())
       .then(
         (result) => {

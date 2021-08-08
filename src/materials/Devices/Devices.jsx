@@ -21,13 +21,11 @@ export default class Devices extends Component {
   };
 
   componentDidMount() {
-    axios
-      .get(`http://3.249.81.155:3000/gigabyte/api/v1/categories`)
-      .then((res) => {
-        const cats = res.data;
-        this.setState({ ...this.state, cats: cats.categories });
-        console.log(cats.categories);
-      });
+    axios.get(`http://3.249.81.155:3000/gigabyte/api/v1/groups`).then((res) => {
+      const cats = res.data;
+      this.setState({ ...this.state, cats: cats.groups });
+      console.log(cats.categories);
+    });
   } // async componentDidMount() {
   //   const url = "http://3.249.81.155:3000/gigabyte/api/v1/categories";
   //   const response = await fetch(url);
@@ -92,7 +90,7 @@ export default class Devices extends Component {
             {this.state.cats.map((cat, idx) => {
               return (
                 <DevicesComponent
-                  title={cat.name}
+                  title={cat.title}
                   key={idx.id}
                   deviceImg={slider2}
                 ></DevicesComponent>
