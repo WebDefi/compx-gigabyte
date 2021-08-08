@@ -22,10 +22,10 @@ export default class Devices extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://3.249.81.155:3000/gigabyte/api/v1/categories`)
+      .get(`http://3.249.81.155:3000/gigabyte/api/v1/groups`)
       .then((res) => {
         const cats = res.data;
-        this.setState({...this.state, cats: cats.categories});
+        this.setState({...this.state, cats: cats.groups});
         console.log(cats.categories);
       });
   } // async componentDidMount() {
@@ -92,7 +92,7 @@ export default class Devices extends Component {
       
           <Slider {...settings}>
            {this.state.cats.map((cat, idx) => {
-              return <DevicesComponent title={cat.name} key={idx.id} deviceImg={slider2}></DevicesComponent>;
+              return <DevicesComponent title={cat.title} key={idx.id} deviceImg={slider2}></DevicesComponent>;
             })} 
            
               {/* <DevicesComponent
