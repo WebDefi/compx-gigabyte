@@ -6,7 +6,7 @@ import News from "./materials/News/News";
 import Footer from "./materials/Footer/Footer";
 import Gallery from "./materials/Gallery/Gallery";
 import Products from "./materials/Products/Products";
-import ProductsList from './materials/Products/ProductsList'
+import ProductsList from "./materials/Products/ProductsList";
 import React from "react";
 import { getRoutes } from "./routes";
 import { withRouter, Route, BrowserRouter, Redirect } from "react-router-dom";
@@ -24,8 +24,8 @@ function App() {
         <Devices />
         <News />
         <Gallery /> */}
-        <ProductsList />
-        <Route path="/products" component={Products} />
+        {/* <ProductsList /> */}
+        <Route path="/products" component={ProductsList} />
         <Route path="/home" component={HomePage} />
         <Redirect from="/" to="/home" />
         <Footer />
