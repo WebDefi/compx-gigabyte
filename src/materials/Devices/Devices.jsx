@@ -93,6 +93,7 @@ export default class Devices extends Component {
                   title={cat.title}
                   key={idx.id}
                   deviceImg={slider2}
+                  deviceBg={deviceBg}
                 ></DevicesComponent>
               );
             })}
