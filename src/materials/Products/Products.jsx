@@ -4,34 +4,32 @@ import ProductItem from "./components/ProductItem";
 import ProductsPagination from "./components/ProductsPagination.jsx";
 import ProductsFilter from "./components/ProductsFilter";
 import logoSrc from "../../static/images/filter.svg";
+import axios from "axios";
 
-const Products = () => {
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    fetch("http://3.249.81.155:3000/gigabyte/api/v1/items/1?start=0&end=10")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setItems(result);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
-  }, []);
-  if (error) {
-    return <div>Ошибка: {error.message}</div>;
-  } else if (!isLoaded) {
-    return <div>Загрузка...</div>;
-  } else {
+const Products = ({items}) => {
+  // const [error, setError] = useState(null);
+  // const [isLoaded, setIsLoaded] = useState(false);
+  // const [items, setItems] = useState([]);
+  
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     const res = await axios.get('http://3.249.81.155:3000/gigabyte/api/v1/items/1')
+  //     setItems(res.data);
+  //   }
+  //   fetchProducts();
+  // }, []);
+  // if (error) {
+  //   return <div>Ошибка: {error.message}</div>;
+  // } else if (!isLoaded) {
+  //   return <div>Загрузка...</div>;
+  // } else {
+ 
+    // const [currentPage, setCurrentPage] = useState(1);
+    // const indexOfLastItem = currentPage * itemsPerPage;
+    // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    // const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
     return (
-      <section class="product-cards">
-        <Container fluid style={{ padding: "100px 0 0" }}>
+    
           <Row>
             <Col md="3">
               <ProductsFilter
@@ -50,11 +48,8 @@ const Products = () => {
               ))}
             </Col>
           </Row>
-          <ProductsPagination />
-        </Container>
-      </section>
+
     );
-  }
-};
+  };
 
 export default Products;

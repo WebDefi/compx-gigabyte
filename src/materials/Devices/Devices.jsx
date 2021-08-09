@@ -21,13 +21,11 @@ export default class Devices extends Component {
   };
 
   componentDidMount() {
-    axios
-      .get(`http://3.249.81.155:3000/gigabyte/api/v1/groups`)
-      .then((res) => {
-        const cats = res.data;
-        this.setState({...this.state, cats: cats.groups});
-        console.log(cats.categories);
-      });
+    axios.get(`http://3.249.81.155:3000/gigabyte/api/v1/groups`).then((res) => {
+      const cats = res.data;
+      this.setState({ ...this.state, cats: cats.groups });
+      console.log(cats.categories);
+    });
   } // async componentDidMount() {
   //   const url = "http://3.249.81.155:3000/gigabyte/api/v1/categories";
   //   const response = await fetch(url);
@@ -80,7 +78,6 @@ export default class Devices extends Component {
     };
     return (
       <div>
-        
         <DevicesHeader sliderBlack={SliderBlack}></DevicesHeader>
         <div style={{ backgroundImage: `url(${bg})`, height: 200 }}>
           <SectionContent
@@ -89,13 +86,19 @@ export default class Devices extends Component {
           ></SectionContent>
         </div>
         <Container className="devicesSection">
-      
           <Slider {...settings}>
-           {this.state.cats.map((cat, idx) => {
-              return <DevicesComponent title={cat.title} key={idx.id} deviceImg={slider2}></DevicesComponent>;
-            })} 
-           
-              {/* <DevicesComponent
+            {this.state.cats.map((cat, idx) => {
+              return (
+                <DevicesComponent
+                  title={cat.title}
+                  key={idx.id}
+                  deviceImg={slider2}
+                  deviceBg={deviceBg}
+                ></DevicesComponent>
+              );
+            })}
+
+            {/* <DevicesComponent
               title="asdasd"
               deviceImg={slider2}
               deviceBg={deviceBg}

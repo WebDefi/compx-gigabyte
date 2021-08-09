@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const NewsComponent = ({ description, img }) => {
+const NewsComponent = ({ description, img, link }) => {
   useEffect(() => {
     AOS.init({
       duration : 2200
@@ -18,7 +18,7 @@ const NewsComponent = ({ description, img }) => {
         <img src={img} style={{ display: "inline-block" }}></img>
       </div>
       <p className='newsDescription'>{description}</p> 
-      <button className="outlineButton"><span className="btn-text">Подробнее</span></button>
+     <a href={link}><button className="outlineButton"><span className="btn-text">Подробнее</span></button></a>
     </div>
   );
 };

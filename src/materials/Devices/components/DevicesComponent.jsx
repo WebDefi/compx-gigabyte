@@ -12,7 +12,7 @@ const DevicesComponent = ({ deviceImg, link = "/", title }) => {
   }, []);
   return (
     <a href={link}>
-      <div data-aos="fade-up" className="DevicesComponent text-center">
+      <div data-aos="fade-left" className="DevicesComponent text-center">
         <NavLink to="/products" className="devices__href">
           <img
             height="auto"
