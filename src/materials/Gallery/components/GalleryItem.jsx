@@ -6,6 +6,9 @@ import "aos/dist/aos.css";
 
 const GalleryItem = ({
   titleItem,
+  img,
+  itemId,
+  key,
   imgFirst,
   imgSecond,
   imgThird,
@@ -34,11 +37,11 @@ const GalleryItem = ({
       {show ? (
         <div className="gallery_content" data-aos="fade-down">
           <Row style={{ justifyContent: "center" }}>
-            <Col xs="3" lg="3" style={{ paddingTop: "10px" }}>
-              <a href="#img1">
+            <Col xs="3" lg="3" style={{ paddingTop: "10px" }} key={key}>
+              <a href="#0">
                 <img className="gallery__img" src={imgFirst} alt="1" />
               </a>
-              <a href="#" className="gallery__img--hidden" id="img1">
+              <a href="#" className="gallery__img--hidden" id={itemId}>
                 <span
                   style={{
                     backgroundImage: "url(" + imgFirst + ")",
@@ -58,6 +61,7 @@ const GalleryItem = ({
                 ></span>
               </a>
             </Col>
+
             <Col xs="3" lg="3" style={{ paddingTop: "10px !important" }}>
               <a href="#img3">
                 <img className="gallery__img" src={imgThird} alt="3" />

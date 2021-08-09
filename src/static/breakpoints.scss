@@ -1,7 +1,7 @@
 @media only screen and (max-width: 1920px) {
   .product-card {
     margin: 10px 0 0 33px;
-    width: 17vw;
+    width: 19vw;
   }
 
   .col-xl-3 {
@@ -19,12 +19,6 @@
   }
 }
 
-@media only screen and (max-width: 1500px) {
-  .product-card {
-    width: 18vw;
-  }
-}
-
 @media only screen and (max-width: 1384px) {
   .navOuter {
     width: 415px;
@@ -34,7 +28,7 @@
 
   .product-card {
     margin: 10px 0 0 33px;
-    width: 19vw;
+    width: 21vw;
   }
 
   .col-xl-3 {
@@ -69,10 +63,17 @@
     }
   }
   .product-card {
-    width: 24vw;
+    width: 19vw;
   }
   .ProductsFilter {
     width: 100%;
+  }
+  .products_row {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+  .ProductsFilter__lineBlock{
+    padding: 0 35px;
   }
 }
 

@@ -29,3 +29,11 @@
     opacity: 0.9;
   }
 }
+
+@media (min-width: 320px) and (max-width: 350px) {
+  .sliderAorus__btn {
+    width: 100px;
+    height: 30px;
+    font-size: 13px;
+  }
+}
