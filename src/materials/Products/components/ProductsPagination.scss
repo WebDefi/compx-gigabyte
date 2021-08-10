@@ -57,9 +57,13 @@
   }
 }
 
+.page-item {
+  display:flex;
+}
 .pagination {
   position: absolute;
   right: 0;
+  bottom: 0;
   margin-right: 150px;
 }
 

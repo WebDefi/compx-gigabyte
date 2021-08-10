@@ -27,7 +27,7 @@ export default class News extends Component {
       dots: false,
       infinite: true,
       speed: 1500,
-      slidesToShow: 1,
+      slidesToShow: 4,
       slidesToScroll: 1,
       arrows: false,
       autoplay:true,
@@ -57,7 +57,7 @@ export default class News extends Component {
         <Container style={{marginTop:60}}>
           <Slider {...settings}>
             {this.state.newsItems.map((item, idx) => {
-              return <NewsComponent key={idx.id} description={item.title} img={item.img} link={item.url} /> 
+              return <NewsComponent key={idx.id} description={item.title} img={newsImg} link={item.url} /> 
             })}
             
           
