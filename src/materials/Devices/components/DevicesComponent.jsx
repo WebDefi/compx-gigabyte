@@ -14,7 +14,7 @@ const DevicesComponent = ({ deviceImg, title, link }) => {
   return (
     <Link to={link}>
       <div data-aos="fade-left" className="DevicesComponent text-center">
-        <NavLink to="/products" className="devices__href">
+        <NavLink to="/products/1" className="devices__href">
           <img
             height="auto"
             width="65%"
