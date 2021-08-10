@@ -8,7 +8,7 @@ import logoSrc from "../../../static/images/filter.svg";
 
 // }}
 
-const ProductItem = ({ title, price, key, link }) => {
+const ProductItem = ({ title, price, key, link, image }) => {
   return (
     <a href={link}>
       <div
@@ -32,7 +32,7 @@ const ProductItem = ({ title, price, key, link }) => {
           event.target.style.transform = "rotateX(0) rotateY(0)";
         }}
       >
-        <div className="product-img"></div>
+        <div className="product-img" style={{ backgroundImage: `url(${image})`}}></div>
         <strong className="product-name">{title}</strong>
         <small className="product-price">{price}&#8372;</small>
       </div>
