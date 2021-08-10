@@ -56,3 +56,11 @@ code {
   opacity: 0.8;
 }
 
+.dropdown-menu :focus{
+  background-color:#fa6812;
+}
+.dropdown-menu :active{
+  background-color:#fa6812;
+}
+
+
