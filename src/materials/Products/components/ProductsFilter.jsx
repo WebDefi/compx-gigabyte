@@ -20,7 +20,7 @@ const ProductsFilter = ({ FilterBtn, CleanBtn, logoSrc }) => {
           <button className="ProductsFilter__btn">
             <span className="ProductsFilter__filter">{FilterBtn}</span>
           </button>
-          <div>
+          <div className="ProductsFilter__lineBlock">
             <span className="ProductsFilter__line"></span>
           </div>
           <button className="ProductsFilter__btn ProductsFilter__btn--gray">

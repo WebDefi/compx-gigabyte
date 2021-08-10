@@ -13,8 +13,29 @@ import styles from "./Devices.scss";
 import SectionContent from "../../common/SectionContent/SectionContent";
 import DevicesHeader from "./components/DevicesHeader";
 import SliderBlack from "../../static/images/pagers-curve1.png";
+import axios from "axios";
+import { Link } from "react-router-dom";
+
 export default class Devices extends Component {
+  state = {
+    cats: [],
+  };
+
+  componentDidMount() {
+    axios.get(`http://3.249.81.155:3000/gigabyte/api/v1/groups`).then((res) => {
+      const cats = res.data;
+      this.setState({ ...this.state, cats: cats.groups });
+      console.log(cats.categories);
+    });
+  } // async componentDidMount() {
+  //   const url = "http://3.249.81.155:3000/gigabyte/api/v1/categories";
+  //   const response = await fetch(url);
+  //   const data = await response.json();
+  //   console.log(data);
+  // }
+
   render() {
+    // const { error, isLoaded, items } = this.state;
     const settings = {
       dots: false,
       infinite: true,
@@ -28,37 +49,34 @@ export default class Devices extends Component {
           breakpoint: 1400,
           settings: {
             slidesToShow: 3,
-          }
+          },
         },
         {
           breakpoint: 994,
           settings: {
             slidesToShow: 2,
-          }
+          },
         },
         {
           breakpoint: 790,
           settings: {
             slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 760,
-        settings: {
-          slidesToShow: 1,
-      }
-    },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 1,
-          arrows:false,
-      }
-    },
-      
-        
-      ]
-    };  
+          },
+        },
+        {
+          breakpoint: 760,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    };
     return (
       <div>
         <DevicesHeader sliderBlack={SliderBlack}></DevicesHeader>
@@ -70,36 +88,43 @@ export default class Devices extends Component {
         </div>
         <Container className="devicesSection">
           <Slider {...settings}>
+            {this.state.cats.map((cat, idx) => {
+              return (
+                <DevicesComponent
+                  title={cat.title}
+                  key={idx.id}
+                  deviceImg={slider2}
+                  deviceBg={deviceBg}
+                  link={`/products/${cat.id}`}
+                ></DevicesComponent>
+              );
+            })}
+
+            {/* <DevicesComponent
+              title="asdasd"
+              deviceImg={slider2}
+              deviceBg={deviceBg}
+            /> 
+             <DevicesComponent
+              title="Игровые Мониторы"
+              deviceImg={slider3}
+              deviceBg={deviceBg}
+            />
+             <DevicesComponent
+              title="Игровые Ноутбуки"
+              deviceImg={slider2}
+              deviceBg={deviceBg}
+            />
             <DevicesComponent
               title="Видеокарты Премиум-Класса"
               deviceImg={slider1}
               deviceBg={deviceBg}
             />
             <DevicesComponent
-              title="Игровые Ноутбуки"
-              deviceImg={slider2}
-              deviceBg={deviceBg}
-            />
-            <DevicesComponent
               title="Игровые Мониторы"
               deviceImg={slider3}
               deviceBg={deviceBg}
-            />
-            <DevicesComponent
-              title="Игровые Ноутбуки"
-              deviceImg={slider2}
-              deviceBg={deviceBg}
-            />
-            <DevicesComponent
-              title="Видеокарты Премиум-Класса"
-              deviceImg={slider1}
-              deviceBg={deviceBg}
-            />
-            <DevicesComponent
-              title="Игровые Мониторы"
-              deviceImg={slider3}
-              deviceBg={deviceBg}
-            />
+            />    */}
           </Slider>
         </Container>
       </div>

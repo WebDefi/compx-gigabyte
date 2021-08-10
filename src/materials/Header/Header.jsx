@@ -5,10 +5,13 @@ import headerlower from "../../static/images/headerlower.png";
 import inst from "../../static/images/instagram.svg";
 import twitter from "../../static/images/twitter.svg";
 import facebook from "../../static/images/facebook.svg";
-import Aorus from "../../static/images/aorus.png";
+import imgFirst from "../../static/images/galery1.png";
+import gigabyte from "../../static/images/gigabyte.png";
+// http://3.249.81.155:3000/gigabyte/api/v1/groups
 import { Container, Row, Col } from "reactstrap";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -26,6 +29,56 @@ import {
 } from "reactstrap";
 
 const Header = () => {
+  const [categoryTree, setCategoryTree] = useState([]);
+  useEffect(() => {
+    fetch("http://3.249.81.155:3000/gigabyte/api/v1/groups")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setGroups(result.groups);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  }, []);
+  
+  // useEffect(() => {
+  //   const getData = async () => {      
+  //     let catTree = [];
+  //     const resCategories = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/groups`);            
+  //     if(!resCategories.status === 200) {
+  //       console.log('Error while fetching data');
+  //     } else {
+  //       const categories = await resCategories.json();
+  //       for ( const { id: category_id, title: catName, pictureUrl } of categories.groups) {          
+  //         const resSubCategories = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/items/${category_id}`);
+  //         if(!resSubCategories.status === 200) {
+  //           console.log('Error while fetching data');
+  //         } else {
+  //           const subCategories = await resSubCategories.json();
+  //           catTree.push({
+  //             id: category_id, title: catName, pictureUrl,
+  //             subCategories: subCategories.map(({ subcategory }) => ({id: subcategory.id, title: subcategory.title}))
+  //           });            
+  //         }
+  //       }
+  //       setCategoryTree(catTree);
+        
+  //     }
+  //   };
+    
+  //   getData();    
+  // }, [setCategoryTree]);  
+
+  // console.log(categoryTree);  
+
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [groups, setGroups] = useState([]);
+
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const [dropdownOpen, setOpen] = useState(false);
@@ -58,17 +111,18 @@ const Header = () => {
       >
         <div>
           <Navbar
-            data-aos="fade"
+            style={{ opacity: "0.6" }}
             color="dark"
             dark
             expand="sm"
             className={dnone ? " dnone" : "none"}
           >
             <Container>
-              <NavbarBrand href="/">
-                <img src={Aorus} />
+              <NavbarBrand href="/home">
+                <img src={gigabyte} width="125px" />
               </NavbarBrand>
               <NavbarToggler onClick={toggle} />
+
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar>
                   <UncontrolledDropdown nav inNavbar>
@@ -76,10 +130,19 @@ const Header = () => {
                       Options
                     </DropdownToggle>
                     <DropdownMenu right>
-                      <DropdownItem>Option 1</DropdownItem>
-                      <DropdownItem>Option 2</DropdownItem>
-                      <DropdownItem divider />
-                      <DropdownItem>Reset</DropdownItem>
+                      {groups.map((item, idx) => (
+                        <Link to={`/products/${item.id}`}>
+                          <DropdownItem key={idx.id}>
+                            <img
+                              style={{ borderRadius: 4, marginRight: 10 }}
+                              width="25"
+                              height="25"
+                              src={imgFirst}
+                            ></img>
+                            {item.title}
+                          </DropdownItem>
+                        </Link>
+                      ))}
                     </DropdownMenu>
                   </UncontrolledDropdown>
                   <UncontrolledDropdown nav inNavbar>
@@ -125,6 +188,7 @@ const Header = () => {
                   </NavItem>
                 </Nav>
               </Collapse>
+              <img style={{ float: "right" }} src={logo} width="165px" />
             </Container>
           </Navbar>
         </div>
@@ -167,11 +231,11 @@ const Header = () => {
             <li className="infoLink">
               <a href="#">Акции</a>
             </li>
-            <li className="infoLink" style={{marginLeft:"20px"}}>
+            <li className="infoLink" style={{ marginLeft: "20px" }}>
               <a href="/">Ru</a>
             </li>
             <li>
-              <a style={{ fontSize:13}}>|</a>
+              <a style={{ fontSize: 13 }}>|</a>
             </li>
             <li className="infoLink">
               <a href="/">Ukr</a>
@@ -184,7 +248,7 @@ const Header = () => {
             <div className="autoContainer" style={{ paddingTop: 15 }}>
               <div className="brand" style={{ float: "left" }}>
                 <a href="#">
-                  <img src={Aorus}></img>
+                  <img src={gigabyte} width="125px"></img>
                 </a>
               </div>
               <div className="social" style={{ float: "right" }}>
@@ -195,7 +259,7 @@ const Header = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="/" style={{padding:"0 30px"}}>
+                    <a href="/" style={{ padding: "0 30px" }}>
                       <img src={twitter} className="socialImg" />
                     </a>
                   </li>
@@ -211,14 +275,16 @@ const Header = () => {
                   <a href="#">
                     <Row className="text-center">
                       <Col xs="12">
-                        <img
-                          src={logo}
-                          style={{
-                            position: "relative",
-                            top: "45px",
-                            zIndex: 9999,
-                          }}
-                        />
+                        <a href="/home">
+                          <img
+                            src={logo}
+                            style={{
+                              position: "relative",
+                              top: "45px",
+                              zIndex: 9999,
+                            }}
+                          />
+                        </a>
                       </Col>
                     </Row>
                   </a>
@@ -252,10 +318,18 @@ const Header = () => {
                       Options1
                     </DropdownToggle>
                     <DropdownMenu right>
-                      <DropdownItem>Option 1</DropdownItem>
-                      <DropdownItem>Option 2</DropdownItem>
-                      <DropdownItem divider />
-                      <DropdownItem>Reset</DropdownItem>
+                      {groups.map((item, idx) => (
+                        <Link to={`/products/${item.id}`}>
+                        <DropdownItem key={idx.id}>
+                          <img
+                            style={{ borderRadius: 4, marginRight: 10 }}
+                            width="25"
+                            height="25"
+                            src={imgFirst}
+                          ></img>
+                          {item.title}
+                        </DropdownItem></Link>
+                      ))}
                     </DropdownMenu>
                   </UncontrolledDropdown>
                   <UncontrolledDropdown nav inNavbar>

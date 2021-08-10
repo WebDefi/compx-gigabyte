@@ -6,14 +6,28 @@ import { Container } from "reactstrap";
 import SectionContent from "../../common/SectionContent/SectionContent";
 import NewsComponent from "./components/NewsComponent";
 import newsImg from '../../static/images/newsCard.png'
+import axios from "axios";
 
-export default class Devices extends Component {
+export default class News extends Component {
+  state = {
+    newsItems: [],
+  };
+
+  componentDidMount() {
+    axios
+      .get(`http://3.249.81.155:3000/gigabyte/api/v1/news`)
+      .then((res) => {
+        const newsItems = res.data.news;
+        this.setState({...this.state, newsItems });
+        console.log(newsItems);
+      });
+  }
   render() {
     const settings = {
       dots: false,
       infinite: true,
       speed: 1500,
-      slidesToShow: 3,
+      slidesToShow: 4,
       slidesToScroll: 1,
       arrows: false,
       autoplay:true,
@@ -42,26 +56,12 @@ export default class Devices extends Component {
         </div>
         <Container style={{marginTop:60}}>
           <Slider {...settings}>
-            <NewsComponent
-              description="Купи материнскую плату asdasd asdasdasd assdasdasd asda sdas dasdasdasdasd asd ad  asdasdasd asdasdasd asdasd asd  B550 или B450 вместе с процессором AMD и получи до 7 тысяч рублей на покупку игр в Gabe store... asdasd asd asdasd "
-              img={newsImg}
-            />
-            <NewsComponent
-              description="Купи материнскую плату B550 или B450 вместе с процессором AMD и получи до 7 тысяч рублей на покупку игр в Gabe store..."
-              img={newsImg}
-            />
-            <NewsComponent
-              description="Купи материнскую плату B550 или B450 вместе с процессором AMD и получи до 7 тысяч рублей на покупку игр в Gabe store..."
-              img={newsImg}
-            />
-            <NewsComponent
-              description="Купи материнскую плату B550 или B450 вместе с процессором AMD и получи до 7 тысяч рублей на покупку игр в Gabe store..."
-              img={newsImg}
-            />
-            <NewsComponent
-              description="Купи материнскую плату B550 или B450 вместе с процессором AMD и получи до 7 тысяч рублей на покупку игр в Gabe store..."
-              img={newsImg}
-            />
+            {this.state.newsItems.map((item, idx) => {
+              return <NewsComponent key={idx.id} description={item.title} img={item.image} link={item.url} /> 
+            })}
+            
+          
+            
           </Slider>
         </Container>
       </div>

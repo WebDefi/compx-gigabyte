@@ -7,8 +7,21 @@ import SliderAorusComponent from "./components/SliderAorusComponent";
 import SliderBcg1 from "../../static/images/slider.jpg";
 import SliderBcgMobile1 from "../../static/images/sliderMobile.jpg";
 import "./SliderAorus.scss";
+import axios from "axios";
 
 export default class SlideAorus extends Component {
+  state = {
+    objs: [],
+  };
+
+  componentDidMount() {
+    axios.get(`http://3.249.81.155:3000/gigabyte/api/v1/slider`).then((res) => {
+      const objs = res.data;
+      this.setState({ ...this.state, objs: objs.slider });
+      console.log(objs.categories);
+    });
+  }
+
   render() {
     const settings = {
       dots: true,
@@ -31,36 +44,42 @@ export default class SlideAorus extends Component {
     return (
       <Container fluid style={{ padding: 0, marginTop: 0 }}>
         <Slider {...settings}>
-          <SliderAorusComponent
-            sliderTitle="GEAR UP WITH AORUS"
-            sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
-            sliderBcg={SliderBcg1}
-            sliderBcgMobile={SliderBcgMobile1}
-          ></SliderAorusComponent>
-          <SliderAorusComponent
-            sliderTitle="2"
-            sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
-            sliderBcg={SliderBcg1}
-            sliderBcgMobile={SliderBcgMobile1}
-          ></SliderAorusComponent>
-          <SliderAorusComponent
-            sliderTitle="3"
-            sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
-            sliderBcg={SliderBcg1}
-            sliderBcgMobile={SliderBcgMobile1}
-          ></SliderAorusComponent>
-          <SliderAorusComponent
-            sliderTitle="4"
-            sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
-            sliderBcg={SliderBcg1}
-            sliderBcgMobile={SliderBcgMobile1}
-          ></SliderAorusComponent>
-          <SliderAorusComponent
-            sliderTitle="5"
-            sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
-            sliderBcg={SliderBcg1}
-            sliderBcgMobile={SliderBcgMobile1}
-          ></SliderAorusComponent>
+          {this.state.objs.map((obj, idx) => {
+            return (
+              <SliderAorusComponent
+                sliderId={obj.id}
+                sliderTitle={obj.title_high}
+                sliderSubtitle={obj.title_low}
+                sliderBcg={obj.image}
+                sliderBcgMobile={SliderBcgMobile1}
+                btnText={obj.button_text}
+              ></SliderAorusComponent>
+            );
+          })}
+          {/* <SliderAorusComponent
+              sliderTitle="2"
+              sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
+              sliderBcg={SliderBcg1}
+              sliderBcgMobile={SliderBcgMobile1}
+            ></SliderAorusComponent>
+            <SliderAorusComponent
+              sliderTitle="3"
+              sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
+              sliderBcg={SliderBcg1}
+              sliderBcgMobile={SliderBcgMobile1}
+            ></SliderAorusComponent>
+            <SliderAorusComponent
+              sliderTitle="4"
+              sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
+              sliderBcg={SliderBcg1}
+              sliderBcgMobile={SliderBcgMobile1}
+            ></SliderAorusComponent>
+            <SliderAorusComponent
+              sliderTitle="5"
+              sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
+              sliderBcg={SliderBcg1}
+              sliderBcgMobile={SliderBcgMobile1}
+            ></SliderAorusComponent> */}
         </Slider>
       </Container>
     );

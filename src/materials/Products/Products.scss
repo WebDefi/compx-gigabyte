@@ -1,0 +1,14 @@
+@import "./src/static/fonts.scss";
+@import "./src/static/colors.scss";
+
+.products__wait {
+  display: block;
+  color: $primary;
+  font-size: 25px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.col-xl-4 {
+  padding: 0;
+}

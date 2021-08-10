@@ -25,12 +25,39 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 575px) {
+@media (min-width: 320px) and (max-width: 350px) {
   .slick-ul {
     padding: 0;
     margin-bottom: -42px;
     margin-left: -11px;
-    margin-right: -28px;
+    margin-right: -125px;
+    margin-top: 11px;
+  }
+
+  .slick-dots {
+    & li {
+      width: 17px;
+      height: 5px;
+    }
+  }
+}
+
+@media (min-width: 350px) and (max-width: 400px) {
+  .slick-ul {
+    padding: 0;
+    margin-bottom: -42px;
+    margin-left: -11px;
+    margin-right: -105px;
+    margin-top: 9px;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 575px) {
+  .slick-ul {
+    padding: 0;
+    margin-bottom: -42px;
+    margin-left: -11px;
+    margin-right: -105px;
     margin-top: 9px;
   }
 }

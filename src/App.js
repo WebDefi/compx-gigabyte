@@ -6,11 +6,15 @@ import News from "./materials/News/News";
 import Footer from "./materials/Footer/Footer";
 import Gallery from "./materials/Gallery/Gallery";
 import Products from "./materials/Products/Products";
+import ProductsList from "./materials/Products/ProductsList";
+import ProductList2 from "./materials/Products/ProductList2";
 import React from "react";
 import { getRoutes } from "./routes";
 import { withRouter, Route, BrowserRouter, Redirect } from "react-router-dom";
 import HomePage from "./materials/HomePage/HomePage";
 import "./static/breakpoints.scss";
+import ProductItem from "./materials/Products/components/ProductItem";
+
 
 function App() {
   return (
@@ -22,7 +26,9 @@ function App() {
         <Devices />
         <News />
         <Gallery /> */}
-        <Route path="/products" component={Products} />
+        {/* <ProductsList /> */}
+        <Route path="/products/2" component={ProductList2} />
+        <Route path="/products/1" component={ProductsList} />
         <Route path="/home" component={HomePage} />
         <Redirect from="/" to="/home" />
         <Footer />

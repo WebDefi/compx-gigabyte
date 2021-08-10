@@ -1,3 +1,24 @@
+@media only screen and (max-width: 1920px) {
+  .product-card {
+    margin: 10px 0 0 33px;
+    width: 19vw;
+  }
+
+  .col-xl-3 {
+    padding: 0;
+  }
+
+  .ProductsFilter {
+    width: 309px;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .product-card {
+    width: 19vw;
+  }
+}
+
 @media only screen and (max-width: 1384px) {
   .navOuter {
     width: 415px;
@@ -7,7 +28,7 @@
 
   .product-card {
     margin: 10px 0 0 33px;
-    width: 19vw;
+    width: 21vw;
   }
 
   .col-xl-3 {
@@ -42,10 +63,17 @@
     }
   }
   .product-card {
-    width: 24vw;
+    width: 19vw;
   }
   .ProductsFilter {
     width: 100%;
+  }
+  .products_row {
+    padding-right: 40px !important;
+    padding-left: 40px;
+  }
+  .ProductsFilter__lineBlock {
+    padding: 0 35px;
   }
 }
 
@@ -53,6 +81,15 @@
   .product-card {
     width: 38vw;
     margin: 20px auto;
+    &::before {
+      width: 43vw;
+    }
+  }
+  .ProductsFilter {
+    display: none;
+  }
+  .ProductsFilterBtn {
+    display: block !important;
   }
 }
 
@@ -67,7 +104,17 @@
   }
 
   .product-card {
-    width: 45vw;
+    width: 41vw;
+    &::before {
+      width: 49vw;
+    }
+  }
+
+  .products_row {
+    padding: 0 !important;
+  }
+  .ProductsFilterBtn {
+    margin-left: 0px !important;
   }
 }
 
@@ -91,14 +138,23 @@
     height: 65rem;
   }
   .product-card {
-    width: 66vw;
+    width: 38vw;
     &::before {
-      width: 40vw;
+      width: 44vw;
     }
   }
 }
 
 @media only screen and (max-width: 500px) {
+  .imgBox__image {
+    width: 98vw;
+  }
+  .slick-prev {
+    left: 10%;
+  }
+  .slick-next {
+    right: 10%;
+  }
   .container {
     .slick-slider {
       .slick-slide {
@@ -134,9 +190,41 @@
   }
 
   .product-card {
-    width: 87vw;
+    width: 46vw;
     &::before {
-      width: 55vw;
+      width: 57vw;
     }
+  }
+
+  .product-name {
+    font-size: 0.8em;
+  }
+
+  .product-price {
+    font-size: 0.9em;
+  }
+
+  .product-cards {
+    padding: 1em 1em;
+  }
+
+  .page-num--none {
+    display: none;
+  }
+
+  .pagination {
+    margin-right: -20px;
+  }
+
+  .gallery {
+    margin-bottom: 40px;
+  }
+
+  .row > * {
+    padding: 6px;
+  }
+
+  .products_rowFirst {
+    padding: 0 !important;
   }
 }
