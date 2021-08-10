@@ -138,9 +138,9 @@
     height: 65rem;
   }
   .product-card {
-    width: 88vw;
+    width: 38vw;
     &::before {
-      width: 67vw;
+      width: 44vw;
     }
   }
 }
@@ -190,10 +190,18 @@
   }
 
   .product-card {
-    width: 88vw;
+    width: 46vw;
     &::before {
-      width: 81vw;
+      width: 57vw;
     }
+  }
+
+  .product-name {
+    font-size: 0.8em;
+  }
+
+  .product-price {
+    font-size: 0.9em;
   }
 
   .product-cards {
@@ -214,5 +222,9 @@
 
   .row > * {
     padding: 6px;
+  }
+
+  .products_rowFirst {
+    padding: 0 !important;
   }
 }

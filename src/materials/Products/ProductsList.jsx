@@ -59,7 +59,7 @@ const ProductsList = () => {
   }, []);
   return (
     <section class="product-cards">
-      <Container fluid style={{ padding: "100px 0 0" }}>
+      <Container fluid style={{ padding: "60px 0 0" }}>
         <Products items={currentItems} />
         <Row>
           <Col xs="12 ">
