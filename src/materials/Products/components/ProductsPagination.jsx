@@ -1,5 +1,5 @@
 import React from "react";
-import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
+import { Container, Pagination, PaginationItem, PaginationLink } from "reactstrap";
 import "./ProductsPagination.scss";
 import {
   BrowserRouter as Router,
@@ -16,24 +16,26 @@ const ProductsPagination = ( {itemsPerPage, totalItems, paginate}) => {
   }
 
   return (
-    // <Pagination aria-label="Page navigation example">
-    //   <PaginationItem>
-    //     {pageNumbers.map(number => (
-    //       <PaginationLink className="page-i" href="#" onClick={() => paginate(number)}>
-    //         {number}
-    //       </PaginationLink>
-    //     ))}
-    //   </PaginationItem>
-    // </Pagination>
-    <nav>
-      <ul className="pagination">
-        {pageNumbers.map(number =>(
-          <li key={number} className="page-item">
-            <Link to="!#" onClick={() => paginate(number)} href="!#" className="page-link">{number}</Link>
-          </li>
+    <Container>
+      <Pagination aria-label="Page navigation example">
+      <PaginationItem>
+        {pageNumbers.map(number => (
+          <PaginationLink key={number} className="page-i page-num" href="#" onClick={() => paginate(number)}>
+            {number}
+          </PaginationLink>
         ))}
-      </ul>
-    </nav>
+      </PaginationItem>
+    </Pagination>
+    </Container>
+    // <nav>
+    //   <ul className="pagination">
+    //     {pageNumbers.map(number =>(
+    //       <li key={number} className="page-item">
+    //         <Link to="!#" onClick={() => paginate(number)} href="!#" className="page-link">{number}</Link>
+    //       </li>
+    //     ))}
+    //   </ul>
+    // </nav>
   );
 };
 

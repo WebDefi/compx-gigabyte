@@ -5,9 +5,9 @@ import headerlower from "../../static/images/headerlower.png";
 import inst from "../../static/images/instagram.svg";
 import twitter from "../../static/images/twitter.svg";
 import facebook from "../../static/images/facebook.svg";
-
+import imgFirst from "../../static/images/galery1.png";
 import gigabyte from "../../static/images/gigabyte.png";
-
+// http://3.249.81.155:3000/gigabyte/api/v1/groups
 import { Container, Row, Col } from "reactstrap";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -28,7 +28,25 @@ import {
 } from "reactstrap";
 
 const Header = () => {
-  
+  useEffect(() => {
+    fetch("http://3.249.81.155:3000/gigabyte/api/v1/groups")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setGroups(result.groups);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  }, []);
+
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [groups, setGroups] = useState([]);
+
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const [dropdownOpen, setOpen] = useState(false);
@@ -59,20 +77,20 @@ const Header = () => {
         data-aos="fade"
         style={{ position: "fixed", zIndex: 9999, width: "100%", top: 0 }}
       >
-        <div >
+        <div>
           <Navbar
-            style={{opacity:"0.6"}}
+            style={{ opacity: "0.6" }}
             color="dark"
             dark
             expand="sm"
-            
             className={dnone ? " dnone" : "none"}
           >
             <Container>
-              <NavbarBrand href="/">
+              <NavbarBrand href="/home">
                 <img src={gigabyte} width="125px" />
               </NavbarBrand>
               <NavbarToggler onClick={toggle} />
+              
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar>
                   <UncontrolledDropdown nav inNavbar>
@@ -80,10 +98,9 @@ const Header = () => {
                       Options
                     </DropdownToggle>
                     <DropdownMenu right>
-                      <DropdownItem>Option 1</DropdownItem>
-                      <DropdownItem>Option 2</DropdownItem>
-                      <DropdownItem divider />
-                      <DropdownItem>Reset</DropdownItem>
+                      {groups.map((item, idx) => (
+                        <DropdownItem key={idx.id}><img style={{borderRadius:4, marginRight:10}} width="25" height="25" src={imgFirst}></img>{item.title}</DropdownItem>
+                      ))}
                     </DropdownMenu>
                   </UncontrolledDropdown>
                   <UncontrolledDropdown nav inNavbar>
@@ -128,7 +145,12 @@ const Header = () => {
                     </NavLink>
                   </NavItem>
                 </Nav>
+                
+                
+              
               </Collapse>
+              <img style={{float:"right"}} src={logo} width="165px" />
+
             </Container>
           </Navbar>
         </div>
@@ -171,11 +193,11 @@ const Header = () => {
             <li className="infoLink">
               <a href="#">Акции</a>
             </li>
-            <li className="infoLink" style={{marginLeft:"20px"}}>
+            <li className="infoLink" style={{ marginLeft: "20px" }}>
               <a href="/">Ru</a>
             </li>
             <li>
-              <a style={{ fontSize:13}}>|</a>
+              <a style={{ fontSize: 13 }}>|</a>
             </li>
             <li className="infoLink">
               <a href="/">Ukr</a>
@@ -199,7 +221,7 @@ const Header = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="/" style={{padding:"0 30px"}}>
+                    <a href="/" style={{ padding: "0 30px" }}>
                       <img src={twitter} className="socialImg" />
                     </a>
                   </li>
@@ -215,6 +237,7 @@ const Header = () => {
                   <a href="#">
                     <Row className="text-center">
                       <Col xs="12">
+                        <a href="/home">
                         <img
                           src={logo}
                           style={{
@@ -223,6 +246,7 @@ const Header = () => {
                             zIndex: 9999,
                           }}
                         />
+                        </a>
                       </Col>
                     </Row>
                   </a>
@@ -256,10 +280,9 @@ const Header = () => {
                       Options1
                     </DropdownToggle>
                     <DropdownMenu right>
-                      <DropdownItem>Option 1</DropdownItem>
-                      <DropdownItem>Option 2</DropdownItem>
-                      <DropdownItem divider />
-                      <DropdownItem>Reset</DropdownItem>
+                      {groups.map((item, idx) => (
+                        <DropdownItem key={idx.id}><img style={{borderRadius:4, marginRight:10}} width="25" height="25" src={imgFirst}></img>{item.title}</DropdownItem>
+                      ))}
                     </DropdownMenu>
                   </UncontrolledDropdown>
                   <UncontrolledDropdown nav inNavbar>

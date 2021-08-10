@@ -10,7 +10,7 @@ const ProductsList = () => {
   const [items, setItems] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(10);
+  const [itemsPerPage] = useState(9);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -30,16 +30,17 @@ const ProductsList = () => {
   }, []);
   return (
     <section class="product-cards">
-      <Container fluid style={{ padding: "80px 0 0" }}>
-        <Col>
-          <ProductsPagination
-            itemsPerPage={itemsPerPage}
-            totalItems={items.length}
-            paginate={paginate}
-          />
-        </Col>
-
+      <Container fluid style={{ padding: "100px 0 0" }}>
         <Products items={currentItems} />
+        <Row>
+          <Col xs="12 ">
+            <ProductsPagination
+              itemsPerPage={itemsPerPage}
+              totalItems={items.length}
+              paginate={paginate}
+            />
+          </Col>
+        </Row>
       </Container>
     </section>
   );
