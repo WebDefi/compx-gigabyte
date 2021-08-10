@@ -30,8 +30,8 @@ const Products = ({ items }) => {
   // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   // const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
   return (
-    <Row style={{ padding: "0 40px" }}>
-      <Col sm="12" lg="3" xl="3">
+    <Row className="products_rowFirst" style={{ padding: "0 40px" }}>
+      <Col xs="12" lg="3" xl="3">
         <ProductsFilter
           FilterBtn="Фільтр"
           CleanBtn="Очистити"
@@ -39,10 +39,10 @@ const Products = ({ items }) => {
         ></ProductsFilter>
         <ProductsFilterBtn textBtn="Фільтр" />
       </Col>
-      <Col sm="" lg="9" xl="9">
+      <Col xs="" lg="9" xl="9">
         <Row className="products_row" style={{ paddingRight: "60px" }}>
           {items.map((item) => (
-            <Col sm="6" lg="4" xl="4" style={{ marginBottom: "30px" }}>
+            <Col xs="6" lg="4" xl="4" style={{ marginBottom: "30px" }}>
               <ProductItem
                 key={item.id}
                 title={item.name}

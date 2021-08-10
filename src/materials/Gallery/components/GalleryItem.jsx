@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "./GalleryItem.scss";
 import AOS from "aos";
@@ -39,15 +39,19 @@ const GalleryItem = ({
         // {`{"#"${index}`}
         <div className="gallery_content" data-aos="fade-down">
           <Row style={{ justifyContent: "center" }}>
-            {images.map((number, index) => (
+            {images.map((number, index, key) => (
               <Col xs="4" lg="4" style={{ paddingTop: "10px" }}>
-                <a href="#4">
+                <a href={`#${key}-${index}`}>
                   <img className="gallery__img" src={number} alt={index} />
                 </a>
-                <a href="#" className="gallery__img--hidden" id="4">
+                <a
+                  href="#"
+                  className="gallery__img--hidden"
+                  id={`${key}-${index}`}
+                >
                   <span
                     style={{
-                      backgroundImage: "url(" + { number } + ")",
+                      backgroundImage: "url(" + number + ")",
                     }}
                   ></span>
                 </a>
