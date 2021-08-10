@@ -14,6 +14,7 @@ import SectionContent from "../../common/SectionContent/SectionContent";
 import DevicesHeader from "./components/DevicesHeader";
 import SliderBlack from "../../static/images/pagers-curve1.png";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default class Devices extends Component {
   state = {
@@ -25,7 +26,6 @@ export default class Devices extends Component {
       const cats = res.data;
       this.setState({ ...this.state, cats: cats.groups });
       console.log(cats.categories);
-      
     });
   } // async componentDidMount() {
   //   const url = "http://3.249.81.155:3000/gigabyte/api/v1/categories";
@@ -90,12 +90,14 @@ export default class Devices extends Component {
           <Slider {...settings}>
             {this.state.cats.map((cat, idx) => {
               return (
-                <DevicesComponent
-                  title={cat.title}
-                  key={idx.id}
-                  deviceImg={slider2}
-                  deviceBg={deviceBg}
-                ></DevicesComponent>
+                <Link to={`/products/${cat.id}`}>
+                  <DevicesComponent
+                    title={cat.title}
+                    key={idx.id}
+                    deviceImg={slider2}
+                    deviceBg={deviceBg}
+                  ></DevicesComponent>
+                </Link>
               );
             })}
 

@@ -6,10 +6,7 @@ import ProductsFilter from "./components/ProductsFilter";
 import ProductsFilterBtn from "./components/ProductsFilterBtn";
 import logoSrc from "../../static/images/filter.svg";
 import axios from "axios";
-import {
-
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Products = ({ items }) => {
   // const [error, setError] = useState(null);
@@ -47,14 +44,14 @@ const Products = ({ items }) => {
         <Row className="products_row" style={{ paddingRight: "60px" }}>
           {items.map((item) => (
             <Col sm="6" lg="4" xl="4" style={{ marginBottom: "30px" }}>
-              <Link to={`/products/${item.id}`}>
-              <ProductItem
-                key={item.id}
-                title={item.name}
-                price={item.price}
-                link={item.url}
-              ></ProductItem>
-              </Link>
+              
+                <ProductItem
+                  key={item.id}
+                  title={item.name}
+                  price={item.price}
+                  link={item.url}
+                ></ProductItem>
+              
             </Col>
           ))}
         </Row>

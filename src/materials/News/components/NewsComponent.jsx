@@ -15,7 +15,7 @@ const NewsComponent = ({ description, img, link }) => {
   return (
     <div data-aos="flip-right" className='divvv'>
       <div className='imgBox'>
-        <img src={img} style={{ display: "inline-block" }}></img>
+        <img className="imgBox__image" src={img} style={{ display: "inline-block" }}></img>
       </div>
       <p className='newsDescription'>{description}</p> 
      <a href={link}><button className="outlineButton"><span className="btn-text">Подробнее</span></button></a>

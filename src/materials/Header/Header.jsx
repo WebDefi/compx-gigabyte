@@ -30,50 +30,50 @@ import {
 
 const Header = () => {
   const [categoryTree, setCategoryTree] = useState([]);
-  // useEffect(() => {
-  //   fetch("http://3.249.81.155:3000/gigabyte/api/v1/groups")
-  //     .then((res) => res.json())
-  //     .then(
-  //       (result) => {
-  //         setIsLoaded(true);
-  //         setGroups(result.groups);
-  //       },
-  //       (error) => {
-  //         setIsLoaded(true);
-  //         setError(error);
-  //       }
-  //     );
-  // }, []);
-  
   useEffect(() => {
-    const getData = async () => {      
-      let catTree = [];
-      const resCategories = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/groups`);            
-      if(!resCategories.status === 200) {
-        console.log('Error while fetching data');
-      } else {
-        const categories = await resCategories.json();
-        for ( const { id: catId, name: catName, pictureUrl } of categories) {          
-          const resSubCategories = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/items/${catId}`);
-          if(!resSubCategories.status === 200) {
-            console.log('Error while fetching data');
-          } else {
-            const subCategories = await resSubCategories.json();
-            catTree.push({
-              id: catId, name: catName, pictureUrl,
-              subCategories: subCategories.map(({ subcategory }) => ({id: subcategory.id, name: subcategory.name}))
-            });            
-          }
+    fetch("http://3.249.81.155:3000/gigabyte/api/v1/groups")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setGroups(result.groups);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
         }
-        setCategoryTree(catTree);
+      );
+  }, []);
+  
+  // useEffect(() => {
+  //   const getData = async () => {      
+  //     let catTree = [];
+  //     const resCategories = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/groups`);            
+  //     if(!resCategories.status === 200) {
+  //       console.log('Error while fetching data');
+  //     } else {
+  //       const categories = await resCategories.json();
+  //       for ( const { id: category_id, title: catName, pictureUrl } of categories.groups) {          
+  //         const resSubCategories = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/items/${category_id}`);
+  //         if(!resSubCategories.status === 200) {
+  //           console.log('Error while fetching data');
+  //         } else {
+  //           const subCategories = await resSubCategories.json();
+  //           catTree.push({
+  //             id: category_id, title: catName, pictureUrl,
+  //             subCategories: subCategories.map(({ subcategory }) => ({id: subcategory.id, title: subcategory.title}))
+  //           });            
+  //         }
+  //       }
+  //       setCategoryTree(catTree);
         
-      }
-    };
+  //     }
+  //   };
     
-    getData();    
-  }, [setCategoryTree]);  
+  //   getData();    
+  // }, [setCategoryTree]);  
 
-  console.log(categoryTree);  
+  // console.log(categoryTree);  
 
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -131,7 +131,7 @@ const Header = () => {
                     </DropdownToggle>
                     <DropdownMenu right>
                       {groups.map((item, idx) => (
-                        <Link to="/products">
+                        <Link to={`/products/${item.id}`}>
                           <DropdownItem key={idx.id}>
                             <img
                               style={{ borderRadius: 4, marginRight: 10 }}
@@ -319,7 +319,7 @@ const Header = () => {
                     </DropdownToggle>
                     <DropdownMenu right>
                       {groups.map((item, idx) => (
-                        <Link to="/products">
+                        <Link to={`/products/${item.id}`}>
                         <DropdownItem key={idx.id}>
                           <img
                             style={{ borderRadius: 4, marginRight: 10 }}

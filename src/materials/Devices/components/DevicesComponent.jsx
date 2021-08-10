@@ -4,14 +4,14 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import styles from "./DevicesComponent.scss";
 
-const DevicesComponent = ({ deviceImg, link = "/", title }) => {
+const DevicesComponent = ({ deviceImg, title }) => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
     });
   }, []);
   return (
-    <a href={link}>
+   
       <div data-aos="fade-left" className="DevicesComponent text-center">
         <NavLink to="/products" className="devices__href">
           <img
@@ -26,7 +26,7 @@ const DevicesComponent = ({ deviceImg, link = "/", title }) => {
         </NavLink>
         <h5 className="deviceName text-center">{title}</h5>
       </div>
-    </a>
+
   );
 };
 
