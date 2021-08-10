@@ -11,6 +11,7 @@ import gigabyte from "../../static/images/gigabyte.png";
 import { Container, Row, Col } from "reactstrap";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -28,20 +29,51 @@ import {
 } from "reactstrap";
 
 const Header = () => {
+  const [categoryTree, setCategoryTree] = useState([]);
+  // useEffect(() => {
+  //   fetch("http://3.249.81.155:3000/gigabyte/api/v1/groups")
+  //     .then((res) => res.json())
+  //     .then(
+  //       (result) => {
+  //         setIsLoaded(true);
+  //         setGroups(result.groups);
+  //       },
+  //       (error) => {
+  //         setIsLoaded(true);
+  //         setError(error);
+  //       }
+  //     );
+  // }, []);
+  
   useEffect(() => {
-    fetch("http://3.249.81.155:3000/gigabyte/api/v1/groups")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setGroups(result.groups);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
+    const getData = async () => {      
+      let catTree = [];
+      const resCategories = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/groups`);            
+      if(!resCategories.status === 200) {
+        console.log('Error while fetching data');
+      } else {
+        const categories = await resCategories.json();
+        for ( const { id: catId, name: catName, pictureUrl } of categories) {          
+          const resSubCategories = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/items/${catId}`);
+          if(!resSubCategories.status === 200) {
+            console.log('Error while fetching data');
+          } else {
+            const subCategories = await resSubCategories.json();
+            catTree.push({
+              id: catId, name: catName, pictureUrl,
+              subCategories: subCategories.map(({ subcategory }) => ({id: subcategory.id, name: subcategory.name}))
+            });            
+          }
         }
-      );
-  }, []);
+        setCategoryTree(catTree);
+        
+      }
+    };
+    
+    getData();    
+  }, [setCategoryTree]);  
+
+  console.log(categoryTree);  
 
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -90,7 +122,7 @@ const Header = () => {
                 <img src={gigabyte} width="125px" />
               </NavbarBrand>
               <NavbarToggler onClick={toggle} />
-              
+
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar>
                   <UncontrolledDropdown nav inNavbar>
@@ -99,7 +131,17 @@ const Header = () => {
                     </DropdownToggle>
                     <DropdownMenu right>
                       {groups.map((item, idx) => (
-                        <DropdownItem key={idx.id}><img style={{borderRadius:4, marginRight:10}} width="25" height="25" src={imgFirst}></img>{item.title}</DropdownItem>
+                        <Link to="/products">
+                          <DropdownItem key={idx.id}>
+                            <img
+                              style={{ borderRadius: 4, marginRight: 10 }}
+                              width="25"
+                              height="25"
+                              src={imgFirst}
+                            ></img>
+                            {item.title}
+                          </DropdownItem>
+                        </Link>
                       ))}
                     </DropdownMenu>
                   </UncontrolledDropdown>
@@ -145,12 +187,8 @@ const Header = () => {
                     </NavLink>
                   </NavItem>
                 </Nav>
-                
-                
-              
               </Collapse>
-              <img style={{float:"right"}} src={logo} width="165px" />
-
+              <img style={{ float: "right" }} src={logo} width="165px" />
             </Container>
           </Navbar>
         </div>
@@ -238,14 +276,14 @@ const Header = () => {
                     <Row className="text-center">
                       <Col xs="12">
                         <a href="/home">
-                        <img
-                          src={logo}
-                          style={{
-                            position: "relative",
-                            top: "45px",
-                            zIndex: 9999,
-                          }}
-                        />
+                          <img
+                            src={logo}
+                            style={{
+                              position: "relative",
+                              top: "45px",
+                              zIndex: 9999,
+                            }}
+                          />
                         </a>
                       </Col>
                     </Row>
@@ -281,7 +319,16 @@ const Header = () => {
                     </DropdownToggle>
                     <DropdownMenu right>
                       {groups.map((item, idx) => (
-                        <DropdownItem key={idx.id}><img style={{borderRadius:4, marginRight:10}} width="25" height="25" src={imgFirst}></img>{item.title}</DropdownItem>
+                        <Link to="/products">
+                        <DropdownItem key={idx.id}>
+                          <img
+                            style={{ borderRadius: 4, marginRight: 10 }}
+                            width="25"
+                            height="25"
+                            src={imgFirst}
+                          ></img>
+                          {item.title}
+                        </DropdownItem></Link>
                       ))}
                     </DropdownMenu>
                   </UncontrolledDropdown>

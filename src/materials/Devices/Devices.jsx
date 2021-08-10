@@ -25,6 +25,7 @@ export default class Devices extends Component {
       const cats = res.data;
       this.setState({ ...this.state, cats: cats.groups });
       console.log(cats.categories);
+      
     });
   } // async componentDidMount() {
   //   const url = "http://3.249.81.155:3000/gigabyte/api/v1/categories";

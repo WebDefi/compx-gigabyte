@@ -5,6 +5,10 @@ import ProductsPagination from "./components/ProductsPagination.jsx";
 import ProductsFilter from "./components/ProductsFilter";
 import logoSrc from "../../static/images/filter.svg";
 import axios from "axios";
+import {
+
+  Link
+} from "react-router-dom";
 
 const Products = ({ items }) => {
   // const [error, setError] = useState(null);
@@ -41,12 +45,14 @@ const Products = ({ items }) => {
         <Row className="products_row" style={{ paddingRight: "80px" }}>
           {items.map((item) => (
             <Col md="4" xl="4" style={{ marginBottom: "40px" }}>
-              <ProductItem
-                key={item.id}
-                title={item.name}
-                price={item.price}
-                link={item.url}
-              ></ProductItem>
+              <Link to={`/products/${item.id}`}>
+                <ProductItem
+                  key={item.id}
+                  title={item.name}
+                  price={item.price}
+                  link={item.url}
+                ></ProductItem>
+              </Link>
             </Col>
           ))}
         </Row>
