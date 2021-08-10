@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 
 const GalleryItem = ({
   titleItem,
-  img,
+  images,
   itemId,
   key,
   imgFirst,
@@ -22,6 +22,7 @@ const GalleryItem = ({
       duration: 1200,
     });
   }, []);
+
   return (
     <Container className="gallery text-center" data-aos="fade-up">
       <div className="gallery_lines">
@@ -35,21 +36,24 @@ const GalleryItem = ({
         {titleItem} <div className="gallery_btn__Arrow"></div>
       </button>
       {show ? (
+        // {`{"#"${index}`}
         <div className="gallery_content" data-aos="fade-down">
           <Row style={{ justifyContent: "center" }}>
-            <Col xs="3" lg="3" style={{ paddingTop: "10px" }} key={key}>
-              <a href="#0">
-                <img className="gallery__img" src={imgFirst} alt="1" />
-              </a>
-              <a href="#" className="gallery__img--hidden" id={itemId}>
-                <span
-                  style={{
-                    backgroundImage: "url(" + imgFirst + ")",
-                  }}
-                ></span>
-              </a>
-            </Col>
-            <Col xs="3" lg="3" style={{ paddingTop: "10px" }}>
+            {images.map((number, index) => (
+              <Col xs="4" lg="4" style={{ paddingTop: "10px" }}>
+                <a href="#4">
+                  <img className="gallery__img" src={number} alt={index} />
+                </a>
+                <a href="#" className="gallery__img--hidden" id="4">
+                  <span
+                    style={{
+                      backgroundImage: "url(" + { number } + ")",
+                    }}
+                  ></span>
+                </a>
+              </Col>
+            ))}
+            {/* <Col xs="3" lg="3" style={{ paddingTop: "10px" }}>
               <a href="#img2">
                 <img className="gallery__img" src={imgSecond} alt="2" />
               </a>
@@ -73,9 +77,9 @@ const GalleryItem = ({
                   }}
                 ></span>
               </a>
-            </Col>
+            </Col> */}
           </Row>
-          <Row style={{ justifyContent: "center" }}>
+          {/* <Row style={{ justifyContent: "center" }}>
             <Col xs="3" lg="3" style={{ paddingTop: "10px" }}>
               <a href="#img4">
                 <img className="gallery__img" src={imgForth} alt="4" />
@@ -112,7 +116,7 @@ const GalleryItem = ({
                 ></span>
               </a>
             </Col>
-          </Row>
+          </Row> */}
         </div>
       ) : null}
     </Container>

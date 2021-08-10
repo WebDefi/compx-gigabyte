@@ -30,7 +30,7 @@ const ProductsList = () => {
   }, []);
   return (
     <section class="product-cards">
-      <Container fluid style={{ padding: "100px 0 0" }}>
+      <Container fluid style={{ padding: "80px 0 0" }}>
         <Col>
           <ProductsPagination
             itemsPerPage={itemsPerPage}

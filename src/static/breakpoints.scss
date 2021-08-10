@@ -69,10 +69,10 @@
     width: 100%;
   }
   .products_row {
-    padding-right: 40px;
+    padding-right: 40px !important;
     padding-left: 40px;
   }
-  .ProductsFilter__lineBlock{
+  .ProductsFilter__lineBlock {
     padding: 0 35px;
   }
 }
@@ -81,6 +81,15 @@
   .product-card {
     width: 38vw;
     margin: 20px auto;
+    &::before {
+      width: 43vw;
+    }
+  }
+  .ProductsFilter {
+    display: none;
+  }
+  .ProductsFilterBtn {
+    display: block !important;
   }
 }
 
@@ -95,7 +104,17 @@
   }
 
   .product-card {
-    width: 45vw;
+    width: 41vw;
+    &::before {
+      width: 49vw;
+    }
+  }
+
+  .products_row {
+    padding: 0 !important;
+  }
+  .ProductsFilterBtn {
+    margin-left: 0px !important;
   }
 }
 
@@ -119,9 +138,9 @@
     height: 65rem;
   }
   .product-card {
-    width: 66vw;
+    width: 88vw;
     &::before {
-      width: 40vw;
+      width: 67vw;
     }
   }
 }
@@ -168,9 +187,9 @@
   }
 
   .product-card {
-    width: 87vw;
+    width: 88vw;
     &::before {
-      width: 55vw;
+      width: 81vw;
     }
   }
 

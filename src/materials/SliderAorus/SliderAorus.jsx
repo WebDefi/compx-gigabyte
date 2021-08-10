@@ -50,7 +50,7 @@ export default class SlideAorus extends Component {
                 sliderId={obj.id}
                 sliderTitle={obj.title_high}
                 sliderSubtitle={obj.title_low}
-                sliderBcg={SliderBcg1}
+                sliderBcg={obj.image}
                 sliderBcgMobile={SliderBcgMobile1}
                 btnText={obj.button_text}
               ></SliderAorusComponent>

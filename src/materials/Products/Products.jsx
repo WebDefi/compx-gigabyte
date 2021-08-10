@@ -3,6 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import ProductItem from "./components/ProductItem";
 import ProductsPagination from "./components/ProductsPagination.jsx";
 import ProductsFilter from "./components/ProductsFilter";
+import ProductsFilterBtn from "./components/ProductsFilterBtn";
 import logoSrc from "../../static/images/filter.svg";
 import axios from "axios";
 
@@ -29,18 +30,19 @@ const Products = ({ items }) => {
   // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   // const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
   return (
-    <Row>
-      <Col sm="" md="3" xl="3">
+    <Row style={{ padding: "0 40px" }}>
+      <Col sm="12" lg="3" xl="3">
         <ProductsFilter
           FilterBtn="Фільтр"
           CleanBtn="Очистити"
           logoSrc={logoSrc}
         ></ProductsFilter>
+        <ProductsFilterBtn textBtn="Фільтр" />
       </Col>
-      <Col md="9" xl="9">
-        <Row className="products_row" style={{ paddingRight: "80px" }}>
+      <Col sm="" lg="9" xl="9">
+        <Row className="products_row" style={{ paddingRight: "60px" }}>
           {items.map((item) => (
-            <Col md="4" xl="4" style={{ marginBottom: "40px" }}>
+            <Col sm="6" lg="4" xl="4" style={{ marginBottom: "30px" }}>
               <ProductItem
                 key={item.id}
                 title={item.name}

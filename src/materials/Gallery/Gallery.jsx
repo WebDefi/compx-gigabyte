@@ -41,12 +41,13 @@ const Gallery = () => {
             key={item.id}
             itemId={index}
             titleItem={item.title}
-            imgFirst={item.images[index]}
-            imgSecond={item.images[index + 1]}
-            imgThird={item.images[index + 2]}
-            imgForth={item.images[index + 3]}
-            imgFifth={item.images[index + 4]}
-            imgSixth={item.images[index + 5]}
+            images={item.images}
+            // imgFirst={item.images[index]}
+            // imgSecond={item.images[index + 1]}
+            // imgThird={item.images[index + 2]}
+            // imgForth={item.images[index + 3]}
+            // imgFifth={item.images[index + 4]}
+            // imgSixth={item.images[index + 5]}
           />
         ))}
         {/* <GalleryItem
