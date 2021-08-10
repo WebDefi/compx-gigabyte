@@ -25,7 +25,7 @@ const ProductsList = () => {
   // useEffect(() => {
   //   const getData = async () => {      
   //     let itemTree = [];
-  //     const resAllCats = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/items/1`);            
+  //     const resAllCats = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/groups`);            
   //     if(!resAllCats.status === 200) {
   //       console.log('Error while fetching data');
   //     } else {
@@ -48,15 +48,21 @@ const ProductsList = () => {
   //   getData();    
   // }, [setCatsTree]);  
   // console.log(catsTree);
+
   useEffect(() => {
     const fetchProducts = async () => {
       const res = await axios.get(
         "http://3.249.81.155:3000/gigabyte/api/v1/items/1"
       );
+      console.log(res);
       setItems(res.data);
+      
     };
+    
     fetchProducts();
   }, []);
+
+  
   return (
     <section class="product-cards">
       <Container fluid style={{ padding: "60px 0 0" }}>

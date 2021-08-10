@@ -18,36 +18,6 @@ const ProductsList = () => {
   const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
   const [catsTree, setCatsTree] = useState([]);
-
-  //change page
-  
-
-  // useEffect(() => {
-  //   const getData = async () => {      
-  //     let itemTree = [];
-  //     const resAllCats = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/items/1`);            
-  //     if(!resAllCats.status === 200) {
-  //       console.log('Error while fetching data');
-  //     } else {
-  //       const categories = await resAllCats.json();
-  //       for ( const { id: category_id, name: catName, pictureUrl } of categories) {          
-  //         const resCategories = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/items/${category_id}`);
-  //         if(!resCategories.status === 200) {
-  //           console.log('Error while fetching data');
-  //         } else {
-  //           const cats = await resCategories.json();
-  //           itemTree.push({
-  //             id: category_id, name: catName, pictureUrl,
-  //             cats: cats.items.map(({ category }) => ({id: category.id, name: category.title}))
-  //           });            
-  //         }
-  //       }
-  //       setCatsTree(catsTree);
-  //     }
-  //   };
-  //   getData();    
-  // }, [setCatsTree]);  
-  // console.log(catsTree);
   useEffect(() => {
     const fetchProducts = async () => {
       const res = await axios.get(

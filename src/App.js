@@ -28,7 +28,7 @@ function App() {
         <Gallery /> */}
         {/* <ProductsList /> */}
         <Route path="/products/2" component={ProductList2} />
-        <Route path="/products" component={ProductsList} />
+        <Route path="/products/1" component={ProductsList} />
         <Route path="/home" component={HomePage} />
         <Redirect from="/" to="/home" />
         <Footer />
