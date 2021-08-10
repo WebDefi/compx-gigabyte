@@ -3,15 +3,16 @@ import { NavLink } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import styles from "./DevicesComponent.scss";
+import { Link } from "react-router-dom";
 
-const DevicesComponent = ({ deviceImg, title }) => {
+const DevicesComponent = ({ deviceImg, title, link }) => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
     });
   }, []);
   return (
-   
+    <Link to={link}>
       <div data-aos="fade-left" className="DevicesComponent text-center">
         <NavLink to="/products" className="devices__href">
           <img
@@ -26,7 +27,7 @@ const DevicesComponent = ({ deviceImg, title }) => {
         </NavLink>
         <h5 className="deviceName text-center">{title}</h5>
       </div>
-
+    </Link>
   );
 };
 
