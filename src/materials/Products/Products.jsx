@@ -43,15 +43,13 @@ const Products = ({ items }) => {
       <Col xs="" lg="9" xl="9">
         <Row className="products_row" style={{ paddingRight: "60px" }}>
           {items.map((item) => (
-            <Col sm="6" lg="4" xl="4" style={{ marginBottom: "30px" }}>
-              
-                <ProductItem
-                  key={item.id}
-                  title={item.name}
-                  price={item.price}
-                  link={item.url}
-                ></ProductItem>
-              
+            <Col xs="6" lg="4" xl="4" style={{ marginBottom: "30px" }}>
+              <ProductItem
+                key={item.id}
+                title={item.name}
+                price={item.price}
+                link={item.url}
+              ></ProductItem>
             </Col>
           ))}
         </Row>
