@@ -57,7 +57,7 @@ export default class News extends Component {
         <Container style={{marginTop:60}}>
           <Slider {...settings}>
             {this.state.newsItems.map((item, idx) => {
-              return <NewsComponent key={idx.id} description={item.title} img={newsImg} link={item.url} /> 
+              return <NewsComponent key={idx.id} description={item.title} img={item.image} link={item.url} /> 
             })}
             
           

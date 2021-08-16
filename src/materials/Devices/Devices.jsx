@@ -90,14 +90,13 @@ export default class Devices extends Component {
           <Slider {...settings}>
             {this.state.cats.map((cat, idx) => {
               return (
-                <Link to={`/products/${cat.id}`}>
-                  <DevicesComponent
-                    title={cat.title}
-                    key={idx.id}
-                    deviceImg={slider2}
-                    deviceBg={deviceBg}
-                  ></DevicesComponent>
-                </Link>
+                <DevicesComponent
+                  title={cat.title}
+                  key={idx.id}
+                  deviceImg={slider2}
+                  deviceBg={deviceBg}
+                  link={`/products/${cat.id}`}
+                ></DevicesComponent>
               );
             })}
 
