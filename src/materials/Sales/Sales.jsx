@@ -4,12 +4,12 @@ import React, { Component, useState } from "react";
 import Slider from "react-slick";
 import { Container } from "reactstrap";
 import SectionContent from "../../common/SectionContent/SectionContent";
-import NewsComponent from "./components/NewsComponent";
+import SalesComponent from "./component/SalesComponent";
 import newsImg from "../../static/images/newsCard.png";
 import axios from "axios";
 import Divider from "../../common/Divider/Divider";
 
-export default class News extends Component {
+export default class Sales extends Component {
   state = {
     newsItems: [],
   };
@@ -50,13 +50,13 @@ export default class News extends Component {
       <div style={{ paddingTop: 170 }}>
         <Divider />
         <div>
-          <SectionContent title="новинки gigabyte"></SectionContent>
+          <SectionContent title="акции gigabyte"></SectionContent>
         </div>
         <Container style={{ marginTop: 60 }}>
           <Slider {...settings}>
             {this.state.newsItems.map((item, idx) => {
               return (
-                <NewsComponent
+                <SalesComponent
                   key={idx.id}
                   description={item.title}
                   img={item.image}

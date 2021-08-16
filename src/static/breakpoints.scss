@@ -91,6 +91,9 @@
   .ProductsFilterBtn {
     display: block !important;
   }
+  .Divider {
+    width: 600px !important;
+  }
 }
 
 @media only screen and (max-width: 790px) {
@@ -130,6 +133,10 @@
 
   .pagination {
     margin-right: 27px;
+  }
+
+  .Divider {
+    width: 400px !important;
   }
 }
 
@@ -226,5 +233,9 @@
 
   .products_rowFirst {
     padding: 0 !important;
+  }
+
+  .Divider {
+    width: 200px !important;
   }
 }

@@ -37,24 +37,30 @@ const GalleryItem = ({
       </button>
       {show ? (
         // {`{"#"${index}`}
+
         <div className="gallery_content" data-aos="fade-down">
+          <a href="item"></a>
           <Row style={{ justifyContent: "center" }}>
             {images.map((number, index, key) => (
               <Col xs="4" lg="4" style={{ paddingTop: "10px" }}>
-                <a href={`#${key}-${index}`}>
-                  <img className="gallery__img" src={number} alt={index} />
-                </a>
-                <a
-                  href="#"
-                  className="gallery__img--hidden"
-                  id={`${key}-${index}`}
-                >
-                  <span
-                    style={{
-                      backgroundImage: "url(" + number + ")",
-                    }}
-                  ></span>
-                </a>
+                <div>
+                  <a href={`#${key}-${index}`}>
+                    <img className="gallery__img" src={number} alt={index} />
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href="#item"
+                    className="gallery__img--hidden"
+                    id={`${key}-${index}`}
+                  >
+                    <span
+                      style={{
+                        backgroundImage: "url(" + number + ")",
+                      }}
+                    ></span>
+                  </a>
+                </div>
               </Col>
             ))}
             {/* <Col xs="3" lg="3" style={{ paddingTop: "10px" }}>

@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Gallery.module.scss";
 import GalleryItem from "./components/GalleryItem.jsx";
-import imgFirst from "../../static/images/galery1.png";
-import imgSecond from "../../static/images/galery2.png";
-import imgThird from "../../static/images/galery3.jpg";
-import imgForth from "../../static/images/galery4.jpg";
-import imgFifth from "../../static/images/galery5.jpg";
-import imgSixth from "../../static/images/galery6.jpg";
 import SectionContent from "../../common/SectionContent/SectionContent";
 
 const Gallery = () => {
@@ -34,7 +28,7 @@ const Gallery = () => {
     return <div className="products__wait">Завантаження...</div>;
   } else {
     return (
-      <div style={{ marginTop: "230px" }}>
+      <div style={{ marginTop: "170px" }}>
         <SectionContent title="ГАЛЕРЕЯ" />
         {items.map((item, index) => (
           <GalleryItem
