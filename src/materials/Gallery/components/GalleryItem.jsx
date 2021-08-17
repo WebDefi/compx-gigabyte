@@ -36,8 +36,6 @@ const GalleryItem = ({
         {titleItem} <div className="gallery_btn__Arrow"></div>
       </button>
       {show ? (
-        // {`{"#"${index}`}
-
         <div className="gallery_content" data-aos="fade-down">
           <a href="item"></a>
           <Row style={{ justifyContent: "center" }}>

@@ -11,6 +11,10 @@
   .ProductsFilter {
     width: 309px;
   }
+
+  .ProductsFilterMobile {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 1500px) {
@@ -79,7 +83,6 @@
 
 @media only screen and (max-width: 991px) {
   body {
-    
   }
   .product-card {
     width: 38vw;
@@ -88,8 +91,17 @@
       width: 43vw;
     }
   }
-  .ProductsFilter {
+  .ProductsFilterDesktop {
     display: none;
+  }
+  .ProductsFilterMobile {
+    display: block;
+  }
+  .ProductsFilter_block {
+    display: none;
+  }
+  .filterComponent_div {
+    width: 100%;
   }
   .ProductsFilterBtn {
     display: block !important;
@@ -176,7 +188,6 @@
 }
 
 @media only screen and (max-width: 500px) {
-  
   .imgBox__image {
     width: 98vw;
   }

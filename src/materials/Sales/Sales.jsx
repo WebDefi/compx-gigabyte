@@ -11,14 +11,14 @@ import Divider from "../../common/Divider/Divider";
 
 export default class Sales extends Component {
   state = {
-    newsItems: [],
+    salesItems: [],
   };
 
   componentDidMount() {
-    axios.get(`http://3.249.81.155:3000/gigabyte/api/v1/news`).then((res) => {
-      const newsItems = res.data.news;
-      this.setState({ ...this.state, newsItems });
-      console.log(newsItems);
+    axios.get(`http://3.249.81.155:3000/gigabyte/api/v1/sales`).then((res) => {
+      const salesItems = res.data.news;
+      this.setState({ ...this.state, salesItems });
+      console.log(salesItems);
     });
   }
   render() {
@@ -29,8 +29,8 @@ export default class Sales extends Component {
       slidesToShow: 4,
       slidesToScroll: 1,
       arrows: false,
-      autoplay: true,
-      autoplaySpeed: 2500,
+      // autoplay: true,
+      // autoplaySpeed: 2500,
       responsive: [
         {
           breakpoint: 1228,
@@ -54,7 +54,7 @@ export default class Sales extends Component {
         </div>
         <Container style={{ marginTop: 60 }}>
           <Slider {...settings}>
-            {this.state.newsItems.map((item, idx) => {
+            {this.state.salesItems.map((item, idx) => {
               return (
                 <SalesComponent
                   key={idx.id}
