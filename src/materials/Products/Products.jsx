@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import ProductItem from "./components/ProductItem";
 import ProductsPagination from "./components/ProductsPagination.jsx";
@@ -49,6 +50,8 @@ const Products = ({ items }) => {
                 title={item.name}
                 price={item.price}
                 link={item.url}
+                image={item.images}
+                details={item.detaileddescru}
               ></ProductItem>
             </Col>
           ))}

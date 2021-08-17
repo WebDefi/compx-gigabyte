@@ -44,45 +44,12 @@ const Header = () => {
         }
       );
   }, []);
-  
-  // useEffect(() => {
-  //   const getData = async () => {      
-  //     let catTree = [];
-  //     const resCategories = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/groups`);            
-  //     if(!resCategories.status === 200) {
-  //       console.log('Error while fetching data');
-  //     } else {
-  //       const categories = await resCategories.json();
-  //       for ( const { id: category_id, title: catName, pictureUrl } of categories.groups) {          
-  //         const resSubCategories = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/items/${category_id}`);
-  //         if(!resSubCategories.status === 200) {
-  //           console.log('Error while fetching data');
-  //         } else {
-  //           const subCategories = await resSubCategories.json();
-  //           catTree.push({
-  //             id: category_id, title: catName, pictureUrl,
-  //             subCategories: subCategories.map(({ subcategory }) => ({id: subcategory.id, title: subcategory.title}))
-  //           });            
-  //         }
-  //       }
-  //       setCategoryTree(catTree);
-        
-  //     }
-  //   };
-    
-  //   getData();    
-  // }, [setCategoryTree]);  
-
-  // console.log(categoryTree);  
-
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [groups, setGroups] = useState([]);
 
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  const [dropdownOpen, setOpen] = useState(false);
-  // const toggle = () => setOpen(!dropdownOpen);
   const [dropOpen, seOpen] = useState(false);
   const [dnone, setDnone] = useState(false);
 
@@ -107,17 +74,17 @@ const Header = () => {
     <div>
       <div
         data-aos="fade"
-        style={{ position: "fixed", zIndex: 9999, width: "100%", top: 0 }}
+        style={{ position: "fixed", zIndex: 1000, width: "100%", top: 0 }}
       >
         <div>
           <Navbar
-            style={{ opacity: "0.6" }}
+            style={{ opacity: "0.94" }}
             color="dark"
             dark
             expand="sm"
             className={dnone ? " dnone" : "none"}
           >
-            <Container>
+            <Container >
               <NavbarBrand href="/home">
                 <img src={gigabyte} width="125px" />
               </NavbarBrand>
@@ -127,19 +94,22 @@ const Header = () => {
                 <Nav className="mr-auto" navbar>
                   <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
-                      Options
+                      Продукция
                     </DropdownToggle>
                     <DropdownMenu right>
                       {groups.map((item, idx) => (
                         <Link to={`/products/${item.id}`}>
                           <DropdownItem key={idx.id}>
                             <img
-                              style={{ borderRadius: 4, marginRight: 10 }}
-                              width="25"
-                              height="25"
+                              style={{ borderRadius: 4, display:"flex", alignItems:"center"}}
                               src={imgFirst}
                             ></img>
-                            {item.title}
+                               <p style={{display:"inline-block"}}>
+                                  {item.title}
+                               </p>
+                              
+                               
+                             
                           </DropdownItem>
                         </Link>
                       ))}
@@ -147,7 +117,7 @@ const Header = () => {
                   </UncontrolledDropdown>
                   <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
-                      Options2
+                      Интересное
                     </DropdownToggle>
                     <DropdownMenu right>
                       <DropdownItem>Option 3</DropdownItem>
@@ -188,7 +158,7 @@ const Header = () => {
                   </NavItem>
                 </Nav>
               </Collapse>
-              <img style={{ float: "right" }} src={logo} width="165px" />
+              <img style={{ float: "right" }} src={logo} width="165px" className="logo" />
             </Container>
           </Navbar>
         </div>
@@ -277,11 +247,12 @@ const Header = () => {
                       <Col xs="12">
                         <a href="/home">
                           <img
+                            className="logo"
                             src={logo}
                             style={{
                               position: "relative",
                               top: "45px",
-                              zIndex: 9999,
+                              zIndex: 1000,
                             }}
                           />
                         </a>
@@ -294,7 +265,7 @@ const Header = () => {
           </div>
           <Row className="text-center headerLower">
             <Col>
-              <img src={headerlower} className="navOuter"></img>
+              <img style={{opacity:0.85}} src={headerlower} className="navOuter"></img>
             </Col>
           </Row>
           <div className="divchick">
@@ -315,7 +286,7 @@ const Header = () => {
                 >
                   <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
-                      Options1
+                      Продукция
                     </DropdownToggle>
                     <DropdownMenu right>
                       {groups.map((item, idx) => (
@@ -323,8 +294,6 @@ const Header = () => {
                         <DropdownItem key={idx.id}>
                           <img
                             style={{ borderRadius: 4, marginRight: 10 }}
-                            width="25"
-                            height="25"
                             src={imgFirst}
                           ></img>
                           {item.title}
@@ -334,11 +303,11 @@ const Header = () => {
                   </UncontrolledDropdown>
                   <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
-                      Options2
+                      Интересное
                     </DropdownToggle>
                     <DropdownMenu right>
-                      <DropdownItem>Option 3</DropdownItem>
-                      <DropdownItem>Option 4</DropdownItem>
+                      <DropdownItem>Продукция</DropdownItem>
+                      <DropdownItem>Интересное</DropdownItem>
                       <DropdownItem divider />
                       <DropdownItem>Reset</DropdownItem>
                     </DropdownMenu>

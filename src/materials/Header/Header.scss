@@ -96,3 +96,29 @@
 }
 
 //не должно быть столько вложенности
+.dropdown-menu {
+  background-color: #000;
+  
+  
+}
+.dropdown-menu.show {
+  display: flex;
+   
+   
+
+}
+.dropdown-item {
+  text-align: center;
+  color: #fff;
+  &:hover {
+    background-color: #fa6812;
+    color: #fff;
+  }
+  img {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 120px;
+    height: 100px;
+  }
+}
