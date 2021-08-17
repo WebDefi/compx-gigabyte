@@ -50,6 +50,8 @@ const Products = ({ items }) => {
                 price={item.price}
                 link={item.url}
                 image={item.images}
+                 
+                details={item.detaileddescru}
               ></ProductItem>
             </Col>
           ))}

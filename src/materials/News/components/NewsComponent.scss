@@ -10,13 +10,23 @@
   display: inline-block;
   height: 200px;
   width: 200px;
+<<<<<<< Updated upstream
   background-position: center;
   background-repeat: no-repeat;
 }
 .imgBox {
+=======
+  
+  
+
+}
+.imgBox {
+  
+  background-color: #fff;
+>>>>>>> Stashed changes
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 380px;
   overflow: hidden;
   z-index: 999;
   clip-path: polygon(
@@ -33,8 +43,8 @@
   );
 
   img {
-    width: 95%;
-    height: 380px;
+    width: 100%;
+    height: 60%;
     transition: all 0.3s;
     -o-object-fit: cover;
     object-fit: cover;

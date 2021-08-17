@@ -78,6 +78,9 @@
 }
 
 @media only screen and (max-width: 991px) {
+  body {
+    
+  }
   .product-card {
     width: 38vw;
     margin: 20px auto;
@@ -122,6 +125,15 @@
 }
 
 @media only screen and (max-width: 766px) {
+  .slick-prev {
+    left: 10%;
+  }
+  .slick-next {
+    right: 10%;
+  }
+  .logo {
+    display: none;
+  }
   .DevicesComponent {
     img {
       width: 45%;
@@ -141,6 +153,12 @@
 }
 
 @media only screen and (max-width: 575px) {
+  .slick-prev {
+    left: 10%;
+  }
+  .slick-next {
+    right: 10%;
+  }
   .footerLine {
     height: 65rem;
   }
@@ -151,8 +169,14 @@
     }
   }
 }
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 717px;
+  }
+}
 
 @media only screen and (max-width: 500px) {
+  
   .imgBox__image {
     width: 98vw;
   }
