@@ -20,17 +20,16 @@ const ProductsList = () => {
   const [catsTree, setCatsTree] = useState([]);
 
   //change page
-  
 
   // useEffect(() => {
-  //   const getData = async () => {      
+  //   const getData = async () => {
   //     let itemTree = [];
-  //     const resAllCats = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/groups`);            
+  //     const resAllCats = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/groups`);
   //     if(!resAllCats.status === 200) {
   //       console.log('Error while fetching data');
   //     } else {
   //       const categories = await resAllCats.json();
-  //       for ( const { id: category_id, name: catName, pictureUrl } of categories) {          
+  //       for ( const { id: category_id, name: catName, pictureUrl } of categories) {
   //         const resCategories = await fetch(`http://3.249.81.155:3000/gigabyte/api/v1/items/${category_id}`);
   //         if(!resCategories.status === 200) {
   //           console.log('Error while fetching data');
@@ -39,14 +38,14 @@ const ProductsList = () => {
   //           itemTree.push({
   //             id: category_id, name: catName, pictureUrl,
   //             cats: cats.items.map(({ category }) => ({id: category.id, name: category.title}))
-  //           });            
+  //           });
   //         }
   //       }
   //       setCatsTree(catsTree);
   //     }
   //   };
-  //   getData();    
-  // }, [setCatsTree]);  
+  //   getData();
+  // }, [setCatsTree]);
   // console.log(catsTree);
 
   useEffect(() => {
@@ -56,13 +55,11 @@ const ProductsList = () => {
       );
       console.log(res);
       setItems(res.data);
-      
     };
-    
+
     fetchProducts();
   }, []);
 
-  
   return (
     <section class="product-cards">
       <Container fluid style={{ padding: "60px 0 0" }}>
