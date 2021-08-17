@@ -17,27 +17,31 @@ const ProductItem = ({
   image,
   props = [],
   details,
+  alt,
+  ...rest
 }) => {
   const [modal, setModal] = useState(false);
   const { buttonLabel, className } = props;
-  if (image === null) {
-    return <p>Loading profile...</p>;
-  }
+
+  const [isLoading, setLoading] = React.useState(true);
+  const [isError, setIsError] = React.useState(false);
   const toggle = () => setModal(!modal);
   return (
     <div key={key} class="product-card">
       <div className="product-box">
+      {isError && !isLoading && <div>*Заглушка для ошибки*</div>}
+      {!isError && isLoading && <div>*Заглушка*</div>}
         <div
           className="product-img"
-          style={{ backgroundImage: `url(${image})` }}
+          style={{ backgroundImage: `url(${image})`,  }}
         ></div>
       </div>
       <strong className="product-name">{title}</strong>
       <div className="product-price">
         <button className="product-btn btn-info" onClick={toggle}>
-          <span>Подробнее</span>
+          <span>Информ</span>
         </button>
-        <small >{price}&#8372;</small>
+        <small>{price}&#8372;</small>
         <button className="product-btn">
           <span>Купить</span>
         </button>
@@ -66,12 +70,16 @@ const ProductItem = ({
               width: "100%",
             }}
           >
-            <small style={{ fontSize: "20px", color: "#fa6812",fontWeight:"500" }}>
+            <small
+              style={{ fontSize: "20px", color: "#fa6812", fontWeight: "500" }}
+            >
               {price}&#8372;
             </small>
-            <button className="product-btn" style={{}}>
-              <span>Купить</span>
-            </button>
+            <a href={link}>
+              <button className="product-btn" style={{}}>
+                <span>Купить</span>
+              </button>
+            </a>
           </div>
         </ModalFooter>
       </Modal>

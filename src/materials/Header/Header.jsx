@@ -101,14 +101,14 @@ const Header = () => {
                         <Link to={`/products/${item.id}`}>
                           <DropdownItem key={idx.id}>
                             <img
-                              style={{ borderRadius: 4, marginRight: 10 }}
+                              style={{ borderRadius: 4, display:"flex", alignItems:"center"}}
                               src={imgFirst}
                             ></img>
-                             
-                            
-                              <p style={{width:50}}>
-                              {item.title}
-                              </p>
+                               <p style={{display:"inline-block"}}>
+                                  {item.title}
+                               </p>
+                              
+                               
                              
                           </DropdownItem>
                         </Link>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import ProductItem from "./components/ProductItem";
 import ProductsPagination from "./components/ProductsPagination.jsx";
@@ -8,7 +9,8 @@ import logoSrc from "../../static/images/filter.svg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Products = ({ items }) => {
+const Products = ({ items, }) => {
+  
   // const [error, setError] = useState(null);
   // const [isLoaded, setIsLoaded] = useState(false);
   // const [items, setItems] = useState([]);
@@ -50,7 +52,6 @@ const Products = ({ items }) => {
                 price={item.price}
                 link={item.url}
                 image={item.images}
-                 
                 details={item.detaileddescru}
               ></ProductItem>
             </Col>
