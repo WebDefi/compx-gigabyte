@@ -1,17 +1,40 @@
-import React from "react";
-import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import React, {useEffect, useState} from "react";
+import { Breadcrumb, BreadcrumbItem, Container, Row,Col  } from 'reactstrap';
 import { withRouter, Link } from "react-router-dom";
 
 const Breadcrumbs = props => {
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
   const {
     history,
     location: { pathname }
   } = props;
   const pathnames = pathname.split("/").filter(x => x);
+  useEffect(() => {
+    fetch(
+      "http://3.249.81.155:3000/gigabyte/api/v1/items/1?charValues=[%226%22]&start=0&end=1"
+    )
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setItems(result);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  }, []);
+
   return (
-    <Breadcrumb>
+    <Container fluid>
+     <Row>
+       <Col>
+        <Breadcrumb>
       {pathnames.length > 0 ? (
-        <Link style={{paddingRight:10}} onClick={() => history.push("/")}>Главная</Link>
+        <Link style={{paddingRight:10}} onClick={() => history.push("/Home")}>Главная</Link>
       ) : (
         <p> Главная </p>
       )}
@@ -26,8 +49,11 @@ const Breadcrumbs = props => {
           </Link>
         );
       })}
-    </Breadcrumb>
+    </Breadcrumb></Col>
+     </Row>
+    </Container>
   );
 };
 
 export default withRouter(Breadcrumbs);
+ 

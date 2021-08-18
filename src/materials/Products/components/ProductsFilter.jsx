@@ -4,13 +4,6 @@ import ProductsFilterComponent from "./ProductsFilterComponent";
 import "./ProductsFilter.scss";
 
 const ProductsFilter = ({ FilterBtn, CleanBtn, logoSrc }) => {
-  // const items = [
-  //   { value: "Графічний чіп", key: "1" },
-  //   { value: "Обсяг відео пам'яті", key: "2" },
-  //   { value: "Рекомендований блок живлення", key: "3" },
-  //   { value: "Додаткове живлення", key: "4" },
-  // ];
-
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
