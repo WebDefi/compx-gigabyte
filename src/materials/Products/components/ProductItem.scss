@@ -44,12 +44,11 @@
   position: relative;
   width: 70%;
   height: 12em;
-  top: 0;
+  top: 15px;
+  left: 15%;
   
   // background-image: url("https://static.gigabyte.com/StaticFile/Image/Global/49a9df63553c6f67a87b2342773a4990/Product/26843/webp/400");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  
   margin: 0 auto;
   transition: 0.3s background-image;
    

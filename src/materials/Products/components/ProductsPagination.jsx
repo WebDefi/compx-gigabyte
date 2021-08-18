@@ -10,6 +10,7 @@ import {
 
 const ProductsPagination = ( {itemsPerPage, totalItems, paginate}) => {
   const pageNumbers = [];
+  
 
   for(let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
     pageNumbers.push(i);
@@ -18,6 +19,7 @@ const ProductsPagination = ( {itemsPerPage, totalItems, paginate}) => {
   return (
     <Container>
       <Pagination aria-label="Page navigation example">
+      
       <PaginationItem>
         {pageNumbers.map(number => (
           <PaginationLink key={number} className="page-i page-num" href="#" onClick={() => paginate(number)}>

@@ -3,16 +3,20 @@
 
 .page-i {
   border: 1px solid $white;
-  border-radius: 0% !important;
+  border-radius: 6px !important;
   box-shadow: 1px 1px $btnpagination;
   background: #202020;
   cursor: pointer;
-  padding: 5px;
+  padding: 10px 20px;
   color: $white;
   height: 30px;
   margin: 6px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 15px;
+ 
+ 
 
   &:hover {
     background-color: transparent;
@@ -36,6 +40,7 @@
 }
 
 .page-num {
+  
   height: 30px;
   width: 30px;
   text-align: center;
@@ -52,15 +57,18 @@
 }
 
 .page-item {
+  
   &:active {
     border: none;
   }
 }
 
 .page-item {
+  align-items: center;
   display:flex;
 }
 .pagination {
+  
   position: absolute;
   right: 0;
   bottom: 0;
@@ -68,5 +76,6 @@
 }
 
 .page-link:focus {
+  
   box-shadow: none;
 }

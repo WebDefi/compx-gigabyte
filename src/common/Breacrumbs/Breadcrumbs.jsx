@@ -9,9 +9,9 @@ const Breadcrumbs = props => {
   } = props;
   const pathnames = pathname.split("/").filter(x => x);
   return (
-    <Breadcrumb  >
+    <Breadcrumb>
       {pathnames.length > 0 ? (
-        <Link onClick={() => history.push("/")}>Главная</Link>
+        <Link style={{paddingRight:10}} onClick={() => history.push("/")}>Главная</Link>
       ) : (
         <p> Главная </p>
       )}
@@ -19,9 +19,9 @@ const Breadcrumbs = props => {
         const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
         const isLast = index === pathnames.length - 1;
         return isLast ? (
-          <p key={name}>{name}</p>
+          <p style={{paddingRight:10}} key={name}>{name}</p>
         ) : (
-          <Link key={name} onClick={() => history.push(routeTo)}>
+          <Link style={{paddingRight:10}} key={name} onClick={() => history.push(routeTo)}>
             {name}
           </Link>
         );
