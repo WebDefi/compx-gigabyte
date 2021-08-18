@@ -1,26 +1,37 @@
 import React from "react";
 import "./ProductsFilterComponent.scss";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ProductsFilterComponent = ({ items }) => {
+const ProductsFilterComponent = ({ name, alias, values }) => {
+  const [show, showState] = React.useState(false);
   return (
     <div className="filterComponent">
       <ul className="filterComponent_ul">
-        {items.map((item) => (
-          <li className="filterComponent_li">
-            <div className="filterComponent_div">
-              <h3 className="filterComponent__title" key={item.key}>
-                {item.value}
-                <FontAwesomeIcon
-                  icon={faPlus}
-                  className="filterComponent__icon"
-                  style={{ position: "absolute", right: "0", margin: "12px 0" }}
-                />
-              </h3>
-            </div>
-          </li>
-        ))}
+        <li className="filterComponent_li" onClick={() => showState(!show)}>
+          <div className="filterComponent_div">
+            <h3 className="filterComponent__title">
+              {alias}
+              <FontAwesomeIcon
+                icon={show ? faMinus : faPlus}
+                className="filterComponent__icon"
+                style={{ position: "absolute", right: "0", margin: "12px 0" }}
+              />
+            </h3>
+          </div>
+        </li>
+        {show ? (
+          <div>
+            {values.map((item) => (
+              <div>
+                <label>
+                  <input type="checkbox" value={item}></input>
+                  {item}
+                </label>
+              </div>
+            ))}
+          </div>
+        ) : null}
       </ul>
     </div>
   );
