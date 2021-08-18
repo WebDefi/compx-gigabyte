@@ -4,6 +4,7 @@ import axios from "axios";
 import Products from "./Products";
 import ProductsPagination from "./components/ProductsPagination";
 import { useLocation } from "react-router-dom";
+import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 const ProductsList = () => {
   // Get current items
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -16,7 +17,7 @@ const ProductsList = () => {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = items.slice(indexOfFirstItem , indexOfLastItem);
 
   //change page
   const { pathname } = useLocation();
@@ -40,9 +41,11 @@ const ProductsList = () => {
   return (
     <section class="product-cards">
       <Container fluid style={{ padding: "60px 0 0" }}>
+      <Breadcrumbs />
         <Products items={currentItems} />
         <Row>
           <Col xs="12 ">
+            
             <ProductsPagination
               itemsPerPage={itemsPerPage}
               totalItems={items.length}

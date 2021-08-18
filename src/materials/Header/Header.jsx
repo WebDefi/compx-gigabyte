@@ -84,7 +84,7 @@ const Header = () => {
             expand="sm"
             className={dnone ? " dnone" : "none"}
           >
-            <Container >
+            <Container>
               <NavbarBrand href="/home">
                 <img src={gigabyte} width="125px" />
               </NavbarBrand>
@@ -100,16 +100,8 @@ const Header = () => {
                       {groups.map((item, idx) => (
                         <Link to={`/products/${item.id}`}>
                           <DropdownItem key={idx.id}>
-                            <img
-                              style={{ borderRadius: 4, display:"flex", alignItems:"center"}}
-                              src={imgFirst}
-                            ></img>
-                               <p style={{display:"inline-block"}}>
-                                  {item.title}
-                               </p>
-                              
-                               
-                             
+                            <img src={imgFirst}></img>
+                            <p className="groupTitle">{item.title}</p>
                           </DropdownItem>
                         </Link>
                       ))}
@@ -158,7 +150,12 @@ const Header = () => {
                   </NavItem>
                 </Nav>
               </Collapse>
-              <img style={{ float: "right" }} src={logo} width="165px" className="logo" />
+              <img
+                style={{ float: "right" }}
+                src={logo}
+                width="165px"
+                className="logo"
+              />
             </Container>
           </Navbar>
         </div>
@@ -265,7 +262,11 @@ const Header = () => {
           </div>
           <Row className="text-center headerLower">
             <Col>
-              <img style={{opacity:0.85}} src={headerlower} className="navOuter"></img>
+              <img
+                style={{ opacity: 0.85 }}
+                src={headerlower}
+                className="navOuter"
+              ></img>
             </Col>
           </Row>
           <div className="divchick">
@@ -291,13 +292,11 @@ const Header = () => {
                     <DropdownMenu right>
                       {groups.map((item, idx) => (
                         <Link to={`/products/${item.id}`}>
-                        <DropdownItem key={idx.id}>
-                          <img
-                            style={{ borderRadius: 4, marginRight: 10 }}
-                            src={imgFirst}
-                          ></img>
-                          {item.title}
-                        </DropdownItem></Link>
+                          <DropdownItem key={idx.id}>
+                            <img src={imgFirst}></img>
+                            <p className="groupTitle">{item.title}</p>
+                          </DropdownItem>
+                        </Link>
                       ))}
                     </DropdownMenu>
                   </UncontrolledDropdown>

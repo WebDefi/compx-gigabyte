@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import styles from "./ProductItem.scss";
 import ProductsFilter from "../components/ProductsFilter";
 import logoSrc from "../../../static/images/filter.svg";
@@ -18,33 +18,37 @@ const ProductItem = ({
   props = [],
   details,
   alt,
-  ...rest
+
 }) => {
   const [modal, setModal] = useState(false);
   const { buttonLabel, className } = props;
 
-  const [isLoading, setLoading] = React.useState(true);
+  const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
   const toggle = () => setModal(!modal);
+
   return (
-    <div key={key} class="product-card">
-      <div className="product-box">
-      {isError && !isLoading && <div>*Заглушка для ошибки*</div>}
-      {!isError && isLoading && <div>*Заглушка*</div>}
-        <div
+    <div key={key} class="product-card" >
+      <div className="product-box" onClick={toggle}>
+        
+      <LazyLoadImage
+          width="100%"
+          height="200px"
+          src={image}
           className="product-img"
-          style={{ backgroundImage: `url(${image})`,  }}
-        ></div>
+          placeholderSrc={process.env.PUBLIC_URL + "https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg"}
+        ></LazyLoadImage>
+         
+        
       </div>
-      <strong className="product-name">{title}</strong>
+      <strong className="product-name" onClick={toggle}>{title}</strong>
       <div className="product-price">
-        <button className="product-btn btn-info" onClick={toggle}>
-          <span>Информ</span>
-        </button>
         <small>{price}&#8372;</small>
-        <button className="product-btn">
-          <span>Купить</span>
-        </button>
+        <a href={link}>
+          <button className="product-btn">
+            <span>Купить</span>
+          </button>
+        </a>
       </div>
       <Modal
         isOpen={modal}
@@ -76,7 +80,7 @@ const ProductItem = ({
               {price}&#8372;
             </small>
             <a href={link}>
-              <button className="product-btn" style={{}}>
+              <button className="product-btn" style={{ padding: 10 }}>
                 <span>Купить</span>
               </button>
             </a>

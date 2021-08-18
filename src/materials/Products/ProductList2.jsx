@@ -3,7 +3,9 @@ import { Container, Row, Col } from "reactstrap";
 import axios from "axios";
 import Products from "./Products";
 import ProductsPagination from "./components/ProductsPagination";
-const ProductsList = () => {
+import { useLocation } from "react-router-dom";
+import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
+const ProductsList2 = () => {
   // Get current items
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const [error, setError] = useState(null);
@@ -15,21 +17,34 @@ const ProductsList = () => {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = items.slice(indexOfFirstItem , indexOfLastItem);
 
-  const [catsTree, setCatsTree] = useState([]);
+  //change page
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+
   useEffect(() => {
     const fetchProducts = async () => {
       const res = await axios.get(
-        "http://3.249.81.155:3000/gigabyte/api/v1/items/2"
+        "http://3.249.81.155:3000/gigabyte/api/v1/items/1"
       );
-      setItems(res.data);
+      console.log(res);
+      setItems(res.data.items);
+      
     };
+    
     fetchProducts();
   }, []);
+
+  
   return (
     <section class="product-cards">
-      <Container fluid style={{ padding: "100px 0 0" }}>
+      <Container fluid style={{ padding: "60px 0 0" }}>
+        <Breadcrumbs />
         <Products items={currentItems} />
         <Row>
           <Col xs="12 ">
@@ -45,4 +60,4 @@ const ProductsList = () => {
   );
 };
 
-export default ProductsList;
+export default ProductsList2;

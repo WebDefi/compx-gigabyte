@@ -20,7 +20,7 @@
   padding: 0em;
   // background-color: #fff;
   border-radius: 15px;
-  border: 2px solid #FA6812;
+  border: 2px solid #fff;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -29,6 +29,9 @@
   transition: 0.2s transform ease;
   cursor: pointer;
   margin: 10px auto;
+  &:hover {
+    border: 2px solid #FA6812;
+  }
 }
  
 .product-box {
@@ -51,9 +54,9 @@
   transition: 0.3s background-image;
    
 }
-.product-card:hover .product-img {
-  background-image: url("https://www.gigabyte.com/FileUpload/Global/KeyFeature/1699/innergigabyteimages/rgb/cover.png");
-}
+// .product-card:hover .product-img {
+//   background-image: url("https://www.gigabyte.com/FileUpload/Global/KeyFeature/1699/innergigabyteimages/rgb/cover.png");
+// }
 .product-name,
 .product-price {
   position: relative;
@@ -92,6 +95,7 @@
   border: none;
   background-color: #fa6812;
   border-radius: 5px;
+  padding: 2px 15px;
   color: #fff;
   span {
     font-weight: 300;
@@ -100,14 +104,28 @@
 }
 
 .btn-info {
-  background-color: lavender;
+  background-color: none;
 }
 
 .modal {
   top: 0px;
-  bottom: 150px;
+  bottom: 150px; 
 }
 
+.modal-dialog {
+  border-radius: 20px;
+}
+.modal-content {
+ 
+  border-radius: 18px;
+}
+
+.modal-header {
+  border-radius: 18px 18px 0 0 ;
+}
+.modal-footer {
+  border-radius: 0 0 18px 18px ;
+}
 .close {
   display: none;
 }
