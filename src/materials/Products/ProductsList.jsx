@@ -19,6 +19,11 @@ const ProductsList = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = items.slice(indexOfFirstItem , indexOfLastItem);
+
+  const [pageNumberLimit, setPageNumberLimit] = useState(5);
+  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
+  const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
+  
   const nextPage = () => setCurrentPage( prev => prev + 1)
   const prevPage = () => setCurrentPage( prev => prev - 1)
   //change page
