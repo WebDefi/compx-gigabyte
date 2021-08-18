@@ -17,7 +17,7 @@ const SalesComponent = ({ description, img, link }) => {
     <div data-aos="flip-right" className="divvv">
       <div className="imgBox imgBox--sales">
         <img
-          className="imgBox__image"
+          className="imgBox__image imgBox--center"
           src={img}
           style={{ display: "inline-block" }}
         ></img>

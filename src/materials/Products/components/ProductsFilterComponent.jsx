@@ -22,12 +22,15 @@ const ProductsFilterComponent = ({ name, alias, values }) => {
         </li>
         {show ? (
           <div>
-            {values.map((item) => (
+            {values.map((item, index) => (
               <div>
-                <label>
-                  <input type="checkbox" value={item}></input>
-                  {item}
-                </label>
+                <input
+                  className="filterComponent__checkbox"
+                  type="checkbox"
+                  value={item}
+                  id={`#${item}-${index}`}
+                ></input>
+                <label for={`#${item}-${index}`}>{item}</label>
               </div>
             ))}
           </div>
