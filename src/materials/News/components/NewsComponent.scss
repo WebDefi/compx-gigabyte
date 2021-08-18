@@ -12,63 +12,52 @@
   width: 200px;
   background-position: center;
   background-repeat: no-repeat;
-
 }
 .imgBox {
-  
-
+  background-color: #fff;
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 380px;
   overflow: hidden;
   z-index: 999;
-  clip-path: polygon(0% 0%, 0% 100%, 60% 96%, 15% 0, 86% 0, 83% 3%, 16% 3%, 8% 100%, 100% 100%, 100% 0%, );
-  
-
-
+  clip-path: polygon(
+    0% 0%,
+    0% 100%,
+    64.85% 100%,
+    15% 0,
+    86% 0,
+    83% 3%,
+    16% 3%,
+    8% 100%,
+    100% 100%,
+    100% 0%
+  );
 
   img {
-    width: 95%;
-    height: 380px;
+    width: 100%;
+    height: 60%;
     transition: all 0.3s;
     -o-object-fit: cover;
     object-fit: cover;
   }
 }
 
-.divvv{
+.divvv {
   width: 100%;
-  // &::before {
-  
-    
-  //   transition: 0.3s;
-  //   content: " ";
-  //   border-radius: 20px;
-  //   width: 230px;
-  //   left: 25%;  
-  //   height: 12px;
-  //   bottom: 506px;
-  //   background: $primary;
-  //   z-index: 1000;
-  //   position: absolute;
-
-  // }
+ 
 }
 
 .container {
   .slick-slider {
     .slick-slide {
-     
       .divvv {
-        
         &:hover {
-          
           .newsDescription {
             text-overflow: ellipsis;
-             
+
             overflow: hidden;
             transition: 0.4s;
-            color:#fff;
+            color: #fff;
           }
           .outlineButton {
             transition: 0.4s;
@@ -80,48 +69,42 @@
   }
 }
 
+.outlineButton {
+  width: 95%;
+  display: none;
+  position: relative;
 
-
-  .outlineButton {
-    width: 95%;
-    display: none;
-    position: relative;
-     
-    padding: 0.2em 0;
-    background-color: #050307;
-    outline: none;
-    border: 2px solid $primary;
-    color: $primary;
-    margin: 0.3em 0;  
-    font-size: 1.2em;  
-  }
-  .outlineButton::before,
-  .outlineButton::after {
-    content: '';
-    position: absolute;
-    width: 4em;
-    height: 0.6em;
-    border: 2px solid $primary;
-    background: #050307;  
-    z-index: 1;  
-    transition: 0.3s;
-  }
-  .outlineButton::before {
-    bottom: -0.35em;
-    left: 0.5em;
-  }
-  .outlineButton::after {
-    top: -0.35em;
-    right: 0.5em;
-  }
-  .outlineButton:hover {
-    cursor: pointer;
-   
-     
-  }
-  .outlineButton:hover:before,
-  .outlineButton:hover:after {
-    width: 15em;
-    
-  }
-  
+  padding: 0.2em 0;
+  background-color: #050307;
+  outline: none;
+  border: 2px solid $primary;
+  color: $primary;
+  margin: 0.3em 0;
+  font-size: 1.2em;
+}
+.outlineButton::before,
+.outlineButton::after {
+  content: "";
+  position: absolute;
+  width: 4em;
+  height: 0.6em;
+  border: 2px solid $primary;
+  background: #050307;
+  z-index: 1;
+  transition: 0.3s;
+}
+.outlineButton::before {
+  bottom: -0.35em;
+  left: 0.5em;
+}
+.outlineButton::after {
+  top: -0.35em;
+  right: 0.5em;
+}
+.outlineButton:hover {
+  cursor: pointer;
+}
+.outlineButton:hover:before,
+.outlineButton:hover:after {
+  width: 15em;
+}

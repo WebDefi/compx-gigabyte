@@ -4,21 +4,21 @@ import React, { Component, useState } from "react";
 import Slider from "react-slick";
 import { Container } from "reactstrap";
 import SectionContent from "../../common/SectionContent/SectionContent";
-import NewsComponent from "./components/NewsComponent";
+import SalesComponent from "./component/SalesComponent";
 import newsImg from "../../static/images/newsCard.png";
 import axios from "axios";
 import Divider from "../../common/Divider/Divider";
 
-export default class News extends Component {
+export default class Sales extends Component {
   state = {
-    newsItems: [],
+    salesItems: [],
   };
 
   componentDidMount() {
-    axios.get(`http://3.249.81.155:3000/gigabyte/api/v1/news`).then((res) => {
-      const newsItems = res.data.news;
-      this.setState({ ...this.state, newsItems });
-      console.log(newsItems);
+    axios.get(`http://3.249.81.155:3000/gigabyte/api/v1/sales`).then((res) => {
+      const salesItems = res.data.news;
+      this.setState({ ...this.state, salesItems });
+      console.log(salesItems);
     });
   }
   render() {
@@ -50,13 +50,13 @@ export default class News extends Component {
       <div style={{ paddingTop: 170 }}>
         <Divider />
         <div>
-          <SectionContent title="новинки gigabyte"></SectionContent>
+          <SectionContent title="акции gigabyte"></SectionContent>
         </div>
         <Container style={{ marginTop: 60 }}>
           <Slider {...settings}>
-            {this.state.newsItems.map((item, idx) => {
+            {this.state.salesItems.map((item, idx) => {
               return (
-                <NewsComponent
+                <SalesComponent
                   key={idx.id}
                   description={item.title}
                   img={item.image}

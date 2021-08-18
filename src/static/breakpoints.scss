@@ -11,6 +11,13 @@
   .ProductsFilter {
     width: 309px;
   }
+
+  .ProductsFilterMobile {
+    display: none;
+  }
+  .ProductsFilter__lineBlock {
+    padding: 0 35px;
+  }
 }
 
 @media only screen and (max-width: 1500px) {
@@ -72,12 +79,20 @@
     padding-right: 40px !important;
     padding-left: 40px;
   }
-  .ProductsFilter__lineBlock {
-    padding: 0 35px;
-  }
 }
 
 @media only screen and (max-width: 991px) {
+  .dropdown-menu.show {
+    flex-direction: column;
+  }
+  .dropdown-item {
+    text-align: left;
+    img {
+      display: none;
+       
+    }
+  }
+  
   .product-card {
     width: 38vw;
     margin: 20px auto;
@@ -85,11 +100,23 @@
       width: 43vw;
     }
   }
-  .ProductsFilter {
+  .ProductsFilterDesktop {
     display: none;
+  }
+  .ProductsFilterMobile {
+    display: block;
+  }
+  .ProductsFilter_block {
+    display: none;
+  }
+  .filterComponent_div {
+    width: 100%;
   }
   .ProductsFilterBtn {
     display: block !important;
+  }
+  .Divider {
+    width: 600px !important;
   }
 }
 
@@ -119,6 +146,15 @@
 }
 
 @media only screen and (max-width: 766px) {
+  .slick-prev {
+    left: 10%;
+  }
+  .slick-next {
+    right: 10%;
+  }
+  .logo {
+    display: none;
+  }
   .DevicesComponent {
     img {
       width: 45%;
@@ -131,9 +167,20 @@
   .pagination {
     margin-right: 27px;
   }
+
+  .Divider {
+    width: 400px !important;
+  }
 }
 
 @media only screen and (max-width: 575px) {
+  
+  .slick-prev {
+    left: 10%;
+  }
+  .slick-next {
+    right: 10%;
+  }
   .footerLine {
     height: 65rem;
   }
@@ -142,6 +189,11 @@
     &::before {
       width: 44vw;
     }
+  }
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 717px;
   }
 }
 
@@ -226,5 +278,9 @@
 
   .products_rowFirst {
     padding: 0 !important;
+  }
+
+  .Divider {
+    width: 200px !important;
   }
 }

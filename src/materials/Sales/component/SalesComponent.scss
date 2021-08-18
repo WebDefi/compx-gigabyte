@@ -1,0 +1,25 @@
+.imgBox--sales {
+  background-color: #fff;
+  position: relative;
+  width: 95%;
+  height: 380px;
+  overflow: hidden;
+  z-index: 999;
+  clip-path: polygon(
+    100.35% 100.55%,
+    100.35% 0%,
+    34.75% -0.25%,
+    84.95% 100.55%,
+    13.25% 100.55%,
+    16.15% 97.35%,
+    83.85% 97.65%,
+    92.45% 0%,
+    -0.7% -0.25%,
+    -1.1% 100.55%
+  );
+}
+
+.imgBox--center {
+  position: absolute;
+  top: 65px;
+}
