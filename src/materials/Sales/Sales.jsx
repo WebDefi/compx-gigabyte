@@ -29,8 +29,8 @@ export default class Sales extends Component {
       slidesToShow: 4,
       slidesToScroll: 1,
       arrows: false,
-      // autoplay: true,
-      // autoplaySpeed: 2500,
+      autoplay: true,
+      autoplaySpeed: 2500,
       responsive: [
         {
           breakpoint: 1228,
