@@ -78,9 +78,17 @@
 }
 
 @media only screen and (max-width: 991px) {
-  body {
-    
+  .dropdown-menu.show {
+    flex-direction: column;
   }
+  .dropdown-item {
+    text-align: left;
+    img {
+      display: none;
+       
+    }
+  }
+  
   .product-card {
     width: 38vw;
     margin: 20px auto;
@@ -153,6 +161,7 @@
 }
 
 @media only screen and (max-width: 575px) {
+  
   .slick-prev {
     left: 10%;
   }
