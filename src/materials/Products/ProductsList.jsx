@@ -26,7 +26,6 @@ const ProductsList = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-
   useEffect(() => {
     const fetchProducts = async () => {
       const res = await axios.get(
@@ -34,13 +33,11 @@ const ProductsList = () => {
       );
       console.log(res);
       setItems(res.data.items);
-      
     };
-    
+
     fetchProducts();
   }, []);
 
-  
   return (
     <section class="product-cards">
       <Container fluid style={{ padding: "60px 0 0" }}>
