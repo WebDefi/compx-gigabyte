@@ -47,12 +47,12 @@ export default class News extends Component {
       ],
     };
     return (
-      <div style={{ paddingTop: 170 }}>
+      <div style={{ paddingTop: "100px" }}>
         <Divider />
         <div>
           <SectionContent title="новинки gigabyte"></SectionContent>
         </div>
-        <Container style={{ marginTop: 60 }}>
+        <Container style={{ marginTop: "60px" }}>
           <Slider {...settings}>
             {this.state.newsItems.map((item, idx) => {
               return (

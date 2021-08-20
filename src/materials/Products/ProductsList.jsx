@@ -5,9 +5,10 @@ import Products from "./Products";
 import ProductsPagination from "./components/ProductsPagination";
 import { useLocation } from "react-router-dom";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
+import ProductsBanner from "./components/ProductsBanner";
 const ProductsList = () => {
   // Get current items
-  
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -18,14 +19,14 @@ const ProductsList = () => {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = items.slice(indexOfFirstItem , indexOfLastItem);
+  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
   const [pageNumberLimit, setPageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
-  
-  const nextPage = () => setCurrentPage( prev => prev + 1)
-  const prevPage = () => setCurrentPage( prev => prev - 1)
+
+  const nextPage = () => setCurrentPage((prev) => prev + 1);
+  const prevPage = () => setCurrentPage((prev) => prev - 1);
   //change page
   const { pathname } = useLocation();
 
@@ -46,19 +47,24 @@ const ProductsList = () => {
   }, []);
 
   return (
-    <section class="product-cards">
-      <Container fluid style={{ padding: "60px 0 0" }}>
-      <Breadcrumbs />
+    <section class="product-cards" style={{ padding: "0" }}>
+      <Container fluid style={{ padding: "0 0 60px " }}>
+        <ProductsBanner />
+        <Breadcrumbs />
         <Products items={currentItems} />
         <Row>
           <Col xs="12 ">
-          <button className="page-i" onClick={nextPage}>Next</button>
+            <button className="page-i" onClick={nextPage}>
+              Next
+            </button>
             <ProductsPagination
               itemsPerPage={itemsPerPage}
               totalItems={items.length}
               paginate={paginate}
             />
-            <button className="page-i" onClick={prevPage}>Prev</button>
+            <button className="page-i" onClick={prevPage}>
+              Prev
+            </button>
           </Col>
         </Row>
       </Container>
