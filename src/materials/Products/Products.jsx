@@ -9,10 +9,32 @@ import logoSrc from "../../static/images/filter.svg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Products = ({ items }) => {
+const Products = ({ currentPage, filters, itemsPerPage }) => {
+  console.log('CURRENTPAGE', currentPage);
   // const [error, setError] = useState(null);
   // const [isLoaded, setIsLoaded] = useState(false);
-  // const [items, setItems] = useState([]);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    let cleanup = false;
+    const fetchProducts = async (page = 1) => {
+      const queryStringParams = {
+        start: (page-1)*itemsPerPage,
+        end: page*itemsPerPage,
+        //charValues: JSON.stringify(filters) 
+      }
+      const baseUrl = 'http://3.249.81.155:3000/gigabyte/api/v1/items/1';
+      const url = `${baseUrl}?${Object.entries(queryStringParams).map(([key, value]) => `${key}=${value}`).join('&')}`;
+      console.log(url);
+      const res = await axios.get(url);
+      console.log(res);
+      if(!cleanup) setItems(res.data.items);
+    };
+
+    fetchProducts(currentPage);
+
+    return () => cleanup = true;
+  }, [currentPage, filters, itemsPerPage]);
 
   // useEffect(() => {
   //   const fetchProducts = async () => {
