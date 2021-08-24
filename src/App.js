@@ -16,7 +16,8 @@ import { withRouter, Route, BrowserRouter, Redirect } from "react-router-dom";
 import HomePage from "./materials/HomePage/HomePage";
 import "./static/breakpoints.scss";
 import ProductItem from "./materials/Products/components/ProductItem";
-
+import Monitors from './materials/Products/Monitors';
+import SSD from './materials/Products/SSD';
 
 function App() {
 
@@ -45,8 +46,14 @@ function App() {
         <News />
         <Gallery /> */}
         {/* <ProductsList /> */}
-        <Route path="/products/2" component={ProductList2} />
-        <Route path="/products/1" component={() => <ProductsList itemsNumber={itemsNumber}/>} />
+        <Route path="/Мониторы" component={Monitors} />
+        <Route path="/Материнские платы" component={Monitors} />
+        <Route path="/Ноутбуки" component={Monitors} />
+        <Route path="/Корпуса" component={Monitors} />
+        <Route path="/Аксессуары" component={Monitors} />
+        <Route path="/ССД" component={Monitors} />
+        <Route path="/Видеокарты" component={ProductList2} />
+        <Route path="/Продукты" component={() => <ProductsList itemsNumber={itemsNumber}/>} />
         <Route path="/home" component={HomePage} />
         <Redirect from="/" to="/home" />
         <Footer />

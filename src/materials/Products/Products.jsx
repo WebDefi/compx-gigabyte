@@ -23,7 +23,7 @@ const Products = ({ currentPage, filters, itemsPerPage }) => {
         end: page*itemsPerPage,
         //charValues: JSON.stringify(filters) 
       }
-      const baseUrl = 'http://3.249.81.155:3000/gigabyte/api/v1/items/1';
+      const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/2`;
       const url = `${baseUrl}?${Object.entries(queryStringParams).map(([key, value]) => `${key}=${value}`).join('&')}`;
       console.log(url);
       const res = await axios.get(url);

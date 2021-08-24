@@ -46,17 +46,13 @@ const ProductsList = ({itemsNumber, itemsPerPage}) => {
         <Products currentPage={currentPage} itemsPerPage={config.ITEMS_PER_PAGE} filters={filters}/>
         <Row>
           <Col xs="12 ">
-            <button className="page-i" onClick={nextPage}>
-              Next
-            </button>
+            
             <ProductsPagination
               itemsPerPage={config.ITEMS_PER_PAGE}
               totalItems={100}
               paginate={paginate}
             />
-            <button className="page-i" onClick={prevPage}>
-              Prev
-            </button>
+            
           </Col>
         </Row>
       </Container>

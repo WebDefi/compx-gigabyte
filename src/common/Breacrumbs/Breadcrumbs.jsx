@@ -13,7 +13,7 @@ const Breadcrumbs = props => {
   const pathnames = pathname.split("/").filter(x => x);
   useEffect(() => {
     fetch(
-      "http://3.249.81.155:3000/gigabyte/api/v1/items/1?charValues=[%226%22]&start=0&end=1"
+      "http://3.249.81.155:3000/gigabyte/api/v1/items/1"
     )
       .then((res) => res.json())
       .then(
