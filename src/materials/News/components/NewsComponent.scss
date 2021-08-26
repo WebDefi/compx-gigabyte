@@ -12,6 +12,7 @@
   width: 200px;
   background-position: center;
   background-repeat: no-repeat;
+
 }
 .imgBox {
   background-color: #fff;
@@ -39,6 +40,9 @@
     transition: all 0.3s;
     -o-object-fit: cover;
     object-fit: cover;
+    &:hover {
+      transform: scale(1.2)
+    }
   }
 }
 

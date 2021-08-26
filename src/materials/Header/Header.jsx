@@ -81,7 +81,7 @@ const Header = () => {
             style={{ opacity: "0.94" }}
             color="dark"
             dark
-            expand="sm"
+            expand="md"
             className={dnone ? " dnone" : "none"}
           >
             <Container>

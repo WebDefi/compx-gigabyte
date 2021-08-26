@@ -9,8 +9,10 @@ import logoSrc from "../../static/images/filter.svg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Monitors = ({ currentPage, filters, itemsPerPage }) => {
+const GraphicsCards = ({ currentPage, filters, itemsPerPage }) => {
   console.log('CURRENTPAGE', currentPage);
+  // const [error, setError] = useState(null);
+  // const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -19,8 +21,9 @@ const Monitors = ({ currentPage, filters, itemsPerPage }) => {
       const queryStringParams = {
         start: (page-1)*itemsPerPage,
         end: page*itemsPerPage,
+        //charValues: JSON.stringify(filters) 
       }
-      const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/4`;
+      const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/2`;
       const url = `${baseUrl}?${Object.entries(queryStringParams).map(([key, value]) => `${key}=${value}`).join('&')}`;
       console.log(url);
       const res = await axios.get(url);
@@ -33,6 +36,23 @@ const Monitors = ({ currentPage, filters, itemsPerPage }) => {
     return () => cleanup = true;
   }, [currentPage, filters, itemsPerPage]);
 
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     const res = await axios.get('http://3.249.81.155:3000/gigabyte/api/v1/items/1')
+  //     setItems(res.data);
+  //   }
+  //   fetchProducts();
+  // }, []);
+  // if (error) {
+  //   return <div>Ошибка: {error.message}</div>;
+  // } else if (!isLoaded) {
+  //   return <div>Загрузка...</div>;
+  // } else {
+
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const indexOfLastItem = currentPage * itemsPerPage;
+  // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  // const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
   const [show, showState] = React.useState(false);
   return (
     <div>
@@ -80,4 +100,4 @@ const Monitors = ({ currentPage, filters, itemsPerPage }) => {
   );
 };
 
-export default Monitors;
+export default GraphicsCards;

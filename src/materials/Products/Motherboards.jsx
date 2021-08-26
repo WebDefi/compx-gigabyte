@@ -20,7 +20,7 @@ const Monitors = ({ currentPage, filters, itemsPerPage }) => {
         start: (page-1)*itemsPerPage,
         end: page*itemsPerPage,
       }
-      const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/4`;
+      const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/1`;
       const url = `${baseUrl}?${Object.entries(queryStringParams).map(([key, value]) => `${key}=${value}`).join('&')}`;
       console.log(url);
       const res = await axios.get(url);
