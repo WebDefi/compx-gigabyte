@@ -9,28 +9,30 @@ import logoSrc from "../../static/images/filter.svg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Products = ({ items }) => {
-  // const [error, setError] = useState(null);
-  // const [isLoaded, setIsLoaded] = useState(false);
-  // const [items, setItems] = useState([]);
+const Monitors = ({ currentPage, filters, itemsPerPage }) => {
+  console.log('CURRENTPAGE', currentPage);
+  const [items, setItems] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     const res = await axios.get('http://3.249.81.155:3000/gigabyte/api/v1/items/1')
-  //     setItems(res.data);
-  //   }
-  //   fetchProducts();
-  // }, []);
-  // if (error) {
-  //   return <div>Ошибка: {error.message}</div>;
-  // } else if (!isLoaded) {
-  //   return <div>Загрузка...</div>;
-  // } else {
+  useEffect(() => {
+    let cleanup = false;
+    const fetchProducts = async (page = 1) => {
+      const queryStringParams = {
+        start: (page-1)*itemsPerPage,
+        end: page*itemsPerPage,
+      }
+      const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/4`;
+      const url = `${baseUrl}?${Object.entries(queryStringParams).map(([key, value]) => `${key}=${value}`).join('&')}`;
+      console.log(url);
+      const res = await axios.get(url);
+      console.log(res);
+      if(!cleanup) setItems(res.data.items);
+    };
 
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const indexOfLastItem = currentPage * itemsPerPage;
-  // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  // const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+    fetchProducts(currentPage);
+
+    return () => cleanup = true;
+  }, [currentPage, filters, itemsPerPage]);
+
   const [show, showState] = React.useState(false);
   return (
     <div>
@@ -78,4 +80,4 @@ const Products = ({ items }) => {
   );
 };
 
-export default Products;
+export default Monitors;

@@ -1,0 +1,11 @@
+@import '../../static/colors';
+
+.groupName {
+    color: $primary;
+}
+
+.mainPage {
+    &:hover {
+        color: $white ;
+    }
+}

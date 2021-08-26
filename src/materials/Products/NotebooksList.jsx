@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import axios from "axios";
 import getConfig from '../../config';
-import Products from "./GraphicsCards";
+import Notebooks from "./Notebooks";
 import ProductsPagination from "./components/ProductsPagination";
 import { useLocation } from "react-router-dom";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 import ProductsBanner from "./components/ProductsBanner";
-const PrioductList2 = ({itemsNumber, itemsPerPage}) => {
+
+const NotebooksList = ({itemsNumber, itemsPerPage}) => {
   // Get config
   const config = getConfig();
   console.log('CONFIG', config);
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   // Get current items
 
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const [items, setItems] = useState([]); 
 
   const [currentPage, setCurrentPage] = useState();
@@ -22,6 +22,7 @@ const PrioductList2 = ({itemsNumber, itemsPerPage}) => {
 
   const nextPage = () => setCurrentPage((prev) => prev + 1);
   const prevPage = () => setCurrentPage((prev) => prev - 1);
+  //change page
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -33,7 +34,7 @@ const PrioductList2 = ({itemsNumber, itemsPerPage}) => {
       <Container fluid style={{ padding: "0 0 60px " }}>
         <ProductsBanner />
         <Breadcrumbs />        
-        <Products currentPage={currentPage} itemsPerPage={config.ITEMS_PER_PAGE} filters={filters}/>
+        <Notebooks currentPage={currentPage} itemsPerPage={config.ITEMS_PER_PAGE} filters={filters}/>
         <Row>
           <Col xs="12 ">
             
@@ -50,4 +51,4 @@ const PrioductList2 = ({itemsNumber, itemsPerPage}) => {
   );
 };
 
-export default PrioductList2;
+export default NotebooksList;

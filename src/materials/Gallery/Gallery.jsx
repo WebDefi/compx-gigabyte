@@ -28,7 +28,7 @@ const Gallery = () => {
     return <div className="products__wait">Завантаження...</div>;
   } else {
     return (
-      <div style={{ marginTop: "170px" }}>
+      <div style={{ marginTop: "100px" }}>
         <SectionContent title="ГАЛЕРЕЯ" />
         {items.map((item, index) => (
           <GalleryItem

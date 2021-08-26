@@ -3,7 +3,7 @@ import { Container, Pagination, PaginationItem, PaginationLink } from "reactstra
 import "./ProductsPagination.scss";
 import {
   BrowserRouter as Router,
-  Switch,
+  Switch, 
   useLocation,
   Link
 } from "react-router-dom";
@@ -20,7 +20,7 @@ const ProductsPagination = ( {itemsPerPage, totalItems, paginate, pageNumberLimi
       
       <PaginationItem>
         {pageNumbers.map(number => (
-          <PaginationLink key={number} className="page-i page-num" href="#" onClick={() => paginate(number)}>
+          <PaginationLink key={number} className="page-i page-num" onClick={() => paginate(number)}>
             {number}
           </PaginationLink>
         ))}
