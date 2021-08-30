@@ -46,7 +46,7 @@ function App() {
         <Gallery /> */}
         {/* <ProductsList /> */}
         <Route path="/products/2" component={ProductList2} />
-        <Route path="/products/1" component={() => <ProductsList itemsNumber={itemsNumber}/>} />
+        <Route path="/products/:1" component={() => <ProductsList itemsNumber={itemsNumber}/>} />
         <Route path="/home" component={HomePage} />
         <Redirect from="/" to="/home" />
         <Footer />

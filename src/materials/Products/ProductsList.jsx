@@ -7,6 +7,8 @@ import ProductsPagination from "./components/ProductsPagination";
 import { useLocation } from "react-router-dom";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 import ProductsBanner from "./components/ProductsBanner";
+import ProductsFilter from "./components/ProductsFilter";
+import logoSrc from "../../static/images/filter.svg";
 const ProductsList = ({itemsNumber, itemsPerPage}) => {
   // Get config
   const config = getConfig();
@@ -43,7 +45,14 @@ const ProductsList = ({itemsNumber, itemsPerPage}) => {
       <Container fluid style={{ padding: "0 0 60px " }}>
         <ProductsBanner />
         <Breadcrumbs />        
-        <Products currentPage={currentPage} itemsPerPage={config.ITEMS_PER_PAGE} filters={filters}/>
+        <ProductsFilter 
+          filters={filters} 
+          setFilters={setFilters} 
+          FilterBtn="Фільтр"
+          CleanBtn="Очистити"
+          logoSrc={logoSrc}
+        />
+        <Products currentPage={currentPage} itemsPerPage={config.ITEMS_PER_PAGE} filters={filters}/>      
         <Row>
           <Col xs="12 ">
             <button className="page-i" onClick={nextPage}>

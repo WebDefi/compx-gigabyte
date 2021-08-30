@@ -21,7 +21,7 @@ const Products = ({ currentPage, filters, itemsPerPage }) => {
       const queryStringParams = {
         start: (page-1)*itemsPerPage,
         end: page*itemsPerPage,
-        //charValues: JSON.stringify(filters) 
+        charValues: JSON.stringify(filters) 
       }
       const baseUrl = 'http://3.249.81.155:3000/gigabyte/api/v1/items/1';
       const url = `${baseUrl}?${Object.entries(queryStringParams).map(([key, value]) => `${key}=${value}`).join('&')}`;
