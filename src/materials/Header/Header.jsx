@@ -81,7 +81,7 @@ const Header = () => {
             style={{ opacity: "0.94" }}
             color="dark"
             dark
-            expand="sm"
+            expand="md"
             className={dnone ? " dnone" : "none"}
           >
             <Container>
@@ -98,7 +98,7 @@ const Header = () => {
                     </DropdownToggle>
                     <DropdownMenu right>
                       {groups.map((item, idx) => (
-                        <Link to={`/products/${item.id}`}>
+                        <Link to={`/${item.title}`}>
                           <DropdownItem key={idx.id}>
                             <img src={imgFirst}></img>
                             <p className="groupTitle">{item.title}</p>
@@ -291,7 +291,7 @@ const Header = () => {
                     </DropdownToggle>
                     <DropdownMenu right>
                       {groups.map((item, idx) => (
-                        <Link to={`/products/${item.id}`}>
+                        <Link to={`/${item.title}`}>
                           <DropdownItem key={idx.id}>
                             <img src={imgFirst}></img>
                             <p className="groupTitle">{item.title}</p>

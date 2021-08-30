@@ -9,7 +9,7 @@ import logoSrc from "../../static/images/filter.svg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Products = ({ currentPage, filters, itemsPerPage }) => {
+const GraphicsCards = ({ currentPage, filters, itemsPerPage }) => {
   console.log("CURRENTPAGE", currentPage);
   // const [error, setError] = useState(null);
   // const [isLoaded, setIsLoaded] = useState(false);
@@ -21,9 +21,9 @@ const Products = ({ currentPage, filters, itemsPerPage }) => {
       const queryStringParams = {
         start: (page - 1) * itemsPerPage,
         end: page * itemsPerPage,
-        // charValues: JSON.stringify(filters)
+        charValues: JSON.stringify(filters),
       };
-      const baseUrl = "http://3.249.81.155:3000/gigabyte/api/v1/items/1";
+      const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/2`;
       const url = `${baseUrl}?${Object.entries(queryStringParams)
         .map(([key, value]) => `${key}=${value}`)
         .join("&")}`;
@@ -103,4 +103,4 @@ const Products = ({ currentPage, filters, itemsPerPage }) => {
   );
 };
 
-export default Products;
+export default GraphicsCards;

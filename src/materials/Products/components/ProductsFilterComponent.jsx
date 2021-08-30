@@ -3,8 +3,24 @@ import "./ProductsFilterComponent.scss";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ProductsFilterComponent = ({ name, alias, values }) => {
+const ProductsFilterComponent = ({
+  filters,
+  setFilters,
+  name,
+  alias,
+  values,
+}) => {
   const [show, showState] = React.useState(false);
+
+  const updateFilter = (filterValue) => {
+    console.log(filters);
+    if (!filters.find((value) => value === filterValue)) {
+      filters.push(filterValue);
+      setFilters(filters);
+    } else {
+      setFilters(filters.filter((value) => value === filterValue));
+    }
+  };
 
   return (
     <div className="filterComponent">
@@ -29,6 +45,7 @@ const ProductsFilterComponent = ({ name, alias, values }) => {
                   className="filterComponent__checkbox"
                   type="checkbox"
                   value={item}
+                  onInput={(event) => updateFilter(item)}
                   id={`#${item}-${index}`}
                 ></input>
                 <label for={`#${item}-${index}`}>{item}</label>

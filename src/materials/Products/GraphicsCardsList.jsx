@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import axios from "axios";
 import getConfig from "../../config";
-import Products from "./Products";
+import GraphicsCards from "./GraphicsCards";
 import ProductsPagination from "./components/ProductsPagination";
 import { useLocation } from "react-router-dom";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 import ProductsBanner from "./components/ProductsBanner";
-
-const ProductsList = ({ itemsNumber, itemsPerPage }) => {
+const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
   // Get config
   const config = getConfig();
   console.log("CONFIG", config);
@@ -44,24 +43,18 @@ const ProductsList = ({ itemsNumber, itemsPerPage }) => {
       <Container fluid style={{ padding: "0 0 60px " }}>
         <ProductsBanner />
         <Breadcrumbs />
-        <Products
+        <GraphicsCards
           currentPage={currentPage}
           itemsPerPage={config.ITEMS_PER_PAGE}
           filters={filters}
         />
         <Row>
           <Col xs="12 ">
-            <button className="page-i" onClick={nextPage}>
-              Next
-            </button>
             <ProductsPagination
               itemsPerPage={config.ITEMS_PER_PAGE}
               totalItems={100}
               paginate={paginate}
             />
-            <button className="page-i" onClick={prevPage}>
-              Prev
-            </button>
           </Col>
         </Row>
       </Container>
@@ -69,4 +62,4 @@ const ProductsList = ({ itemsNumber, itemsPerPage }) => {
   );
 };
 
-export default ProductsList;
+export default GraphicsCardsList;
