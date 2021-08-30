@@ -3,7 +3,7 @@ import { Container } from "reactstrap";
 import ProductsFilterComponent from "./ProductsFilterComponent";
 import "./ProductsFilter.scss";
 
-const ProductsFilter = ({ FilterBtn, CleanBtn, logoSrc }) => {
+const ProductsFilter = ({ FilterBtn, CleanBtn, logoSrc, filters }) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
@@ -51,6 +51,7 @@ const ProductsFilter = ({ FilterBtn, CleanBtn, logoSrc }) => {
               name={item.name}
               alias={item.alias}
               values={item.values}
+              filters={filters}
             />
           ))}
         </Container>

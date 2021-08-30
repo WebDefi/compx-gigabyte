@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ProductsFilterComponent = ({ name, alias, values }) => {
   const [show, showState] = React.useState(false);
+
   return (
     <div className="filterComponent">
       <ul className="filterComponent_ul">
@@ -21,7 +22,7 @@ const ProductsFilterComponent = ({ name, alias, values }) => {
           </div>
         </li>
         {show ? (
-          <div>
+          <div style={{ width: "300px", columnCount: "2" }}>
             {values.map((item, index) => (
               <div>
                 <input
