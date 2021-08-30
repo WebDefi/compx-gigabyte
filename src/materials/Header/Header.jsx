@@ -97,10 +97,10 @@ const Header = () => {
                       Продукция
                     </DropdownToggle>
                     <DropdownMenu right>
-                      {groups.map((item, idx) => (
-                        <Link to={`/${item.title}`}>
+                    {groups.map((item, idx) => (
+                        <Link to={`/${item.title.replace(/\s\(.*\)/, '') }`}>
                           <DropdownItem key={idx.id}>
-                            <img src={imgFirst}></img>
+                            <img src={item.imageUrl}></img>
                             <p className="groupTitle">{item.title}</p>
                           </DropdownItem>
                         </Link>
