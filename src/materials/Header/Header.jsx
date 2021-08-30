@@ -214,7 +214,7 @@ const Header = () => {
           <div className="innerContainer">
             <div className="autoContainer" style={{ paddingTop: 15 }}>
               <div className="brand" style={{ float: "left" }}>
-                <a href="#">
+                <a href="/">
                   <img src={gigabyte} width="125px"></img>
                 </a>
               </div>
@@ -291,9 +291,9 @@ const Header = () => {
                     </DropdownToggle>
                     <DropdownMenu right>
                       {groups.map((item, idx) => (
-                        <Link to={`/${item.title}`}>
+                        <Link to={`/${item.title.replace(/\s\(.*\)/, '') }`}>
                           <DropdownItem key={idx.id}>
-                            <img src={imgFirst}></img>
+                            <img src={item.imageUrl}></img>
                             <p className="groupTitle">{item.title}</p>
                           </DropdownItem>
                         </Link>

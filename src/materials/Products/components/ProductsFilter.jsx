@@ -3,7 +3,13 @@ import { Container } from "reactstrap";
 import ProductsFilterComponent from "./ProductsFilterComponent";
 import "./ProductsFilter.scss";
 
-const ProductsFilter = ({ filters, setFilters, FilterBtn, CleanBtn, logoSrc }) => {
+const ProductsFilter = ({
+  filters,
+  setFilters,
+  FilterBtn,
+  CleanBtn,
+  logoSrc,
+}) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
@@ -11,7 +17,7 @@ const ProductsFilter = ({ filters, setFilters, FilterBtn, CleanBtn, logoSrc }) =
   // fetching all filter values from BE
   useEffect(() => {
     fetch(
-      "http://3.249.81.155:3000/gigabyte/api/v1/items/1?charValues=[%226%22]&start=0&end=1"
+      "http://3.249.81.155:3000/gigabyte/api/v1/items/7"
     )
       .then((res) => res.json())
       .then(

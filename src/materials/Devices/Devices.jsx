@@ -88,7 +88,7 @@ export default class Devices extends Component {
                 <DevicesComponent
                   title={cat.title}
                   key={idx.id}
-                  deviceImg={slider2}
+                  deviceImg={cat.imageUrl}
                   deviceBg={deviceBg}
                   link={`/${cat.title}`}
                 ></DevicesComponent>
