@@ -15,10 +15,11 @@
 
 }
 .imgBox {
-
+  &:hover {
+    transform: scale(1.1)
+  }
   position: relative;
   width: 95%;
-
   overflow: hidden;
   z-index: 999;
   clip-path: polygon(
@@ -40,9 +41,7 @@
     transition: all 0.3s;
     -o-object-fit: cover;
     object-fit: cover;
-    &:hover {
-      transform: scale(1.2)
-    }
+   
   }
 }
 
