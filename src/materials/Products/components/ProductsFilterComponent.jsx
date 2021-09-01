@@ -45,7 +45,7 @@ const ProductsFilterComponent = ({
                   className="filterComponent__checkbox"
                   type="checkbox"
                   value={item}
-                  onInput={(event) => updateFilter(item)}
+                  // onInput={(event) => updateFilter(item)}
                   id={`#${item}-${index}`}
                 ></input>
                 <label for={`#${item}-${index}`}>{item}</label>
