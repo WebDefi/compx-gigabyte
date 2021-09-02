@@ -6,14 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const ProductsFilterComponent = ({
   filters,
   setFilters,
-  name,
   alias,
   values,
 }) => {
   const [show, showState] = React.useState(false);
 
   const updateFilter = (filterValue) => {
-    console.log(filters);
     if (!filters.find((value) => value === filterValue)) {
       filters.push(filterValue);
       setFilters(filters);
@@ -21,7 +19,7 @@ const ProductsFilterComponent = ({
       setFilters(filters.filter((value) => value === filterValue));
     }
   };
-
+ 
   return (
     <div className="filterComponent">
       <ul className="filterComponent_ul">
@@ -45,10 +43,10 @@ const ProductsFilterComponent = ({
                   className="filterComponent__checkbox"
                   type="checkbox"
                   value={item}
-                  // onInput={(event) => updateFilter(item)}
+                  onInput={(event) => updateFilter(item)}
                   id={`#${item}-${index}`}
                 ></input>
-                <label for={`#${item}-${index}`}>{item}</label>
+                <label htmlFor={`#${item}-${index}`}>{item}</label>
               </div>
             ))}
           </div>
