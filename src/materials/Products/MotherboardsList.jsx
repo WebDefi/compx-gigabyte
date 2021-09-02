@@ -7,6 +7,7 @@ import ProductsPagination from "./components/ProductsPagination";
 import { useLocation } from "react-router-dom";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 import ProductsBanner from "./components/ProductsBanner";
+import bannerImgMotherBoard from "../../static/images/banerMotherboards.jpeg";
 
 const MotherboardsList = ({ itemsNumber, itemsPerPage }) => {
   // Get config
@@ -20,7 +21,6 @@ const MotherboardsList = ({ itemsNumber, itemsPerPage }) => {
           setPages(result);
           console.log(result);
         },
-        
 
         (error) => {
           setIsLoaded(true);
@@ -52,7 +52,7 @@ const MotherboardsList = ({ itemsNumber, itemsPerPage }) => {
   return (
     <section class="product-cards" style={{ padding: "0" }}>
       <Container fluid style={{ padding: "0 0 60px " }}>
-        <ProductsBanner />
+        <ProductsBanner bannerImg={bannerImgMotherBoard} />
         <Breadcrumbs />
         <Motherboards
           currentPage={currentPage}
@@ -61,14 +61,12 @@ const MotherboardsList = ({ itemsNumber, itemsPerPage }) => {
         />
         <Row>
           <Col xs="12 ">
-          
-              <ProductsPagination
-                itemsPerPage={config.ITEMS_PER_PAGE}
-                totalItems={100}
-                //pages.numberOfItems
-                paginate={paginate}
-              />
-           
+            <ProductsPagination
+              itemsPerPage={config.ITEMS_PER_PAGE}
+              totalItems={100}
+              //pages.numberOfItems
+              paginate={paginate}
+            />
           </Col>
         </Row>
       </Container>

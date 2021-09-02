@@ -3,11 +3,11 @@ import SliderAorusComponent from "../../SliderAorus/components/SliderAorusCompon
 import SliderBcg1 from "../../../static/images/bannerGraphiccard.jpeg";
 import SliderBcgMobile1 from "../../../static/images/sliderMobile.jpg";
 
-const ProductsBanner = ({}) => {
+const ProductsBanner = ({ bannerImg }) => {
   return (
     <div style={{ paddingBottom: "100px" }}>
       <SliderAorusComponent
-        sliderBcg={SliderBcg1}
+        sliderBcg={bannerImg}
         sliderTitle="Products Banner"
         sliderSubtitle="BUY an AORUS MONITOR"
         btnText="More"

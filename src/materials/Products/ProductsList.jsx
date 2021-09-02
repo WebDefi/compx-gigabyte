@@ -7,6 +7,7 @@ import ProductsPagination from "./components/ProductsPagination";
 import { useLocation } from "react-router-dom";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 import ProductsBanner from "./components/ProductsBanner";
+// import bannerImgProducts from "../../static/images/bannerGraphiccard.jpeg";
 
 const ProductsList = ({ itemsNumber, itemsPerPage }) => {
   // Get config
