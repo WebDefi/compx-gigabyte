@@ -92,11 +92,11 @@ const Header = () => {
 
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar>
-                  <UncontrolledDropdown nav inNavbar>
+                  <UncontrolledDropdown nav inNavbar >
                     <DropdownToggle nav caret>
                       Продукция
                     </DropdownToggle>
-                    <DropdownMenu right>
+                    <DropdownMenu right className='dropdown-fixed'>
                     {groups.map((item, idx) => (
                         <Link to={`/${item.title.replace(/\s\(.*\)/, '') }`}>
                           <DropdownItem key={idx.id}>

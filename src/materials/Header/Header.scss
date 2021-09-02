@@ -97,13 +97,19 @@
 
 //не должно быть столько вложенности
 .dropdown-menu {
+  position: absolute;
+  left: -78px;
   background-color: #000;
   padding: 0 50px;
-  
+}
+
+.dropdown-fixed {
+  left: -178px;
 }
  
 .dropdown-menu.show {
    display: flex;
+   align-items: center;
 
   //  position: absolute;
 
@@ -120,14 +126,18 @@
 
 }
 .dropdown-item {
+  &:hover {
+    background-color: #fa6812;
+    color: #fff;
+    font-weight: 500;
+    transition: all 3ms;
+
+  }
   padding-top: 20px;
    
   text-align: center;
   color: #fff;
-  &:hover {
-    background-color: #fa6812;
-    color: #fff;
-  }
+ 
   img {
     display: flex;
     justify-content: center;
@@ -138,6 +148,7 @@
 }
 
 .groupTitle {
+  width: 125px;
   text-align: center;
   padding-top: 10px;
   white-space: normal;
