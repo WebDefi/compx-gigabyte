@@ -7,6 +7,8 @@ import ProductsPagination from "./components/ProductsPagination";
 import { useLocation } from "react-router-dom";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 import ProductsBanner from "./components/ProductsBanner";
+import bannerImgGraphic from "../../static/images/bannerGraphiccard.jpeg";
+
 const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
   // Get config
   const config = getConfig();
@@ -21,8 +23,6 @@ const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
   const [currentPage, setCurrentPage] = useState();
   const [filters, setFilters] = useState([]);
 
-
- 
   //change page
   const { pathname } = useLocation();
 
@@ -33,7 +33,7 @@ const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
   return (
     <section class="product-cards" style={{ padding: "0" }}>
       <Container fluid style={{ padding: "0 0 60px " }}>
-        <ProductsBanner />
+        <ProductsBanner bannerImg={bannerImgGraphic} />
         <Breadcrumbs />
         <GraphicsCards
           currentPage={currentPage}
