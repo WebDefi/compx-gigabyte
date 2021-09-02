@@ -42,7 +42,7 @@ const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
           setFilters={setFilters}
         />
         <Row>
-          <Col xs="12 ">
+          <Col xs="12">
             <ProductsPagination
               itemsPerPage={config.ITEMS_PER_PAGE}
               totalItems={100}

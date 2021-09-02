@@ -1,0 +1,11 @@
+.preloader {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(238 95 34 / 30%);
+    background-size: 15%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 10;
+  }
+  

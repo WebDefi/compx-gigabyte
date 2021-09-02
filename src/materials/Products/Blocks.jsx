@@ -9,34 +9,28 @@ import logoSrc from "../../static/images/filter.svg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const GraphicsCards = ({ currentPage, filters, itemsPerPage, setFilters }) => {
-  console.log("CURRENTPAGE", currentPage);
-  console.log("filters", filters);
+const Corps = ({ currentPage, filters, itemsPerPage }) => {
+  console.log('CURRENTPAGE', currentPage);
   const [items, setItems] = useState([]);
 
   useEffect(() => {
     let cleanup = false;
     const fetchProducts = async (page = 1) => {
       const queryStringParams = {
-        start: (page - 1) * itemsPerPage,
-        end: page * itemsPerPage,
-        charValues: filters.length > 0 ? encodeURI(JSON.stringify(filters)): "",
-      };
-      
-      const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/2`;
-      if (queryStringParams.charValues == "") delete queryStringParams["charValues"];
-      const url = `${baseUrl}?${Object.entries(queryStringParams)
-        .map(([key, value]) => `${key}=${value}`)
-        .join("&")}`;
-      console.log('url:', url);
+        start: (page-1)*itemsPerPage,
+        end: page*itemsPerPage,
+      }
+      const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/9`;
+      const url = `${baseUrl}?${Object.entries(queryStringParams).map(([key, value]) => `${key}=${value}`).join('&')}`;
+      console.log(url);
       const res = await axios.get(url);
       console.log(res);
-      if (!cleanup) setItems(res.data.items);
+      if(!cleanup) setItems(res.data.items);
     };
 
     fetchProducts(currentPage);
 
-    return () => (cleanup = true);
+    return () => cleanup = true;
   }, [currentPage, filters, itemsPerPage]);
 
   const [show, showState] = React.useState(false);
@@ -52,8 +46,6 @@ const GraphicsCards = ({ currentPage, filters, itemsPerPage, setFilters }) => {
               FilterBtn="Фільтр"
               CleanBtn="Очистити"
               logoSrc={logoSrc}
-              filters={filters}
-              setFilters={setFilters}
             ></ProductsFilter>
           </div>
           {show ? (
@@ -88,4 +80,4 @@ const GraphicsCards = ({ currentPage, filters, itemsPerPage, setFilters }) => {
   );
 };
 
-export default GraphicsCards;
+export default Corps;
