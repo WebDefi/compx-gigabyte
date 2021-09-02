@@ -82,9 +82,9 @@
       margin-top: 40px;
     }
   }
-  .product-card {
-    width: 19vw;
-  }
+  // .product-card {
+  //   width: 19vw;
+  // }
   .ProductsFilter {
     width: 100%;
   }
@@ -207,7 +207,8 @@
     height: 20em;
   }
   .product-img {
-    width: 100%;
+    display: block;
+    width: 70%;
     left: 0;
     height: 7.5em;
   }
@@ -315,5 +316,14 @@
 
   .filterComponent_div {
     width: 390px;
+  }
+}
+
+@media (min-width: 991px) and (max-width: 1200px) {
+  .col-xl-4 {
+    width: 40%;
+  }
+  .product-card {
+    width: 24vw;
   }
 }

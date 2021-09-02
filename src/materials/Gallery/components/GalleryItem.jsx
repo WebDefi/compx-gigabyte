@@ -27,9 +27,15 @@ const GalleryItem = ({ titleItem, images, itemId, key }) => {
       {show ? (
         <div className="gallery_content" data-aos="fade-down">
           <a href="item"></a>
-          <Row style={{ justifyContent: "center" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr 1fr",
+              gridColumnGap: "0px",
+            }}
+          >
             {images.map((number, index, key) => (
-              <Col xs="6" lg="4">
+              <div>
                 <div>
                   <a href={`#${key}-${index}`}>
                     <img className="gallery__img" src={number} alt={index} />
@@ -48,9 +54,10 @@ const GalleryItem = ({ titleItem, images, itemId, key }) => {
                     ></span>
                   </a>
                 </div>
-              </Col>
+              </div>
             ))}
-            {/* <Col xs="3" lg="3" style={{ paddingTop: "10px" }}>
+          </div>
+          {/* <Col xs="3" lg="3" style={{ paddingTop: "10px" }}>
               <a href="#img2">
                 <img className="gallery__img" src={imgSecond} alt="2" />
               </a>
@@ -75,7 +82,6 @@ const GalleryItem = ({ titleItem, images, itemId, key }) => {
                 ></span>
               </a>
             </Col> */}
-          </Row>
           {/* <Row style={{ justifyContent: "center" }}>
             <Col xs="3" lg="3" style={{ paddingTop: "10px" }}>
               <a href="#img4">
