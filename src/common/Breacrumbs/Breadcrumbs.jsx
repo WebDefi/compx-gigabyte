@@ -12,22 +12,6 @@ const Breadcrumbs = props => {
     location: { pathname }
   } = props;
   const pathnames = pathname.split("/").filter(x => x);
-  useEffect(() => {
-    fetch(
-      "http://3.249.81.155:3000/gigabyte/api/v1/items/1"
-    )
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setItems(result);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
-  }, []);
 
   return (
     <Container fluid>

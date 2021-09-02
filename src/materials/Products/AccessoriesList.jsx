@@ -7,21 +7,39 @@ import ProductsPagination from "./components/ProductsPagination";
 import { useLocation } from "react-router-dom";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 import ProductsBanner from "./components/ProductsBanner";
-
-const AccessoriesList = ({itemsNumber, itemsPerPage}) => {
+import ProductsFilter from "./components/ProductsFilter";
+const AccessoriesList = ({itemsNumber, itemsPerPage, filters, currentPage, setCurrentPage}) => {
   // Get config
   const config = getConfig();
   console.log('CONFIG', config);
   // Get current items
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const [items, setItems] = useState([]); 
+  const [items, setItems] = useState([]);
 
-  const [currentPage, setCurrentPage] = useState();
-  const [filters, setFilters] = useState([]);
+  useEffect(() => {
+    let cleanup = false;
+    const fetchProducts = async (page = 1) => {
+      const queryStringParams = {
+        start: (page-1)*itemsPerPage,
+        end: page*itemsPerPage,
+      }
+      const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/8`;
+      const url = `${baseUrl}?${Object.entries(queryStringParams).map(([key, value]) => `${key}=${value}`).join('&')}`;
+      console.log(url);
+      const res = await axios.get(url);
+      console.log(res);
+      if(!cleanup) setItems(res.data.items);
+    };
 
-  const nextPage = () => setCurrentPage((prev) => prev + 1);
-  const prevPage = () => setCurrentPage((prev) => prev - 1);
+    fetchProducts(currentPage);
+
+    return () => cleanup = true;
+  }, [currentPage, filters, itemsPerPage]);
+
+  
+
+  const [show, showState] = React.useState(false);
   //change page
   const { pathname } = useLocation();
 
@@ -43,6 +61,26 @@ const AccessoriesList = ({itemsNumber, itemsPerPage}) => {
               totalItems={100}
               paginate={paginate}
             />
+            <Row className="products_rowFirst" style={{ padding: "0 40px" }}>
+        <Col xs="12" lg="3" xl="3">
+          <div className="ProductsFilterDesktop">
+            <ProductsFilter
+              FilterBtn="Фільтр"
+              CleanBtn="Очистити"
+              
+            ></ProductsFilter>
+          </div>
+          {show ? (
+            <div className="ProductsFilterMobile">
+              <ProductsFilter
+                FilterBtn="Фільтр"
+                CleanBtn="Очистити"
+                
+              ></ProductsFilter>
+            </div>
+          ) : null}
+        </Col>
+        </Row>
             
           </Col>
         </Row>

@@ -15,11 +15,11 @@ const SalesComponent = ({ description, img, link }) => {
   }, []);
   return (
     <div data-aos="flip-right" className="divvv">
-      <div className="imgBox imgBox--sales">
+      <div className="imgBox imgBox--sales"  style={{ position:"relative"}}>
         <img
           className="imgBox__image imgBox--center"
           src={img}
-          style={{ display: "inline-block" }}
+          style={{position:"relative", top:"0"}}
         ></img>
       </div>
       <p className="newsDescription">{description}</p>

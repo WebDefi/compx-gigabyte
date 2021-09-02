@@ -7,6 +7,7 @@ import ProductsPagination from "./components/ProductsPagination";
 import { useLocation } from "react-router-dom";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 import ProductsBanner from "./components/ProductsBanner";
+import ProductsFilterComponent from "./components/ProductsFilterComponent";
 
 const MonitorsList = ({itemsNumber, itemsPerPage}) => {
   // Get config
@@ -31,6 +32,7 @@ const MonitorsList = ({itemsNumber, itemsPerPage}) => {
 
   return (
     <section class="product-cards" style={{ padding: "0" }}>
+      
       <Container fluid style={{ padding: "0 0 60px " }}>
         <ProductsBanner />
         <Breadcrumbs />        

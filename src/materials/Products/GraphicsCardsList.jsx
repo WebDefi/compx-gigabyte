@@ -21,16 +21,8 @@ const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
   const [currentPage, setCurrentPage] = useState();
   const [filters, setFilters] = useState([]);
 
-  // const indexOfLastItem = currentPage * itemsPerPage;
-  // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  //const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
-  // const [pageNumberLimit, setPageNumberLimit] = useState(5);
-  // const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
-  // const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
-
-  const nextPage = () => setCurrentPage((prev) => prev + 1);
-  const prevPage = () => setCurrentPage((prev) => prev - 1);
+ 
   //change page
   const { pathname } = useLocation();
 
@@ -47,6 +39,7 @@ const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
           currentPage={currentPage}
           itemsPerPage={config.ITEMS_PER_PAGE}
           filters={filters}
+          setFilters={setFilters}
         />
         <Row>
           <Col xs="12 ">

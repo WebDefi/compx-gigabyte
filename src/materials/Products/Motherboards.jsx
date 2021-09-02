@@ -40,7 +40,7 @@ const Monitors = ({ currentPage, filters, itemsPerPage }) => {
         <ProductsFilterBtn textBtn="Фільтр" />
       </div>
       <Row className="products_rowFirst" style={{ padding: "0 40px" }}>
-        <Col xs="12" lg="3" xl="3">
+        <Col xs="12" lg="3" xl="3" >
           <div className="ProductsFilterDesktop">
             <ProductsFilter
               FilterBtn="Фільтр"

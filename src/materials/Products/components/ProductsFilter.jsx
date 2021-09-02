@@ -31,6 +31,7 @@ const ProductsFilter = ({
         }
       );
   }, []);
+ 
 
   if (error) {
     return <div>Ошибка: {error.message}</div>;

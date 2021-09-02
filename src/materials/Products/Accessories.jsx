@@ -13,26 +13,6 @@ const Accessories = ({ currentPage, filters, itemsPerPage }) => {
   console.log('CURRENTPAGE', currentPage);
   const [items, setItems] = useState([]);
 
-  useEffect(() => {
-    let cleanup = false;
-    const fetchProducts = async (page = 1) => {
-      const queryStringParams = {
-        start: (page-1)*itemsPerPage,
-        end: page*itemsPerPage,
-      }
-      const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/8`;
-      const url = `${baseUrl}?${Object.entries(queryStringParams).map(([key, value]) => `${key}=${value}`).join('&')}`;
-      console.log(url);
-      const res = await axios.get(url);
-      console.log(res);
-      if(!cleanup) setItems(res.data.items);
-    };
-
-    fetchProducts(currentPage);
-
-    return () => cleanup = true;
-  }, [currentPage, filters, itemsPerPage]);
-
   const [show, showState] = React.useState(false);
   return (
     <div>
@@ -40,25 +20,6 @@ const Accessories = ({ currentPage, filters, itemsPerPage }) => {
         <ProductsFilterBtn textBtn="Фільтр" />
       </div>
       <Row className="products_rowFirst" style={{ padding: "0 40px" }}>
-        <Col xs="12" lg="3" xl="3">
-          <div className="ProductsFilterDesktop">
-            <ProductsFilter
-              FilterBtn="Фільтр"
-              CleanBtn="Очистити"
-              logoSrc={logoSrc}
-            ></ProductsFilter>
-          </div>
-          {show ? (
-            <div className="ProductsFilterMobile">
-              <ProductsFilter
-                FilterBtn="Фільтр"
-                CleanBtn="Очистити"
-                logoSrc={logoSrc}
-              ></ProductsFilter>
-            </div>
-          ) : null}
-        </Col>
-
         <Col xs="" lg="9" xl="9">
           <Row className="products_row" style={{ paddingRight: "60px" }}>
             {items.map((item) => (
