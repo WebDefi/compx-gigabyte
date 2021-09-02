@@ -1,6 +1,8 @@
 .imgBox--sales {
   &:hover {
-    transform: scale(1.1)
+    transition: all 5ms;
+    transform: scale(1.1);
+    margin-bottom: 20px;
   }
   position: relative;
   width: 95%;

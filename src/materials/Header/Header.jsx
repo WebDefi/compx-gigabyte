@@ -61,7 +61,7 @@ const Header = () => {
   }, []);
   // return
   const displayNone = () => {
-    if (window.scrollY >= 50) {
+    if (window.scrollY >= 140) {
       setDnone(true);
     } else {
       setDnone(false);

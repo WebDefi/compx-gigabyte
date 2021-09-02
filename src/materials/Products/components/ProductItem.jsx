@@ -4,6 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import styles from "./ProductItem.scss";
 import ProductsFilter from "../components/ProductsFilter";
 import logoSrc from "../../../static/images/filter.svg";
+import  placeholderImage  from '../../../static/images/placeholder-image.png'
 import testImg from "../../../static/images/galery1.png"
 
 // function onMouseMove = {(event) => {
@@ -30,7 +31,7 @@ const ProductItem = ({
   return (
     <div key={key} class="product-card">
       <div className="product-box" onClick={toggle}>
-        <img src={image && image.length && image[0] || testImg}  className="product-img"></img>
+        <img src={image && image.length && image[0] || placeholderImage}  className="product-img"></img>
       </div>
       <strong className="product-name" onClick={toggle}>
         {title}

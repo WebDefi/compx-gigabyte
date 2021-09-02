@@ -2,16 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import axios from "axios";
 import getConfig from '../../config';
-import Monitors from "./Monitors";
+import Blocks from "./Blocks";
 import ProductsPagination from "./components/ProductsPagination";
 import { useLocation } from "react-router-dom";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 import ProductsBanner from "./components/ProductsBanner";
-import ProductsFilterComponent from "./components/ProductsFilterComponent";
-
-
-
-const MonitorsList = ({itemsNumber, itemsPerPage}) => {
+const CorpsList = ({itemsNumber, itemsPerPage}) => {
   // Get config
   const config = getConfig();
   console.log('CONFIG', config);
@@ -34,11 +30,10 @@ const MonitorsList = ({itemsNumber, itemsPerPage}) => {
 
   return (
     <section class="product-cards" style={{ padding: "0" }}>
-      
       <Container fluid style={{ padding: "0 0 60px " }}>
         <ProductsBanner />
         <Breadcrumbs />        
-        <Monitors currentPage={currentPage} itemsPerPage={config.ITEMS_PER_PAGE} filters={filters}/>
+        <Blocks currentPage={currentPage} itemsPerPage={config.ITEMS_PER_PAGE} filters={filters}/>
         <Row>
           <Col xs="12 ">
             
@@ -55,4 +50,4 @@ const MonitorsList = ({itemsNumber, itemsPerPage}) => {
   );
 };
 
-export default MonitorsList;
+export default CorpsList;

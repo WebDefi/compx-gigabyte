@@ -17,7 +17,7 @@ const ProductsFilter = ({
   // fetching all filter values from BE
   useEffect(() => {
     fetch(
-      "http://3.249.81.155:3000/gigabyte/api/v1/items/7"
+      "http://3.249.81.155:3000/gigabyte/api/v1/items/2"
     )
       .then((res) => res.json())
       .then(
