@@ -30,28 +30,27 @@
   cursor: pointer;
   margin: 10px auto;
   &:hover {
-    border: 2px solid #FA6812;
+    border: 2px solid #fa6812;
   }
 }
- 
+
 .product-box {
   width: 100%;
   background: #fff;
   position: relative;
 }
- 
+
 .product-img {
   position: relative;
-  width: 70%;
-  height: 12em;
-  top: 15px;
-  left: 15%;
-  
+  width: 100%;
+  height: auto;
+  // top: 15px;
+  // left: 15%;
+
   // background-image: url("https://static.gigabyte.com/StaticFile/Image/Global/49a9df63553c6f67a87b2342773a4990/Product/26843/webp/400");
-  
+
   margin: 0 auto;
   transition: 0.3s background-image;
-   
 }
 // .product-card:hover .product-img {
 //   background-image: url("https://www.gigabyte.com/FileUpload/Global/KeyFeature/1699/innergigabyteimages/rgb/cover.png");
@@ -63,7 +62,7 @@
   font-weight: 400;
 }
 .product-name {
-  padding:20px 10px;
+  padding: 20px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,7 +70,7 @@
   font-size: 1.1em;
   text-align: center;
   color: #f1f1f1;
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
 }
 
 .product-price {
@@ -83,12 +82,9 @@
   font-size: 1.2em;
   background-color: #131313;
   width: 100%;
-  
 }
 
-
 //Modal window
-
 
 .product-btn {
   border: none;
@@ -108,22 +104,21 @@
 
 .modal {
   top: 0px;
-  bottom: 150px; 
+  bottom: 150px;
 }
 
 .modal-dialog {
   border-radius: 20px;
 }
 .modal-content {
- 
   border-radius: 18px;
 }
 
 .modal-header {
-  border-radius: 18px 18px 0 0 ;
+  border-radius: 18px 18px 0 0;
 }
 .modal-footer {
-  border-radius: 0 0 18px 18px ;
+  border-radius: 0 0 18px 18px;
 }
 .close {
   display: block;
