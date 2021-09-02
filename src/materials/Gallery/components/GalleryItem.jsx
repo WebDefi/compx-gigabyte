@@ -4,18 +4,7 @@ import "./GalleryItem.scss";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const GalleryItem = ({
-  titleItem,
-  images,
-  itemId,
-  key,
-  imgFirst,
-  imgSecond,
-  imgThird,
-  imgForth,
-  imgFifth,
-  imgSixth,
-}) => {
+const GalleryItem = ({ titleItem, images, itemId, key }) => {
   const [show, showState] = React.useState(false);
   useEffect(() => {
     AOS.init({
@@ -24,7 +13,7 @@ const GalleryItem = ({
   }, []);
 
   return (
-    <Container className="gallery text-center" data-aos="fade-up">
+    <Container fluid className="gallery text-center" data-aos="fade-up">
       <div className="gallery_lines">
         <div className="gallery__thin"></div>
         <div className="gallery__bold"></div>
@@ -40,7 +29,7 @@ const GalleryItem = ({
           <a href="item"></a>
           <Row style={{ justifyContent: "center" }}>
             {images.map((number, index, key) => (
-              <Col xs="4" lg="4" style={{ paddingTop: "10px" }}>
+              <Col xs="6" lg="4">
                 <div>
                   <a href={`#${key}-${index}`}>
                     <img className="gallery__img" src={number} alt={index} />
