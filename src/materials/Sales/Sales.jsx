@@ -53,7 +53,7 @@ export default class Sales extends Component {
           <SectionContent title="акции gigabyte"></SectionContent>
         </div>
         <Container style={{ marginTop: "60px" }}>
-          {/* <Slider {...settings}>
+          <Slider {...settings}>
             {this.state.salesItems.map((item, idx) => {
               return (
                 <SalesComponent
@@ -64,7 +64,7 @@ export default class Sales extends Component {
                 />
               );
             })}
-          </Slider> */}
+          </Slider>
         </Container>
       </div>
     );

@@ -9,8 +9,10 @@ import logoSrc from "../../static/images/filter.svg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Monitors = ({ currentPage, filters, itemsPerPage }) => {
+const Products = ({ currentPage, filters, itemsPerPage }) => {
   console.log("CURRENTPAGE", currentPage);
+  // const [error, setError] = useState(null);
+  // const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -19,8 +21,9 @@ const Monitors = ({ currentPage, filters, itemsPerPage }) => {
       const queryStringParams = {
         start: (page - 1) * itemsPerPage,
         end: page * itemsPerPage,
+        // charValues: JSON.stringify(filters)
       };
-      const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/4`;
+      const baseUrl = "http://3.249.81.155:3000/gigabyte/api/v1/items/1";
       const url = `${baseUrl}?${Object.entries(queryStringParams)
         .map(([key, value]) => `${key}=${value}`)
         .join("&")}`;
@@ -35,6 +38,23 @@ const Monitors = ({ currentPage, filters, itemsPerPage }) => {
     return () => (cleanup = true);
   }, [currentPage, filters, itemsPerPage]);
 
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     const res = await axios.get('http://3.249.81.155:3000/gigabyte/api/v1/items/1')
+  //     setItems(res.data);
+  //   }
+  //   fetchProducts();
+  // }, []);
+  // if (error) {
+  //   return <div>Ошибка: {error.message}</div>;
+  // } else if (!isLoaded) {
+  //   return <div>Загрузка...</div>;
+  // } else {
+
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const indexOfLastItem = currentPage * itemsPerPage;
+  // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  // const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
   const [show, showState] = React.useState(false);
   return (
     <div>
@@ -42,12 +62,13 @@ const Monitors = ({ currentPage, filters, itemsPerPage }) => {
         <ProductsFilterBtn textBtn="Фільтр" />
       </div>
       <Row className="products_rowFirst" style={{ padding: "0 40px" }}>
-        <Col xs="12" lg="3" xl="3" xxl="">
+        <Col xs="12" lg="3" xl="3">
           <div className="ProductsFilterDesktop">
             <ProductsFilter
               FilterBtn="Фільтр"
               CleanBtn="Очистити"
               logoSrc={logoSrc}
+              filters={filters}
             ></ProductsFilter>
           </div>
           {show ? (
@@ -61,8 +82,8 @@ const Monitors = ({ currentPage, filters, itemsPerPage }) => {
           ) : null}
         </Col>
 
-        <Col xs="" lg="9" xl="9" xxl="12">
-          <Row className="products_row" style={{ paddingRight: "0px" }}>
+        <Col xs="" lg="9" xl="9">
+          <Row className="products_row" style={{ paddingRight: "60px" }}>
             {items.map((item) => (
               <Col xs="6" lg="4" xl="4" style={{ marginBottom: "30px" }}>
                 <ProductItem
@@ -82,4 +103,4 @@ const Monitors = ({ currentPage, filters, itemsPerPage }) => {
   );
 };
 
-export default Monitors;
+export default Products;
