@@ -9,10 +9,9 @@ import logoSrc from "../../static/images/filter.svg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const GraphicsCards = ({ currentPage, filters, itemsPerPage }) => {
+const GraphicsCards = ({ currentPage, filters, itemsPerPage, setFilters }) => {
   console.log("CURRENTPAGE", currentPage);
-  // const [error, setError] = useState(null);
-  // const [isLoaded, setIsLoaded] = useState(false);
+  console.log("filters", filters);
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -23,6 +22,7 @@ const GraphicsCards = ({ currentPage, filters, itemsPerPage }) => {
         end: page * itemsPerPage,
         charValues: JSON.stringify(filters),
       };
+      
       const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/2`;
       const url = `${baseUrl}?${Object.entries(queryStringParams)
         .map(([key, value]) => `${key}=${value}`)
@@ -38,23 +38,6 @@ const GraphicsCards = ({ currentPage, filters, itemsPerPage }) => {
     return () => (cleanup = true);
   }, [currentPage, filters, itemsPerPage]);
 
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     const res = await axios.get('http://3.249.81.155:3000/gigabyte/api/v1/items/1')
-  //     setItems(res.data);
-  //   }
-  //   fetchProducts();
-  // }, []);
-  // if (error) {
-  //   return <div>Ошибка: {error.message}</div>;
-  // } else if (!isLoaded) {
-  //   return <div>Загрузка...</div>;
-  // } else {
-
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const indexOfLastItem = currentPage * itemsPerPage;
-  // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  // const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
   const [show, showState] = React.useState(false);
   return (
     <div>
@@ -69,6 +52,7 @@ const GraphicsCards = ({ currentPage, filters, itemsPerPage }) => {
               CleanBtn="Очистити"
               logoSrc={logoSrc}
               filters={filters}
+              setFilters={setFilters}
             ></ProductsFilter>
           </div>
           {show ? (
@@ -91,7 +75,7 @@ const GraphicsCards = ({ currentPage, filters, itemsPerPage }) => {
                   title={item.name}
                   price={item.price}
                   link={item.url}
-                  image={item.images}
+                  image={item.images[0]}
                   details={item.detaileddescru}
                 ></ProductItem>
               </Col>
