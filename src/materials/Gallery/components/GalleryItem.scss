@@ -64,6 +64,7 @@
   &__img {
     width: 100%;
     height: auto;
+
     &--hidden {
       display: none;
 
@@ -98,4 +99,8 @@
       }
     }
   }
+}
+
+.row {
+  --bs-gutter-x: 0;
 }

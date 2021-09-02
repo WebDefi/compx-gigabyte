@@ -62,7 +62,7 @@ const Monitors = ({ currentPage, filters, itemsPerPage }) => {
         </Col>
 
         <Col xs="" lg="9" xl="9" xxl="12">
-          <Row className="products_row" style={{ paddingRight: "0px" }}>
+          <Row className="products_row" style={{ paddingRight: "50px" }}>
             {items.map((item) => (
               <Col xs="6" lg="4" xl="4" style={{ marginBottom: "30px" }}>
                 <ProductItem
