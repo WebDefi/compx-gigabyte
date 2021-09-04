@@ -11,8 +11,10 @@ import axios from "axios";
 
 export default class SlideAorus extends Component {
   state = {
-    objs: [],
+    objs: [],    
   };
+
+  currentSlide = 0;
 
   componentDidMount() {
     axios.get(`http://3.249.81.155:3000/gigabyte/api/v1/slider`).then((res) => {
@@ -33,6 +35,12 @@ export default class SlideAorus extends Component {
       // autoplay: true,
       // speed: 2000,
       // autoplaySpeed: 5000,
+      onReInit: function(index) {
+        console.log(
+          `Slider Changed to: ${index + 1}`
+        );
+        //this.currentSlide = index;
+      },
       appendDots: (dots) => (
         <div>
           <div className="slick-dots--position">
@@ -53,6 +61,7 @@ export default class SlideAorus extends Component {
                 sliderBcg={obj.image}
                 sliderBcgMobile={SliderBcgMobile1}
                 btnText={obj.button_text}
+                percent={this.currentSlide === idx ? 1 : 0}                
               ></SliderAorusComponent>
             );
           })}
