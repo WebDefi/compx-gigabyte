@@ -36,16 +36,7 @@ function App() {
         <Suspense fallback={<Preloader/>}>
      
             <Header />
-            <Route path="/Мониторы"  component={() => <MonitorsList itemsNumber={itemsNumber}/>} />
-            <Route path="/Материнские платы" component={() => <MotherboardsList itemsNumber={itemsNumber}/>} />
-            <Route path="/Ноутбуки" component={() => <NotebooksList itemsNumber={itemsNumber}/>} />
-            <Route path="/Корпуса" component={CorpsList} component={() => <MonitorsList itemsNumber={itemsNumber}/>} />
-            <Route path="/Аксессуары" component={() => <AccessoriesList itemsNumber={itemsNumber}/>} />
-            <Route path="/ССД" component={() => <SSDList itemsNumber={itemsNumber}/>} />
-            <Route path="/Видеокарты" component={() => <GraphicsCardsList itemsNumber={itemsNumber}/>} />
-            <Route path="/home" component={HomePage} />
-            <Route path="/Блоки питания" component={() => <BlocksList itemsNumber={itemsNumber}/>} />
-            <Redirect from="/" to="/home" />
+             {getRoutes()}
             <Footer />
           
         </Suspense>

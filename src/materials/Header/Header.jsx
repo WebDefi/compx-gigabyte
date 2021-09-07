@@ -91,7 +91,7 @@ const Header = () => {
               <NavbarToggler onClick={toggle} />
 
               <Collapse isOpen={isOpen} navbar>
-                <Nav className="mr-auto" navbar>
+                <Nav className="mr-auto " navbar>
                   <UncontrolledDropdown nav inNavbar >
                     <DropdownToggle nav caret>
                       Продукция

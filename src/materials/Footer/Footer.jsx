@@ -20,8 +20,8 @@ const Footer = () => {
   return (
     <div data-aos="fade-up">
       <div style={{ height: 300, backgroundImage: `url(${footerBg})` }}></div>
-      <div className={styles.Footer}>
-        <Row className="text-center">
+      <div className={styles.Footer} style={{background: '#000'}}>
+        <Row className="text-center" >
           <Col>
             <img
               className="footer-img"
