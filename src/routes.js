@@ -35,6 +35,7 @@ export const getRoutes = ( itemsNumber) => {
     <Suspense fallback={<Preloader />}>
       <Switch>
         <Route path="/category/:id" component={ItemsList} />
+        <Route path="/home" component={HomePage} />
         {/* <Route
           path="/Мониторы"
           component={(<MonitorsList itemsNumber={itemsNumber} />)}
@@ -64,7 +65,7 @@ export const getRoutes = ( itemsNumber) => {
           path="/Видеокарты"
           component={() => <GraphicsCardsList itemsNumber={itemsNumber} />}
         />
-        <Route path="/home" component={HomePage} />
+        
         <Route
           path="/Блоки питания"
           component={() => <BlocksList itemsNumber={itemsNumber} />}
