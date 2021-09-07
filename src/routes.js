@@ -9,9 +9,9 @@ const SliderAorus = lazy(() => import("./materials/SliderAorus/SliderAorus"));
 const News = lazy(() => import("./materials/News/News"));
 const Footer = lazy(() => import("./materials/Footer/Footer"));
 const Gallery = lazy(() => import("./materials/Gallery/Gallery"));
-const Products = lazy(() => import("./materials/Products/GraphicsCards"));
-const GraphicsCardsList = lazy(() =>
-  import("./materials/Products/GraphicsCardsList")
+const Products = lazy(() => import("./materials/Products/Items"));
+const ItemsList = lazy(() =>
+  import("./materials/Products/ItemsList")
 );
 const ProductList2 = lazy(() => import("./materials/Products/ProductList2"));
 
@@ -34,7 +34,8 @@ export const getRoutes = ( itemsNumber) => {
   return (
     <Suspense fallback={<Preloader />}>
       <Switch>
-        <Route
+        <Route path="/category/:id" component={ItemsList} />
+        {/* <Route
           path="/Мониторы"
           component={(<MonitorsList itemsNumber={itemsNumber} />)}
         />
@@ -67,7 +68,7 @@ export const getRoutes = ( itemsNumber) => {
         <Route
           path="/Блоки питания"
           component={() => <BlocksList itemsNumber={itemsNumber} />}
-        />
+        /> */}
         <Redirect from="/" to="/home" />
       </Switch>
     </Suspense>

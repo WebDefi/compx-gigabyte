@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import axios from "axios";
 import getConfig from "../../config";
-import GraphicsCards from "./GraphicsCards";
+import Items from "./Items";
 import ProductsPagination from "./components/ProductsPagination";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 import ProductsBanner from "./components/ProductsBanner";
 import bannerImgGraphic from "../../static/images/bannerGraphiccard.jpeg";
@@ -25,7 +25,8 @@ import {
   ButtonDropdown,
 } from "reactstrap";
 
-const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
+const ItemsList = ({ itemsNumber, itemsPerPage }) => {
+  const { id: categoryId } = useParams();
   useEffect(() => {
     fetch("http://3.249.81.155:3000/gigabyte/api/v1/groups")
       .then((res) => res.json())
@@ -71,11 +72,12 @@ const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
         
         <Breadcrumbs />
         
-        <GraphicsCards
+        <Items
           currentPage={currentPage}
           itemsPerPage={config.ITEMS_PER_PAGE}
           filters={filters}
           setFilters={setFilters}
+          categoryId={categoryId}
         />
         <Row>
           <Col xs="12">
@@ -91,4 +93,4 @@ const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
   );
 };
 
-export default GraphicsCardsList;
+export default ItemsList;

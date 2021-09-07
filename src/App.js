@@ -8,8 +8,8 @@ import SliderAorus from "./materials/SliderAorus/SliderAorus";
 import News from "./materials/News/News";
 import Footer from "./materials/Footer/Footer";
 import Gallery from "./materials/Gallery/Gallery";
-import Products from "./materials/Products/GraphicsCards";
-import GraphicsCardsList from "./materials/Products/GraphicsCardsList";
+import Products from "./materials/Products/Items";
+import ItemsList from "./materials/Products/ItemsList";
 import ProductList2 from "./materials/Products/ProductList2";
 import React from "react";
 import Preloader from './common/Preloader/Preloader';
@@ -34,11 +34,9 @@ function App() {
     <BrowserRouter>
       <div className={styles.App}>
         <Suspense fallback={<Preloader/>}>
-     
             <Header />
              {getRoutes()}
             <Footer />
-          
         </Suspense>
       </div>
     </BrowserRouter>

@@ -92,13 +92,13 @@ const Header = () => {
 
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto " navbar>
-                  <UncontrolledDropdown nav inNavbar >
+                  <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
                       Продукция
                     </DropdownToggle>
-                    <DropdownMenu right className='dropdown-fixed'>
-                    {groups.map((item, idx) => (
-                        <Link to={`/${item.title.replace(/\s\(.*\)/, '') }`}>
+                    <DropdownMenu right className="dropdown-fixed">
+                      {groups.map((item, idx) => (
+                        <Link to={`/category/${item.id}`}>
                           <DropdownItem key={idx.id}>
                             <img src={item.imageUrl}></img>
                             <p className="groupTitle">{item.title}</p>
@@ -291,7 +291,7 @@ const Header = () => {
                     </DropdownToggle>
                     <DropdownMenu right>
                       {groups.map((item, idx) => (
-                        <Link to={`/${item.title.replace(/\s\(.*\)/, '') }`}>
+                        <Link to={`/category/${item.id}`}>
                           <DropdownItem key={idx.id}>
                             <img src={item.imageUrl}></img>
                             <p className="groupTitle">{item.title}</p>
