@@ -8,8 +8,8 @@ import SliderAorus from "./materials/SliderAorus/SliderAorus";
 import News from "./materials/News/News";
 import Footer from "./materials/Footer/Footer";
 import Gallery from "./materials/Gallery/Gallery";
-import Products from "./materials/Products/GraphicsCards";
-import GraphicsCardsList from "./materials/Products/GraphicsCardsList";
+import Products from "./materials/Products/Items";
+import ItemsList from "./materials/Products/ItemsList";
 import ProductList2 from "./materials/Products/ProductList2";
 import React from "react";
 import Preloader from './common/Preloader/Preloader';
@@ -34,20 +34,9 @@ function App() {
     <BrowserRouter>
       <div className={styles.App}>
         <Suspense fallback={<Preloader/>}>
-     
             <Header />
-            <Route path="/Мониторы"  component={() => <MonitorsList itemsNumber={itemsNumber}/>} />
-            <Route path="/Материнские платы" component={() => <MotherboardsList itemsNumber={itemsNumber}/>} />
-            <Route path="/Ноутбуки" component={() => <NotebooksList itemsNumber={itemsNumber}/>} />
-            <Route path="/Корпуса" component={CorpsList} component={() => <MonitorsList itemsNumber={itemsNumber}/>} />
-            <Route path="/Аксессуары" component={() => <AccessoriesList itemsNumber={itemsNumber}/>} />
-            <Route path="/ССД" component={() => <SSDList itemsNumber={itemsNumber}/>} />
-            <Route path="/Видеокарты" component={() => <GraphicsCardsList itemsNumber={itemsNumber}/>} />
-            <Route path="/home" component={HomePage} />
-            <Route path="/Блоки питания" component={() => <BlocksList itemsNumber={itemsNumber}/>} />
-            <Redirect from="/" to="/home" />
+             {getRoutes()}
             <Footer />
-          
         </Suspense>
       </div>
     </BrowserRouter>

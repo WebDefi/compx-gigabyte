@@ -13,6 +13,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #000;
   background-image: url("./static/images/mainBCG1.jpg");
+  background-size: cover;
+ 
+  
+  
+  
   color: #fff;
   cursor: url("./static/images/cursor1.png"), auto;
   overflow-x: hidden;
@@ -63,4 +68,8 @@ code {
 }
 .dropdown-menu :active {
   background-color: #fa6812;
+}
+
+.nav-link {
+  padding-top: 0;
 }

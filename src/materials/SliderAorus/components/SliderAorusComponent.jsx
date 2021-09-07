@@ -10,6 +10,7 @@ const SliderAorusComponent = ({
   sliderSubtitle,
   sliderBcg,
   sliderBcgMobile,
+  percent
 }) => {
   return (
     <div
@@ -27,7 +28,7 @@ const SliderAorusComponent = ({
         <h3 className={styles.sliderAorus__subtitle}>{sliderSubtitle}</h3>
         <SliderAorusBtn btnText={btnText}></SliderAorusBtn>
       </div>
-      <SliderAorusLifecycle height="286" percent={Number(1)} />
+      <SliderAorusLifecycle height="286" percent={Number(percent)} />
     </div>
   );
 };

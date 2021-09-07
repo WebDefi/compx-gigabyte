@@ -54,6 +54,7 @@
   .slick-slider {
     .slick-slide {
       .divvv {
+        height: 500px;
         &:hover {
           .newsDescription {
             text-overflow: ellipsis;
@@ -78,7 +79,7 @@
   position: relative;
 
   padding: 0.2em 0;
-  background-color: #050307;
+  background: transparent;
   outline: none;
   border: 2px solid $primary;
   color: $primary;
@@ -92,8 +93,8 @@
   width: 4em;
   height: 0.6em;
   border: 2px solid $primary;
-  background: #050307;
-  z-index: 1;
+  background: transparent;
+  z-index: 100;
   transition: 0.3s;
 }
 .outlineButton::before {

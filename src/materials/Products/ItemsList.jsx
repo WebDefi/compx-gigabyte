@@ -2,14 +2,48 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import axios from "axios";
 import getConfig from "../../config";
-import GraphicsCards from "./GraphicsCards";
+import Items from "./Items";
 import ProductsPagination from "./components/ProductsPagination";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 import ProductsBanner from "./components/ProductsBanner";
 import bannerImgGraphic from "../../static/images/bannerGraphiccard.jpeg";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText,
+  ButtonDropdown,
+} from "reactstrap";
 
-const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
+const ItemsList = ({ itemsNumber, itemsPerPage }) => {
+  const { id: categoryId } = useParams();
+  useEffect(() => {
+    fetch("http://3.249.81.155:3000/gigabyte/api/v1/groups")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setGroups(result.groups);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  }, []);
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [groups, setGroups] = useState([]);
   // Get config
   const config = getConfig();
   console.log("CONFIG", config);
@@ -34,12 +68,16 @@ const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
     <section class="product-cards" style={{ padding: "0" }}>
       <Container fluid style={{ padding: "0 0 60px " }}>
         <ProductsBanner bannerImg={bannerImgGraphic} />
+       
+        
         <Breadcrumbs />
-        <GraphicsCards
+        
+        <Items
           currentPage={currentPage}
           itemsPerPage={config.ITEMS_PER_PAGE}
           filters={filters}
           setFilters={setFilters}
+          categoryId={categoryId}
         />
         <Row>
           <Col xs="12">
@@ -55,4 +93,4 @@ const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
   );
 };
 
-export default GraphicsCardsList;
+export default ItemsList;

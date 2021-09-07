@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import axios from "axios";
 import getConfig from "../../config";
-import Products from "./GraphicsCards";
+import Products from "./Items";
 import ProductsPagination from "./components/ProductsPagination";
 import { useLocation } from "react-router-dom";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";

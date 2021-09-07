@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import ProductItem from "./components/ProductItem";
 import ProductsPagination from "./components/ProductsPagination.jsx";
@@ -9,10 +9,15 @@ import logoSrc from "../../static/images/filter.svg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const GraphicsCards = ({ currentPage, filters, itemsPerPage, setFilters }) => {
+const Items = ({ currentPage, filters, itemsPerPage, setFilters, categoryId }) => {
+  
   console.log("CURRENTPAGE", currentPage);
   console.log("filters", filters);
   const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [categoryId]);
 
   useEffect(() => {
     let cleanup = false;
@@ -23,7 +28,7 @@ const GraphicsCards = ({ currentPage, filters, itemsPerPage, setFilters }) => {
         charValues: filters.length > 0 ? encodeURI(JSON.stringify(filters)): "",
       };
       
-      const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/2`;
+      const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/${categoryId}`;
       if (queryStringParams.charValues == "") delete queryStringParams["charValues"];
       const url = `${baseUrl}?${Object.entries(queryStringParams)
         .map(([key, value]) => `${key}=${value}`)
@@ -54,6 +59,7 @@ const GraphicsCards = ({ currentPage, filters, itemsPerPage, setFilters }) => {
               logoSrc={logoSrc}
               filters={filters}
               setFilters={setFilters}
+              categoryId={categoryId}
             ></ProductsFilter>
           </div>
           {show ? (
@@ -88,4 +94,4 @@ const GraphicsCards = ({ currentPage, filters, itemsPerPage, setFilters }) => {
   );
 };
 
-export default GraphicsCards;
+export default Items;
