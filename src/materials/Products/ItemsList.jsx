@@ -71,6 +71,30 @@ const ItemsList = ({ itemsNumber, itemsPerPage }) => {
        
         
         <Breadcrumbs />
+        <Col xs="12" md='10' style={{marginBottom: 10}}>
+      
+    <Nav navbar style={{paddingLeft:33}}>
+        <UncontrolledDropdown nav inNavbar>
+         
+         <DropdownToggle nav caret>
+            Продукция
+          </DropdownToggle>
+       
+         <DropdownMenu right className="dropdown-fixed">
+            {groups.map((item, idx) => (
+              <Link to={`/${item.title.replace(/\s\(.*\)/, "")}`}>
+                <DropdownItem key={idx.id}>
+                  <img src={item.imageUrl}></img>
+                  <p className="groupTitle">{item.title}</p>
+                </DropdownItem>
+              </Link>
+            ))}
+          </DropdownMenu>
+         
+         
+        </UncontrolledDropdown>
+        </Nav>
+    </Col>
         
         <Items
           currentPage={currentPage}
