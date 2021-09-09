@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, BrowserRouter as Router } from "react-router-dom";
 
 
 import axios from "axios";
@@ -9,9 +9,9 @@ const SliderAorus = lazy(() => import("./materials/SliderAorus/SliderAorus"));
 const News = lazy(() => import("./materials/News/News"));
 const Footer = lazy(() => import("./materials/Footer/Footer"));
 const Gallery = lazy(() => import("./materials/Gallery/Gallery"));
-const Products = lazy(() => import("./materials/Products/GraphicsCards"));
-const GraphicsCardsList = lazy(() =>
-  import("./materials/Products/GraphicsCardsList")
+const Products = lazy(() => import("./materials/Products/Items"));
+const ItemsList = lazy(() =>
+  import("./materials/Products/ItemsList")
 );
 const ProductList2 = lazy(() => import("./materials/Products/ProductList2"));
 
@@ -32,9 +32,12 @@ const NotebooksList = lazy(() => import("./materials/Products/NotebooksList"));
 
 export const getRoutes = ( itemsNumber) => {
   return (
-    <Suspense fallback={<Preloader />}>
-      <Switch>
-        <Route
+    // <Suspense fallback={<Preloader />}>
+     <Router>
+        <Switch>
+        <Route path="/category/:id" component={ItemsList} />
+        <Route path="/home" component={HomePage} />
+        {/* <Route
           path="/Мониторы"
           component={(<MonitorsList itemsNumber={itemsNumber} />)}
         />
@@ -63,13 +66,14 @@ export const getRoutes = ( itemsNumber) => {
           path="/Видеокарты"
           component={() => <GraphicsCardsList itemsNumber={itemsNumber} />}
         />
-        <Route path="/home" component={HomePage} />
+        
         <Route
           path="/Блоки питания"
           component={() => <BlocksList itemsNumber={itemsNumber} />}
-        />
+        /> */}
         <Redirect from="/" to="/home" />
       </Switch>
-    </Suspense>
+     </Router>
+    
   );
 };

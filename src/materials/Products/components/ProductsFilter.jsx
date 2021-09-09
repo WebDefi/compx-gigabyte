@@ -4,6 +4,7 @@ import ProductsFilterComponent from "./ProductsFilterComponent";
 import "./ProductsFilter.scss";
 
 const ProductsFilter = ({
+  categoryId,
   filters,
   setFilters,
   FilterBtn,
@@ -17,7 +18,7 @@ const ProductsFilter = ({
   // fetching all filter values from BE
   useEffect(() => {
     fetch(
-      "http://3.249.81.155:3000/gigabyte/api/v1/items/2"
+      `http://3.249.81.155:3000/gigabyte/api/v1/items/${categoryId}`
     )
       .then((res) => res.json())
       .then(

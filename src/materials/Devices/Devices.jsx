@@ -90,7 +90,7 @@ export default class Devices extends Component {
                   key={idx.id}
                   deviceImg={cat.imageUrl}
                   deviceBg={deviceBg}
-                  link={`/${cat.title}`}
+                  link={`/category/${cat.id}`}
                 ></DevicesComponent>
               );
             })}

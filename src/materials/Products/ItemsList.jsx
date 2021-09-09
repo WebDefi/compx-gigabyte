@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import axios from "axios";
 import getConfig from "../../config";
-import GraphicsCards from "./GraphicsCards";
+import Items from "./Items";
 import ProductsPagination from "./components/ProductsPagination";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 import ProductsBanner from "./components/ProductsBanner";
 import bannerImgGraphic from "../../static/images/bannerGraphiccard.jpeg";
@@ -25,7 +25,8 @@ import {
   ButtonDropdown,
 } from "reactstrap";
 
-const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
+const ItemsList = ({ itemsNumber, itemsPerPage, match }) => {
+  const { id: categoryId } = useParams();
   useEffect(() => {
     fetch("http://3.249.81.155:3000/gigabyte/api/v1/groups")
       .then((res) => res.json())
@@ -67,15 +68,34 @@ const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
     <section class="product-cards" style={{ padding: "0" }}>
       <Container fluid style={{ padding: "0 0 60px " }}>
         <ProductsBanner bannerImg={bannerImgGraphic} />
-       
-        
         <Breadcrumbs />
-        
-        <GraphicsCards
+        <Col xs="12" md="10" style={{ marginBottom: 10 }}>
+          <Nav navbar style={{ paddingLeft: 33 }}>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Продукция
+              </DropdownToggle>
+
+              <DropdownMenu right className="dropdown-fixed">
+                {groups.map((item, idx) => (
+                  <a href={`/category/${item.id}`}>
+                    <DropdownItem key={idx.id}>
+                      <img src={item.imageUrl}></img>
+                      <p className="groupTitle">{item.title}</p>
+                    </DropdownItem>
+                  </a>
+                ))}
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          </Nav>
+        </Col>
+
+        <Items
           currentPage={currentPage}
           itemsPerPage={config.ITEMS_PER_PAGE}
           filters={filters}
           setFilters={setFilters}
+          categoryId={categoryId}
         />
         <Row>
           <Col xs="12">
@@ -91,4 +111,4 @@ const GraphicsCardsList = ({ itemsNumber, itemsPerPage }) => {
   );
 };
 
-export default GraphicsCardsList;
+export default ItemsList;

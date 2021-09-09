@@ -98,12 +98,12 @@ const Header = () => {
                     </DropdownToggle>
                     <DropdownMenu right className="dropdown-fixed">
                       {groups.map((item, idx) => (
-                        <Link to={`/${item.title.replace(/\s\(.*\)/, "")}`}>
+                        <a href={`/category/${item.id}`}>
                           <DropdownItem key={idx.id}>
                             <img src={item.imageUrl}></img>
                             <p className="groupTitle">{item.title}</p>
                           </DropdownItem>
-                        </Link>
+                        </a>
                       ))}
                     </DropdownMenu>
                   </UncontrolledDropdown>
@@ -291,12 +291,12 @@ const Header = () => {
                     </DropdownToggle>
                     <DropdownMenu right>
                       {groups.map((item, idx) => (
-                        <Link to={`/${item.title.replace(/\s\(.*\)/, "")}`}>
+                        <a href={`/category/${item.id}`}>
                           <DropdownItem key={idx.id}>
                             <img src={item.imageUrl}></img>
                             <p className="groupTitle">{item.title}</p>
                           </DropdownItem>
-                        </Link>
+                        </a>
                       ))}
                     </DropdownMenu>
                   </UncontrolledDropdown>
