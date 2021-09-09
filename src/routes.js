@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, BrowserRouter as Router } from "react-router-dom";
 
 
 import axios from "axios";
@@ -32,8 +32,9 @@ const NotebooksList = lazy(() => import("./materials/Products/NotebooksList"));
 
 export const getRoutes = ( itemsNumber) => {
   return (
-    <Suspense fallback={<Preloader />}>
-      <Switch>
+    // <Suspense fallback={<Preloader />}>
+     <Router>
+        <Switch>
         <Route path="/category/:id" component={ItemsList} />
         <Route path="/home" component={HomePage} />
         {/* <Route
@@ -72,6 +73,7 @@ export const getRoutes = ( itemsNumber) => {
         /> */}
         <Redirect from="/" to="/home" />
       </Switch>
-    </Suspense>
+     </Router>
+    
   );
 };

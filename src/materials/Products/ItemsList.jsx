@@ -25,7 +25,7 @@ import {
   ButtonDropdown,
 } from "reactstrap";
 
-const ItemsList = ({ itemsNumber, itemsPerPage }) => {
+const ItemsList = ({ itemsNumber, itemsPerPage, match }) => {
   const { id: categoryId } = useParams();
   useEffect(() => {
     fetch("http://3.249.81.155:3000/gigabyte/api/v1/groups")
@@ -68,34 +68,28 @@ const ItemsList = ({ itemsNumber, itemsPerPage }) => {
     <section class="product-cards" style={{ padding: "0" }}>
       <Container fluid style={{ padding: "0 0 60px " }}>
         <ProductsBanner bannerImg={bannerImgGraphic} />
-       
-        
         <Breadcrumbs />
-        <Col xs="12" md='10' style={{marginBottom: 10}}>
-      
-    <Nav navbar style={{paddingLeft:33}}>
-        <UncontrolledDropdown nav inNavbar>
-         
-         <DropdownToggle nav caret>
-            Продукция
-          </DropdownToggle>
-       
-         <DropdownMenu right className="dropdown-fixed">
-            {groups.map((item, idx) => (
-              <Link to={`/${item.title.replace(/\s\(.*\)/, "")}`}>
-                <DropdownItem key={idx.id}>
-                  <img src={item.imageUrl}></img>
-                  <p className="groupTitle">{item.title}</p>
-                </DropdownItem>
-              </Link>
-            ))}
-          </DropdownMenu>
-         
-         
-        </UncontrolledDropdown>
-        </Nav>
-    </Col>
-        
+        <Col xs="12" md="10" style={{ marginBottom: 10 }}>
+          <Nav navbar style={{ paddingLeft: 33 }}>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Продукция
+              </DropdownToggle>
+
+              <DropdownMenu right className="dropdown-fixed">
+                {groups.map((item, idx) => (
+                  <a href={`/category/${item.id}`}>
+                    <DropdownItem key={idx.id}>
+                      <img src={item.imageUrl}></img>
+                      <p className="groupTitle">{item.title}</p>
+                    </DropdownItem>
+                  </a>
+                ))}
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          </Nav>
+        </Col>
+
         <Items
           currentPage={currentPage}
           itemsPerPage={config.ITEMS_PER_PAGE}

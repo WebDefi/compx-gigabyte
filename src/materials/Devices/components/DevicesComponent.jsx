@@ -12,7 +12,7 @@ const DevicesComponent = ({ deviceImg, title, link }) => {
     });
   }, []);
   return (
-    <Link to={link}>
+    <a href={link}>
       <div data-aos="fade-left" className="DevicesComponent text-center">
         <NavLink to={link} className="devices__href">
           <img
@@ -27,8 +27,7 @@ const DevicesComponent = ({ deviceImg, title, link }) => {
         </NavLink>
         <h5 className="deviceName text-center">{title}</h5>
       </div>
-    </Link>
-  );
+    </a> );
 };
 
 export default DevicesComponent;
