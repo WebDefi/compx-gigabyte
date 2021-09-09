@@ -11,10 +11,9 @@ import axios from "axios";
 
 export default class SlideAorus extends Component {
   state = {
-    objs: [],    
+    objs: [],
+    currentSlide: 0,
   };
-
-  currentSlide = 0;
 
   componentDidMount() {
     axios.get(`http://3.249.81.155:3000/gigabyte/api/v1/slider`).then((res) => {
@@ -35,11 +34,11 @@ export default class SlideAorus extends Component {
       // autoplay: true,
       // speed: 2000,
       // autoplaySpeed: 5000,
-      onReInit: function(index) {
-        console.log(
-          `Slider Changed to: ${index + 1}`
-        );
-        //this.currentSlide = index;
+      afterChange: (current) => {
+        this.setState({
+          currentSlide: current,
+        });
+        this.currentSlide = current;
       },
       appendDots: (dots) => (
         <div>
@@ -55,13 +54,13 @@ export default class SlideAorus extends Component {
           {this.state.objs.map((obj, idx) => {
             return (
               <SliderAorusComponent
-                sliderId={obj.id}
                 sliderTitle={obj.title_high}
                 sliderSubtitle={obj.title_low}
                 sliderBcg={obj.image}
                 sliderBcgMobile={SliderBcgMobile1}
                 btnText={obj.button_text}
-                percent={this.currentSlide === idx ? 1 : 0}                
+                log={console.log(this.currentSlide, idx)}
+                percent={this.currentSlide + 1 === idx ? 1 : 0}
               ></SliderAorusComponent>
             );
           })}

@@ -10,16 +10,16 @@ import "aos/dist/aos.css";
 const SalesComponent = ({ description, img, link }) => {
   useEffect(() => {
     AOS.init({
-      duration: 2200,
+      duration: 1200,
     });
   }, []);
   return (
     <div data-aos="flip-right" className="divvv">
-      <div className="imgBox imgBox--sales"  style={{ position:"relative"}}>
+      <div className="imgBox imgBox--sales" style={{ position: "relative" }}>
         <img
           className="imgBox__image imgBox--center"
           src={img}
-          style={{position:"relative", top:"0"}}
+          style={{ position: "relative", top: "0" }}
         ></img>
       </div>
       <p className="newsDescription">{description}</p>

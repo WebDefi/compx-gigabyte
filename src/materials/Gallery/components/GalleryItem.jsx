@@ -3,17 +3,30 @@ import { Container, Row, Col } from "reactstrap";
 import "./GalleryItem.scss";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Masonry from "react-masonry-css";
 
 const GalleryItem = ({ titleItem, images, itemId, key }) => {
   const [show, showState] = React.useState(false);
   useEffect(() => {
     AOS.init({
-      duration: 1200,
+      duration: 1000,
     });
   }, []);
 
+  const breakpointColumnsObj = {
+    default: 3,
+    1100: 3,
+    700: 2,
+    500: 1,
+  };
+
   return (
-    <Container fluid className="gallery text-center" data-aos="fade-up">
+    <Container
+      fluid
+      className="gallery text-center"
+      data-aos="fade-up"
+      style={{ padding: "0" }}
+    >
       <div className="gallery_lines">
         <div className="gallery__thin"></div>
         <div className="gallery__bold"></div>
@@ -27,15 +40,13 @@ const GalleryItem = ({ titleItem, images, itemId, key }) => {
       {show ? (
         <div className="gallery_content" data-aos="fade-down">
           <a href="item"></a>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr 1fr",
-              gridColumnGap: "0px",
-            }}
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
           >
             {images.map((number, index, key) => (
-              <div>
+              <div className="gallery-item--width">
                 <div>
                   <a href={`#${key}-${index}`}>
                     <img className="gallery__img" src={number} alt={index} />
@@ -56,7 +67,7 @@ const GalleryItem = ({ titleItem, images, itemId, key }) => {
                 </div>
               </div>
             ))}
-          </div>
+          </Masonry>
           {/* <Col xs="3" lg="3" style={{ paddingTop: "10px" }}>
               <a href="#img2">
                 <img className="gallery__img" src={imgSecond} alt="2" />

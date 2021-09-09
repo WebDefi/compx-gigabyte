@@ -3,6 +3,14 @@
 
 .gallery {
   margin-bottom: 90px;
+  // &-items {
+  //   height: 50em;
+  //   width: 45%;
+  //   display: flex;
+  //   flex-flow: column wrap;
+  //   align-items: center;
+  //   margin: 0 auto;
+  // }
 
   &_lines {
     display: flex;
@@ -103,4 +111,14 @@
 
 .row {
   --bs-gutter-x: 0;
+}
+
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  width: auto;
+}
+.my-masonry-grid_column {
+  background-clip: padding-box;
 }
