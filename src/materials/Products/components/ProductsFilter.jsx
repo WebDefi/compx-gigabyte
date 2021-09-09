@@ -17,9 +17,7 @@ const ProductsFilter = ({
 
   // fetching all filter values from BE
   useEffect(() => {
-    fetch(
-      `http://3.249.81.155:3000/gigabyte/api/v1/items/${categoryId}`
-    )
+    fetch(`http://3.249.81.155:3000/gigabyte/api/v1/items/${categoryId}`)
       .then((res) => res.json())
       .then(
         (result) => {
@@ -32,7 +30,6 @@ const ProductsFilter = ({
         }
       );
   }, []);
- 
 
   if (error) {
     return <div>Ошибка: {error.message}</div>;
@@ -52,7 +49,10 @@ const ProductsFilter = ({
             <div className="ProductsFilter__lineBlock">
               <span className="ProductsFilter__line"></span>
             </div>
-            <button className="ProductsFilter__btn ProductsFilter__btn--gray">
+            <button
+              className="ProductsFilter__btn ProductsFilter__btn--gray"
+              onClick={(filters) => filters = []}
+            >
               <span className="ProductsFilter__clean">{CleanBtn}</span>
             </button>
           </div>

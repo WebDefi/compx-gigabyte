@@ -3,12 +3,7 @@ import "./ProductsFilterComponent.scss";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ProductsFilterComponent = ({
-  filters,
-  setFilters,
-  alias,
-  values,
-}) => {
+const ProductsFilterComponent = ({ filters, setFilters, alias, values }) => {
   const [show, showState] = React.useState(false);
 
   const updateFilter = (filterValue) => {
@@ -19,7 +14,7 @@ const ProductsFilterComponent = ({
       setFilters(filters.filter((value) => value === filterValue));
     }
   };
- 
+
   return (
     <div className="filterComponent">
       <ul className="filterComponent_ul">
