@@ -72,11 +72,9 @@ const ItemsList = ({ itemsNumber, itemsPerPage, match }) => {
         <Col xs="12" md="10" style={{ marginBottom: 10 }}>
           <Nav navbar style={{ paddingLeft: 33 }}>
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Продукция
-              </DropdownToggle>
+              <DropdownToggle nav>Продукция</DropdownToggle>
 
-              <DropdownMenu right className="dropdown-fixed">
+              <DropdownMenu right className="dropdown-fixed show">
                 {groups.map((item, idx) => (
                   <a href={`/category/${item.id}`}>
                     <DropdownItem key={idx.id}>
