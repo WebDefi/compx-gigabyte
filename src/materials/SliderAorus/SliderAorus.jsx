@@ -60,7 +60,7 @@ export default class SlideAorus extends Component {
                 sliderBcgMobile={SliderBcgMobile1}
                 btnText={obj.button_text}
                 log={console.log(this.currentSlide, idx)}
-                percent={this.currentSlide + 1 === idx ? 1 : 0}
+                percent={this.currentSlide === idx ? 0 : 1}
               ></SliderAorusComponent>
             );
           })}
