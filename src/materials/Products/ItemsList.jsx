@@ -57,6 +57,9 @@ const ItemsList = ({ itemsNumber, itemsPerPage, match }) => {
   const [currentPage, setCurrentPage] = useState();
   const [filters, setFilters] = useState([]);
 
+  const [dropdownOpen, setDropdownOpen] = useState(true);
+  const toggle = () => setDropdownOpen((prevState) => !prevState);
+
   //change page
   const { pathname } = useLocation();
 
