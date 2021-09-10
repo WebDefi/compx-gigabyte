@@ -57,6 +57,9 @@ const ItemsList = ({ itemsNumber, itemsPerPage, match }) => {
   const [currentPage, setCurrentPage] = useState();
   const [filters, setFilters] = useState([]);
 
+  const [dropdownOpen, setDropdownOpen] = useState(true);
+  const toggle = () => setDropdownOpen((prevState) => !prevState);
+
   //change page
   const { pathname } = useLocation();
 
@@ -71,10 +74,13 @@ const ItemsList = ({ itemsNumber, itemsPerPage, match }) => {
         <Breadcrumbs />
         <Col xs="12" md="10" style={{ marginBottom: 10 }}>
           <Nav navbar style={{ paddingLeft: 33 }}>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Продукция
-              </DropdownToggle>
+            <UncontrolledDropdown
+              nav
+              inNavbar
+              isOpen={dropdownOpen}
+              toggle={toggle}
+            >
+              <DropdownToggle caret>Продукция</DropdownToggle>
 
               <DropdownMenu right className="dropdown-fixed">
                 {groups.map((item, idx) => (
