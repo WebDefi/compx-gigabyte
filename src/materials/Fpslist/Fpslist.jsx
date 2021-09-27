@@ -110,8 +110,7 @@ const Fpslist = () => {
                                     {selectedGame.relatedItems[selectedResolution].map(item => {
                                         return (
                                             <div data-v-b44cebd0="" className="col-product">
-                                                <a data-v-b44cebd0=""
-                                                   href="https://www.aorus.com/graphics-cards/GV-N3090AORUS-X-24GD">
+                                                <a data-v-b44cebd0="">
                                                     <img
                                                         data-v-b44cebd0="" alt=""
                                                         src={item.videoCardPictureUrl}
