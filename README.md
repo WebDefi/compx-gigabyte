@@ -1,1 +1,1 @@
-![Image alt](https://github.com/WebDefi/compx-gigabyte/blob/master/src/static/images/Template.jpg)
+![Image alt](https://image.shutterstock.com/image-photo/portrait-screaming-clown-isolated-on-260nw-245725456.jpg)

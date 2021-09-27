@@ -4,7 +4,6 @@ import Slider from "react-slick";
 import React, { Component } from "react";
 import { Container } from "reactstrap";
 import SliderAorusComponent from "./components/SliderAorusComponent";
-import SliderBcg1 from "../../static/images/slider.jpg";
 import SliderBcgMobile1 from "../../static/images/sliderMobile.jpg";
 import "./SliderAorus.scss";
 import axios from "axios";

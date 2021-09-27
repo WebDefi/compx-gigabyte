@@ -1,41 +1,11 @@
-import React, {useEffect, useState} from "react";
-import { Breadcrumb, BreadcrumbItem, Container, Row,Col  } from 'reactstrap';
+import React, {useState} from "react";
+import { Breadcrumb, Container, Row,Col  } from 'reactstrap';
 import { withRouter, Link } from "react-router-dom";
 import "./Breadcrumbs.scss";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
-  ButtonDropdown,
-} from "reactstrap";
+import groupService from "../../service/groupService";
 
 const Breadcrumbs = props => {
-  useEffect(() => {
-    fetch("http://3.249.81.155:3000/gigabyte/api/v1/groups")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setGroups(result.groups);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
-  }, []);
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [groups, setGroups] = useState([]);
+  const groups = groupService.groups;
   const {
     history,
     location: { pathname }
@@ -64,11 +34,10 @@ const Breadcrumbs = props => {
         );
       })}
     </Breadcrumb></Col>
-    
+
      </Row>
     </Container>
   );
 };
 
 export default withRouter(Breadcrumbs);
- 

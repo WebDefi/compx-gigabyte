@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useParams } from "react-router-dom";
-import { Container, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import ProductItem from "./components/ProductItem";
-import ProductsPagination from "./components/ProductsPagination.jsx";
 import ProductsFilter from "./components/ProductsFilter";
 import ProductsFilterBtn from "./components/ProductsFilterBtn";
 import logoSrc from "../../static/images/filter.svg";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import getConfig from "../../config";
 
 const Items = ({ currentPage, filters, itemsPerPage, setFilters, categoryId }) => {
-  
+
   console.log("CURRENTPAGE", currentPage);
   console.log("filters", filters);
   const [items, setItems] = useState([]);
+  const [characteristics, setCharacteristics] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,16 +26,16 @@ const Items = ({ currentPage, filters, itemsPerPage, setFilters, categoryId }) =
         end: page * itemsPerPage,
         charValues: filters.length > 0 ? encodeURI(JSON.stringify(filters)): "",
       };
-      
-      const baseUrl = `http://3.249.81.155:3000/gigabyte/api/v1/items/${categoryId}`;
-      if (queryStringParams.charValues == "") delete queryStringParams["charValues"];
+      const baseUrl = `http://${getConfig().API_ENDPOINT}/gigabyte/api/v1/items/${categoryId}`;
+      if (queryStringParams.charValues === "") delete queryStringParams["charValues"];
       const url = `${baseUrl}?${Object.entries(queryStringParams)
         .map(([key, value]) => `${key}=${value}`)
         .join("&")}`;
-      console.log('url:', url);
       const res = await axios.get(url);
-      console.log(res);
-      if (!cleanup) setItems(res.data.items);
+      if (!cleanup) {
+        setItems(res.data.items);
+        setCharacteristics(res.data.characteristics);
+      }
     };
 
     fetchProducts(currentPage);
@@ -54,21 +53,22 @@ const Items = ({ currentPage, filters, itemsPerPage, setFilters, categoryId }) =
         <Col xs="12" lg="3" xl="3">
           <div className="ProductsFilterDesktop">
             <ProductsFilter
-              FilterBtn="Фільтр"
-              CleanBtn="Очистити"
-              logoSrc={logoSrc}
-              filters={filters}
-              setFilters={setFilters}
-              categoryId={categoryId}
-            ></ProductsFilter>
+            FilterBtn="Фільтр"
+            CleanBtn="Очистити"
+            characteristics={characteristics}
+            logoSrc={logoSrc}
+            filters={filters}
+            setFilters={setFilters}
+            categoryId={categoryId}
+            />
           </div>
           {show ? (
             <div className="ProductsFilterMobile">
               <ProductsFilter
-                FilterBtn="Фільтр"
-                CleanBtn="Очистити"
-                logoSrc={logoSrc}
-              ></ProductsFilter>
+              FilterBtn="Фільтр"
+              CleanBtn="Очистити"
+              logoSrc={logoSrc}
+              />
             </div>
           ) : null}
         </Col>
@@ -84,7 +84,7 @@ const Items = ({ currentPage, filters, itemsPerPage, setFilters, categoryId }) =
                   link={item.url}
                   image={item.images}
                   details={item.detaileddescru}
-                ></ProductItem>
+                />
               </Col>
             ))}
           </Row>

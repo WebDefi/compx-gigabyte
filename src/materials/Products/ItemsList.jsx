@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
-import axios from "axios";
 import getConfig from "../../config";
 import Items from "./Items";
 import ProductsPagination from "./components/ProductsPagination";
@@ -8,59 +7,31 @@ import { useLocation, useParams } from "react-router-dom";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 import ProductsBanner from "./components/ProductsBanner";
 import bannerImgGraphic from "../../static/images/bannerGraphiccard.jpeg";
-import { BrowserRouter as Router, Link } from "react-router-dom";
 import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
   Nav,
-  NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem,
-  NavbarText,
-  ButtonDropdown,
+  DropdownItem
 } from "reactstrap";
+import groupService from "../../service/groupService";
 
-const ItemsList = ({ itemsNumber, itemsPerPage, match }) => {
+const ItemsList = () => {
   const { id: categoryId } = useParams();
-  useEffect(() => {
-    fetch("http://3.249.81.155:3000/gigabyte/api/v1/groups")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setGroups(result.groups);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
-  }, []);
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [groups, setGroups] = useState([]);
+  const groups = groupService.groups;
   // Get config
   const config = getConfig();
   console.log("CONFIG", config);
   // Get current items
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  //const [error, setError] = useState(null);
-  //const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
 
   const [currentPage, setCurrentPage] = useState();
   const [filters, setFilters] = useState([]);
 
   const [dropdownOpen, setDropdownOpen] = useState(true);
-  const toggle = () => setDropdownOpen((prevState) => !prevState);
 
-  //change page
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -81,7 +52,7 @@ const ItemsList = ({ itemsNumber, itemsPerPage, match }) => {
                 {groups.map((item, idx) => (
                   <a href={`/category/${item.id}`}>
                     <DropdownItem key={idx.id}>
-                      <img src={item.imageUrl}></img>
+                      <img src={item.imageUrl} alt={'item'}/>
                       <p className="groupTitle">{item.title}</p>
                     </DropdownItem>
                   </a>

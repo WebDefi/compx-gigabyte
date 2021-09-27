@@ -1,13 +1,13 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import Slider from "react-slick";
 import { Container } from "reactstrap";
 import SectionContent from "../../common/SectionContent/SectionContent";
 import SalesComponent from "./component/SalesComponent";
-import newsImg from "../../static/images/newsCard.png";
 import axios from "axios";
 import Divider from "../../common/Divider/Divider";
+import getConfig from "../../config";
 
 export default class Sales extends Component {
   state = {
@@ -15,7 +15,7 @@ export default class Sales extends Component {
   };
 
   componentDidMount() {
-    axios.get(`http://3.249.81.155:3000/gigabyte/api/v1/sales`).then((res) => {
+    axios.get(`http://${getConfig().API_ENDPOINT}/gigabyte/api/v1/sales`).then((res) => {
       const salesItems = res.data.sales;
       this.setState({ ...this.state, salesItems });
       console.log(salesItems);

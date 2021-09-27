@@ -5,13 +5,10 @@ import headerlower from "../../static/images/headerlower.png";
 import inst from "../../static/images/instagram.svg";
 import twitter from "../../static/images/twitter.svg";
 import facebook from "../../static/images/facebook.svg";
-import imgFirst from "../../static/images/galery1.png";
 import gigabyte from "../../static/images/gigabyte.png";
-// http://3.249.81.155:3000/gigabyte/api/v1/groups
 import { Container, Row, Col } from "reactstrap";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { BrowserRouter as Router, Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -23,37 +20,15 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem,
-  NavbarText,
-  ButtonDropdown,
+  DropdownItem
 } from "reactstrap";
+import groupService from "../../service/groupService";
 
 const Header = () => {
-  const [categoryTree, setCategoryTree] = useState([]);
-  useEffect(() => {
-    fetch("http://3.249.81.155:3000/gigabyte/api/v1/groups")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setGroups(result.groups);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
-  }, []);
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [groups, setGroups] = useState([]);
-
+  const groups = groupService.groups;
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  const [dropOpen, seOpen] = useState(false);
-  const [dnone, setDnone] = useState(false);
-
-  const togg = () => seOpen(!dropOpen);
+  const [done, setDone] = useState(false);
   useEffect(() => {
     AOS.init({
       duration: 1200,
@@ -62,9 +37,9 @@ const Header = () => {
   // return
   const displayNone = () => {
     if (window.scrollY >= 140) {
-      setDnone(true);
+      setDone(true);
     } else {
-      setDnone(false);
+      setDone(false);
     }
   };
 
@@ -82,7 +57,7 @@ const Header = () => {
             color="dark"
             dark
             expand="md"
-            className={dnone ? " dnone" : "none"}
+            className={done ? " dnone" : "none"}
           >
             <Container>
               <NavbarBrand href="/home">

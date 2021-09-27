@@ -3,7 +3,7 @@ import "./preloader.css";
 
 const Preloader = () => {
   return (
-    <div className={'preloader'} style={{backgroundImage: `url(${preloader})`}}></div>
+    <div className={'preloader'} style={{backgroundImage: `url(${preloader})`}}/>
   )
 }
 

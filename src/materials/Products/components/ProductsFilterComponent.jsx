@@ -7,11 +7,10 @@ const ProductsFilterComponent = ({ filters, setFilters, alias, values }) => {
   const [show, showState] = React.useState(false);
 
   const updateFilter = (filterValue) => {
-    if (!filters.find((value) => value === filterValue)) {
-      filters.push(filterValue);
-      setFilters(filters);
+    if (filters.includes(filterValue)) {
+      setFilters(filters.filter((value) => value !== filterValue));
     } else {
-      setFilters(filters.filter((value) => value === filterValue));
+      setFilters([...filters, filterValue]);
     }
   };
 
@@ -35,12 +34,13 @@ const ProductsFilterComponent = ({ filters, setFilters, alias, values }) => {
             {values.map((item, index) => (
               <div>
                 <input
-                  className="filterComponent__checkbox"
-                  type="checkbox"
-                  value={item}
-                  onInput={(event) => updateFilter(item)}
-                  id={`#${item}-${index}`}
-                ></input>
+                className="filterComponent__checkbox"
+                type="checkbox"
+                value={item}
+                checked={filters.includes(item)}
+                onChange={() => updateFilter(item)}
+                id={`#${item}-${index}`}
+                />
                 <label htmlFor={`#${item}-${index}`}>{item}</label>
               </div>
             ))}

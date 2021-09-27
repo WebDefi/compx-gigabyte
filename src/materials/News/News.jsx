@@ -1,13 +1,13 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import Slider from "react-slick";
 import { Container } from "reactstrap";
 import SectionContent from "../../common/SectionContent/SectionContent";
 import NewsComponent from "./components/NewsComponent";
-import newsImg from "../../static/images/newsCard.png";
 import axios from "axios";
 import Divider from "../../common/Divider/Divider";
+import getConfig from "../../config";
 
 export default class News extends Component {
   state = {
@@ -15,7 +15,7 @@ export default class News extends Component {
   };
 
   componentDidMount() {
-    axios.get(`http://3.249.81.155:3000/gigabyte/api/v1/news`).then((res) => {
+    axios.get(`http://${getConfig().API_ENDPOINT}/gigabyte/api/v1/news`).then((res) => {
       const newsItems = res.data.news;
       this.setState({ ...this.state, newsItems });
       console.log(newsItems);
@@ -50,7 +50,7 @@ export default class News extends Component {
       <div style={{ paddingTop: "100px" }}>
         <Divider />
         <div>
-          <SectionContent title="новинки gigabyte"></SectionContent>
+          <SectionContent title="новинки gigabyte"/>
         </div>
         <Container style={{ marginTop: "60px" }}>
           <Slider {...settings}>
