@@ -15,21 +15,12 @@
   align-items: center;
   justify-content: center;
   font-size: 15px;
- 
- 
+
 
   &:hover {
     background-color: transparent;
     border: 1px solid $numpagination;
     color: $white;
-  }
-
-  &:active {
-    background-color: transparent;
-    border: 1px solid $numpagination;
-    color: $numpagination;
-    box-shadow: none;
-    shape-outside: none;
   }
 
   &:focus {
@@ -39,8 +30,16 @@
   }
 }
 
+.page-active {
+  background-color: transparent;
+  border: 1px solid $numpagination;
+  color: $numpagination;
+  box-shadow: none;
+  shape-outside: none;
+}
+
 .page-num {
-  
+
   height: 30px;
   width: 30px;
   text-align: center;
@@ -57,7 +56,7 @@
 }
 
 .page-item {
-  
+
   &:active {
     border: none;
   }
@@ -65,10 +64,11 @@
 
 .page-item {
   align-items: center;
-  display:flex;
+  display: flex;
 }
+
 .pagination {
-  
+
   position: absolute;
   right: 0;
   bottom: 0;
@@ -76,6 +76,6 @@
 }
 
 .page-link:focus {
-  
+
   box-shadow: none;
 }

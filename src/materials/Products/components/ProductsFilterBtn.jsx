@@ -21,6 +21,7 @@ const ProductsFilterBtn = ({ textBtn }) => {
           color: "white",
           fontSize: "20px",
           display: "none",
+          margin: "0 auto 20px"
         }}
       >
         <FontAwesomeIcon icon={faFilter} className="ProductsFilterBtn__icon" />

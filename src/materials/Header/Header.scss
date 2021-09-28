@@ -3,10 +3,12 @@
 .aos-animate {
   opacity: 0.8;
 }
+
 .dnone {
   display: flex;
-   
+
 }
+
 .none {
   display: none;
 }
@@ -16,21 +18,27 @@
   height: 100px;
   background: #0c0a0a;
 }
+
 .headerTop {
   position: relative;
 }
+
 .infoLink {
   margin: 0px 10px;
+
   a {
     font-size: 12px;
+
     &:hover {
       color: $primary;
     }
   }
 }
+
 .headerInfo {
   background: #0c0a0a;
 }
+
 .autoContainer {
   height: 65px;
   z-index: 2000;
@@ -38,14 +46,17 @@
   padding: 0px 15px;
   margin: 0 auto;
 }
+
 .topLeft {
   position: relative;
   float: left;
 }
+
 .topRight {
   position: relative;
   float: right;
 }
+
 .headerUpper {
   position: relative;
   background: #0c0a0a;
@@ -57,11 +68,13 @@
 
   // };
 }
+
 .logoOuter {
   // position: absolute;
   // top: 55px;
   z-index: 20;
 }
+
 .navOuter {
   // position: relative;
 
@@ -76,6 +89,7 @@
   transform: translate(-50%, -50%);
   z-index: 999;
 }
+
 .divchick {
   background: #000;
   width: 100%;
@@ -107,23 +121,27 @@
 .dropdown-fixed {
   left: -178px;
 }
- 
+
 .dropdown-menu.show {
-   display: flex;
-   align-items: center;
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  margin: auto;
 }
+
 .dropdown-item {
   &:hover {
     background-color: #fa6812;
     border-radius: 20px;
     color: #fff;
     font-weight: 500;
-    transition: all 3ms; 
+    transition: all 3ms;
   }
+
   padding-top: 20px;
   text-align: center;
   color: #fff;
- 
+
   img {
     display: flex;
     justify-content: center;
@@ -139,5 +157,5 @@
   padding-top: 10px;
   white-space: normal;
 
-   
+
 }

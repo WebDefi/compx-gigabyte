@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./Gallery.module.scss";
 import GalleryItem from "./components/GalleryItem.jsx";
 import SectionContent from "../../common/SectionContent/SectionContent";
+import getConfig from "../../config";
 
 const Gallery = () => {
   const [error, setError] = useState(null);
@@ -9,7 +10,7 @@ const Gallery = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://3.249.81.155:3000/gigabyte/api/v1/gallery")
+    fetch(`http://${getConfig().API_ENDPOINT}/gigabyte/api/v1/gallery`)
       .then((res) => res.json())
       .then(
         (result) => {

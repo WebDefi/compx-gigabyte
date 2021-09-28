@@ -5,7 +5,7 @@ import SliderBcgMobile1 from "../../../static/images/sliderMobile.jpg";
 
 const ProductsBanner = ({ bannerImg }) => {
   return (
-    <div style={{ paddingBottom: "100px" }}>
+    <div style={{ paddingBottom: "30px" }}>
       <SliderAorusComponent
         sliderBcg={bannerImg}
         sliderTitle="Products Banner"

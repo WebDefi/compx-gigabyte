@@ -7,18 +7,20 @@ import SliderAorusComponent from "./components/SliderAorusComponent";
 import SliderBcgMobile1 from "../../static/images/sliderMobile.jpg";
 import "./SliderAorus.scss";
 import axios from "axios";
+import getConfig from "../../config";
 
 export default class SlideAorus extends Component {
+  sliderElement;
   state = {
     objs: [],
     currentSlide: 0,
   };
 
   componentDidMount() {
-    axios.get(`http://3.249.81.155:3000/gigabyte/api/v1/slider`).then((res) => {
+    axios.get(`http://${getConfig().API_ENDPOINT}/gigabyte/api/v1/slider`).then((res) => {
       const objs = res.data;
-      this.setState({ ...this.state, objs: objs.slider });
-      console.log(objs.categories);
+      this.setState({ objs: objs.slider });
+      this.sliderElement.slickPlay();
     });
   }
 
@@ -30,37 +32,23 @@ export default class SlideAorus extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
-      // autoplay: true,
-      // speed: 2000,
-      // autoplaySpeed: 5000,
-      afterChange: (current) => {
-        this.setState({
-          currentSlide: current,
-        });
-        this.currentSlide = current;
-      },
-      appendDots: (dots) => (
-        <div>
-          <div className="slick-dots--position">
-            <ul className="slick-ul"> {dots} </ul>
-          </div>
-        </div>
-      ),
+      autoPlay: true,
+      autoplaySpeed: 1000,
+      pauseOnHover: false,
+      cssEase: "linear"
     };
     return (
       <Container fluid style={{ padding: 0, marginTop: 0 }}>
-        <Slider {...settings}>
-          {this.state.objs.map((obj, idx) => {
+        <Slider {...settings} ref={slider => this.sliderElement = slider}>
+          {this.state.objs.map((obj) => {
             return (
               <SliderAorusComponent
-                sliderTitle={obj.title_high}
-                sliderSubtitle={obj.title_low}
-                sliderBcg={obj.image}
-                sliderBcgMobile={SliderBcgMobile1}
-                btnText={obj.button_text}
-                log={console.log(this.currentSlide, idx)}
-                percent={this.currentSlide === idx ? 0 : 1}
-              ></SliderAorusComponent>
+              sliderTitle={obj.title_high}
+              sliderSubtitle={obj.title_low}
+              sliderBcg={obj.image}
+              sliderBcgMobile={SliderBcgMobile1}
+              btnText={obj.button_text}
+              />
             );
           })}
           {/* <SliderAorusComponent

@@ -31,9 +31,9 @@ const SliderAorusComponent = ({
       <div className={styles.sliderAorus_block}>
         <h1 className={styles.sliderAorus__title}>{sliderTitle}</h1>
         <h3 className={styles.sliderAorus__subtitle}>{sliderSubtitle}</h3>
-        <SliderAorusBtn btnText={btnText}></SliderAorusBtn>
+        <SliderAorusBtn btnText={btnText}/>
       </div>
-      <SliderAorusLifecycle height="286" percent={Number(percent)} />
+      <SliderAorusLifecycle height="286" percent={0} />
     </div>
   );
 };

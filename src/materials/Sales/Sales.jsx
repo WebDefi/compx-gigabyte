@@ -47,7 +47,7 @@ export default class Sales extends Component {
       ],
     };
     return (
-      <div style={{ paddingTop: "100px" }}>
+      <div style={{ paddingTop: "80px" }}>
         <Divider />
         <div>
           <SectionContent title="акции gigabyte"></SectionContent>

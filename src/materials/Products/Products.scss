@@ -12,3 +12,24 @@
 .col-xl-4 {
   padding: 0;
 }
+
+.production-list-centered {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.production-list {
+  width: fit-content;
+}
+
+.products-section-container {
+  width: 106vw;
+  margin: auto;
+}
+
+@media screen and (max-width: 1200px) {
+  .products-list-mobile {
+    display: none;
+  }
+}

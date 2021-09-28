@@ -1,5 +1,4 @@
 .product-cards {
-  width: 106vw;
   margin-right: 0;
   margin-left: auto;
   display: flex;
@@ -40,14 +39,16 @@
   height: 14em;
   background: #fff;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
 }
 
 .product-img {
   position: relative;
-  width: 70%;
-  height: auto;
-  top: 15px;
-  left: 15%;
+  display: block;
+  height: 120px;
 
   // background-image: url("https://static.gigabyte.com/StaticFile/Image/Global/49a9df63553c6f67a87b2342773a4990/Product/26843/webp/400");
 
