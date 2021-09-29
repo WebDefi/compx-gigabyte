@@ -25,19 +25,6 @@ const Fpslist = () => {
     return games.length > 0 ? (
         <Fragment>
             <div data-v-b44cebd0="" className="row">
-                <div data-v-b44cebd0="" className="col-12 text-center">
-                    <div data-v-b44cebd0="" className="template-title">
-                        <h2 data-v-b44cebd0=""
-                            className="fontAldrich">FIND THE RIGHT
-                            GRAPHICS CARD FOR YOUR GAME
-                        </h2>
-                    </div>
-                    <div data-v-b44cebd0="" className="template-content">
-                        <h2 data-v-b44cebd0="">Select a game,
-                            and we'll help you find Graphics Cards that meet its requirements.
-                        </h2>
-                    </div>
-                </div>
                 <div data-v-b44cebd0="" className="col-12 find-product-div mt-5">
                     <div data-v-3d1a4f76="" data-v-b44cebd0="" className="slick-slider slick-initialized">
                         <div data-v-3d1a4f76="" className="slick-list">

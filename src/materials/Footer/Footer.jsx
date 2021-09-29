@@ -8,20 +8,23 @@ import { Container, Row, Col } from "reactstrap";
 import CategoryName from "./components/CategoryName";
 import FooterCol from "./components/FooterCol";
 import FooterContacts from "./components/FooterContacts";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Footer = () => {
   useEffect(() => {
     AOS.init({
-      duration : 2200
+      duration: 2200,
     });
   }, []);
   return (
     <div data-aos="fade-up">
-      <div style={{ height: 300, backgroundImage: `url(${footerBg})` }}></div>
-      <div className={styles.Footer} style={{background: '#000'}}>
-        <Row className="text-center" >
+      {/* <div style={{ height: 100, backgroundImage: `linear-gradient(rgb(0, 0, 0), #112848 70%`}}></div> */}
+      <div className="footer-div">
+        <div style={{ height: 100, backgroundImage: `url(${footerBg})` }}></div>
+      </div>
+      <div className={styles.Footer} style={{ background: "#000" }}>
+        <Row className="text-center">
           <Col>
             <img
               className="footer-img"

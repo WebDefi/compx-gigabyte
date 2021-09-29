@@ -26,10 +26,28 @@
 .products-section-container {
   width: 106vw;
   margin: auto;
+  background-color: #333;
+  padding-top: 1.5em;
 }
 
 @media screen and (max-width: 1200px) {
   .products-list-mobile {
     display: none;
   }
+}
+
+.text-placeholder-after-products {
+  padding-top: 1.5em;
+  padding-bottom: 1em;
+  background-image: linear-gradient(#333, #301934);
+}
+.products-list-mobile {
+  background-image: linear-gradient(rgb(0, 0, 0) 60%, #333);
+}
+.banner-image-products {
+  background-color: black;
+}
+.gradient-image {
+  // margin-top: 1.5em;
+// height: 5em;
 }

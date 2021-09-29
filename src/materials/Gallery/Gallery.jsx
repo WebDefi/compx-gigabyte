@@ -29,7 +29,19 @@ const Gallery = () => {
     return <div className="products__wait">Завантаження...</div>;
   } else {
     return (
-      <div >
+      <div>
+        <div data-v-b44cebd0="" className="col-12 text-center">
+          <div data-v-b44cebd0="" className="template-title">
+            <h2 data-v-b44cebd0="" className="fontAldrich">
+              AFTER THIS BLOCK THE GALLERY WILL APPEAR
+            </h2>
+          </div>
+          <div data-v-b44cebd0="" className="template-content">
+            <h2 data-v-b44cebd0="">
+              Select gallery item to check out our cool graphic cards
+            </h2>
+          </div>
+        </div>
         <SectionContent title="ГАЛЕРЕЯ" />
         {items.map((item, index) => (
           <GalleryItem
