@@ -33,14 +33,14 @@ const ProductItem = ({
       <div className="product-box" onClick={toggle}>
         <img src={image && image.length && image[0] || placeholderImage}  className="product-img"></img>
       </div>
-      <strong className="product-name" onClick={toggle}>
-        {title}
+      <strong className="product-name" title={title} onClick={toggle}>
+        {title.slice(0, 48)}...
       </strong>
       <div className="product-price">
-        <small>{price}&#8372;</small>
+        <small>{price} &#8372;</small>
         <a href={link}>
           <button className="product-btn">
-            <span>Купить</span>
+            <span>Детальніше</span>
           </button>
         </a>
       </div>
@@ -75,7 +75,7 @@ const ProductItem = ({
             </small>
             <a href={link}>
               <button className="product-btn" style={{ padding: 10 }}>
-                <span>Купить</span>
+                <span>Детальніше</span>
               </button>
             </a>
           </div>

@@ -5,21 +5,20 @@
   padding-top: 80px;
 }
 .deviceName {
-  margin-left:20px;
-  text-align: center; 
-} 
+  text-align: center;
+}
 
 .container {
-    
+
   .slick-slider {
-    
+
     .slick-prev:before,
     .slick-next:before {
       color: $primary;
       font-size: 26px;
     }
     .slick-slide {
-       
+
         .DevicesComponent {
             &::before {
                 position: absolute;
@@ -36,11 +35,11 @@
             .deviceImg {
                  z-index: 22;
                  position: relative;
-                 
-                
+
+
              }
-            
-           
+
+
             &:hover {
                 transition: 0.4s;
                 &::before {
@@ -57,23 +56,23 @@
                     background-position:right;
                     background-size: contain;
                 }
-                
-                
+
+
                 .deviceName {
-                    
+
                     font-size: 21px;
                 }
                 color: $primary;
                 img {
-                
+
                   transition: 0.4s;
                   transform: scale(1.2);
                 }
               }
         }
-        
-          
-      
+
+
+
     }
   }
 }
