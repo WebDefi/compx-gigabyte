@@ -55,8 +55,8 @@ const ItemsList = () => {
         <Container fluid style={{ padding: "0 0 60px " }}>
           <div className="banner-image-products">
             <ProductsBanner bannerImg={bannerImgGraphic} />
+            <div className="gradient-image"></div>
           </div>
-          <div className="gradient-image"></div>
           <div className="podpivasnik">
             <Container className="devicesSection">
               <Slider {...sliderSettings}>
