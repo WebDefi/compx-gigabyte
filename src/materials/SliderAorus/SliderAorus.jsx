@@ -14,6 +14,7 @@ export default class SlideAorus extends Component {
   state = {
     objs: [],
     currentSlide: 0,
+    timer: 0
   };
 
   componentDidMount() {
@@ -21,6 +22,12 @@ export default class SlideAorus extends Component {
       const objs = res.data;
       this.setState({ objs: objs.slider });
       this.sliderElement.slickPlay();
+      setInterval(() => {
+        this.setState({timer: this.state.timer + 10});
+        if (this.state.timer >= 5000) {
+          this.setState({timer: 0});
+        }
+      }, 10);
     });
   }
 
@@ -32,8 +39,8 @@ export default class SlideAorus extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
-      autoPlay: true,
-      autoplaySpeed: 1000,
+      autoplay: true,
+      autoplaySpeed: 5000,
       pauseOnHover: false,
       cssEase: "linear"
     };
@@ -48,6 +55,7 @@ export default class SlideAorus extends Component {
               sliderBcg={obj.image}
               sliderBcgMobile={SliderBcgMobile1}
               btnText={obj.button_text}
+              percent={this.state.timer / 5000}
               />
             );
           })}

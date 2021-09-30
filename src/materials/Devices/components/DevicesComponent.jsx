@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "../Devices.scss";
 import styles from "./DevicesComponent.scss";
 import { Link } from "react-router-dom";
 
@@ -13,8 +14,8 @@ const DevicesComponent = ({ deviceImg, title, link }) => {
   }, []);
   return (
     <a href={link}>
-      <div data-aos="fade-left" className="DevicesComponent text-center">
-        <NavLink to={link} className="devices__href">
+      <div data-aos="fade-left" className="DevicesComponent device-slide text-center">
+        <NavLink to={link} className="devices__href device-link">
           <img
             height="auto"
             width="65%"

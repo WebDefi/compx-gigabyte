@@ -1,0 +1,16 @@
+.device-slide {
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.deviceName {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}

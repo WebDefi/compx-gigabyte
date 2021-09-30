@@ -33,7 +33,7 @@ const SliderAorusComponent = ({
         <h3 className={styles.sliderAorus__subtitle}>{sliderSubtitle}</h3>
         <SliderAorusBtn btnText={btnText}/>
       </div>
-      <SliderAorusLifecycle height="286" percent={0} />
+      <SliderAorusLifecycle height="286" percent={percent} />
     </div>
   );
 };
