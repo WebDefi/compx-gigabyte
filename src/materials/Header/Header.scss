@@ -156,6 +156,15 @@
   text-align: center;
   padding-top: 10px;
   white-space: normal;
-
-
+}
+.podpivasnik2-0{
+  position: absolute;
+  height: 3em;
+  right: 0;
+  left: 0;
+  bottom: -2.95em;
+  z-index: 10000000;
+  // background-image: linear-gradient(rgb(0, 0, 0) 60%, #333);
+  // background-color: red;
+  background-image: linear-gradient(black 20%, transparent 80%);
 }

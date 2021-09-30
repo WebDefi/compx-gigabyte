@@ -57,14 +57,14 @@ const Header = () => {
             color="dark"
             dark
             expand="md"
-            className={done ? " dnone" : "none"}
+            // className={done ? " dnone" : "none"}
           >
             <Container>
               <NavbarBrand href="/home">
                 <img src={gigabyte} width="125px" />
               </NavbarBrand>
               <NavbarToggler onClick={toggle} />
-
+              <div className="podpivasnik2-0"></div>
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto " navbar>
                   <UncontrolledDropdown nav inNavbar>
@@ -135,7 +135,7 @@ const Header = () => {
           </Navbar>
         </div>
       </div>
-      <header className="header">
+      {/* <header className="header">
         <div className="headerInfo">
           <ul
             style={{
@@ -291,7 +291,7 @@ const Header = () => {
             </Container>
           </div>
         </div>
-      </header>
+      </header> */}
     </div>
   );
 };
