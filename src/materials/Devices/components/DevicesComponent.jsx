@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../Devices.scss";
-import styles from "./DevicesComponent.scss";
+import "./DevicesComponent.scss";
 import { Link } from "react-router-dom";
 
 const DevicesComponent = ({ deviceImg, title, link }) => {
@@ -17,16 +17,19 @@ const DevicesComponent = ({ deviceImg, title, link }) => {
       <div data-aos="fade-left" className="DevicesComponent device-slide text-center">
         <NavLink to={link} className="devices__href device-link">
           <img
-            height="auto"
-            width="65%"
-            src={deviceImg}
-            className="deviceImg "
-            style={{
-              display: "inline-block",
-            }}
-          ></img>
+          height="auto"
+          width="65%"
+          src={deviceImg}
+          className="deviceImg "
+          style={{
+            display: "inline-block",
+          }}
+          alt="category"/>
         </NavLink>
-        <h5 className="deviceName text-center">{title}</h5>
+        <h5 className="deviceName text-center">
+          <span class="deviceName__clips"/>
+          {title}
+        </h5>
       </div>
     </a> );
 };

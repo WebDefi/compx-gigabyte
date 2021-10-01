@@ -159,12 +159,37 @@
 }
 .podpivasnik2-0{
   position: absolute;
-  height: 3em;
+  height: 4em;
   right: 0;
   left: 0;
-  bottom: -2.95em;
-  z-index: 10000000;
+  bottom: -4em;
+  z-index: -2;
   // background-image: linear-gradient(rgb(0, 0, 0) 60%, #333);
   // background-color: red;
-  background-image: linear-gradient(black 20%, transparent 80%);
+  background-image: linear-gradient(black 0, transparent 100%);
+}
+
+.nav-item {
+  padding-top: 12px;
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDown {
+  animation-name: slideInDown;
+  animation-direction: normal;
+  animation-duration: .5s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  z-index: -1;
 }

@@ -1,7 +1,7 @@
 .device-slide {
   height: 260px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: center;
   flex-direction: column;
   position: relative;
@@ -14,4 +14,55 @@
   right: 0;
   margin: auto;
   z-index: 1000000;
+  height: 40px;
+  line-height: 40px;
+}
+
+.deviceName__clips {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.deviceName__clips:before, .deviceName__clips:after,
+.deviceName:before, .deviceName:after {
+  content: "";
+  position: absolute;
+  border-color: #ff6400;
+  box-sizing: border-box;
+  border-style: solid;
+  width: 10px;
+  z-index: 5;
+  height: 10px;
+  transition: all .3s ease-in-out;
+  opacity: 0;
+}
+
+.deviceName__clips:after {
+  bottom: 50%;
+  left: 50%;
+  border-width: 0 0 0 0;
+}
+
+.deviceName__clips:before {
+  top: 50%;
+  right: 50%;
+  border-width: 0 0 0 0;
+  z-index: 5;
+}
+
+.deviceName:before {
+  top: 50%;
+  left: 50%;
+  border-width: 0 0 0 0;
+  z-index: 5;
+}
+
+.deviceName:after {
+  bottom: 50%;
+  right: 50%;
+  border-width: 0 0 0 0;
 }

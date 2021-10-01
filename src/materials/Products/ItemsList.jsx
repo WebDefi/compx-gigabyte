@@ -2,28 +2,14 @@ import React, { useState, useEffect, Fragment } from "react";
 import { Container, Row, Col } from "reactstrap";
 import getConfig from "../../config";
 import Items from "./Items";
-import Slider from "react-slick";
-import deviceBg from "../../static/images/deviceBg.png";
-import DevicesComponent from "../Devices/components/DevicesComponent";
 import ProductsPagination from "./components/ProductsPagination";
 import { useLocation, useParams } from "react-router-dom";
 import ProductsBanner from "./components/ProductsBanner";
 import bannerImgGraphic from "../../static/images/bannerGraphiccard.jpeg";
-import { sliderSettings } from "../Devices/Devices";
-import {
-  Nav,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from "reactstrap";
-import groupService from "../../service/groupService";
 import Fpslist from "../Fpslist/Fpslist";
-// import D from "../Devices/Devices"
 
 const ItemsList = () => {
   const { id: categoryId } = useParams();
-  const groups = groupService.groups;
   // Get config
   const config = getConfig();
   console.log("CONFIG", config);
@@ -56,23 +42,6 @@ const ItemsList = () => {
           <div className="banner-image-products">
             <ProductsBanner bannerImg={bannerImgGraphic} />
             <div className="gradient-image"></div>
-          </div>
-          <div className="podpivasnik">
-            <Container className="devicesSection">
-              <Slider {...sliderSettings}>
-                {groups.map((cat, idx) => {
-                  return (
-                    <DevicesComponent
-                      title={cat.title}
-                      key={idx.id}
-                      deviceImg={cat.imageUrl}
-                      deviceBg={deviceBg}
-                      link={`/category/${cat.id}`}
-                    />
-                  );
-                })}
-              </Slider>
-            </Container>
           </div>
           {/* <div class="products-list-mobile">
             <Nav navbar style={{ marginBottom: 30 }}>

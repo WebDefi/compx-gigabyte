@@ -6,7 +6,7 @@ import inst from "../../static/images/instagram.svg";
 import twitter from "../../static/images/twitter.svg";
 import facebook from "../../static/images/facebook.svg";
 import gigabyte from "../../static/images/gigabyte.png";
-import { Container, Row, Col } from "reactstrap";
+import {Container, Row, Col, Dropdown} from "reactstrap";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {
@@ -26,8 +26,9 @@ import groupService from "../../service/groupService";
 
 const Header = () => {
   const groups = groupService.groups;
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  const [isOpenProducts, setIsOpenProducts] = useState(false);
+  const [isOpenInteresting, setIsOpenInteresting] = useState(false);
+  const [isOpenLinks, setIsOpenLinks] = useState(false);
   const [done, setDone] = useState(false);
   useEffect(() => {
     AOS.init({
@@ -42,6 +43,9 @@ const Header = () => {
       setDone(false);
     }
   };
+
+  const onMouseEnter = (callback) => {callback(true)};
+  const onMouseLeave = (callback) => {callback(false)};
 
   window.addEventListener("scroll", displayNone);
   // );
@@ -63,15 +67,16 @@ const Header = () => {
               <NavbarBrand href="/home">
                 <img src={gigabyte} width="125px" />
               </NavbarBrand>
-              <NavbarToggler onClick={toggle} />
+              <NavbarToggler/>
               <div className="podpivasnik2-0"></div>
-              <Collapse isOpen={isOpen} navbar>
+              <Collapse navbar>
                 <Nav className="mr-auto " navbar>
-                  <UncontrolledDropdown nav inNavbar>
+                  <Dropdown nav inNavbar onMouseOver={() => onMouseEnter(setIsOpenProducts)}
+                            onMouseLeave={() => onMouseLeave(setIsOpenProducts)} isOpen={isOpenProducts}>
                     <DropdownToggle nav caret>
                       Продукция
                     </DropdownToggle>
-                    <DropdownMenu right className="dropdown-fixed">
+                    <DropdownMenu right className="dropdown-fixed slideInDown">
                       {groups.map((item, idx) => (
                         <a href={`/category/${item.id}`}>
                           <DropdownItem key={idx.id}>
@@ -81,23 +86,25 @@ const Header = () => {
                         </a>
                       ))}
                     </DropdownMenu>
-                  </UncontrolledDropdown>
-                  <UncontrolledDropdown nav inNavbar>
+                  </Dropdown>
+                  <Dropdown nav inNavbar onMouseOver={() => onMouseEnter(setIsOpenInteresting)}
+                            onMouseLeave={() => onMouseLeave(setIsOpenInteresting)} isOpen={isOpenInteresting}>
                     <DropdownToggle nav caret>
                       Интересное
                     </DropdownToggle>
-                    <DropdownMenu right>
+                    <DropdownMenu right className="dropdown-fixed slideInDown">
                       <DropdownItem>Option 3</DropdownItem>
                       <DropdownItem>Option 4</DropdownItem>
                       <DropdownItem divider />
                       <DropdownItem>Reset</DropdownItem>
                     </DropdownMenu>
-                  </UncontrolledDropdown>
-                  <UncontrolledDropdown nav inNavbar>
+                  </Dropdown>
+                  <Dropdown nav inNavbar onMouseOver={() => onMouseEnter(setIsOpenLinks)}
+                            onMouseLeave={() => onMouseLeave(setIsOpenLinks)} isOpen={isOpenLinks}>
                     <DropdownToggle nav caret>
                       Links
                     </DropdownToggle>
-                    <DropdownMenu right>
+                    <DropdownMenu right className="dropdown-fixed slideInDown">
                       <DropdownItem>Акции</DropdownItem>
                       <DropdownItem>Акции</DropdownItem>
                       <DropdownItem>Акции</DropdownItem>
@@ -107,7 +114,7 @@ const Header = () => {
                       <DropdownItem>Акции</DropdownItem>
                       <DropdownItem>Акции</DropdownItem>
                     </DropdownMenu>
-                  </UncontrolledDropdown>
+                  </Dropdown>
                   <NavItem>
                     <NavLink>
                       <img src={inst} alt="" />

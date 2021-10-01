@@ -7,9 +7,14 @@ import logoSrc from "../../static/images/filter.svg";
 import axios from "axios";
 import getConfig from "../../config";
 import "./Products.scss";
+import Slider from "react-slick";
+import {sliderSettings} from "../Devices/Devices";
+import DevicesComponent from "../Devices/components/DevicesComponent";
+import deviceBg from "../../static/images/deviceBg.png";
+import groupService from "../../service/groupService";
 
 const Items = ({currentPage, filters, itemsPerPage, setFilters, categoryId, setTotalPages}) => {
-
+    const groups = groupService.groups;
     console.log("CURRENTPAGE", currentPage);
     console.log("filters", filters);
     const [items, setItems] = useState([]);
@@ -51,48 +56,67 @@ const Items = ({currentPage, filters, itemsPerPage, setFilters, categoryId, setT
             <div onClick={() => showState(!show)}>
                 <ProductsFilterBtn textBtn="Фільтр"/>
             </div>
-            <div class="products-section-container">
-                <Row className="products_rowFirst" style={{padding: "0 40px"}}>
-                    <Col xs="12" lg="3" xl="3">
-                        <div className="ProductsFilterDesktop">
-                            <ProductsFilter
-                                FilterBtn="Фільтр"
-                                CleanBtn="Очистити"
-                                characteristics={characteristics}
-                                logoSrc={logoSrc}
-                                filters={filters}
-                                setFilters={setFilters}
-                                categoryId={categoryId}
-                            />
-                        </div>
-                        {show ? (
-                            <div className="ProductsFilterMobile">
+            <div class="spirit-breaker">
+                <div className="podpivasnik">
+                    <Container className="devicesSection">
+                        <Slider {...sliderSettings}>
+                            {groups.map((cat, idx) => {
+                                return (
+                                    <DevicesComponent
+                                        title={cat.title}
+                                        key={idx.id}
+                                        deviceImg={cat.imageUrl}
+                                        deviceBg={deviceBg}
+                                        link={`/category/${cat.id}`}
+                                    />
+                                );
+                            })}
+                        </Slider>
+                    </Container>
+                </div>
+                <div class="products-section-container">
+                    <Row className="products_rowFirst" style={{padding: "0 40px"}}>
+                        <Col xs="12" lg="3" xl="3">
+                            <div className="ProductsFilterDesktop">
                                 <ProductsFilter
                                     FilterBtn="Фільтр"
                                     CleanBtn="Очистити"
+                                    characteristics={characteristics}
                                     logoSrc={logoSrc}
+                                    filters={filters}
+                                    setFilters={setFilters}
+                                    categoryId={categoryId}
                                 />
                             </div>
-                        ) : null}
-                    </Col>
-
-                    <Col xs="" lg="9" xl="9">
-                        <Row className="products_row" style={{paddingRight: "60px"}}>
-                            {items.map((item) => (
-                                <Col xs="6" lg="4" xl="4" style={{marginBottom: "30px"}}>
-                                    <ProductItem
-                                        key={item.id}
-                                        title={item.name}
-                                        price={item.price}
-                                        link={item.url}
-                                        image={item.images}
-                                        details={item.detaileddescru}
+                            {show ? (
+                                <div className="ProductsFilterMobile">
+                                    <ProductsFilter
+                                        FilterBtn="Фільтр"
+                                        CleanBtn="Очистити"
+                                        logoSrc={logoSrc}
                                     />
-                                </Col>
-                            ))}
-                        </Row>
-                    </Col>
-                </Row>
+                                </div>
+                            ) : null}
+                        </Col>
+
+                        <Col xs="" lg="9" xl="9">
+                            <Row className="products_row" style={{paddingRight: "60px"}}>
+                                {items.map((item) => (
+                                    <Col xs="6" lg="4" xl="4" style={{marginBottom: "30px"}}>
+                                        <ProductItem
+                                            key={item.id}
+                                            title={item.name}
+                                            price={item.price}
+                                            link={item.url}
+                                            image={item.images}
+                                            details={item.detaileddescru}
+                                        />
+                                    </Col>
+                                ))}
+                            </Row>
+                        </Col>
+                    </Row>
+                </div>
             </div>
         </Fragment>
     );
