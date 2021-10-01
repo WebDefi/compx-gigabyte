@@ -105,6 +105,7 @@ const Items = ({currentPage, filters, itemsPerPage, setFilters, categoryId, setT
                                     <Col xs="6" lg="4" xl="4" style={{marginBottom: "30px"}}>
                                         <ProductItem
                                             key={item.id}
+                                            characteristics={item.characteristics}
                                             title={item.name}
                                             price={item.price}
                                             link={item.url}
