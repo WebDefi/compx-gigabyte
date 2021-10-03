@@ -36,10 +36,13 @@ const ProductItem = ({
                     <img src={image && image.length && image[0] || placeholderImage} className="product-img"/>
                 </div>
                 <strong className="product-name" title={title} onClick={toggle}>
-                    {title.slice(0, 48)}...
+                    {title.slice(0, 48)}{title.length <= 48 ? '' : '...'}
                 </strong>
                 <div className="product-price">
-                    <small>{price} &#8372;</small>
+                    <small class="product-price--main">
+                        <span className="product-price--old">41123 &#8372;</span>
+                        {price} &#8372;
+                    </small>
                     <a href={link}>
                         <button className="product-btn">
                             <span>Детальніше</span>
@@ -69,7 +72,7 @@ const ProductItem = ({
                 <ModalBody style={{backgroundColor: "#131313", color: "#fff"}}>
                     {characteristics.map(
                         characteristic => {
-                            return <p>{characteristic.alias}: {characteristic.value}</p>;
+                            return <p>{characteristic.alias} {characteristic.value}</p>;
                         }
                     )}
                     <div
@@ -92,7 +95,7 @@ const ProductItem = ({
                             {price}&#8372;
                         </small>
                         <a href={link}>
-                            <button className="product-btn" style={{padding: 10}}>
+                            <button className="product-btn">
                                 <span>Детальніше</span>
                             </button>
                         </a>

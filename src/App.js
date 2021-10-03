@@ -7,6 +7,7 @@ import {Routes} from "./routes";
 import {BrowserRouter, withRouter} from "react-router-dom";
 import "./static/breakpoints.scss";
 import groupService from "./service/groupService";
+import getConfig from "./config";
 
 function App() {
     return (
@@ -22,21 +23,25 @@ function App() {
 
 function ApplicationBody() {
     const [isGroupsLoaded, setGroupsLoaded] = useState(false);
+    const [isTimerEnded, setTimerEnded] = useState(false);
 
     useEffect(() => {
+        setTimeout(() => {
+            setTimerEnded(true);
+        }, getConfig().PRELOADER_TIME);
         groupService.receiveGroups().then(res => {
             groupService.groups = res.data.groups;
             setGroupsLoaded(true);
         });
     }, []);
 
-    return isGroupsLoaded ? (
+    return (isGroupsLoaded && isTimerEnded) ? (
         <Fragment>
             <Header/>
             {Routes}
             <Footer/>
         </Fragment>
-    ) : <Fragment/>;
+    ) : <Preloader/>;
 }
 
 export default withRouter(App);

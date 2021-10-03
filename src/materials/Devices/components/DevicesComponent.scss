@@ -9,6 +9,50 @@
   text-align: center;
 }
 
+.device-active {
+  .deviceName__clips:before, .deviceName__clips:after,
+  .deviceName:before, .deviceName:after {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-color: #ff6400;
+    opacity: 1;
+  }
+
+  .deviceName__clips:before {
+    top: 0;
+    right: 0;
+    z-index: 5;
+    border-width: 2px 2px 0 0;
+  }
+
+  .deviceName__clips:after {
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 2px 2px;
+  }
+
+  .deviceName:before {
+    top: 0;
+    left: 0;
+    border-width: 2px 0 0 2px;
+    z-index: 5;
+  }
+
+  .deviceName:after {
+    bottom: 0;
+    right: 0;
+    border-width: 0 2px 2px 0;
+  }
+
+  .deviceName {
+    font-size: 24px;
+    transition: all .3s ease-in-out;
+    color: #ff6400;
+  }
+
+}
+
 .container {
 
   .slick-slider {
@@ -21,7 +65,10 @@
 
     .slick-slide {
 
+
       .DevicesComponent {
+        margin: 0 10px 0;
+
         &::before {
           position: absolute;
           content: " ";
@@ -41,7 +88,6 @@
           width: 50%;
           padding-top: 30px;
         }
-
 
         &:hover {
           transition: 0.4s;
@@ -111,6 +157,26 @@
         }
       }
 
+      .device-active {
+        &::before {
+          transition: 0.4s;
+          position: absolute;
+          content: " ";
+          width: 220px;
+          height: 190px;
+          top: 10px;
+          margin-right: 200px;
+          z-index: 1;
+          background-image: url(../../../static/images/deviceBg1.png);
+          background-repeat: no-repeat;
+          background-position: right;
+          background-size: contain;
+        }
+      }
+
+      .deviceImg {
+        transform: scale(1.2);
+      }
 
     }
   }

@@ -3,7 +3,7 @@
 
 .page-i {
   border: 1px solid $white;
-  border-radius: 6px !important;
+  border-radius: 0 !important;
   box-shadow: 1px 1px $btnpagination;
   background: #202020;
   cursor: pointer;
@@ -41,7 +41,6 @@
 .page-num {
 
   height: 30px;
-  width: 30px;
   text-align: center;
   color: $numpagination;
 }

@@ -38,7 +38,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #c3c3c3;
+  color: #c3c3c3 !important;
   outline: 0;
 }
 li {

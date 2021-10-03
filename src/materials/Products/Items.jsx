@@ -67,7 +67,8 @@ const Items = ({currentPage, filters, itemsPerPage, setFilters, categoryId, setT
                                         key={idx.id}
                                         deviceImg={cat.imageUrl}
                                         deviceBg={deviceBg}
-                                        link={`/category/${cat.id}`}
+                                        currentCategory={categoryId}
+                                        categoryId={cat.id}
                                     />
                                 );
                             })}

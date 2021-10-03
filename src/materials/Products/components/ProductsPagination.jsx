@@ -19,7 +19,7 @@ const ProductsPagination = ({itemsPerPage, totalItems, paginate, currentPage}) =
             <Pagination aria-label="Page navigation example">
                 <PaginationItem>
                     <PaginationLink key={'prev'} className="page-i page-num" onClick={() => paginate(currentPage - 1)}>
-                        ←
+                        Предыдущий
                     </PaginationLink>
                     {pageNumbers.map(number => (
                         <PaginationLink key={number}
@@ -29,7 +29,7 @@ const ProductsPagination = ({itemsPerPage, totalItems, paginate, currentPage}) =
                         </PaginationLink>
                     ))}
                     <PaginationLink key={'next'} className="page-i page-num" onClick={() => paginate(currentPage + 1)}>
-                        →
+                        Следующий
                     </PaginationLink>
                 </PaginationItem>
             </Pagination>

@@ -11,6 +11,7 @@
   &_block {
     display: flex;
     flex-direction: row;
+    width: 100%;
     justify-content: space-between;
     padding: 0 40px;
   }
@@ -52,4 +53,15 @@
       background: $filtercolor;
     }
   }
+}
+
+.ProductsFilterDesktop {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ProductsFilter .container {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
 }
