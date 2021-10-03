@@ -10,6 +10,7 @@ import placeholderImage from '../../../static/images/placeholder-image.png'
 const ProductItem = ({
                          title,
                          price,
+                         oldPrice,
                          key,
                          characteristics,
                          link,
@@ -40,7 +41,7 @@ const ProductItem = ({
                 </strong>
                 <div className="product-price">
                     <small class="product-price--main">
-                        <span className="product-price--old">41123 &#8372;</span>
+                        <span className="product-price--old" style={{display: oldPrice}}>{oldPrice} &#8372;</span>
                         {price} &#8372;
                     </small>
                     <a href={link}>

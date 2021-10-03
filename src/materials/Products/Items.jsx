@@ -110,6 +110,7 @@ const Items = ({currentPage, filters, itemsPerPage, setFilters, categoryId, setT
                                             title={item.name}
                                             price={item.price}
                                             link={item.url}
+                                            oldPrice={item.oldPrice}
                                             image={item.images}
                                             details={item.detaileddescru}
                                         />
