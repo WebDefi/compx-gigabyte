@@ -93,26 +93,26 @@ const Header = () => {
                       Интересное
                     </DropdownToggle>
                     <DropdownMenu right className="dropdown-fixed slideInDown">
-                      <DropdownItem>Option 3</DropdownItem>
-                      <DropdownItem>Option 4</DropdownItem>
+                      <DropdownItem><a href="https://ru.aorus.com/news.php" target="_blank">Новости</a></DropdownItem>
+                      <DropdownItem><a href="https://ru.aorus.com/blog.php" target="_blank">Блог</a></DropdownItem>
                       <DropdownItem divider />
-                      <DropdownItem>Reset</DropdownItem>
+                      <DropdownItem><a href="https://ru.aorus.com/wallpaper.php" target="_blank">Обои на рабочий стол</a></DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
                   <Dropdown nav inNavbar onMouseOver={() => onMouseEnter(setIsOpenLinks)}
                             onMouseLeave={() => onMouseLeave(setIsOpenLinks)} isOpen={isOpenLinks}>
                     <DropdownToggle nav caret>
-                      Links
+                      Служба
                     </DropdownToggle>
                     <DropdownMenu right className="dropdown-fixed slideInDown">
+                      <DropdownItem><a href="https://member.aorus.com/ru/productwarranty" target="_blank">Информация о гарантии</a></DropdownItem>
+                      {/* <DropdownItem>Акции</DropdownItem>
                       <DropdownItem>Акции</DropdownItem>
                       <DropdownItem>Акции</DropdownItem>
                       <DropdownItem>Акции</DropdownItem>
                       <DropdownItem>Акции</DropdownItem>
                       <DropdownItem>Акции</DropdownItem>
-                      <DropdownItem>Акции</DropdownItem>
-                      <DropdownItem>Акции</DropdownItem>
-                      <DropdownItem>Акции</DropdownItem>
+                      <DropdownItem>Акции</DropdownItem> */}
                     </DropdownMenu>
                   </Dropdown>
                   <NavItem>
