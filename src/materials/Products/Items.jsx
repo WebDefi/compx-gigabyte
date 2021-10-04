@@ -32,7 +32,7 @@ const Items = ({currentPage, filters, itemsPerPage, setFilters, categoryId, setT
                 end: page * itemsPerPage,
                 charValues: filters.length > 0 ? encodeURI(JSON.stringify(filters)) : "",
             };
-            const baseUrl = `http://${getConfig().API_ENDPOINT}/gigabyte/api/v1/items/${categoryId}`;
+            const baseUrl = `https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/items/${categoryId}`;
             if (queryStringParams.charValues === "") delete queryStringParams["charValues"];
             const url = `${baseUrl}?${Object.entries(queryStringParams)
                 .map(([key, value]) => `${key}=${value}`)

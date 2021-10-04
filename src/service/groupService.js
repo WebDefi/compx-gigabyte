@@ -4,10 +4,10 @@ import getConfig from "../config";
 const groupService = {
     groups: null,
     receiveGroups: function () {
-        return axios.get(`http://${getConfig().API_ENDPOINT}/gigabyte/api/v1/groups`);
+        return axios.get(`https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/groups`);
     },
     receiveGames: function () {
-        return axios.get(`http://${getConfig().API_ENDPOINT}/gigabyte/api/v1/games`);
+        return axios.get(`https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/games`);
     }
 };
 

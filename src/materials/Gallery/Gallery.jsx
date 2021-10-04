@@ -10,7 +10,7 @@ const Gallery = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch(`http://${getConfig().API_ENDPOINT}/gigabyte/api/v1/gallery`)
+    fetch(`https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/gallery`)
       .then((res) => res.json())
       .then(
         (result) => {

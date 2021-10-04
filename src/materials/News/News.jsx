@@ -15,7 +15,7 @@ export default class News extends Component {
   };
 
   componentDidMount() {
-    axios.get(`http://${getConfig().API_ENDPOINT}/gigabyte/api/v1/news`).then((res) => {
+    axios.get(`https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/news`).then((res) => {
       const newsItems = res.data.news;
       this.setState({ ...this.state, newsItems });
       console.log(newsItems);

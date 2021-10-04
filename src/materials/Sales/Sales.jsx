@@ -15,7 +15,7 @@ export default class Sales extends Component {
   };
 
   componentDidMount() {
-    axios.get(`http://${getConfig().API_ENDPOINT}/gigabyte/api/v1/sales`).then((res) => {
+    axios.get(`https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/sales`).then((res) => {
       const salesItems = res.data.sales;
       this.setState({ ...this.state, salesItems });
       console.log(salesItems);

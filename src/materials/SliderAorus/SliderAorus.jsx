@@ -18,7 +18,7 @@ export default class SlideAorus extends Component {
   };
 
   componentDidMount() {
-    axios.get(`http://${getConfig().API_ENDPOINT}/gigabyte/api/v1/slider`).then((res) => {
+    axios.get(`https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/slider`).then((res) => {
       const objs = res.data;
       this.setState({ objs: objs.slider });
       this.sliderElement.slickPlay();
