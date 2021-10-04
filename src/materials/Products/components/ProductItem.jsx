@@ -41,7 +41,9 @@ const ProductItem = ({
                 </strong>
                 <div className="product-price">
                     <small class="product-price--main">
-                        <span className="product-price--old" style={{display: oldPrice}}>{oldPrice} &#8372;</span>
+                        <span className="product-price--old" style={{display: (oldPrice ? "block" : "none")}}>
+                            {oldPrice} &#8372;
+                        </span>
                         {price} &#8372;
                     </small>
                     <a href={link}>

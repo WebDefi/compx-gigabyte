@@ -53,9 +53,6 @@ const Items = ({currentPage, filters, itemsPerPage, setFilters, categoryId, setT
     const [show, showState] = React.useState(false);
     return (
         <Fragment>
-            <div onClick={() => showState(!show)}>
-                <ProductsFilterBtn textBtn="Фільтр"/>
-            </div>
             <div class="spirit-breaker">
                 <div className="podpivasnik">
                     <Container className="devicesSection">

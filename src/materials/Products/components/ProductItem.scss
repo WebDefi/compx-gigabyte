@@ -118,6 +118,24 @@
   width: 100%;
 }
 
+@media only screen and (max-width: 1550px) and (min-width: 1400px)  {
+  .product-price {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .product-price {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .product-card {
+    height: 22em !important;
+  }
+}
+
 //Modal window
 
 .product-btn {
