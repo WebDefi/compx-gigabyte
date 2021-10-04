@@ -29,26 +29,17 @@ const Header = () => {
   const [isOpenProducts, setIsOpenProducts] = useState(false);
   const [isOpenInteresting, setIsOpenInteresting] = useState(false);
   const [isOpenLinks, setIsOpenLinks] = useState(false);
-  const [done, setDone] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
   useEffect(() => {
     AOS.init({
       duration: 1200,
     });
   }, []);
-  // return
-  const displayNone = () => {
-    if (window.scrollY >= 140) {
-      setDone(true);
-    } else {
-      setDone(false);
-    }
-  };
 
+  const onMobileToggle = () => setIsMobileOpen(!isMobileOpen);
   const onMouseEnter = (callback) => {callback(true)};
   const onMouseLeave = (callback) => {callback(false)};
 
-  window.addEventListener("scroll", displayNone);
-  // );
   return (
     <div>
       <div
@@ -67,9 +58,9 @@ const Header = () => {
               <NavbarBrand href="/home">
                 <img src={gigabyte} width="125px" />
               </NavbarBrand>
-              <NavbarToggler/>
+              <NavbarToggler onClick={onMobileToggle}/>
               <div className="podpivasnik2-0"></div>
-              <Collapse navbar>
+              <Collapse isOpen={isMobileOpen} navbar>
                 <Nav className="mr-auto " navbar>
                   <Dropdown nav inNavbar onMouseOver={() => onMouseEnter(setIsOpenProducts)}
                             onMouseLeave={() => onMouseLeave(setIsOpenProducts)} isOpen={isOpenProducts}>
@@ -106,13 +97,6 @@ const Header = () => {
                     </DropdownToggle>
                     <DropdownMenu right className="dropdown-fixed slideInDown">
                       <DropdownItem><a href="https://member.aorus.com/ru/productwarranty" target="_blank">Информация о гарантии</a></DropdownItem>
-                      {/* <DropdownItem>Акции</DropdownItem>
-                      <DropdownItem>Акции</DropdownItem>
-                      <DropdownItem>Акции</DropdownItem>
-                      <DropdownItem>Акции</DropdownItem>
-                      <DropdownItem>Акции</DropdownItem>
-                      <DropdownItem>Акции</DropdownItem>
-                      <DropdownItem>Акции</DropdownItem> */}
                     </DropdownMenu>
                   </Dropdown>
                   <NavItem>
