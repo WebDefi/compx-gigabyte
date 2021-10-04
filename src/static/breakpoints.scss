@@ -1,3 +1,7 @@
+.ProductsFilterMobile {
+  display: none;
+}
+
 @media only screen and (max-width: 1920px) {
 
   .col-xl-3 {
@@ -8,9 +12,6 @@
     width: 309px;
   }
 
-  .ProductsFilterMobile {
-    display: none;
-  }
   .ProductsFilter__lineBlock {
     padding: 0 35px;
   }
@@ -60,6 +61,7 @@
   }
   .dropdown-item {
     text-align: left;
+
     img {
       display: none;
       // flex-direction: column;
@@ -86,6 +88,7 @@
   }
   .logoOuter {
     left: 80%;
+
     img {
       margin-top: 40px;
     }
@@ -106,6 +109,7 @@
   .product-card {
     width: 38vw;
     margin: 20px auto;
+
     &::before {
       width: 43vw;
     }
@@ -145,6 +149,7 @@
 
   .product-card {
     width: 41vw;
+
     &::before {
       width: 49vw;
     }
@@ -201,6 +206,7 @@
   }
   .product-card {
     width: 38vw;
+
     &::before {
       width: 44vw;
     }
@@ -209,6 +215,7 @@
     height: 14em;
   }
 }
+
 @media (min-width: 576px) {
   .close {
     display: block;
@@ -249,15 +256,9 @@
             margin-left: 16px;
             bottom: 40px;
           }
+
           img {
             width: 50%;
-          }
-
-          &:hover {
-            &::before {
-              width: 0;
-              height: 0;
-            }
           }
         }
       }
@@ -277,6 +278,7 @@
 
   .product-card {
     width: 46vw;
+
     &::before {
       width: 57vw;
     }
@@ -345,5 +347,18 @@
   }
   .product-card {
     width: 24vw;
+  }
+}
+
+@media only screen and (max-width: 765px) {
+  .DevicesComponent {
+    width: 60%;
+    margin: auto !important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .DevicesComponent:before {
+    display: none !important;
   }
 }

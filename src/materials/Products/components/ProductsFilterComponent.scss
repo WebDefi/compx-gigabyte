@@ -2,6 +2,7 @@
 @import "./src/static/colors.scss";
 
 .filterComponent {
+  width: 100%;
   &_ul {
     list-style: none;
     padding-left: 0;

@@ -47,7 +47,7 @@ export default class News extends Component {
       ],
     };
     return (
-      <div>
+      <div style={{marginBottom: 80}}>
         <Divider />
         <div>
           <SectionContent title="новинки gigabyte"/>

@@ -1,8 +1,7 @@
-import React, {useState, useEffect, Fragment} from "react";
-import {Row, Col, Container} from "reactstrap";
+import React, {Fragment, useEffect, useState} from "react";
+import {Col, Container, Row} from "reactstrap";
 import ProductItem from "./components/ProductItem";
 import ProductsFilter from "./components/ProductsFilter";
-import ProductsFilterBtn from "./components/ProductsFilterBtn";
 import logoSrc from "../../static/images/filter.svg";
 import axios from "axios";
 import getConfig from "../../config";
@@ -86,15 +85,17 @@ const Items = ({currentPage, filters, itemsPerPage, setFilters, categoryId, setT
                                     categoryId={categoryId}
                                 />
                             </div>
-                            {show ? (
-                                <div className="ProductsFilterMobile">
-                                    <ProductsFilter
-                                        FilterBtn="Фільтр"
-                                        CleanBtn="Очистити"
-                                        logoSrc={logoSrc}
-                                    />
-                                </div>
-                            ) : null}
+                            <div className="ProductsFilterMobile">
+                                <ProductsFilter
+                                    FilterBtn="Фільтр"
+                                    CleanBtn="Очистити"
+                                    characteristics={characteristics}
+                                    logoSrc={logoSrc}
+                                    filters={filters}
+                                    setFilters={setFilters}
+                                    categoryId={categoryId}
+                                />
+                            </div>
                         </Col>
 
                         <Col xs="" lg="9" xl="9">
