@@ -14,21 +14,23 @@ export default class SlideAorus extends Component {
   state = {
     objs: [],
     currentSlide: 0,
-    timer: 0
+    timer: 0,
   };
 
   componentDidMount() {
-    axios.get(`https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/slider`).then((res) => {
-      const objs = res.data;
-      this.setState({ objs: objs.slider });
-      this.sliderElement.slickPlay();
-      setInterval(() => {
-        this.setState({timer: this.state.timer + 10});
-        if (this.state.timer >= 5000) {
-          this.setState({timer: 0});
-        }
-      }, 10);
-    });
+    axios
+      .get(`https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/slider`)
+      .then((res) => {
+        const objs = res.data;
+        this.setState({ objs: objs.slider });
+        this.sliderElement.slickPlay();
+        setInterval(() => {
+          this.setState({ timer: this.state.timer + 10 });
+          if (this.state.timer >= 5000) {
+            this.setState({ timer: 0 });
+          }
+        }, 10);
+      });
   }
 
   render() {
@@ -42,20 +44,21 @@ export default class SlideAorus extends Component {
       autoplay: true,
       autoplaySpeed: 5000,
       pauseOnHover: false,
-      cssEase: "linear"
+      cssEase: "linear",
     };
     return (
       <Container fluid style={{ padding: 0, marginTop: 0 }}>
-        <Slider {...settings} ref={slider => this.sliderElement = slider}>
+        <Slider {...settings} ref={(slider) => (this.sliderElement = slider)}>
           {this.state.objs.map((obj) => {
+            // console.log("Object", obj)
             return (
               <SliderAorusComponent
-              sliderTitle={obj.title_high}
-              sliderSubtitle={obj.title_low}
-              sliderBcg={obj.image}
-              sliderBcgMobile={SliderBcgMobile1}
-              btnText={obj.button_text}
-              percent={this.state.timer / 5000}
+                sliderTitle={obj.title_high}
+                sliderSubtitle={obj.title_low}
+                sliderBcg={obj.image}
+                sliderBcgMobile={obj.image_mob ?? SliderBcgMobile1}
+                btnText={obj.button_text}
+                percent={this.state.timer / 5000}
               />
             );
           })}

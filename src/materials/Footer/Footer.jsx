@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import footerBg from "../../static/images/footerBg.png";
 import styles from "./Footer.scss";
 import upperFooter from "../../static/images/footerUpper.png";
-import Logo from "../../static/images/logo.svg";
+import logo_clown from "../../static/images/logo-4to-tam.jpg";
+import Logo from "../../static/images/aorus_logo.svg";
+import compxLogo from "../../static/images/logo.svg";
 import { Container, Row, Col } from "reactstrap";
 //Сделать нормальный компонет лого
 import CategoryName from "./components/CategoryName";
@@ -10,8 +12,10 @@ import FooterCol from "./components/FooterCol";
 import FooterContacts from "./components/FooterContacts";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import groupService from "../../service/groupService";
 
 const Footer = () => {
+  const groups = groupService.groups;
   useEffect(() => {
     AOS.init({
       duration: 2200,
@@ -35,46 +39,66 @@ const Footer = () => {
         </Row>
         <div className="footerLine text-center">
           <a href="/" className="logoDescr text-center">
-            <img src={Logo} style={{ position: "relative", bottom: 25 }}></img>
+            <img src={Logo} style={{ position: "relative", bottom: 50 }}></img>
             <p
               className="logoDescr"
               style={{ position: "relative", bottom: 25, fontSize: 15 }}
-            >
-              комп’ютерний магазин
-            </p>
+            ></p>
           </a>
-          <Container fluid>
-            <Row>
-              <Col xs="12" sm="6" md="3">
-                <CategoryName />
-                <FooterCol />
-                <FooterCol />
-                <FooterCol />
-                <FooterCol />
-                <FooterCol />
-                <FooterCol />
-                <FooterCol />
+          <Container className="clownClass" fluid style={{}}>
+            <Row style={{ flexWrap: "wrap", justifyContent: "space-around" }}>
+              <Col style={{ width: "auto" }} xs="12" sm="6" md="3">
+                <div className="clownItem">
+                  <CategoryName name={"О нас"} />
+                  <FooterCol nav={"О бренде AORUS"} />
+                  <FooterCol nav={"О бренде GIGABYTE"} />
+                  <FooterCol nav={"О бренде COMPX"} />
+                  <FooterCol
+                    nav={
+                      <img
+                        src={logo_clown}
+                        style={{ width: "150px", height: "auto" }}
+                      ></img>
+                    }
+                  />
+                </div>
               </Col>
-              <Col xs="12" sm="6" md="3">
-                <CategoryName />
-                <FooterCol />
-                <FooterCol />
-                <FooterCol />
-                <FooterCol />
-                <FooterCol />
-                <FooterCol />
-                <FooterCol />
+              <Col style={{ width: "auto" }} xs="12" sm="6" md="3">
+                <div className="clownItem">
+                  <CategoryName name={"Продукция"} />
+                  {groups.map((item, idx) => (
+                    <FooterCol link={`/category/${item.id}`} nav={item.title} />
+                  ))}
+                </div>
               </Col>
-              <Col xs="12" sm="6" md="3">
-                <CategoryName />
-                <FooterContacts />
+              <Col style={{ width: "auto" }} xs="12" sm="6" md="3">
+                <div className="clownItem">
+                  <CategoryName name={"Интересное"} />
+                  <FooterCol
+                    nav={"Новости"}
+                    link={"https://ru.aorus.com/news.php"}
+                  />
+                  <FooterCol
+                    nav={"Блог"}
+                    link={"https://ru.aorus.com/blog.php"}
+                  />
+                  <FooterCol
+                    nav={"Обои на Рабочий Стол"}
+                    link={"https://ru.aorus.com/wallpaper.php"}
+                  />
+                </div>
               </Col>
-              <Col xs="12" sm="6" md="3">
-                <CategoryName name="*" />
-                <FooterCol />
-                <FooterCol />
-                <FooterCol />
-                <FooterCol />
+              <Col style={{ width: "auto" }} xs="12" sm="6" md="3">
+                <div className="clownItem">
+                  <CategoryName name={"Служба"} />
+                  <FooterCol nav={"Найти магазин"} />
+                  <FooterCol nav={"Информация о гарантии"} />
+                  <FooterCol nav={"Контактная информация"} />
+                  <FooterCol nav={"Часто задаваемые вопросы и ответы"} />
+                  <Container style={{marginTop:"10px"}}>
+                    <img src={compxLogo} alt="" />
+                  </Container>
+                </div>
               </Col>
             </Row>
           </Container>

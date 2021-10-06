@@ -3,10 +3,10 @@ import logo from "../../static/images/logo.svg";
 import "./Header.scss";
 import headerlower from "../../static/images/headerlower.png";
 import inst from "../../static/images/instagram.svg";
-import twitter from "../../static/images/twitter.svg";
-import facebook from "../../static/images/facebook.svg";
+import telegram from "../../static/images/telegram-app.svg";
+import tiktok from "../../static/images/tiktok.svg";
 import gigabyte from "../../static/images/gigabyte.png";
-import {Container, Row, Col, Dropdown} from "reactstrap";
+import { Container, Row, Col, Dropdown } from "reactstrap";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {
@@ -20,7 +20,7 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
 } from "reactstrap";
 import groupService from "../../service/groupService";
 
@@ -37,8 +37,12 @@ const Header = () => {
   }, []);
 
   const onMobileToggle = () => setIsMobileOpen(!isMobileOpen);
-  const onMouseEnter = (callback) => {callback(true)};
-  const onMouseLeave = (callback) => {callback(false)};
+  const onMouseEnter = (callback) => {
+    callback(true);
+  };
+  const onMouseLeave = (callback) => {
+    callback(false);
+  };
 
   return (
     <div>
@@ -58,12 +62,17 @@ const Header = () => {
               <NavbarBrand href="/home">
                 <img src={gigabyte} width="125px" />
               </NavbarBrand>
-              <NavbarToggler onClick={onMobileToggle}/>
+              <NavbarToggler onClick={onMobileToggle} />
               <div className="podpivasnik2-0"></div>
               <Collapse isOpen={isMobileOpen} navbar>
                 <Nav className="mr-auto " navbar>
-                  <Dropdown nav inNavbar onMouseOver={() => onMouseEnter(setIsOpenProducts)}
-                            onMouseLeave={() => onMouseLeave(setIsOpenProducts)} isOpen={isOpenProducts}>
+                  <Dropdown
+                    nav
+                    inNavbar
+                    onMouseOver={() => onMouseEnter(setIsOpenProducts)}
+                    onMouseLeave={() => onMouseLeave(setIsOpenProducts)}
+                    isOpen={isOpenProducts}
+                  >
                     <DropdownToggle nav caret>
                       Продукция
                     </DropdownToggle>
@@ -78,40 +87,76 @@ const Header = () => {
                       ))}
                     </DropdownMenu>
                   </Dropdown>
-                  <Dropdown nav inNavbar onMouseOver={() => onMouseEnter(setIsOpenInteresting)}
-                            onMouseLeave={() => onMouseLeave(setIsOpenInteresting)} isOpen={isOpenInteresting}>
+                  <Dropdown
+                    nav
+                    inNavbar
+                    onMouseOver={() => onMouseEnter(setIsOpenInteresting)}
+                    onMouseLeave={() => onMouseLeave(setIsOpenInteresting)}
+                    isOpen={isOpenInteresting}
+                  >
                     <DropdownToggle nav caret>
                       Интересное
                     </DropdownToggle>
                     <DropdownMenu right className="dropdown-fixed slideInDown">
-                      <DropdownItem><a href="https://ru.aorus.com/news.php" target="_blank">Новости</a></DropdownItem>
-                      <DropdownItem><a href="https://ru.aorus.com/blog.php" target="_blank">Блог</a></DropdownItem>
+                      <DropdownItem>
+                        <a href="https://ru.aorus.com/news.php" target="_blank">
+                          Новости
+                        </a>
+                      </DropdownItem>
+                      <DropdownItem>
+                        <a href="https://ru.aorus.com/blog.php" target="_blank">
+                          Блог
+                        </a>
+                      </DropdownItem>
                       <DropdownItem divider />
-                      <DropdownItem><a href="https://ru.aorus.com/wallpaper.php" target="_blank">Обои на рабочий стол</a></DropdownItem>
+                      <DropdownItem>
+                        <a
+                          href="https://ru.aorus.com/wallpaper.php"
+                          target="_blank"
+                        >
+                          Обои на рабочий стол
+                        </a>
+                      </DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
-                  <Dropdown nav inNavbar onMouseOver={() => onMouseEnter(setIsOpenLinks)}
-                            onMouseLeave={() => onMouseLeave(setIsOpenLinks)} isOpen={isOpenLinks}>
+                  <Dropdown
+                    nav
+                    inNavbar
+                    onMouseOver={() => onMouseEnter(setIsOpenLinks)}
+                    onMouseLeave={() => onMouseLeave(setIsOpenLinks)}
+                    isOpen={isOpenLinks}
+                  >
                     <DropdownToggle nav caret>
                       Служба
                     </DropdownToggle>
                     <DropdownMenu right className="dropdown-fixed slideInDown">
-                      <DropdownItem><a href="https://member.aorus.com/ru/productwarranty" target="_blank">Информация о гарантии</a></DropdownItem>
+                      <DropdownItem>
+                        <a
+                          href="https://member.aorus.com/ru/productwarranty"
+                          target="_blank"
+                        >
+                          Информация о гарантии
+                        </a>
+                      </DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
                   <NavItem>
-                    <NavLink>
+                    <NavLink
+                      href={
+                        "https://www.instagram.com/compx.com.ua/?utm_medium=copy_link"
+                      }
+                    >
                       <img src={inst} alt="" />
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink>
-                      <img src={facebook} alt="" />
+                    <NavLink href={"https://vm.tiktok.com/ZMRgj77fQ/"}>
+                      <img src={tiktok} alt="" />
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink>
-                      <img src={twitter} alt="" />
+                    <NavLink href={"https://t.me/compx_pc"}>
+                      <img src={telegram} alt="" />
                     </NavLink>
                   </NavItem>
                 </Nav>
