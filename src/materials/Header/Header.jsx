@@ -99,12 +99,12 @@ const Header = () => {
                     </DropdownToggle>
                     <DropdownMenu right className="dropdown-fixed slideInDown">
                       <DropdownItem>
-                        <a href="https://ru.aorus.com/news.php" target="_blank">
+                        <a href="https://ru.aorus.com/news.php" target="_blank" className="link-nav-bar">
                           Новости
                         </a>
                       </DropdownItem>
                       <DropdownItem>
-                        <a href="https://ru.aorus.com/blog.php" target="_blank">
+                        <a href="https://ru.aorus.com/blog.php" target="_blank" className="link-nav-bar">
                           Блог
                         </a>
                       </DropdownItem>
@@ -113,6 +113,7 @@ const Header = () => {
                         <a
                           href="https://ru.aorus.com/wallpaper.php"
                           target="_blank"
+                          className="link-nav-bar"
                         >
                           Обои на рабочий стол
                         </a>
@@ -134,6 +135,7 @@ const Header = () => {
                         <a
                           href="https://member.aorus.com/ru/productwarranty"
                           target="_blank"
+                          className="link-nav-bar"
                         >
                           Информация о гарантии
                         </a>

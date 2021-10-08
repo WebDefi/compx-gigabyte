@@ -36,9 +36,18 @@ const Gallery = () => {
               AFTER THIS BLOCK THE GALLERY WILL APPEAR
             </h2>
           </div>
-          <div data-v-b44cebd0="" className="template-content">
-            <h2 data-v-b44cebd0="">
-              Select gallery item to check out our cool graphic cards
+          <div
+            data-v-b44cebd0=""
+            className="template-content"
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <h2 data-v-b44cebd0="" style={{ width: "75%" }}>
+              Близько двох років тому компанія почала використовувати бренд
+              AORUS для ігрових ноутбуків і супутньої периферії. Експеримент з
+              сегментацією виявився успішним, тому виробник розширив асортимент
+              пристроїв, об'єднаних ігровою тематикою. Зокрема тепер під брендом
+              AORUS пропонуються функціональні материнські плати і продуктивні
+              відеокарти.
             </h2>
           </div>
         </div>

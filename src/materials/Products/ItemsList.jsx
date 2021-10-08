@@ -7,9 +7,12 @@ import { useLocation, useParams } from "react-router-dom";
 import ProductsBanner from "./components/ProductsBanner";
 import bannerImgGraphic from "../../static/images/bannerGraphiccard.jpeg";
 import Fpslist from "../Fpslist/Fpslist";
+import groupService from "../../service/groupService";
 
 const ItemsList = () => {
+  const groups = groupService.groups;
   const { id: categoryId } = useParams();
+  let tempGroup = groups.find((group) => (group.id = categoryId));
   // Get config
   const config = getConfig();
   console.log("CONFIG", config);
@@ -83,14 +86,13 @@ const ItemsList = () => {
         <div data-v-b44cebd0="" className="col-12 text-center">
           <div data-v-b44cebd0="" className="template-title">
             <h2 data-v-b44cebd0="" className="fontAldrich">
-              FIND THE RIGHT GRAPHICS CARD FOR YOUR GAME
+              {/* {groups.filter(group => group.id = categoryId)[0].title} */}
+              {/* {JSON.stringify({id: tempGroup.id, title: tempGroup.title})} */}
+              {tempGroup.title}
             </h2>
           </div>
           <div data-v-b44cebd0="" className="template-content">
-            <h2 data-v-b44cebd0="">
-              Select a game, and we'll help you find Graphics Cards that meet
-              its requirements.
-            </h2>
+            <h2 data-v-b44cebd0="">{tempGroup.group_text}</h2>
           </div>
         </div>
       </div>

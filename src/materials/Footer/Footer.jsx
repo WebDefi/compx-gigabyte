@@ -13,6 +13,9 @@ import FooterContacts from "./components/FooterContacts";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import groupService from "../../service/groupService";
+import inst from "../../static/images/instagram.svg";
+import telegram from "../../static/images/telegram-app.svg";
+import tiktok from "../../static/images/tiktok.svg";
 
 const Footer = () => {
   const groups = groupService.groups;
@@ -39,12 +42,17 @@ const Footer = () => {
         </Row>
         <div className="footerLine text-center">
           <a href="/" className="logoDescr text-center">
-            <img src={Logo} style={{ position: "relative", bottom: 50 }}></img>
+            <img src={Logo} style={{ position: "relative", bottom: 20 }}></img>
             <p
               className="logoDescr"
-              style={{ position: "relative", bottom: 25, fontSize: 15 }}
+              style={{ position: "relative", bottom: 10, fontSize: 15 }}
             ></p>
           </a>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <img src={inst} alt="" style={{ marginRight: "7px", marginLeft:"12px" }} />
+            <img src={tiktok} alt="" style={{ marginRight: "7px" }} />
+            <img src={telegram} alt="" style={{ marginRight: "5px" }} />
+          </div>
           <Container className="clownClass" fluid style={{}}>
             <Row style={{ flexWrap: "wrap", justifyContent: "space-around" }}>
               <Col style={{ width: "auto" }} xs="12" sm="6" md="3">
@@ -53,14 +61,14 @@ const Footer = () => {
                   <FooterCol nav={"О бренде AORUS"} />
                   <FooterCol nav={"О бренде GIGABYTE"} />
                   <FooterCol nav={"О бренде COMPX"} />
-                  <FooterCol
+                  {/* <FooterCol
                     nav={
                       <img
                         src={logo_clown}
                         style={{ width: "150px", height: "auto" }}
                       ></img>
                     }
-                  />
+                  /> */}
                 </div>
               </Col>
               <Col style={{ width: "auto" }} xs="12" sm="6" md="3">
@@ -95,7 +103,7 @@ const Footer = () => {
                   <FooterCol nav={"Информация о гарантии"} />
                   <FooterCol nav={"Контактная информация"} />
                   <FooterCol nav={"Часто задаваемые вопросы и ответы"} />
-                  <Container style={{marginTop:"10px"}}>
+                  <Container style={{ marginTop: "95px" }}>
                     <img src={compxLogo} alt="" />
                   </Container>
                 </div>
