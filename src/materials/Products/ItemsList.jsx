@@ -8,6 +8,7 @@ import ProductsBanner from "./components/ProductsBanner";
 import bannerImgGraphic from "../../static/images/bannerGraphiccard.jpeg";
 import Fpslist from "../Fpslist/Fpslist";
 import groupService from "../../service/groupService";
+import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 
 const ItemsList = () => {
   const groups = groupService.groups;
@@ -75,6 +76,7 @@ const ItemsList = () => {
           <div className="banner-image-products">
             <ProductsBanner bannerImg={bannerImgGraphic} />
             <div className="gradient-image"></div>
+
           </div>
           {/* <div class="products-list-mobile">
             <Nav navbar style={{ marginBottom: 30 }}>
@@ -119,8 +121,14 @@ const ItemsList = () => {
               {renderText(categoryId, true)}
             </h2>
           </div>
-          <div data-v-b44cebd0="" className="template-content" style={{ display: "flex", justifyContent: "center" }}>
-            <h2 data-v-b44cebd0="" style={{width: "75%"}}>{renderText(categoryId, false)}</h2>
+          <div
+            data-v-b44cebd0=""
+            className="template-content"
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <h2 data-v-b44cebd0="" style={{ width: "75%" }}>
+              {renderText(categoryId, false)}
+            </h2>
           </div>
         </div>
       </div>

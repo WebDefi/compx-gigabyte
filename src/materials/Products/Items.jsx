@@ -11,6 +11,7 @@ import {sliderSettings} from "../Devices/Devices";
 import DevicesComponent from "../Devices/components/DevicesComponent";
 import deviceBg from "../../static/images/deviceBg.png";
 import groupService from "../../service/groupService";
+import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 
 const Items = ({currentPage, filters, itemsPerPage, setFilters, categoryId, setTotalPages}) => {
     const groups = groupService.groups;
@@ -53,6 +54,7 @@ const Items = ({currentPage, filters, itemsPerPage, setFilters, categoryId, setT
     return (
         <Fragment>
             <div class="spirit-breaker">
+            <Breadcrumbs/>
                 <div className="podpivasnik">
                     <Container className="devicesSection">
                         <Slider {...sliderSettings}>
