@@ -36,9 +36,10 @@
 }
 
 .text-placeholder-after-products {
-  padding-top: 1.5em;
-  padding-bottom: 1em;
-  background-image: linear-gradient(#333, #301934);
+  padding-top: 5.5em;
+  padding-bottom: 5.5em;
+  background-color: black;
+  // background-image: linear-gradient(#000000 99%, #6610f2 1%);
 }
 .products-list-mobile {
   background-image: linear-gradient(rgb(0, 0, 0) 60%, #333);
@@ -58,12 +59,17 @@
   // opacity: 50%;
 }
 .podpivasnik {
-  // background-color: red;
-  margin-bottom: 60px;
+  background-color: black;
+  padding-bottom: 3em;
+}
+.gradient {
+  height: 4em;
+  margin-bottom: 3em;
+  background-image: linear-gradient(#000000 60%, #333 );
 }
 
 .spirit-breaker {
-  background: linear-gradient(rgba(0,0,0,1) 0%, rgba(51,51,51,1) 30%);
+  // background: linear-gradient(rgba(0, 0, 0, 1) 0%, rgba(51, 51, 51, 1) 30%);
 }
 
 @media only screen and (max-width: 980px) {

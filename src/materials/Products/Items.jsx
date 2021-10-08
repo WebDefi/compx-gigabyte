@@ -71,6 +71,7 @@ const Items = ({currentPage, filters, itemsPerPage, setFilters, categoryId, setT
                         </Slider>
                     </Container>
                 </div>
+                <div className="gradient"></div>
                 <div class="products-section-container">
                     <Row className="products_rowFirst" style={{padding: "0 40px"}}>
                         <Col xs="12" lg="3" xl="3">
@@ -99,7 +100,7 @@ const Items = ({currentPage, filters, itemsPerPage, setFilters, categoryId, setT
                         </Col>
 
                         <Col xs="" lg="9" xl="9">
-                            <Row className="products_row" style={{paddingRight: "60px"}}>
+                            <Row className="products_row" style={{paddingRight: "100px"}}>
                                 {items.map((item) => (
                                     <Col xs="6" lg="4" xl="4" style={{marginBottom: "30px"}}>
                                         <ProductItem
