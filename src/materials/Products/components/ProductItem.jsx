@@ -29,15 +29,17 @@ const ProductItem = ({
     const [isLoading, setIsLoading] = React.useState(true);
     const [isError, setIsError] = React.useState(false);
     const toggle = () => setModal(!modal);
+    const [isMouseOver, setIsMouseOver] = useState(false);
 
     return (
-        <div key={key} class="product-card">
+        <div key={key} class="product-card" onMouseOver={() => setIsMouseOver(true)}
+             onMouseLeave={() => setIsMouseOver(false)}>
             <div className="product-card-face">
                 <div className="product-box" onClick={toggle}>
                     <img src={image && image.length && image[0] || placeholderImage} className="product-img"/>
                 </div>
                 <strong className="product-name" title={title} onClick={toggle}>
-                    {title.slice(0, 48)}{title.length <= 48 ? '' : '...'}
+                    {isMouseOver ? title : (title.slice(0, 48) + '' + (title.length <= 48 ? '' : '...'))}
                 </strong>
                 <div className="product-price">
                     <small class="product-price--main">

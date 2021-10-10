@@ -205,7 +205,7 @@
 .product-characteristic {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   padding: 0 12px 0;
 }
 
@@ -215,4 +215,5 @@
 
 .product-characteristic-value {
   text-align: right;
+  min-width: fit-content;
 }
