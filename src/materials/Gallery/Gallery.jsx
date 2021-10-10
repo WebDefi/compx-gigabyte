@@ -30,10 +30,19 @@ const Gallery = () => {
   } else {
     return (
       <div>
-        <div data-v-b44cebd0="" className="col-12 text-center">
+        <SectionContent title="ГАЛЕРЕЯ" />
+        {items.map((item, index) => (
+          <GalleryItem
+            key={item.id}
+            itemId={index}
+            titleItem={item.title}
+            images={item.images}
+          />
+        ))}
+        <div data-v-b44cebd0="" className="col-12 text-center" style={{paddingTop:20}}>
           <div data-v-b44cebd0="" className="template-title">
             <h2 data-v-b44cebd0="" className="fontAldrich">
-              AFTER THIS BLOCK THE GALLERY WILL APPEAR
+              AORUS
             </h2>
           </div>
           <div
@@ -51,33 +60,6 @@ const Gallery = () => {
             </h2>
           </div>
         </div>
-        <SectionContent title="ГАЛЕРЕЯ" />
-        {items.map((item, index) => (
-          <GalleryItem
-            key={item.id}
-            itemId={index}
-            titleItem={item.title}
-            images={item.images}
-          />
-        ))}
-        {/* <GalleryItem
-          titleItem="Item#3"
-          imgFirst={imgFirst}
-          imgSecond={imgSecond}
-          imgThird={imgThird}
-          imgForth={imgForth}
-          imgFifth={imgFifth}
-          imgSixth={imgSixth}
-        />
-        <GalleryItem
-          titleItem="Item#4"
-          imgFirst={imgFirst}
-          imgSecond={imgSecond}
-          imgThird={imgThird}
-          imgForth={imgForth}
-          imgFifth={imgFifth}
-          imgSixth={imgSixth}
-        /> */}
       </div>
     );
   }

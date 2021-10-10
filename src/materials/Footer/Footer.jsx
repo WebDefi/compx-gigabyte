@@ -16,8 +16,12 @@ import groupService from "../../service/groupService";
 import inst from "../../static/images/instagram.svg";
 import telegram from "../../static/images/telegram-app.svg";
 import tiktok from "../../static/images/tiktok.svg";
+import { withRouter } from "react-router";
 
-const Footer = () => {
+const Footer = (props) => {
+  const {
+    location: { pathname },
+  } = props;
   const groups = groupService.groups;
   useEffect(() => {
     AOS.init({
@@ -27,11 +31,14 @@ const Footer = () => {
   return (
     <div data-aos="fade-up">
       {/* <div style={{ height: 100, backgroundImage: `linear-gradient(rgb(0, 0, 0), #112848 70%`}}></div> */}
-      <div className="footer-div">
+      <div
+        className="footer-div"
+        style={pathname != "/home" ? { backgroundColor: "black" } : {}}
+      >
         <div style={{ height: 100, backgroundImage: `url(${footerBg})` }}></div>
       </div>
       <div className={styles.Footer} style={{ background: "#000" }}>
-        <Row className="text-center">
+        <Row className="text-center clownRow">
           <Col>
             <img
               className="footer-img"
@@ -49,7 +56,11 @@ const Footer = () => {
             ></p>
           </a>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <img src={inst} alt="" style={{ marginRight: "7px", marginLeft:"12px" }} />
+            <img
+              src={inst}
+              alt=""
+              style={{ marginRight: "7px", marginLeft: "12px" }}
+            />
             <img src={tiktok} alt="" style={{ marginRight: "7px" }} />
             <img src={telegram} alt="" style={{ marginRight: "5px" }} />
           </div>
@@ -116,4 +127,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default withRouter(Footer);

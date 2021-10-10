@@ -58,8 +58,10 @@ export default class Devices extends Component {
     categories: [],
   };
 
+  groups = groupService.groups;
+
   componentDidMount() {
-    this.setState({ categories: groupService.groups });
+    this.setState({ categories: this.groups });
   }
 
   render() {
