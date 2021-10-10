@@ -123,7 +123,7 @@ const ItemsList = () => {
         </Container>
       </section>
       {categoryId === "2" ? (
-        <Container fluid style={{ padding: "0 0" }}>
+        <Container class={"fpsListContainer"} fluid style={{ padding: "0 0" }}>
           <Fpslist />
         </Container>
       ) : (
