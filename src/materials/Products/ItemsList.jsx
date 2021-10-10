@@ -37,6 +37,8 @@ const ItemsList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState([]);
 
+  const [filterSorting, setFilterSorting] = useState(null);
+
   const { pathname } = useLocation();
 
   const renderText = (categoryId, title) => {
@@ -105,6 +107,8 @@ const ItemsList = () => {
             setFilters={setFilters}
             categoryId={categoryId}
             setTotalPages={setTotalPages}
+            filterSorting={filterSorting}
+            setFilterSorting={setFilterSorting}
           />
           <Row>
             <Col xs="12">
