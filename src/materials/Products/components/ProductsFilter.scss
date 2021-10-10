@@ -13,7 +13,11 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
-    padding: 0 40px;
+    padding-left: 40px;
+    padding-top: 27px;
+    padding-bottom: 13px;
+    margin-bottom: 30px;
+    background-color: #151515;
   }
 
   &__filter {
@@ -64,4 +68,18 @@
   display: flex;
   align-items: flex-end;
   flex-direction: column;
+}
+
+.sortBy {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 120px;
+}
+
+@media only screen and (max-width: 980px) {
+  .sortBy {
+    padding-right: 40px;
+  }
 }

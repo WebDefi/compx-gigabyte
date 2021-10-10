@@ -53,39 +53,15 @@ export default class SlideAorus extends Component {
             // console.log("Object", obj)
             return (
               <SliderAorusComponent
-                sliderTitle={obj.title_high}
-                sliderSubtitle={obj.title_low}
+                sliderTitle={obj.active_title ? obj.title_high : undefined}
+                sliderSubtitle={obj.active_title ? obj.title_low : undefined}
                 sliderBcg={obj.image}
                 sliderBcgMobile={obj.image_mob ?? SliderBcgMobile1}
-                btnText={obj.button_text}
+                btnText={obj.active_button ? obj.button_text : undefined}
                 percent={this.state.timer / 5000}
               />
             );
           })}
-          {/* <SliderAorusComponent
-              sliderTitle="2"
-              sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
-              sliderBcg={SliderBcg1}
-              sliderBcgMobile={SliderBcgMobile1}
-            ></SliderAorusComponent>
-            <SliderAorusComponent
-              sliderTitle="3"
-              sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
-              sliderBcg={SliderBcg1}
-              sliderBcgMobile={SliderBcgMobile1}
-            ></SliderAorusComponent>
-            <SliderAorusComponent
-              sliderTitle="4"
-              sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
-              sliderBcg={SliderBcg1}
-              sliderBcgMobile={SliderBcgMobile1}
-            ></SliderAorusComponent>
-            <SliderAorusComponent
-              sliderTitle="5"
-              sliderSubtitle="BUY an AORUS MONITOR OR MOTHERBOARD, GET OUTRIDERS FOR FREE*"
-              sliderBcg={SliderBcg1}
-              sliderBcgMobile={SliderBcgMobile1}
-            ></SliderAorusComponent> */}
         </Slider>
       </Container>
     );

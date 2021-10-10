@@ -13,7 +13,11 @@ import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 const ItemsList = () => {
   const groups = groupService.groups;
   const { id: categoryId } = useParams();
-  let tempGroup = groups.find((group) => (group.id = categoryId));
+  // console.log(
+  //   groups.find((group) => group.id === parseInt(categoryId)),
+  //   categoryId
+  // );
+  // let tempGroup = groups.find((group) => (group.id = categoryId));
   // Get config
   const config = getConfig();
   console.log("CONFIG", config);
@@ -71,12 +75,12 @@ const ItemsList = () => {
 
   return (
     <Fragment>
+      <Breadcrumbs />
       <section class="product-cards" style={{ padding: "0" }}>
         <Container fluid style={{ padding: "0 0 60px " }}>
           <div className="banner-image-products">
             <ProductsBanner bannerImg={bannerImgGraphic} />
             <div className="gradient-image"></div>
-
           </div>
           {/* <div class="products-list-mobile">
             <Nav navbar style={{ marginBottom: 30 }}>
@@ -114,6 +118,13 @@ const ItemsList = () => {
           </Row>
         </Container>
       </section>
+      {categoryId === "2" ? (
+        <Container fluid style={{ padding: "0 0" }}>
+          <Fpslist />
+        </Container>
+      ) : (
+        <Fragment />
+      )}
       <div className="text-placeholder-after-products">
         <div data-v-b44cebd0="" className="col-12 text-center">
           <div data-v-b44cebd0="" className="template-title">
@@ -132,13 +143,6 @@ const ItemsList = () => {
           </div>
         </div>
       </div>
-      {categoryId === "2" ? (
-        <Container fluid style={{ padding: "0 0 60px " }}>
-          <Fpslist />
-        </Container>
-      ) : (
-        <Fragment />
-      )}
     </Fragment>
   );
 };

@@ -13,6 +13,11 @@ const SliderAorusComponent = ({
   sliderBcgMobile,
   percent,
 }) => {
+  const getBtn = (btnText) => {
+    if (btnText) {
+      return <SliderAorusBtn btnText={btnText} />;
+    } else return "";
+  };
   return (
     <div
       className={styles.sliderAorus}
@@ -29,9 +34,9 @@ const SliderAorusComponent = ({
         className={styles.sliderAorus__imgMobile}
       />
       <div className={styles.sliderAorus_block}>
-        <h1 className={styles.sliderAorus__title}>{sliderTitle}</h1>
-        <h3 className={styles.sliderAorus__subtitle}>{sliderSubtitle}</h3>
-        <SliderAorusBtn btnText={btnText}/>
+        <h1 className={styles.sliderAorus__title}>{sliderTitle ?? ""}</h1>
+        <h3 className={styles.sliderAorus__subtitle}>{sliderSubtitle ?? ""}</h3>
+        {getBtn(btnText)}
       </div>
       <SliderAorusLifecycle height="286" percent={percent} />
     </div>

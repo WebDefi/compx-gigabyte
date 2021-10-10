@@ -1,55 +1,46 @@
 import React, { useState } from "react";
 import { Breadcrumb, Container, Row, Col } from "reactstrap";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter, Link, useParams } from "react-router-dom";
 import "./Breadcrumbs.scss";
 import groupService from "../../service/groupService";
 
 const Breadcrumbs = (props) => {
   const groups = groupService.groups;
+  const { id: categoryId } = useParams();
   const {
-    history,
     location: { pathname },
   } = props;
   const pathnames = pathname.split("/").filter((x) => x);
 
   return (
-    <Container fluid style={{ backgroundColor: "black" }}>
-      <Row style={{ padding: "0 20px", paddingTop: "3em" }}>
-        <Col xs="12" md="2">
-          <Breadcrumb style={{ fontSize: "25px" }}>
-            {pathnames.length > 0 ? (
-              <Link
-                className="mainPage"
-                style={{ paddingRight: 10 }}
-                onClick={() => history.push("/Home")}
-              >
-                Главная
-              </Link>
-            ) : (
-              <p className="mainPage"> Главная </p>
-            )}
-            {pathnames.map((name, index) => {
-              const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
-              const isLast = index === pathnames.length - 1;
-              const normalName = groups.find((group) => (group.id == index + 1));
-              return isLast ? (
-                <p
-                  className="groupName"
-                  style={{ paddingRight: 10 }}
-                  key={name}
-                >
-                  {name}
-                </p>
-              ) : (
-                <Link
-                  style={{ paddingRight: 10 }}
-                  key={name}
-                  onClick={() => history.push(routeTo)}
-                >
-                  {name}
-                </Link>
-              );
-            })}
+    <Container
+      fluid
+      style={{
+        backgroundColor: "transparent",
+        position: "absolute",
+        top: "35px",
+        zIndex: 10000,
+      }}
+    >
+      <Row style={{ padding: "0 20px", paddingTop: "4em" }}>
+        <Col xs="12" md="2" style={{ width: "auto" }}>
+          <Breadcrumb style={{ fontSize: "18px" }}>
+            <Link
+              className="mainPage"
+              style={{ paddingRight: 5 }}
+              to="/Home"
+              // onClick={() => history.push("/Home")}
+            >
+              Главная /
+            </Link>
+            <Link style={{ paddingRight: 10 }} to={`/category/${categoryId}`}>
+              <p className="groupName">
+                {
+                  groups.find((group) => group.id === parseInt(categoryId))
+                    .title
+                }
+              </p>
+            </Link>
           </Breadcrumb>
         </Col>
       </Row>
