@@ -61,7 +61,7 @@ const ProductItem = ({
             {price} &#8372;
           </small>
           <a href={link}>
-            <button className="product-btn">
+            <button className="product-btn glow-on-hover">
               <span>Детальніше</span>
             </button>
           </a>
