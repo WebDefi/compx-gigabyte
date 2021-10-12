@@ -78,7 +78,7 @@ const Items = ({
   return (
     <Fragment>
       <div class="spirit-breaker">
-        <div className="podpivasnik">
+        <div className="items-style">
           <Container className="devicesSection">
             <Slider {...sliderSettings}>
               {groups.map((cat, idx) => {

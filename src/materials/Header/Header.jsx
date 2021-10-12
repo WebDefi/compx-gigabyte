@@ -63,7 +63,7 @@ const Header = () => {
                 <img src={gigabyte} width="125px" />
               </NavbarBrand>
               <NavbarToggler onClick={onMobileToggle} />
-              <div className="podpivasnik2-0"></div>
+              <div className="navBar2-0"></div>
               <Collapse isOpen={isMobileOpen} navbar>
                 <Nav className="mr-auto " navbar>
                   <Dropdown
