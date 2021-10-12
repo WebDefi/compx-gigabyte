@@ -106,37 +106,28 @@ const Items = ({
                 <img className="ProductsFilter__logo" src={logoSrc} />
               </div>
               <button className="ProductsFilter__btn">
-                <span
-                  className="ProductsFilter__filter"
-                  style={{ fontSize: 18 }}
-                >
+                <span className="ProductsFilter__filter ProductsFilter__font">
                   Фільтр
                 </span>
               </button>
-              <div
-                className="ProductsFilter__lineBlock"
-                style={{ paddingRight: 40, paddingLeft: 40 }}
-              >
+              <div className="ProductsFilter__lineBlock">
                 <span className="ProductsFilter__line"></span>
               </div>
               <button
                 className="ProductsFilter__btn ProductsFilter__btn--gray"
                 onClick={() => setFilters([])}
               >
-                <span
-                  className="ProductsFilter__clean"
-                  style={{ fontSize: 18 }}
-                >
+                <span className="ProductsFilter__clean ProductsFilter__font">
                   Очистити
                 </span>
               </button>
             </div>
             <div className="sortBy">
               <Dropdown toggle={toggle} isOpen={isOpen}>
-                <DropdownToggle style={{ fontSize: 20 }} caret>
+                <DropdownToggle className="ProductsFilter__dropdown" caret>
                   Сортировать
                 </DropdownToggle>
-                <DropdownMenu style={{ flexDirection: "column", padding: 10 }}>
+                <DropdownMenu className="ProductsFilter__dropdown_menu" style={{ flexDirection: "column", padding: 10 }}>
                   <DropdownItem onClick={() => setFilterSorting("price_up")}>
                     <a>Цена по воз</a>
                   </DropdownItem>

@@ -31,9 +31,12 @@ const Footer = (props) => {
   return (
     <div data-aos="fade-up">
       {/* <div style={{ height: 100, backgroundImage: `linear-gradient(rgb(0, 0, 0), #112848 70%`}}></div> */}
+      {/* {console.log(pathname)} */}
       <div
         className="footer-div"
-        style={pathname != "/home" ? { backgroundColor: "black" } : {}}
+        style={
+          !/\/Home|\/home/.test(pathname) ? { backgroundColor: "black" } : {}
+        }
       >
         <div style={{ height: 100, backgroundImage: `url(${footerBg})` }}></div>
       </div>

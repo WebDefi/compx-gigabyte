@@ -58,6 +58,7 @@ export default class SlideAorus extends Component {
                 sliderBcg={obj.image}
                 sliderBcgMobile={obj.image_mob ?? SliderBcgMobile1}
                 btnText={obj.active_button ? obj.button_text : undefined}
+                btnLink={obj.url_to}
                 percent={this.state.timer / 5000}
               />
             );

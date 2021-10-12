@@ -1,9 +1,46 @@
 .ProductsFilterMobile {
   display: none;
 }
+.ProductsFilter__lineBlock {
+  padding-right: 40px;
+  padding-left: 40px;
+}
+.ProductsFilter__font {
+  font-size: 18px;
+}
+.ProductsFilter__dropdown {
+  font-size: 20px;
+}
+@media only screen and (max-width: 470px) {
+  .ProductsFilter__lineBlock {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .ProductsFilter_block {
+    padding-left: 10px;
+  }
+  .ProductsFilter__font {
+    font-size: 14px;
+  }
+  .ProductsFilter__dropdown {
+    font-size: 14px;
+    padding-right: 3px;
+    padding-left: 3px;
 
+  }
+  .ProductsFilter__dropdown_menu {
+    left: -32px !important;
+  }
+  .sortBy {
+    padding-right: 2px;
+  }
+}
+@media only screen and (min-width: 470px) {
+  .ProductsFilter__lineBlock {
+    padding: 0 35px;
+  }
+}
 @media only screen and (max-width: 1920px) {
-
   .col-xl-3 {
     padding: 0;
   }
@@ -12,9 +49,6 @@
     width: 309px;
   }
 
-  .ProductsFilter__lineBlock {
-    padding: 0 35px;
-  }
   .product-box {
     height: 17em;
   }
