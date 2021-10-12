@@ -9,7 +9,7 @@
   perspective: 100em;
   background-color: #333;
   position: relative;
-  z-index: 5;
+  z-index: 5  ;
 }
 .product-card {
   // z-index: 1000000;
@@ -210,6 +210,7 @@
   justify-content: space-between;
   align-items: flex-end;
   padding: 0 12px 0;
+  margin-bottom: 6px;
 }
 
 .product-characteristic-alias {
@@ -218,7 +219,6 @@
 
 .product-characteristic-value {
   text-align: right;
-  min-width: fit-content;
 }
 .modalka {
   background-color: #131313;
