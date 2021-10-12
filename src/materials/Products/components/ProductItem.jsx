@@ -98,24 +98,23 @@ const ProductItem = ({
               alt=""
             />
           </div>
-          <div className="productItem__buy_block">
-            <div
-              style={{
-                marginTop: "3px",
-                fontSize: "25px",
-                color: "#fa6812",
-                fontWeight: "500",
-              }}
-            >
-              {price}&#8372;
-            </div>
-            <a href={link} target="_blank">
+          <a href={link} target="_blank">
+            <div className="productItem__buy_block">
+              <div
+                style={{
+                  marginTop: "3px",
+                  fontSize: "25px",
+                  color: "#fa6812",
+                  fontWeight: "500",
+                }}
+              >
+                {price}&#8372;
+              </div>
               <button className="modal-btn">
                 <span>Купить</span>
               </button>
-            </a>
-          </div>
-
+            </div>
+          </a>
           {/* {characteristics.map(
                         characteristic => {
                             return <p>{characteristic.alias} {characteristic.value}</p>;
