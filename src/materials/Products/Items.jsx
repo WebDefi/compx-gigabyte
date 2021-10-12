@@ -27,6 +27,8 @@ const Items = ({
   setFilters,
   categoryId,
   setTotalPages,
+  filterSorting,
+  setFilterSorting,
 }) => {
   const groups = groupService.groups;
   //   console.log(groups);
@@ -58,7 +60,7 @@ const Items = ({
         delete queryStringParams["charValues"];
       const url = `${baseUrl}?${Object.entries(queryStringParams)
         .map(([key, value]) => `${key}=${value}`)
-        .join("&")}`;
+        .join("&")}${filterSorting ? `&sort_by=${filterSorting}` : ""}`;
       const res = await axios.get(url);
       if (!cleanup) {
         setItems(res.data.items);
@@ -70,7 +72,7 @@ const Items = ({
     fetchProducts(currentPage);
 
     return () => (cleanup = true);
-  }, [currentPage, filters, itemsPerPage]);
+  }, [currentPage, filters, itemsPerPage, filterSorting]);
 
   const [show, showState] = React.useState(false);
   return (
@@ -130,15 +132,15 @@ const Items = ({
               </button>
             </div>
             <div className="sortBy">
-              <Dropdown onClick={toggle} isOpen={isOpen}>
+              <Dropdown toggle={toggle} isOpen={isOpen}>
                 <DropdownToggle style={{ fontSize: 20 }} caret>
                   Сортировать
                 </DropdownToggle>
-                <DropdownMenu style={{flexDirection: "column", padding: 10}}>
-                  <DropdownItem>
+                <DropdownMenu style={{ flexDirection: "column", padding: 10 }}>
+                  <DropdownItem onClick={() => setFilterSorting("price_up")}>
                     <a>Цена по воз</a>
                   </DropdownItem>
-                  <DropdownItem>
+                  <DropdownItem onClick={() => setFilterSorting("price_down")}>
                     <a>Цена по сниж</a>
                   </DropdownItem>
                 </DropdownMenu>

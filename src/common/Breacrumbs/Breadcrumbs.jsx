@@ -19,7 +19,6 @@ const Breadcrumbs = (props) => {
         backgroundColor: "transparent",
         position: "absolute",
         top: "35px",
-        zIndex: 10000,
       }}
     >
       <Row style={{ padding: "0 20px", paddingTop: "4em" }}>
@@ -27,13 +26,16 @@ const Breadcrumbs = (props) => {
           <Breadcrumb style={{ fontSize: "18px" }}>
             <Link
               className="mainPage"
-              style={{ paddingRight: 5 }}
+              style={{ paddingRight: 5, zIndex: 10000 }}
               to="/Home"
               // onClick={() => history.push("/Home")}
             >
               Главная /
             </Link>
-            <Link style={{ paddingRight: 10 }} to={`/category/${categoryId}`}>
+            <Link
+              style={{ paddingRight: 10, zIndex: 10000 }}
+              to={`/category/${categoryId}`}
+            >
               <p className="groupName">
                 {
                   groups.find((group) => group.id === parseInt(categoryId))
