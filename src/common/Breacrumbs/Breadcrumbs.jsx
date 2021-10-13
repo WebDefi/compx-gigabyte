@@ -18,22 +18,22 @@ const Breadcrumbs = (props) => {
       style={{
         backgroundColor: "transparent",
         position: "absolute",
-        top: "35px",
+        top: "25px",
       }}
     >
-      <Row style={{ padding: "0 20px", paddingTop: "4em" }}>
+      <Row style={{ padding: "0 15px", paddingTop: "2em" }}>
         <Col xs="12" md="2" style={{ width: "auto" }}>
-          <Breadcrumb style={{ fontSize: "18px" }}>
+          <Breadcrumb style={{ fontSize: "15px" }}>
             <Link
               className="mainPage"
-              style={{ paddingRight: 5, zIndex: 10000 }}
+              style={{ paddingRight: 5, zIndex: 1000 }}
               to="/Home"
               // onClick={() => history.push("/Home")}
             >
               Главная /
             </Link>
             <Link
-              style={{ paddingRight: 10, zIndex: 10000 }}
+              style={{ paddingRight: 10, zIndex: 1000 }}
               to={`/category/${categoryId}`}
             >
               <p className="groupName">

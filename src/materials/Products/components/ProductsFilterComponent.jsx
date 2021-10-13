@@ -30,7 +30,7 @@ const ProductsFilterComponent = ({ filters, setFilters, alias, values }) => {
           </div>
         </li>
         {show ? (
-          <div style={{ width: "320px", columnCount: "2", marginTop: 10 }}>
+          <div style={{ width: "260px", columnCount: "2", marginTop: 10 }}>
             {values.map((item, index) => (
               <div style={{fontSize: 17}}>
                 <input

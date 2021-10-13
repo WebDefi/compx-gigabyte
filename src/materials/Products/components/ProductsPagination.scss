@@ -7,7 +7,7 @@
   box-shadow: 1px 1px $btnpagination;
   background: #202020;
   cursor: pointer;
-  padding: 10px 20px;
+  padding: 10px 10px;
   color: $white;
   height: 30px;
   margin: 6px;
@@ -71,7 +71,7 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  margin-right: 150px;
+  // margin-right: 150px;
 }
 
 .page-link:focus {

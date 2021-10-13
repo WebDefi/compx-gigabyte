@@ -72,9 +72,18 @@ const Footer = (props) => {
               <Col style={{ width: "auto" }} xs="12" sm="6" md="3">
                 <div className="clownItem">
                   <CategoryName name={"О нас"} />
-                  <FooterCol nav={"О бренде AORUS"} />
-                  <FooterCol nav={"О бренде GIGABYTE"} />
-                  <FooterCol nav={"О бренде COMPX"} />
+                  <FooterCol
+                    nav={"О бренде AORUS"}
+                    link={"https://ru.aorus.com/about.php"}
+                  />
+                  <FooterCol
+                    nav={"О бренде GIGABYTE"}
+                    link={"https://www.gigabyte.ru/media/about/at-a-glance"}
+                  />
+                  <FooterCol
+                    nav={"О бренде COMPX"}
+                    link={"https://compx.com.ua/o-nas/"}
+                  />
                   {/* <FooterCol
                     nav={
                       <img
@@ -113,9 +122,18 @@ const Footer = (props) => {
               <Col style={{ width: "auto" }} xs="12" sm="6" md="3">
                 <div className="clownItem">
                   <CategoryName name={"Служба"} />
-                  <FooterCol nav={"Найти магазин"} />
-                  <FooterCol nav={"Информация о гарантии"} />
-                  <FooterCol nav={"Контактная информация"} />
+                  <FooterCol
+                    nav={"Найти магазин"}
+                    link={"https://compx.com.ua/magaziny/"}
+                  />
+                  <FooterCol
+                    nav={"Информация о гарантии"}
+                    link={"https://member.aorus.com/ru/productwarranty"}
+                  />
+                  <FooterCol
+                    nav={"Контактная информация"}
+                    link={"https://compx.com.ua/magaziny/"}
+                  />
                   <FooterCol nav={"Часто задаваемые вопросы и ответы"} />
                   <Container style={{ marginTop: "95px" }}>
                     <img src={compxLogo} alt="" />

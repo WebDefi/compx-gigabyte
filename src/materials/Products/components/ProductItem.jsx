@@ -91,13 +91,18 @@ const ProductItem = ({
           {title}
         </ModalHeader>
         <ModalBody className="modalka" style={{ padding: 0 }}>
-          <div className="productItem__img-div">
-            <img
-              className="productItem__img"
-              src={image.length && image.length > 1 ? image[1] : image}
-              alt=""
-            />
-          </div>
+          {image ? (
+            <div className="productItem__img-div">
+              <img
+                className="productItem__img"
+                src={image.length && image.length > 1 ? image[1] : image}
+                alt=""
+              />
+            </div>
+          ) : (
+            ""
+          )}
+
           <a href={link} target="_blank">
             <div className="productItem__buy_block">
               <div
