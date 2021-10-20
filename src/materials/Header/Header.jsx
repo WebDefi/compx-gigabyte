@@ -152,7 +152,7 @@ const Header = () => {
                   </Dropdown>
                 </Nav>
               </Collapse>
-              <div style={{ display: "flex", alignItems: "flex-end" }}>
+              <div style={{ display: "flex", alignItems: "center" }}>
                 <NavItem>
                   <NavLink
                     style={{ padding: "0px 6px" }}
