@@ -127,7 +127,10 @@ const Items = ({
                 <DropdownToggle className="ProductsFilter__dropdown" caret>
                   Сортировать
                 </DropdownToggle>
-                <DropdownMenu className="ProductsFilter__dropdown_menu" style={{ flexDirection: "column", padding: 10 }}>
+                <DropdownMenu
+                  className="ProductsFilter__dropdown_menu"
+                  style={{ flexDirection: "column", padding: 10 }}
+                >
                   <DropdownItem onClick={() => setFilterSorting("price_up")}>
                     <a>Цена по воз</a>
                   </DropdownItem>
@@ -138,7 +141,17 @@ const Items = ({
               </Dropdown>
             </div>
           </div>
-          <Row className="products_rowFirst" style={{ padding: "0 40px" }}>
+          <Row
+            className="products_rowFirst"
+            style={{
+              paddingRight: "0px 40px 50px 20px",
+              position: "relative",
+              maxWidth: "1920px",
+              margin: "10px 0px 10px 10px",
+              marginLeft: "auto",
+              marginRight: "auto"
+            }}
+          >
             <Col xs="12" lg="3" xl="3">
               <div className="ProductsFilterDesktop">
                 <ProductsFilter

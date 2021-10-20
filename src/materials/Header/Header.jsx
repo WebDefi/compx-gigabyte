@@ -5,7 +5,7 @@ import headerlower from "../../static/images/headerlower.png";
 import inst from "../../static/images/instagram.svg";
 import telegram from "../../static/images/telegram-app.svg";
 import tiktok from "../../static/images/tiktok.svg";
-import gigabyte from "../../static/images/gigabyte.png";
+import gigabyte from "../../static/images/gigabyte-brandshop-logo.png";
 import { Container, Row, Col, Dropdown } from "reactstrap";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -60,7 +60,7 @@ const Header = () => {
           >
             <Container>
               <NavbarBrand href="/home">
-                <img src={gigabyte} width="125px" />
+                <img src={gigabyte} style={{maxWidth: "188px"}}/>
               </NavbarBrand>
               <NavbarToggler onClick={onMobileToggle} />
               <div className="navBar2-0"></div>
@@ -99,12 +99,20 @@ const Header = () => {
                     </DropdownToggle>
                     <DropdownMenu right className="dropdown-fixed slideInDown">
                       <DropdownItem>
-                        <a href="https://ru.aorus.com/news.php" target="_blank" className="link-nav-bar">
+                        <a
+                          href="https://ru.aorus.com/news.php"
+                          target="_blank"
+                          className="link-nav-bar"
+                        >
                           Новости
                         </a>
                       </DropdownItem>
                       <DropdownItem>
-                        <a href="https://ru.aorus.com/blog.php" target="_blank" className="link-nav-bar">
+                        <a
+                          href="https://ru.aorus.com/blog.php"
+                          target="_blank"
+                          className="link-nav-bar"
+                        >
                           Блог
                         </a>
                       </DropdownItem>
@@ -142,33 +150,42 @@ const Header = () => {
                       </DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
-                  <NavItem>
-                    <NavLink
-                      href={
-                        "https://www.instagram.com/compx.com.ua/?utm_medium=copy_link"
-                      }
-                    >
-                      <img src={inst} alt="" />
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink href={"https://vm.tiktok.com/ZMRgj77fQ/"}>
-                      <img src={tiktok} alt="" />
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink href={"https://t.me/compx_pc"}>
-                      <img src={telegram} alt="" />
-                    </NavLink>
-                  </NavItem>
                 </Nav>
               </Collapse>
-              <img
-                style={{ float: "right" }}
-                src={logo}
-                width="165px"
-                className="logo"
-              />
+              <div style={{ display: "flex", alignItems: "flex-end" }}>
+                <NavItem>
+                  <NavLink
+                    style={{ padding: "0px 6px" }}
+                    href={
+                      "https://www.instagram.com/compx.com.ua/?utm_medium=copy_link"
+                    }
+                  >
+                    <img src={inst} alt="" />
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    href={"https://vm.tiktok.com/ZMRgj77fQ/"}
+                    style={{ padding: "0px 6px" }}
+                  >
+                    <img src={tiktok} alt="" />
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    href={"https://t.me/compx_pc"}
+                    style={{ padding: "0px 6px" }}
+                  >
+                    <img src={telegram} alt="" />
+                  </NavLink>
+                </NavItem>
+                <img
+                  style={{ float: "right" }}
+                  src={logo}
+                  width="165px"
+                  className="logo"
+                />
+              </div>
             </Container>
           </Navbar>
         </div>

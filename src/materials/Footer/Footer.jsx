@@ -52,7 +52,7 @@ const Footer = (props) => {
         </Row>
         <div className="footerLine text-center">
           <a href="/" className="logoDescr text-center">
-            <img src={Logo} style={{ position: "relative", bottom: 20 }}></img>
+            <img src={compxLogo} style={{ position: "relative", bottom: 20 }}></img>
             <p
               className="logoDescr"
               style={{ position: "relative", bottom: 10, fontSize: 15 }}
@@ -136,7 +136,7 @@ const Footer = (props) => {
                   />
                   <FooterCol nav={"Часто задаваемые вопросы и ответы"} />
                   <Container style={{ marginTop: "95px" }}>
-                    <img src={compxLogo} alt="" />
+                    <img src={Logo} alt="" />
                   </Container>
                 </div>
               </Col>

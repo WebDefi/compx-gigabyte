@@ -2,9 +2,11 @@ import React from "react";
 import "./ProductsFilterComponent.scss";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {useParams} from "react-router-dom"
 
 const ProductsFilterComponent = ({ filters, setFilters, alias, values }) => {
   const [show, showState] = React.useState(false);
+  const { id: categoryId } = useParams();
 
   const updateFilter = (filterValue) => {
     if (filters.includes(filterValue)) {
@@ -17,7 +19,15 @@ const ProductsFilterComponent = ({ filters, setFilters, alias, values }) => {
   return (
     <div className="filterComponent">
       <ul className="filterComponent_ul">
-        <li className="filterComponent_li" onClick={() => showState(!show)}>
+        <li
+          className="filterComponent_li"
+          onClick={() => {
+            showState(!show);
+            if (categoryId == 8) {
+              
+            }
+          }}
+        >
           <div className="filterComponent_div">
             <h3 className="filterComponent__title">
               {alias}
@@ -32,14 +42,14 @@ const ProductsFilterComponent = ({ filters, setFilters, alias, values }) => {
         {show ? (
           <div style={{ width: "260px", columnCount: "2", marginTop: 10 }}>
             {values.map((item, index) => (
-              <div style={{fontSize: 17}}>
+              <div style={{ fontSize: 17 }}>
                 <input
-                className="filterComponent__checkbox"
-                type="checkbox"
-                value={item}
-                checked={filters.includes(item)}
-                onChange={() => updateFilter(item)}
-                id={`#${item}-${index}`}
+                  className="filterComponent__checkbox"
+                  type="checkbox"
+                  value={item}
+                  checked={filters.includes(item)}
+                  onChange={() => updateFilter(item)}
+                  id={`#${item}-${index}`}
                 />
                 <label htmlFor={`#${item}-${index}`}>{item}</label>
               </div>

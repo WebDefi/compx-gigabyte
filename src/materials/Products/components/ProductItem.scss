@@ -15,7 +15,7 @@
   // z-index: 1000000;
   position: relative;
   overflow: hidden;
-  width: 23vw;
+  // width: 23vw;
   height: 27em;
   display: flex;
   flex-flow: row wrap;
@@ -29,7 +29,7 @@
   transform-origin: center;
   -moz-transform-origin: center;
   cursor: pointer;
-  margin: 10px auto;
+  margin: 10px;
   background-color: #000000;
   transition: all 0.3s ease-in-out;
   &:hover {
@@ -215,6 +215,7 @@
 
 .product-characteristic-alias {
   color: #ff6400;
+  font-size: 14px;
 }
 
 .product-characteristic-value {

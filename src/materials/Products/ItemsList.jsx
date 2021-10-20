@@ -38,7 +38,7 @@ const ItemsList = () => {
   const [filters, setFilters] = useState([]);
 
   const [filterSorting, setFilterSorting] = useState(null);
-
+  const [filterCategorySorting, setFilterCategorySorting] = useState(null); // do filter by category
   const { pathname } = useLocation();
 
   const renderText = (categoryId, title) => {
