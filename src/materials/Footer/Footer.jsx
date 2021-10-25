@@ -67,19 +67,20 @@ const Footer = (props) => {
                 src={inst}
                 alt=""
                 style={{ marginRight: "7px", marginLeft: "12px" }}
+                className="fill-svg"
               />
             </a>
             <a href="https://vm.tiktok.com/ZMRgj77fQ/">
-              <img src={tiktok} alt="" style={{ marginRight: "7px" }} />
+              <img src={tiktok} alt="" style={{ marginRight: "7px" }} className="fill-svg" />
             </a>
             <a href="https://t.me/compx_pc">
-              <img src={telegram} alt="" style={{ marginRight: "5px" }} />
+              <img src={telegram} alt="" style={{ marginRight: "5px" }} className="fill-svg"/>
             </a>
           </div>
           <Container className="clownClass" fluid style={{}}>
             <Row style={{ flexWrap: "wrap", justifyContent: "space-around" }}>
               <Col style={{ width: "auto" }} xs="12" sm="6" md="3">
-                <div className="clownItem">
+                <div className="footerItem">
                   <CategoryName name={"О нас"} />
                   <FooterCol
                     nav={"О бренді AORUS"}
@@ -104,7 +105,7 @@ const Footer = (props) => {
                 </div>
               </Col>
               <Col style={{ width: "auto" }} xs="12" sm="6" md="3">
-                <div className="clownItem">
+                <div className="footerItem">
                   <CategoryName name={"Продукція"} />
                   {groups.map((item, idx) => (
                     <FooterCol link={`/category/${item.id}`} nav={item.title} />
@@ -112,7 +113,7 @@ const Footer = (props) => {
                 </div>
               </Col>
               <Col style={{ width: "auto" }} xs="12" sm="6" md="3">
-                <div className="clownItem">
+                <div className="footerItem">
                   <CategoryName name={"Цікаве"} />
                   <FooterCol
                     nav={"Новини"}
@@ -129,7 +130,7 @@ const Footer = (props) => {
                 </div>
               </Col>
               <Col style={{ width: "auto" }} xs="12" sm="6" md="3">
-                <div className="clownItem">
+                <div className="footerItem">
                   <CategoryName name={"Служба"} />
                   <FooterCol
                     nav={"Знайти магазин"}
