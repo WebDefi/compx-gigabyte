@@ -37,6 +37,8 @@ const Items = ({
   const [items, setItems] = useState([]);
   const [characteristics, setCharacteristics] = useState([]);
 
+  const [numberOfItems, setNumberOfItems] = useState(0);
+
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -66,6 +68,7 @@ const Items = ({
         setItems(res.data.items);
         setCharacteristics(res.data.characteristics);
         setTotalPages(res.data.numberOfPages);
+        setNumberOfItems(res.data.numberOfItems);
       }
     };
 
@@ -125,7 +128,14 @@ const Items = ({
                 </span>
               </button>
             </div>
+            
             <div className="sortBy">
+              <div>
+                <span className="ProductsFilter__dropdown">{numberOfItems} товарів</span>
+              </div>
+            <div className="ProductsFilter__lineBlock" style={{padding: "0 15px"}}>
+                <span className="ProductsFilter__line"></span>
+              </div>
               <Dropdown toggle={toggle} isOpen={isOpen}>
                 <DropdownToggle className="ProductsFilter__dropdown" caret>
                   Сортировать
