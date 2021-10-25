@@ -15,11 +15,13 @@ export default class Sales extends Component {
   };
 
   componentDidMount() {
-    axios.get(`https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/sales`).then((res) => {
-      const salesItems = res.data.sales;
-      this.setState({ ...this.state, salesItems });
-      console.log(salesItems);
-    });
+    axios
+      .get(`https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/sales`)
+      .then((res) => {
+        const salesItems = res.data.sales;
+        this.setState({ ...this.state, salesItems });
+        console.log(salesItems);
+      });
   }
   render() {
     const settings = {
@@ -28,9 +30,12 @@ export default class Sales extends Component {
       speed: 1500,
       slidesToShow: 4,
       slidesToScroll: 1,
-      arrows: false,
+      arrows: true,
       autoplay: true,
       autoplaySpeed: 2500,
+      pauseOnFocus: true,
+      swipeToSlide: true,
+      className: "news-slider",
       responsive: [
         {
           breakpoint: 1228,
@@ -50,7 +55,7 @@ export default class Sales extends Component {
       <div style={{ paddingTop: "80px" }}>
         <Divider />
         <div>
-          <SectionContent title="акции gigabyte"></SectionContent>
+          <SectionContent title="акції gigabyte"></SectionContent>
         </div>
         <Container style={{ marginTop: "60px" }}>
           <Slider {...settings}>

@@ -17,8 +17,9 @@
     padding: 15px 10px;
     font-weight: 400;
     background-color: $filtercolor;
-    cursor: pointer;
     height: 56px;
+    display: flex;
+    justify-content: space-between;
   }
 
   &__title {

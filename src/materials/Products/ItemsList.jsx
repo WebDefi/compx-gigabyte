@@ -37,7 +37,7 @@ const ItemsList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState([]);
 
-  const [filterSorting, setFilterSorting] = useState(null);
+  const [filterSorting, setFilterSorting] = useState('price_down');
   const [filterCategorySorting, setFilterCategorySorting] = useState(null); // do filter by category
   const { pathname } = useLocation();
 

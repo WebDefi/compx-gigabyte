@@ -1,8 +1,15 @@
 @import "./src/static/fonts.scss";
 @import "./src/static/colors.scss";
 
+.title-bg {
+  background: #00000066;
+  padding: 10px;
+}
+
 .slick-dots {
+  z-index: 1;
   position: relative;
+  // bottom: 35px;
   &--position {
     position: absolute;
     bottom: 90px;
@@ -13,6 +20,10 @@
     height: 8px;
     transform: skewX(45deg);
     background: $colGray;
+    z-index: 100;
+    padding-top: 3px;
+    // padding: 5px;
+    // margin: -5px;
   }
 
   & li.slick-active {

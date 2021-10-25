@@ -29,6 +29,8 @@ const Header = () => {
   const [isOpenProducts, setIsOpenProducts] = useState(false);
   const [isOpenInteresting, setIsOpenInteresting] = useState(false);
   const [isOpenLinks, setIsOpenLinks] = useState(false);
+  const [isOpenOther, setIsOpenOther] = useState(false);
+
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   useEffect(() => {
     AOS.init({
@@ -58,9 +60,9 @@ const Header = () => {
             expand="md"
             // className={done ? " dnone" : "none"}
           >
-            <Container>
+            <Container style={{ zIndex: 10 }}>
               <NavbarBrand href="/home">
-                <img src={gigabyte} style={{maxWidth: "188px"}}/>
+                <img src={gigabyte} style={{ maxWidth: "188px" }} />
               </NavbarBrand>
               <NavbarToggler onClick={onMobileToggle} />
               <div className="navBar2-0"></div>
@@ -74,7 +76,7 @@ const Header = () => {
                     isOpen={isOpenProducts}
                   >
                     <DropdownToggle nav caret>
-                      Продукция
+                      Продукція
                     </DropdownToggle>
                     <DropdownMenu right className="dropdown-fixed slideInDown">
                       {groups.map((item, idx) => (
@@ -95,7 +97,7 @@ const Header = () => {
                     isOpen={isOpenInteresting}
                   >
                     <DropdownToggle nav caret>
-                      Интересное
+                      Цікаве
                     </DropdownToggle>
                     <DropdownMenu right className="dropdown-fixed slideInDown">
                       <DropdownItem>
@@ -104,7 +106,7 @@ const Header = () => {
                           target="_blank"
                           className="link-nav-bar"
                         >
-                          Новости
+                          Новини
                         </a>
                       </DropdownItem>
                       <DropdownItem>
@@ -123,7 +125,7 @@ const Header = () => {
                           target="_blank"
                           className="link-nav-bar"
                         >
-                          Обои на рабочий стол
+                          Обої на рабочий стіл
                         </a>
                       </DropdownItem>
                     </DropdownMenu>
@@ -145,7 +147,55 @@ const Header = () => {
                           target="_blank"
                           className="link-nav-bar"
                         >
-                          Информация о гарантии
+                          Інформація о гарантії
+                        </a>
+                      </DropdownItem>
+                      <DropdownItem>
+                        <a href="" target="_blank" className="link-nav-bar">
+                          Реєстрація продукта
+                        </a>
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
+                  <Dropdown
+                    nav
+                    inNavbar
+                    onMouseOver={() => onMouseEnter(setIsOpenOther)}
+                    onMouseLeave={() => onMouseLeave(setIsOpenOther)}
+                    isOpen={isOpenOther}
+                  >
+                    <DropdownToggle nav caret>
+                      Членство
+                    </DropdownToggle>
+                    <DropdownMenu right className="dropdown-fixed slideInDown">
+                      <DropdownItem>
+                        <a href="" target="_blank" className="link-nav-bar">
+                          Для чого треба приєднатися ?
+                        </a>
+                      </DropdownItem>
+                      <DropdownItem>
+                        <a href="" target="_blank" className="link-nav-bar">
+                          Рівні членства
+                        </a>
+                      </DropdownItem>
+                      <DropdownItem>
+                        <a href="" target="_blank" className="link-nav-bar">
+                          Бали та нагороди AORUS
+                        </a>
+                      </DropdownItem>
+                      <DropdownItem>
+                        <a href="" target="_blank" className="link-nav-bar">
+                          Знаки досягнень
+                        </a>
+                      </DropdownItem>
+                      <DropdownItem>
+                        <a href="" target="_blank" className="link-nav-bar">
+                          Список Лідерів
+                        </a>
+                      </DropdownItem>
+                      <DropdownItem>
+                        <a href="" target="_blank" className="link-nav-bar">
+                          FAQS для членів
                         </a>
                       </DropdownItem>
                     </DropdownMenu>
@@ -160,7 +210,7 @@ const Header = () => {
                       "https://www.instagram.com/compx.com.ua/?utm_medium=copy_link"
                     }
                   >
-                    <img src={inst} alt="" />
+                    <img src={inst} alt="" className="fill-svg" />
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -168,7 +218,7 @@ const Header = () => {
                     href={"https://vm.tiktok.com/ZMRgj77fQ/"}
                     style={{ padding: "0px 6px" }}
                   >
-                    <img src={tiktok} alt="" />
+                    <img src={tiktok} alt="" className="fill-svg" />
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -176,177 +226,22 @@ const Header = () => {
                     href={"https://t.me/compx_pc"}
                     style={{ padding: "0px 6px" }}
                   >
-                    <img src={telegram} alt="" />
+                    <img src={telegram} alt="" className="fill-svg" />
                   </NavLink>
                 </NavItem>
-                <img
-                  style={{ float: "right" }}
-                  src={logo}
-                  width="165px"
-                  className="logo"
-                />
+                <a href="https://compx.com.ua/">
+                  <img
+                    style={{ float: "right" }}
+                    src={logo}
+                    width="165px"
+                    className="logo"
+                  />
+                </a>
               </div>
             </Container>
           </Navbar>
         </div>
       </div>
-      {/* <header className="header">
-        <div className="headerInfo">
-          <ul
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              background: "#000",
-              padding: 3,
-              margin: 0,
-            }}
-          >
-            <li className="infoLink">
-              <a href="#">Акции</a>
-            </li>
-            <li className="infoLink">
-              <a href="#">Акции</a>
-            </li>
-            <li className="infoLink">
-              <a href="#">Акции</a>
-            </li>
-            <li className="infoLink">
-              <a href="#">Акции</a>
-            </li>
-            <li className="infoLink">
-              <a href="#">Акции</a>
-            </li>
-            <li className="infoLink">
-              <a href="#">Акции</a>
-            </li>
-            <li className="infoLink">
-              <a href="#">Акции</a>
-            </li>
-            <li className="infoLink">
-              <a href="#">Акции</a>
-            </li>
-            <li className="infoLink">
-              <a href="#">Акции</a>
-            </li>
-            <li className="infoLink" style={{ marginLeft: "20px" }}>
-              <a href="/">Ru</a>
-            </li>
-            <li>
-              <a style={{ fontSize: 13 }}>|</a>
-            </li>
-            <li className="infoLink">
-              <a href="/">Ukr</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="headerUpper">
-          <div className="innerContainer">
-            <div className="autoContainer" style={{ paddingTop: 15 }}>
-              <div className="brand" style={{ float: "left" }}>
-                <a href="/">
-                  <img src={gigabyte} width="125px"></img>
-                </a>
-              </div>
-              <div className="social" style={{ float: "right" }}>
-                <ul style={{ display: "flex" }}>
-                  <li>
-                    <a href="/">
-                      <img src={inst} className="socialImg" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/" style={{ padding: "0 30px" }}>
-                      <img src={twitter} className="socialImg" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/">
-                      <img src={facebook} className="socialImg" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="logoOuter">
-                <div className="logo">
-                  <a href="#">
-                    <Row className="text-center">
-                      <Col xs="12">
-                        <a href="/home">
-                          <img
-                            className="logo"
-                            src={logo}
-                            style={{
-                              position: "relative",
-                              top: "45px",
-                              zIndex: 1000,
-                            }}
-                          />
-                        </a>
-                      </Col>
-                    </Row>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <Row className="text-center headerLower">
-            <Col>
-              <img
-                style={{ opacity: 0.85 }}
-                src={headerlower}
-                className="navOuter"
-              ></img>
-            </Col>
-          </Row>
-          <div className="divchick">
-            <Container>
-              <div
-                style={{
-                  float: "left",
-                }}
-              >
-                <ul
-                  style={{
-                    display: "flex",
-                    float: "left",
-                    paddingTop: 25,
-
-                    marginLeft: "0",
-                  }}
-                >
-                  <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret>
-                      Продукция
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                      {groups.map((item, idx) => (
-                        <a href={`/category/${item.id}`}>
-                          <DropdownItem key={idx.id}>
-                            <img src={item.imageUrl}></img>
-                            <p className="groupTitle">{item.title}</p>
-                          </DropdownItem>
-                        </a>
-                      ))}
-                    </DropdownMenu>
-                  </UncontrolledDropdown>
-                  <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret>
-                      Интересное
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                      <DropdownItem>Продукция</DropdownItem>
-                      <DropdownItem>Интересное</DropdownItem>
-                      <DropdownItem divider />
-                      <DropdownItem>Reset</DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>
-                </ul>
-              </div>
-            </Container>
-          </div>
-        </div>
-      </header> */}
     </div>
   );
 };

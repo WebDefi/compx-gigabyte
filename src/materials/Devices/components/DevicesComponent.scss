@@ -1,6 +1,5 @@
 @import "../../../static/_colors";
 
-
 .devicesSection {
   padding-top: 80px;
 }
@@ -10,8 +9,10 @@
 }
 
 .device-active {
-  .deviceName__clips:before, .deviceName__clips:after,
-  .deviceName:before, .deviceName:after {
+  .deviceName__clips:before,
+  .deviceName__clips:after,
+  .deviceName:before,
+  .deviceName:after {
     display: block;
     width: 10px;
     height: 10px;
@@ -47,27 +48,30 @@
 
   .deviceName {
     font-size: 24px;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     color: #ff6400;
   }
+}
+
+.slick-prev,
+slick-next {
+  z-index: 1000;
 
 }
 
 .container {
-
   .slick-slider {
-
     .slick-prev:before,
     .slick-next:before {
       color: $primary;
       font-size: 26px;
+      padding: 2em;     
+      margin: -2em; 
     }
 
     .slick-slide {
-
-
       .DevicesComponent {
-        margin: 0 10px 0;
+        // margin: 0 10px 0;
 
         &::before {
           position: absolute;
@@ -107,8 +111,10 @@
             background-size: contain;
           }
 
-          .deviceName__clips:before, .deviceName__clips:after,
-          .deviceName:before, .deviceName:after {
+          .deviceName__clips:before,
+          .deviceName__clips:after,
+          .deviceName:before,
+          .deviceName:after {
             display: block;
             width: 10px;
             height: 10px;
@@ -144,13 +150,12 @@
 
           .deviceName {
             font-size: 24px;
-            transition: all .3s ease-in-out;
+            transition: all 0.3s ease-in-out;
           }
 
           color: $primary;
 
           img {
-
             transition: 0.4s;
             transform: scale(1.2);
           }
@@ -177,7 +182,6 @@
       .deviceImg {
         transform: scale(1.2);
       }
-
     }
   }
 }

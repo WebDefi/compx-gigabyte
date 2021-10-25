@@ -74,7 +74,7 @@ const Items = ({
     return () => (cleanup = true);
   }, [currentPage, filters, itemsPerPage, filterSorting]);
 
-  const [show, showState] = React.useState(false);
+  const [show, showState] = React.useState(true);
   return (
     <Fragment>
       <div class="spirit-breaker">
@@ -105,7 +105,10 @@ const Items = ({
               <div style={{ paddingRight: 5 }}>
                 <img className="ProductsFilter__logo" src={logoSrc} />
               </div>
-              <button className="ProductsFilter__btn">
+              <button
+                className="ProductsFilter__btn"
+                onClick={() => showState(!show)}
+              >
                 <span className="ProductsFilter__filter ProductsFilter__font">
                   Фільтр
                 </span>
@@ -131,10 +134,16 @@ const Items = ({
                   className="ProductsFilter__dropdown_menu"
                   style={{ flexDirection: "column", padding: 10 }}
                 >
-                  <DropdownItem onClick={() => setFilterSorting("price_up")}>
+                  <DropdownItem
+                    onClick={() => setFilterSorting("price_up")}
+                    style={{ paddingTop: "2px", height: "40px", }}
+                  >
                     <a>Цена по воз</a>
                   </DropdownItem>
-                  <DropdownItem onClick={() => setFilterSorting("price_down")}>
+                  <DropdownItem
+                    onClick={() => setFilterSorting("price_down")}
+                    style={{ paddingTop: "2px", height: "40px" }}
+                  >
                     <a>Цена по сниж</a>
                   </DropdownItem>
                 </DropdownMenu>
@@ -149,7 +158,7 @@ const Items = ({
               maxWidth: "1920px",
               margin: "10px 0px 10px 10px",
               marginLeft: "auto",
-              marginRight: "auto"
+              marginRight: "auto",
             }}
           >
             <Col xs="12" lg="3" xl="3">
@@ -164,7 +173,13 @@ const Items = ({
                   categoryId={categoryId}
                 />
               </div>
-              <div className="ProductsFilterMobile">
+              <div
+                className={
+                  show
+                    ? "ProductsFilterMobile"
+                    : "ProductsFilterMobile hideFilters"
+                }
+              >
                 <ProductsFilter
                   FilterBtn="Фільтр"
                   CleanBtn="Очистити"

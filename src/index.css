@@ -17,9 +17,6 @@ body {
   background-image: url("./static/images/mainBCG1.jpg");
   background-size: cover;
 
-
-
-
   color: #fff;
   cursor: url("./static/images/cursor1.png"), auto;
   overflow-x: hidden;
@@ -40,6 +37,10 @@ a {
   text-decoration: none;
   color: #c3c3c3 !important;
   outline: 0;
+  cursor: url("./static/images/cursor2.png"), pointer;
+}
+button {
+  cursor: url("./static/images/cursor2.png"), pointer !important;
 }
 li {
   list-style: none;
@@ -61,11 +62,6 @@ code {
 .nav-link:focus {
   color: #fa6812;
 }
-
-.slick-prev {
-  opacity: 0.8;
-}
-
 .dropdown-menu :focus {
   background-color: #fa6812;
 }

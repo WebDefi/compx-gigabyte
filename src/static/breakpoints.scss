@@ -1,5 +1,14 @@
 .ProductsFilterMobile {
   display: none;
+  transition: opacity 1s ease-out;
+  opacity: 1;
+}
+.hideFilters {
+  display: none !important;
+  // transition: opacity 2s ease-out;
+  // opacity: 0;
+  // transition: opacity 1s ease-out;
+  // opacity: 0;
 }
 .ProductsFilter__lineBlock {
   padding-right: 40px;
@@ -26,7 +35,6 @@
     font-size: 14px;
     padding-right: 3px;
     padding-left: 3px;
-
   }
   .ProductsFilter__dropdown_menu {
     left: -32px !important;
@@ -173,7 +181,7 @@
 
 @media only screen and (max-width: 790px) {
   .devicesSection {
-    padding-top: 200px;
+    padding-top: 50px;
   }
   .DevicesComponent {
     img {
@@ -386,7 +394,8 @@
 
 @media only screen and (max-width: 765px) {
   .DevicesComponent {
-    width: 60%;
+    width: 90%;
+    padding-top: 10%;
     margin: auto !important;
   }
 }

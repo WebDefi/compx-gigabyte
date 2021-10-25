@@ -67,11 +67,21 @@
 }
 
 .pagination {
-
   position: absolute;
-  right: 0;
+  right: 8%;
   bottom: 0;
   // margin-right: 150px;
+}
+@media screen and (max-width: 1200px) {
+  .pagination {
+    right: 17%;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .pagination {
+    right: 3%;
+  }
 }
 
 .page-link:focus {

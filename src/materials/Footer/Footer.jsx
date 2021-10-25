@@ -52,20 +52,29 @@ const Footer = (props) => {
         </Row>
         <div className="footerLine text-center">
           <a href="/" className="logoDescr text-center">
-            <img src={compxLogo} style={{ position: "relative", bottom: 20 }}></img>
+            <img
+              src={compxLogo}
+              style={{ position: "relative", bottom: 20 }}
+            ></img>
             <p
               className="logoDescr"
               style={{ position: "relative", bottom: 10, fontSize: 15 }}
             ></p>
           </a>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <img
-              src={inst}
-              alt=""
-              style={{ marginRight: "7px", marginLeft: "12px" }}
-            />
-            <img src={tiktok} alt="" style={{ marginRight: "7px" }} />
-            <img src={telegram} alt="" style={{ marginRight: "5px" }} />
+            <a href="https://www.instagram.com/compx.com.ua/?utm_medium=copy_link">
+              <img
+                src={inst}
+                alt=""
+                style={{ marginRight: "7px", marginLeft: "12px" }}
+              />
+            </a>
+            <a href="https://vm.tiktok.com/ZMRgj77fQ/">
+              <img src={tiktok} alt="" style={{ marginRight: "7px" }} />
+            </a>
+            <a href="https://t.me/compx_pc">
+              <img src={telegram} alt="" style={{ marginRight: "5px" }} />
+            </a>
           </div>
           <Container className="clownClass" fluid style={{}}>
             <Row style={{ flexWrap: "wrap", justifyContent: "space-around" }}>
@@ -73,15 +82,15 @@ const Footer = (props) => {
                 <div className="clownItem">
                   <CategoryName name={"О нас"} />
                   <FooterCol
-                    nav={"О бренде AORUS"}
+                    nav={"О бренді AORUS"}
                     link={"https://ru.aorus.com/about.php"}
                   />
                   <FooterCol
-                    nav={"О бренде GIGABYTE"}
+                    nav={"О бренді GIGABYTE"}
                     link={"https://www.gigabyte.ru/media/about/at-a-glance"}
                   />
                   <FooterCol
-                    nav={"О бренде COMPX"}
+                    nav={"О бренді COMPX"}
                     link={"https://compx.com.ua/o-nas/"}
                   />
                   {/* <FooterCol
@@ -96,7 +105,7 @@ const Footer = (props) => {
               </Col>
               <Col style={{ width: "auto" }} xs="12" sm="6" md="3">
                 <div className="clownItem">
-                  <CategoryName name={"Продукция"} />
+                  <CategoryName name={"Продукція"} />
                   {groups.map((item, idx) => (
                     <FooterCol link={`/category/${item.id}`} nav={item.title} />
                   ))}
@@ -104,9 +113,9 @@ const Footer = (props) => {
               </Col>
               <Col style={{ width: "auto" }} xs="12" sm="6" md="3">
                 <div className="clownItem">
-                  <CategoryName name={"Интересное"} />
+                  <CategoryName name={"Цікаве"} />
                   <FooterCol
-                    nav={"Новости"}
+                    nav={"Новини"}
                     link={"https://ru.aorus.com/news.php"}
                   />
                   <FooterCol
@@ -114,7 +123,7 @@ const Footer = (props) => {
                     link={"https://ru.aorus.com/blog.php"}
                   />
                   <FooterCol
-                    nav={"Обои на Рабочий Стол"}
+                    nav={"Обої на Рабочий Стіл"}
                     link={"https://ru.aorus.com/wallpaper.php"}
                   />
                 </div>
@@ -123,18 +132,18 @@ const Footer = (props) => {
                 <div className="clownItem">
                   <CategoryName name={"Служба"} />
                   <FooterCol
-                    nav={"Найти магазин"}
+                    nav={"Знайти магазин"}
                     link={"https://compx.com.ua/magaziny/"}
                   />
                   <FooterCol
-                    nav={"Информация о гарантии"}
+                    nav={"Інформація о гарантії"}
                     link={"https://member.aorus.com/ru/productwarranty"}
                   />
                   <FooterCol
-                    nav={"Контактная информация"}
+                    nav={"Контактна інформація"}
                     link={"https://compx.com.ua/magaziny/"}
                   />
-                  <FooterCol nav={"Часто задаваемые вопросы и ответы"} />
+                  <FooterCol nav={"Часті питання і відповіді"} />
                   <Container style={{ marginTop: "95px" }}>
                     <img src={Logo} alt="" />
                   </Container>

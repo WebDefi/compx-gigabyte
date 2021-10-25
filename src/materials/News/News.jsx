@@ -15,11 +15,13 @@ export default class News extends Component {
   };
 
   componentDidMount() {
-    axios.get(`https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/news`).then((res) => {
-      const newsItems = res.data.news;
-      this.setState({ ...this.state, newsItems });
-      console.log(newsItems);
-    });
+    axios
+      .get(`https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/news`)
+      .then((res) => {
+        const newsItems = res.data.news;
+        this.setState({ ...this.state, newsItems });
+        console.log(newsItems);
+      });
   }
   render() {
     const settings = {
@@ -28,9 +30,12 @@ export default class News extends Component {
       speed: 1500,
       slidesToShow: 4,
       slidesToScroll: 1,
-      arrows: false,
+      arrows: true,
       autoplay: true,
       autoplaySpeed: 2500,
+      pauseOnFocus: true,
+      swipeToSlide: true,
+      className: "news-slider",
       responsive: [
         {
           breakpoint: 1228,
@@ -47,10 +52,10 @@ export default class News extends Component {
       ],
     };
     return (
-      <div style={{marginBottom: 80}}>
+      <div style={{ marginBottom: 80 }}>
         <Divider />
         <div>
-          <SectionContent title="новинки gigabyte"/>
+          <SectionContent title="новинки gigabyte" />
         </div>
         <Container style={{ marginTop: "60px", maxHeight: "360px" }}>
           <Slider {...settings}>

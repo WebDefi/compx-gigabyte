@@ -6,7 +6,6 @@
 
 .dnone {
   display: flex;
-
 }
 
 .none {
@@ -103,7 +102,6 @@
   fill: red;
 }
 
-
 .btn {
   background: none;
   border: none;
@@ -126,6 +124,7 @@
   display: flex;
   width: fit-content;
   align-items: center;
+  // z-index: 1000;
 }
 
 .dropdown-item {
@@ -155,7 +154,7 @@
   text-align: center;
   white-space: normal;
 }
-.navBar2-0{
+.navBar2-0 {
   position: absolute;
   height: 4em;
   right: 0;
@@ -185,7 +184,7 @@
 .slideInDown {
   animation-name: slideInDown;
   animation-direction: normal;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
   animation-delay: 0s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
@@ -194,6 +193,15 @@
 
 .link-nav-bar {
   text-align: center;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
   display: flex;
+}
+
+.nav-link {
+  padding: 0;
+}
+
+.fill-svg:hover {
+  filter: invert(0.4) sepia(1) saturate(14.2) hue-rotate(349.2deg)
+    brightness(0.99);
 }

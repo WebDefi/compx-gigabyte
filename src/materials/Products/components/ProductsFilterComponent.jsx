@@ -2,7 +2,7 @@ import React from "react";
 import "./ProductsFilterComponent.scss";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {useParams} from "react-router-dom"
+import { useParams } from "react-router-dom";
 
 const ProductsFilterComponent = ({ filters, setFilters, alias, values }) => {
   const [show, showState] = React.useState(false);
@@ -24,23 +24,27 @@ const ProductsFilterComponent = ({ filters, setFilters, alias, values }) => {
           onClick={() => {
             showState(!show);
             if (categoryId == 8) {
-              
             }
           }}
         >
           <div className="filterComponent_div">
-            <h3 className="filterComponent__title">
-              {alias}
-              <FontAwesomeIcon
-                icon={show ? faMinus : faPlus}
-                className="filterComponent__icon"
-                style={{ position: "absolute", right: "0", margin: "12px 0" }}
-              />
-            </h3>
+            <h3 className="filterComponent__title">{alias}</h3>
+            <FontAwesomeIcon
+              icon={show ? faMinus : faPlus}
+              className="filterComponent__icon"
+              style={{}}
+            />
           </div>
         </li>
         {show ? (
-          <div style={{ width: "260px", columnCount: "2", marginTop: 10 }}>
+          <div
+            style={{
+              width: "290px",
+              columnCount: "1",
+              marginTop: 15,
+              paddingLeft: 25,
+            }}
+          >
             {values.map((item, index) => (
               <div style={{ fontSize: 17 }}>
                 <input

@@ -27,7 +27,9 @@ export default class SlideAorus extends Component {
         setInterval(() => {
           this.setState({ timer: this.state.timer + 10 });
           if (this.state.timer >= 5000) {
-            this.setState({ timer: 0 });
+            this.state.timer = 0;
+            this.sliderElement.slickNext();
+            // this.setState({ timer: 0 });
           }
         }, 10);
       });
@@ -41,11 +43,10 @@ export default class SlideAorus extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
-      autoplay: true,
-      autoplaySpeed: 5000,
       pauseOnHover: false,
       cssEase: "linear",
     };
+    // console.log("slider ", this.sliderElement);
     return (
       <Container fluid style={{ padding: 0, marginTop: 0 }}>
         <Slider {...settings} ref={(slider) => (this.sliderElement = slider)}>

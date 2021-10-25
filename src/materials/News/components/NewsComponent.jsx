@@ -14,6 +14,7 @@ const NewsComponent = ({ description, img, link }) => {
   }, []);
   return (
     <div data-aos="flip-right" className="divvv">
+      <a href={link}>
       <div className="imgBox" style={{ position: "relative" }}>
         <img
           className="imgBox__image"
@@ -22,7 +23,6 @@ const NewsComponent = ({ description, img, link }) => {
         ></img>
       </div>
       <p className="newsDescription">{description}</p>
-      <a href={link}>
         <button className="outlineButton">
           <span className="btn-text">Подробнее</span>
         </button>

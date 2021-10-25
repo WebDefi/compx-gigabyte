@@ -35,7 +35,9 @@ const SliderAorusComponent = ({
         className={styles.sliderAorus__imgMobile}
       />
       <div className={styles.sliderAorus_block}>
-        <h1 className={styles.sliderAorus__title}>{sliderTitle ?? ""}</h1>
+        <div className="title-bg">
+          <h1 className={styles.sliderAorus__title}>{sliderTitle ?? ""}</h1>
+        </div>
         <h3 className={styles.sliderAorus__subtitle}>{sliderSubtitle ?? ""}</h3>
         {/* {console.log(btnText)} */}
         {getBtn(btnText, btnLink)}
