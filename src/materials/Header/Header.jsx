@@ -61,7 +61,7 @@ const Header = () => {
             // className={done ? " dnone" : "none"}
           >
             <Container style={{ zIndex: 10 }}>
-              <NavbarBrand href="/home">
+              <NavbarBrand href="/home" target="_self">
                 <img src={gigabyte} style={{ maxWidth: "188px" }} />
               </NavbarBrand>
               <NavbarToggler onClick={onMobileToggle} />
@@ -80,7 +80,7 @@ const Header = () => {
                     </DropdownToggle>
                     <DropdownMenu right className="dropdown-fixed slideInDown">
                       {groups.map((item, idx) => (
-                        <a href={`/category/${item.id}`}>
+                        <a href={`/category/${item.id}`} target="_self">
                           <DropdownItem key={idx.id}>
                             <img src={item.imageUrl}></img>
                             <p className="groupTitle">{item.title}</p>
@@ -99,7 +99,7 @@ const Header = () => {
                     <DropdownToggle nav caret>
                       Цікаве
                     </DropdownToggle>
-                    <DropdownMenu right className="dropdown-fixed slideInDown">
+                    <DropdownMenu right className="dropdown-fixed slideInDown slideInColumn">
                       <DropdownItem>
                         <a
                           href="https://ru.aorus.com/news.php"
@@ -140,7 +140,7 @@ const Header = () => {
                     <DropdownToggle nav caret>
                       Служба
                     </DropdownToggle>
-                    <DropdownMenu right className="dropdown-fixed slideInDown">
+                    <DropdownMenu right className="dropdown-fixed slideInDown slideInColumn">
                       <DropdownItem>
                         <a
                           href="https://member.aorus.com/ru/productwarranty"
@@ -167,7 +167,7 @@ const Header = () => {
                     <DropdownToggle nav caret>
                       Членство
                     </DropdownToggle>
-                    <DropdownMenu right className="dropdown-fixed slideInDown">
+                    <DropdownMenu right className="slideInDown slideInColumn">
                       <DropdownItem>
                         <a href="" target="_blank" className="link-nav-bar">
                           Для чого треба приєднатися ?

@@ -205,3 +205,8 @@
   filter: invert(0.4) sepia(1) saturate(14.2) hue-rotate(349.2deg)
     brightness(0.99);
 }
+
+.slideInColumn {
+  flex-direction: column;
+  left: 0;
+}

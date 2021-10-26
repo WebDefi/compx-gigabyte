@@ -51,7 +51,7 @@ const Footer = (props) => {
           </Col>
         </Row>
         <div className="footerLine text-center">
-          <a href="/" className="logoDescr text-center">
+          <a href="https://compx.com.ua/" className="logoDescr text-center">
             <img
               src={compxLogo}
               style={{ position: "relative", bottom: 20 }}

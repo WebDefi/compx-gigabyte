@@ -1,6 +1,10 @@
 @import "./src/static/fonts.scss";
 @import "./src/static/colors.scss";
 
+.svg-inline--fa{
+  height: 28px;
+}
+
 .filterComponent {
   width: 100%;
   &_ul {
