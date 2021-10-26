@@ -82,3 +82,15 @@
     width: 100%;
   }
 }
+
+@media only screen and (max-width: 415px) {
+  .filterSvgHolder {
+    display: none;
+  }
+  .ProductsFilter__clean{
+    font-size: 12px;
+  }
+  .numberOfItems {
+    display: flex;
+  }
+}

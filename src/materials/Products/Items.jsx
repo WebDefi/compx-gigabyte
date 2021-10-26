@@ -105,7 +105,7 @@ const Items = ({
             <div
               style={{ display: "inline-flex", justifyContent: "flex-start" }}
             >
-              <div style={{ paddingRight: 5 }}>
+              <div style={{ paddingRight: 5 }} className="filterSvgHolder">
                 <img className="ProductsFilter__logo" src={logoSrc} />
               </div>
               <button
@@ -130,10 +130,11 @@ const Items = ({
             </div>
             
             <div className="sortBy">
-              <div>
-                <span className="ProductsFilter__dropdown">{numberOfItems} товарів</span>
+              <div className="numberOfItems">
+                <span className="ProductsFilter__dropdown" style={{textAlign: "center"}}>{numberOfItems}</span>
+                <span>товарів</span>
               </div>
-            <div className="ProductsFilter__lineBlock" style={{padding: "0 15px"}}>
+            <div className="ProductsFilter__lineBlock">
                 <span className="ProductsFilter__line"></span>
               </div>
               <Dropdown toggle={toggle} isOpen={isOpen}>
