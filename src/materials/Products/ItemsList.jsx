@@ -48,7 +48,9 @@ const ItemsList = () => {
 
   useEffect(() => {
     fetch(
-      `https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/gallery/${categoryId}`
+      `https://${
+        getConfig().API_ENDPOINT
+      }/gigabyte/api/v1/gallery/${categoryId}`
     )
       .then((res) => res.json())
       .then(
@@ -151,7 +153,7 @@ const ItemsList = () => {
       ) : (
         <Fragment />
       )}
-      {isLoaded ? (
+      {isLoaded && galleryItems != null ? (
         <GalleryItemForProduct
           titleItem={galleryItems.title}
           images={galleryItems.images}
