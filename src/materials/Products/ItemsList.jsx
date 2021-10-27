@@ -9,6 +9,7 @@ import bannerImgGraphic from "../../static/images/bannerGraphiccard.jpeg";
 import Fpslist from "../Fpslist/Fpslist";
 import groupService from "../../service/groupService";
 import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
+import GalleryItemForProduct from "./components/galleryItemForProduct";
 
 const ItemsList = () => {
   const groups = groupService.groups;
@@ -37,9 +38,30 @@ const ItemsList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState([]);
 
-  const [filterSorting, setFilterSorting] = useState('price_down');
+  const [filterSorting, setFilterSorting] = useState("price_down");
   const [filterCategorySorting, setFilterCategorySorting] = useState(null); // do filter by category
   const { pathname } = useLocation();
+
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [galleryItems, setGalleryItems] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      `https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/gallery/${categoryId}`
+    )
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setGalleryItems(result.galleryItem);
+          setIsLoaded(true);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  }, []);
 
   const renderText = (categoryId, title) => {
     switch (categoryId) {
@@ -122,13 +144,20 @@ const ItemsList = () => {
           </Row>
         </Container>
       </section>
-      {categoryId === "2" ? (
+      {categoryId === "2" || categoryId === "5" ? (
         <Container class={"fpsListContainer"} fluid style={{ padding: "0 0" }}>
           <Fpslist />
         </Container>
       ) : (
         <Fragment />
       )}
+      {isLoaded ? (
+        <GalleryItemForProduct
+          titleItem={galleryItems.title}
+          images={galleryItems.images}
+        />
+      ) : null}
+
       <div className="text-placeholder-after-products">
         <div data-v-b44cebd0="" className="col-12 text-center">
           <div data-v-b44cebd0="" className="template-title">

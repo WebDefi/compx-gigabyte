@@ -128,13 +128,24 @@ const Items = ({
                 </span>
               </button>
             </div>
-            
+
             <div className="sortBy">
               <div className="numberOfItems">
-                <span className="ProductsFilter__dropdown" style={{textAlign: "center"}}>{numberOfItems}</span>
-                <span>товарів</span>
+                <span
+                  className="ProductsFilter__dropdown"
+                  style={{ textAlign: "center" }}
+                >
+                  {numberOfItems}
+                </span>
+                <span>
+                  &nbsp;
+                  {numberOfItems % 2 == 0 ||
+                  numberOfItems.toString().length == 1
+                    ? "товарів"
+                    : "товар"}
+                </span>
               </div>
-            <div className="ProductsFilter__lineBlock">
+              <div className="ProductsFilter__lineBlock">
                 <span className="ProductsFilter__line"></span>
               </div>
               <Dropdown toggle={toggle} isOpen={isOpen}>
@@ -147,7 +158,7 @@ const Items = ({
                 >
                   <DropdownItem
                     onClick={() => setFilterSorting("price_up")}
-                    style={{ paddingTop: "2px", height: "40px", }}
+                    style={{ paddingTop: "2px", height: "40px" }}
                   >
                     <a>Цена по воз</a>
                   </DropdownItem>

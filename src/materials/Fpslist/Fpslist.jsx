@@ -1,14 +1,16 @@
 import "./Fpslist.scss";
 import { Fragment, useEffect, useState } from "react";
 import groupService from "../../service/groupService";
+import { useParams } from "react-router-dom";
 
 const Fpslist = () => {
   const [games, setGames] = useState([]);
   const [selectedGame, setSelectedGame] = useState(null);
   const [selectedResolution, setSelectedResolution] = useState("1080");
+  const { id: categoryId } = useParams();
 
   useEffect(() => {
-    groupService.receiveGames().then((json) => {
+    groupService.receiveGames(categoryId).then((json) => {
       setSelectedGame(json.data.games[0]);
       setGames(json.data.games);
     });
