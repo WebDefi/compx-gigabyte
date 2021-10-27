@@ -39,7 +39,7 @@ const GalleryItem = ({ titleItem, images, itemId, key }) => {
       </button>
       {show ? (
         <div className="gallery_content" data-aos="fade-down">
-          <a href="item"></a>
+          <a href="item" target="_self"></a>
           <Masonry
             breakpointCols={breakpointColumnsObj}
             className="my-masonry-grid"
@@ -48,7 +48,7 @@ const GalleryItem = ({ titleItem, images, itemId, key }) => {
             {images.map((number, index, key) => (
               <div className="gallery-item--width">
                 <div>
-                  <a href={`#${key}-${index}`}>
+                  <a href={`#${key}-${index}`} target="_self">
                     <img className="gallery__img" src={number} alt={index} />
                   </a>
                 </div>
@@ -57,6 +57,7 @@ const GalleryItem = ({ titleItem, images, itemId, key }) => {
                     href="#item"
                     className="gallery__img--hidden"
                     id={`${key}-${index}`}
+                    target="_self"
                   >
                     <span
                       style={{
