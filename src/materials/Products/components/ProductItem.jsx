@@ -60,7 +60,7 @@ const ProductItem = ({
             </span>
             {price} &#8372;
           </small>
-          <a href={link} target={'_blank'}>
+          <a href={link} target={"_blank"}>
             <button className="product-btn glow-on-hover">
               <span>Детальніше</span>
             </button>
@@ -120,11 +120,13 @@ const ProductItem = ({
               </button>
             </div>
           </a>
-          {/* {characteristics.map(
-                        characteristic => {
-                            return <p>{characteristic.alias} {characteristic.value}</p>;
-                        }
-                    )} */}
+          <a href="https://compx.com.ua/" target="_blank">
+            <div className="productItem__buy_block" style={{ textAlign: "center", justifyContent: "center", borderTop: 0 }}>
+              <button className="modal-btn">
+                <span>Посилання на офф сайт</span>
+              </button>
+            </div>
+          </a>
           <div
             className="productItem__html-div"
             dangerouslySetInnerHTML={{ __html: details }}

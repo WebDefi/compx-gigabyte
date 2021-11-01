@@ -71,10 +71,20 @@ const Footer = (props) => {
               />
             </a>
             <a href="https://vm.tiktok.com/ZMRgj77fQ/">
-              <img src={tiktok} alt="" style={{ marginRight: "7px" }} className="fill-svg" />
+              <img
+                src={tiktok}
+                alt=""
+                style={{ marginRight: "7px" }}
+                className="fill-svg"
+              />
             </a>
             <a href="https://t.me/compx_pc">
-              <img src={telegram} alt="" style={{ marginRight: "5px" }} className="fill-svg"/>
+              <img
+                src={telegram}
+                alt=""
+                style={{ marginRight: "5px" }}
+                className="fill-svg"
+              />
             </a>
           </div>
           <Container className="clownClass" fluid style={{}}>
@@ -83,15 +93,15 @@ const Footer = (props) => {
                 <div className="footerItem">
                   <CategoryName name={"О нас"} />
                   <FooterCol
-                    nav={"О бренді AORUS"}
+                    nav={"Про бренд AORUS"}
                     link={"https://ru.aorus.com/about.php"}
                   />
                   <FooterCol
-                    nav={"О бренді GIGABYTE"}
+                    nav={"Про бренд GIGABYTE"}
                     link={"https://www.gigabyte.ru/media/about/at-a-glance"}
                   />
                   <FooterCol
-                    nav={"О бренді COMPX"}
+                    nav={"Про бренд COMPX"}
                     link={"https://compx.com.ua/o-nas/"}
                   />
                   {/* <FooterCol
