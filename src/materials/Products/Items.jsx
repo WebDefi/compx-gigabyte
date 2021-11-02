@@ -217,7 +217,7 @@ const Items = ({
             <Col xs="" lg="9" xl="9">
               <Row className="products_row" style={{ paddingRight: "60px" }}>
                 {items.map((item) => (
-                  <Col xs="6" lg="4" xl="4" style={{ marginBottom: "30px" }}>
+                  <Col xs="6" lg="4" xl="4" className="itemProductPadding">
                     <ProductItem
                       key={item.id}
                       characteristics={item.characteristics}
