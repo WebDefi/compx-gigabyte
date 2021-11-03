@@ -27,9 +27,12 @@ export default {
   },
 
   getOne: (resource, params) =>
-    httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
-      data: json,
-    })),
+    httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => {
+      console.log(json);
+      return {
+        data: json,
+      };
+    }),
 
   getMany: (resource, params) => {
     const query = {
@@ -58,11 +61,110 @@ export default {
     }));
   },
 
-  update: (resource, params) =>
-    httpClient(`${apiUrl}/${resource}/${params.id}`, {
-      method: "PUT",
-      body: JSON.stringify(params.data),
-    }).then(({ json }) => ({ data: json })),
+  update: async (resource, params) => {
+    if (params.data.Image) {
+      params.data.Image = [params.data.Image];
+      const newPictures = params.data.Image.filter(
+        (p) => p.rawFile instanceof File
+      );
+      //   const formerPictures = params.data.imageUrl.filter(
+      //     (p) => !(p.rawFile instanceof File)
+      //   );
+      const titles = params.data.Image.map((obj) => obj.title);
+      const dataToCreate = params.data;
+      delete dataToCreate["Image"];
+      return Promise.all(newPictures.map(convertFileToBase64))
+        .then((base64Pictures) =>
+          base64Pictures.map((picture64) => {
+            return {
+              src: picture64,
+              title: `${titles[base64Pictures.indexOf(picture64)]}`,
+            };
+          })
+        )
+        .then((transformedNewPictures) => {
+          console.log("Base64");
+          const auth = JSON.parse(localStorage.getItem("auth"));
+          return httpClient(`${apiUrl}/${resource}/${params.id}`, {
+            method: "PUT",
+            headers: new Headers({
+              Authorization: `Bearer ${auth}`,
+              Accept: "application/json",
+            }),
+            body: JSON.stringify({
+              ...dataToCreate,
+              imageUrl: transformedNewPictures[0],
+            }),
+          }).then(({ json }) => ({
+            data: { ...params.data, id: json.id },
+          }));
+        });
+    } else if (params.data.Image_desc || params.data.Image_mob) {
+      console.log(params.data.image_desc);
+      params.data.Image_desc = [params.data.Image_desc];
+      params.data.Image_mob = [params.data.Image_mob];
+      const newPicturesDesc = params.data.Image_desc.filter(
+        (p) => p.rawFile instanceof File
+      );
+      const newPicturesMob = params.data.Image_mob.filter(
+        (p) => p.rawFile instanceof File
+      );
+      //   const formerPictures = params.data.imageUrl.filter(
+      //     (p) => !(p.rawFile instanceof File)
+      //   );
+      const titles_desc = params.data.Image_desc.map((obj) => obj.title);
+      const titles_mob = params.data.Image_mob.map((obj) => obj.title);
+
+      const dataToCreate = params.data;
+      delete dataToCreate["Image_desc"];
+      delete dataToCreate["Image_mob"];
+      const transformedNewPictureDesc = await Promise.all(
+        newPicturesDesc.map(convertFileToBase64)
+      ).then((base64Pictures) =>
+        base64Pictures.map((picture64) => {
+          return {
+            src: picture64,
+            title: `${titles_desc[base64Pictures.indexOf(picture64)]}`,
+          };
+        })
+      );
+      const transformedNewPictureMob = await Promise.all(
+        newPicturesMob.map(convertFileToBase64)
+      ).then((base64Pictures) =>
+        base64Pictures.map((picture64) => {
+          return {
+            src: picture64,
+            title: `${titles_mob[base64Pictures.indexOf(picture64)]}`,
+          };
+        })
+      );
+      return httpClient(`${apiUrl}/${resource}/${params.id}`, {
+        method: "PUT",
+        headers: new Headers({
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("auth"))}`,
+          Accept: "application/json",
+        }),
+        body: JSON.stringify({
+          ...dataToCreate,
+          imageUrlDesc: transformedNewPictureDesc[0],
+          imageUrlMob: transformedNewPictureMob[0],
+        }),
+      }).then(({ json }) => ({
+        data: { ...params.data, id: json.id },
+      }));
+    } else {
+      return httpClient(`${apiUrl}/${resource}/${params.id}`, {
+        method: "PUT",
+        body: JSON.stringify(params.data),
+        headers: new Headers({
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("auth"))}`,
+          Accept: "application/json",
+        }),
+      }).then(({ json }) => ({
+        data: { ...params.data, id: json.id },
+      }));
+    }
+  },
 
   updateMany: (resource, params) => {
     const query = {
@@ -98,8 +200,13 @@ export default {
         .then((transformedNewPictures) => {
           console.log("Base64");
           console.log(transformedNewPictures);
+          const auth = JSON.parse(localStorage.getItem("auth"));
           return httpClient(`${apiUrl}/${resource}`, {
             method: "POST",
+            headers: new Headers({
+              Authorization: `Bearer ${auth}`,
+              Accept: "application/json",
+            }),
             body: JSON.stringify({
               ...dataToCreate,
               imageUrl: transformedNewPictures[0],
@@ -155,19 +262,6 @@ export default {
       }).then(({ json }) => ({
         data: { ...params.data, id: json.id },
       }));
-      // ((transformedNewPictures) => {
-      //   console.log("Base64");
-      //   console.log(transformedNewPictures);
-      // return httpClient(`${apiUrl}/${resource}`, {
-      //   method: "POST",
-      //   body: JSON.stringify({
-      //     ...dataToCreate,
-      //     imageUrl: transformedNewPictures[0],
-      //   }),
-      // }).then(({ json }) => ({
-      //   data: { ...params.data, id: json.id },
-      // }));
-      // });
     } else {
       return httpClient(`${apiUrl}/${resource}`, {
         method: "POST",
@@ -181,6 +275,10 @@ export default {
   delete: (resource, params) =>
     httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: "DELETE",
+      headers: new Headers({
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("auth"))}`,
+        Accept: "application/json",
+      }),
     }).then(({ json }) => ({ data: json })),
 
   deleteMany: (resource, params) => {

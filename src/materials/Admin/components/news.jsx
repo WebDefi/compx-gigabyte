@@ -12,6 +12,8 @@ import {
   ImageInput,
   SimpleForm,
   Create,
+  DeleteButton,
+  Edit,
 } from "react-admin";
 
 export const NewsList = (props) => (
@@ -22,6 +24,7 @@ export const NewsList = (props) => (
       <UrlField label="Link" source="url" />
       <ImageField label="Картинка" src="image" source="image" />
       <EditButton />
+      <DeleteButton />
     </Datagrid>
   </List>
 );
@@ -29,12 +32,36 @@ export const NewsList = (props) => (
 export const NewsCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
-      <TextInput source="title" label="Название новости" />
+      <TextInput required multiline source="title" label="Название новости" />
       <BooleanInput source="active" label="Активная Новость" />
       <TextInput label="Link" source="url" />
-      <ImageInput source="Image" accept="image/*" multiple="false">
+      <ImageInput
+        isRequired={true}
+        source="Image"
+        accept="image/*"
+        multiple="false"
+      >
         <ImageField label="Картинка" src="image" source="image" title="title" />
       </ImageInput>
     </SimpleForm>
   </Create>
+);
+
+export const NewsEdit = (props) => (
+  <Edit {...props}>
+    <SimpleForm>
+      <TextInput required multiline source="title" label="Название новости" />
+      <BooleanInput source="active" label="Активная Новость" />
+      <TextInput label="Link" source="url" />
+      <ImageField label="Картинка" src="image" source="image" title="title" />
+      <ImageInput
+        // isRequired={true}
+        source="Image"
+        accept="image/*"
+        multiple={false}
+      >
+        <ImageField label="Картинка" src="image" source="image" title="title" />
+      </ImageInput>
+    </SimpleForm>
+  </Edit>
 );

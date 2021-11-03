@@ -9,6 +9,7 @@ import {
   SimpleForm,
   TextInput,
   ImageInput,
+  Edit,
 } from "react-admin";
 
 export const GroupList = (props) => (
@@ -36,4 +37,21 @@ export const GroupCreate = (props) => (
       </ImageInput>
     </SimpleForm>
   </Create>
+);
+export const GroupEdit = (props) => (
+  <Edit {...props}>
+    <SimpleForm>
+      <TextInput source="title" label="Название группы" />
+      <TextInput multiline source="group_text" label="Текст Группы" />
+      <ImageField source="image_url" title="title" />
+      <ImageInput
+        source="Image"
+        label="Group Image"
+        accept="image/*"
+        multiple="false"
+      >
+        <ImageField source="imageUrl" title="title" />
+      </ImageInput>
+    </SimpleForm>
+  </Edit>
 );
