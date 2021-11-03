@@ -9,19 +9,22 @@ import "./static/breakpoints.scss";
 import groupService from "./service/groupService";
 import getConfig from "./config";
 
-function App() {
+function App(props) {
+  const {
+    location: { pathname },
+  } = props;
   return (
     <BrowserRouter>
       <div className={styles.App}>
         <Suspense fallback={<Preloader />}>
-          <ApplicationBody />
+          <ApplicationBody pathname={pathname} />
         </Suspense>
       </div>
     </BrowserRouter>
   );
 }
 
-function ApplicationBody() {
+function ApplicationBody(pathname) {
   const [isGroupsLoaded, setGroupsLoaded] = useState(false);
   const [isTimerEnded, setTimerEnded] = useState(false);
 
@@ -34,7 +37,10 @@ function ApplicationBody() {
       setGroupsLoaded(true);
     });
   }, []);
-
+  console.log(pathname.pathname)
+  if (pathname.pathname == "/admin") {
+    return <Fragment>{Routes}</Fragment>;
+  }
   return isGroupsLoaded && isTimerEnded ? (
     <Fragment>
       <Header />
