@@ -1,7 +1,7 @@
 export default {
   // authentication
   login: ({ username, password }) => {
-    const request = new Request("http://localhost:3001/gigabyte/api/v1/login", {
+    const request = new Request("https://api.gigabyte-shop.com/gigabyte/api/v1/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: new Headers({ "Content-Type": "application/json" }),
