@@ -1,7 +1,7 @@
 import { fetchUtils } from "react-admin";
 import { stringify } from "query-string";
 
-const apiUrl = "http://api.gigabyte-shop.com/gigabyte/api/v1";
+const apiUrl = "https://api.gigabyte-shop.com/gigabyte/api/v1";
 const httpClient = fetchUtils.fetchJson;
 
 export default {
