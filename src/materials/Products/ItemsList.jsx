@@ -53,7 +53,7 @@ const ItemsList = () => {
 
   useEffect(() => {
     fetch(
-      `http://${getConfig().API_ENDPOINT}/gigabyte/api/v1/gallery/${categoryId}`
+      `https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/gallery/${categoryId}`
     )
       .then((res) => res.json())
       .then(
