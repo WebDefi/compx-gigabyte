@@ -14,6 +14,11 @@ import GalleryItemForProduct from "./components/galleryItemForProduct";
 const ItemsList = () => {
   const groups = groupService.groups;
   const { id: categoryId } = useParams();
+
+  let bannerImage = groups.find(
+    (group) => group.id == categoryId
+  ).banner_image_url;
+  console.log(groups, categoryId);
   // console.log(
   //   groups.find((group) => group.id === parseInt(categoryId)),
   //   categoryId
@@ -48,9 +53,7 @@ const ItemsList = () => {
 
   useEffect(() => {
     fetch(
-      `https://${
-        getConfig().API_ENDPOINT
-      }/gigabyte/api/v1/gallery/${categoryId}`
+      `http://${getConfig().API_ENDPOINT}/gigabyte/api/v1/gallery/${categoryId}`
     )
       .then((res) => res.json())
       .then(
@@ -105,7 +108,7 @@ const ItemsList = () => {
       <section class="product-cards" style={{ padding: "0" }}>
         <Container fluid style={{ padding: "0 0 60px " }}>
           <div className="banner-image-products">
-            <ProductsBanner bannerImg={bannerImgGraphic} />
+            <ProductsBanner bannerImg={bannerImage} />
             <div className="gradient-image"></div>
           </div>
           {/* <div class="products-list-mobile">

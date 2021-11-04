@@ -7,6 +7,7 @@ import groupService from "../../service/groupService";
 const Breadcrumbs = (props) => {
   const groups = groupService.groups;
   const { id: categoryId } = useParams();
+  console.log(groups)
   const {
     location: { pathname },
   } = props;
@@ -38,7 +39,7 @@ const Breadcrumbs = (props) => {
             >
               <p className="groupName">
                 {
-                  groups.find((group) => group.id === parseInt(categoryId))
+                  groups.find((group) => group.id == parseInt(categoryId))
                     .title
                 }
               </p>

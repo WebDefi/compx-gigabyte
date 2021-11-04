@@ -1,7 +1,7 @@
 import { fetchUtils } from "react-admin";
 import { stringify } from "query-string";
 
-const apiUrl = "https://api.gigabyte-shop.com/gigabyte/api/v1";
+const apiUrl = "http://localhost:3001/gigabyte/api/v1";
 const httpClient = fetchUtils.fetchJson;
 
 export default {
@@ -63,14 +63,25 @@ export default {
 
   update: async (resource, params) => {
     if (params.data.Image) {
+      console.log(params);
       params.data.Image = [params.data.Image];
-      const newPictures = params.data.Image.filter(
+      let newPictures = params.data.Image.filter(
         (p) => p.rawFile instanceof File
       );
+      if (params.data.ImageBanner) {
+        params.data.ImageBanner = [params.data.ImageBanner];
+        let tempPicture = params.data.ImageBanner.filter(
+          (p) => p.rawFile instanceof File
+        );
+        newPictures.push(tempPicture[0]);
+      }
       //   const formerPictures = params.data.imageUrl.filter(
       //     (p) => !(p.rawFile instanceof File)
       //   );
       const titles = params.data.Image.map((obj) => obj.title);
+      if (params.data.ImageBanner) {
+        titles.push(params.data.ImageBanner[0].title);
+      }
       const dataToCreate = params.data;
       delete dataToCreate["Image"];
       return Promise.all(newPictures.map(convertFileToBase64))
@@ -91,10 +102,17 @@ export default {
               Authorization: `Bearer ${auth}`,
               Accept: "application/json",
             }),
-            body: JSON.stringify({
-              ...dataToCreate,
-              imageUrl: transformedNewPictures[0],
-            }),
+            body:
+              transformedNewPictures.length > 1
+                ? JSON.stringify({
+                    ...dataToCreate,
+                    imageUrl: transformedNewPictures[0],
+                    imageUrlBanner: transformedNewPictures[1],
+                  })
+                : JSON.stringify({
+                    ...dataToCreate,
+                    imageUrl: transformedNewPictures[0],
+                  }),
           }).then(({ json }) => ({
             data: { ...params.data, id: json.id },
           }));

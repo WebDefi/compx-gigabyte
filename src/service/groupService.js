@@ -5,7 +5,7 @@ const groupService = {
   groups: null,
   receiveGroups: function () {
     return axios.get(
-      `https://${getConfig().API_ENDPOINT}/gigabyte/api/v1/groups`
+      `http://${getConfig().API_ENDPOINT}/gigabyte/api/v1/groups`
     );
   },
   receiveGames: function (groupId) {

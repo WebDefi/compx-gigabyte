@@ -18,6 +18,7 @@ export const GroupList = (props) => (
       <TextField source="title" label="Название группы" />
       <TextField aria-multiline source="group_text" label="Текст Группы" />
       <ImageField label="Картинка" src="imageUrl" source="imageUrl" />
+      <ImageField label="Картинка" src="imageUrl" source="banner_image_url" />
       <EditButton />
     </Datagrid>
   </List>
@@ -51,6 +52,15 @@ export const GroupEdit = (props) => (
         multiple="false"
       >
         <ImageField source="imageUrl" title="title" />
+      </ImageInput>
+      <ImageField source="banner_image_url" title="title" />
+      <ImageInput
+        source="ImageBanner"
+        label="Banner Group Image"
+        accept="image/*"
+        multiple="false"
+      >
+        <ImageField source="imageUrlBanner" title="title" />
       </ImageInput>
     </SimpleForm>
   </Edit>
