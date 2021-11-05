@@ -14,7 +14,7 @@ export const Routes = (
       <Route path="/category/:id" component={ItemsList} />
       <Route path="/home" component={HomePage} />
       <Route path="/admin" component={AdminPanel} />
-      {/* <Redirect from="/" to="/home"/> */}
+      <Redirect from="/" to="/home"/>
     </Switch>
   </Router>
 );
