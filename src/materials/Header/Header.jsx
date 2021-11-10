@@ -62,7 +62,7 @@ const Header = () => {
           >
             <Container style={{ zIndex: 10 }}>
               <NavbarBrand href="/home" target="_self">
-                <img src={gigabyte} style={{ maxWidth: "188px" }} />
+                <img src={gigabyte} className="bannerImage" />
               </NavbarBrand>
               <NavbarToggler onClick={onMobileToggle} />
               <div className="navBar2-0"></div>
@@ -99,7 +99,10 @@ const Header = () => {
                     <DropdownToggle nav caret>
                       Цікаве
                     </DropdownToggle>
-                    <DropdownMenu right className="dropdown-fixed slideInDown slideInColumn">
+                    <DropdownMenu
+                      right
+                      className="dropdown-fixed slideInDown slideInColumn"
+                    >
                       <DropdownItem>
                         <a
                           href="https://ru.aorus.com/news.php"
@@ -118,7 +121,6 @@ const Header = () => {
                           Блог
                         </a>
                       </DropdownItem>
-                      <DropdownItem divider />
                       <DropdownItem>
                         <a
                           href="https://ru.aorus.com/wallpaper.php"
@@ -140,7 +142,10 @@ const Header = () => {
                     <DropdownToggle nav caret>
                       Служба
                     </DropdownToggle>
-                    <DropdownMenu right className="dropdown-fixed slideInDown slideInColumn">
+                    <DropdownMenu
+                      right
+                      className="dropdown-fixed slideInDown slideInColumn"
+                    >
                       <DropdownItem>
                         <a
                           href="https://member.aorus.com/ru/productwarranty"
@@ -169,32 +174,32 @@ const Header = () => {
                     </DropdownToggle>
                     <DropdownMenu right className="slideInDown slideInColumn">
                       <DropdownItem>
-                        <a href="" target="_blank" className="link-nav-bar">
+                        <a href="https://member.aorus.com/ru/whyjoin" target="_blank" className="link-nav-bar">
                           Для чого треба приєднатися ?
                         </a>
                       </DropdownItem>
                       <DropdownItem>
-                        <a href="" target="_blank" className="link-nav-bar">
+                        <a href="https://member.aorus.com/ru/level" target="_blank" className="link-nav-bar">
                           Рівні членства
                         </a>
                       </DropdownItem>
                       <DropdownItem>
-                        <a href="" target="_blank" className="link-nav-bar">
+                        <a href="https://member.aorus.com/ru/aboutpointrewards" target="_blank" className="link-nav-bar">
                           Бали та нагороди AORUS
                         </a>
                       </DropdownItem>
                       <DropdownItem>
-                        <a href="" target="_blank" className="link-nav-bar">
+                        <a href="https://member.aorus.com/ru/achievement_badges" target="_blank" className="link-nav-bar">
                           Знаки досягнень
                         </a>
                       </DropdownItem>
                       <DropdownItem>
-                        <a href="" target="_blank" className="link-nav-bar">
+                        <a href="https://member.aorus.com/ru/rankboard" target="_blank" className="link-nav-bar">
                           Список Лідерів
                         </a>
                       </DropdownItem>
                       <DropdownItem>
-                        <a href="" target="_blank" className="link-nav-bar">
+                        <a href="https://member.aorus.com/ru/FAQ" target="_blank" className="link-nav-bar">
                           FAQS для членів
                         </a>
                       </DropdownItem>

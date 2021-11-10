@@ -62,58 +62,61 @@ export default {
   },
 
   update: async (resource, params) => {
-    if (params.data.Image) {
-      console.log(params);
-      params.data.Image = [params.data.Image];
-      let newPictures = params.data.Image.filter(
-        (p) => p.rawFile instanceof File
-      );
-      // if (params.data.ImageBanner) {
-      //   params.data.ImageBanner = [params.data.ImageBanner];
-      //   let tempPicture = params.data.ImageBanner.filter(
-      //     (p) => p.rawFile instanceof File
-      //   );
-      //   newPictures.push(tempPicture[0]);
-      // }
+    if (params.data.Image || params.data.ImageBanner) {
+      let newPictures = [];
+      if (params.data.Image) {
+        params.data.Image = [params.data.Image];
+        let tempPicture = params.data.Image.filter(
+          (p) => p.rawFile instanceof File
+        );
+        newPictures.push(...tempPicture);
+      }
+      if (params.data.ImageBanner) {
+        params.data.ImageBanner = [params.data.ImageBanner];
+        let tempPicture = params.data.ImageBanner.filter(
+          (p) => p.rawFile instanceof File
+        );
+        newPictures.push(...tempPicture);
+      }
       //   const formerPictures = params.data.imageUrl.filter(
       //     (p) => !(p.rawFile instanceof File)
       //   );
-      const titles = params.data.Image.map((obj) => obj.title);
-      // if (params.data.ImageBanner) {
-      //   titles.push(params.data.ImageBanner[0].title);
-      // }
+      let titles = [];
+      if (params.data.Image) {
+        titles.push({ title: params.data.Image[0].title, type: "imageUrl" });
+      }
+      if (params.data.ImageBanner) {
+        titles.push({
+          title: params.data.ImageBanner[0].title,
+          type: "imageUrlBanner",
+        });
+      }
       const dataToCreate = params.data;
-      delete dataToCreate["Image"];
+      if (params.data.Image) delete dataToCreate["Image"];
+      if (params.data.ImageBanner) delete dataToCreate["ImageBanner"];
       return Promise.all(newPictures.map(convertFileToBase64))
         .then((base64Pictures) =>
           base64Pictures.map((picture64) => {
             return {
               src: picture64,
-              title: `${titles[base64Pictures.indexOf(picture64)]}`,
+              title: `${titles[base64Pictures.indexOf(picture64)].title}`,
+              type: `${titles[base64Pictures.indexOf(picture64)].type}`,
             };
           })
         )
         .then((transformedNewPictures) => {
-          console.log("Base64");
           const auth = JSON.parse(localStorage.getItem("auth"));
+          let putBody = dataToCreate;
+          transformedNewPictures.forEach((pictureObj) => {
+            putBody[pictureObj.type] = pictureObj;
+          });
           return httpClient(`${apiUrl}/${resource}/${params.id}`, {
             method: "PUT",
             headers: new Headers({
               Authorization: `Bearer ${auth}`,
               Accept: "application/json",
             }),
-            body:
-              // transformedNewPictures.length > 1
-              //   ? JSON.stringify({
-              //       ...dataToCreate,
-              //       imageUrl: transformedNewPictures[0],
-              //       imageUrlBanner: transformedNewPictures[1],
-              //     })
-              // :
-              JSON.stringify({
-                ...dataToCreate,
-                imageUrl: transformedNewPictures[0],
-              }),
+            body: JSON.stringify(putBody),
           }).then(({ json }) => ({
             data: { ...params.data, id: json.id },
           }));

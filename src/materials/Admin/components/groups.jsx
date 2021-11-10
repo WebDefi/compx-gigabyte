@@ -43,13 +43,18 @@ export const GroupEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
       <TextInput source="title" label="Название группы" />
-      <TextInput multiline source="group_text" label="Текст Группы" />
+      <TextInput
+        multiline
+        style={{ width: "600px" }}
+        source="group_text"
+        label="Текст Группы"
+      />
       <ImageField source="image_url" title="title" />
       <ImageInput
         source="Image"
         label="Group Image"
         accept="image/*"
-        multiple="false"
+        multiple={false}
       >
         <ImageField source="imageUrl" title="title" />
       </ImageInput>
@@ -58,7 +63,7 @@ export const GroupEdit = (props) => (
         source="ImageBanner"
         label="Banner Group Image"
         accept="image/*"
-        multiple="false"
+        multiple={false}
       >
         <ImageField source="imageUrlBanner" title="title" />
       </ImageInput>

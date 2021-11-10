@@ -18,7 +18,6 @@ const AdminPanel = () => {
       <Resource
         name="groups"
         list={GroupList}
-        create={GroupCreate}
         edit={GroupEdit}
       />
       <Resource

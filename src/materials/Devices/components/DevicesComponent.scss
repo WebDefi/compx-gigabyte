@@ -64,9 +64,20 @@ slick-next {
     .slick-next:before {
       color: $primary;
       font-size: 26px;
-      padding: 2em;
-      margin: -2em;
+      padding: 1em;
+      margin: -1em;
       z-index: 10;
+      display: inline-block;
+      font-size: 80px;
+    }
+
+    .slick-next:before {
+      content: "➢";
+    }
+
+    .slick-prev:before {
+      content: "➣";
+      transform: rotate(180deg);
     }
 
     .slick-slide {
@@ -190,12 +201,12 @@ slick-next {
   .container {
     .slick-slider {
       .slick-next:before {
-        padding: 2em 0em 2em 1em;
-        margin: -2em 0em -2em -1em;
+        padding: 1em 0em 1em 0em;
+        margin: -1em 0em -1em 0em;
       }
       .slick-prev:before {
-        padding: 2em 1em 2em 0em;
-        margin: -2em -1em -2em 0em;
+        padding: 1em 0em 1.15em 0em;
+        margin: -1em 0em -1em 0em;
       }
     }
   }

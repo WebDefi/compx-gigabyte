@@ -151,7 +151,7 @@
 @media only screen and (max-width: 991px) {
   .product-card {
     // width: 38vw;
-    margin: 20px auto;
+    margin: 6px auto;
 
     &::before {
       width: 43vw;
@@ -278,9 +278,7 @@
   }
   .product-img {
     display: block;
-    width: 100%;
     left: 0;
-    height: 7.5em;
   }
   .product-name {
     padding: 5px 5px;
@@ -347,7 +345,7 @@
   }
 
   .pagination {
-    margin-right: -20px;
+    margin-right: -10px;
   }
 
   .gallery {
@@ -355,7 +353,7 @@
   }
 
   .row > * {
-    padding: 6px;
+    padding: 0px 6px 0px 6px;
   }
 
   .products_rowFirst {
@@ -390,9 +388,6 @@
 @media (min-width: 991px) and (max-width: 1200px) {
   .col-xl-4 {
     width: 40%;
-  }
-  .product-card {
-    // width: 24vw;
   }
 }
 

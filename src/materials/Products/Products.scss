@@ -35,6 +35,10 @@
   }
 }
 
+.products_rowFirst {
+  display: flex;
+}
+
 .text-placeholder-after-products {
   padding-top: 5.5em;
   padding-bottom: 5.5em;
@@ -49,7 +53,7 @@
   position: relative;
 }
 .itemProductPadding {
-  padding-bottom: 30px;
+  padding-bottom: 0;
 }
 .gradient-image {
   position: absolute;
@@ -90,7 +94,7 @@
   .filterSvgHolder {
     display: none;
   }
-  .ProductsFilter__clean{
+  .ProductsFilter__clean {
     font-size: 12px;
   }
   .numberOfItems {
