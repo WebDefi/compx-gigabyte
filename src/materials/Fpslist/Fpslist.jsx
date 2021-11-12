@@ -2,12 +2,22 @@ import "./Fpslist.scss";
 import { Fragment, useEffect, useState } from "react";
 import groupService from "../../service/groupService";
 import { useParams } from "react-router-dom";
+import Slider from "react-slick";
+import {
+  DropdownItem,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+} from "reactstrap";
 
 const Fpslist = () => {
   const [games, setGames] = useState([]);
   const [selectedGame, setSelectedGame] = useState(null);
   const [selectedResolution, setSelectedResolution] = useState("1080");
   const { id: categoryId } = useParams();
+
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
 
   useEffect(() => {
     groupService.receiveGames(categoryId).then((json) => {
@@ -24,10 +34,95 @@ const Fpslist = () => {
     setSelectedResolution(resolution);
   };
 
+  const settings = {
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    pauseOnHover: false,
+  };
+
   return games.length > 0 ? (
     <Fragment>
-      <div style={{ backgroundColor: "black" }}>
-        <div data-v-b44cebd0="" className="row">
+      <div style={{ backgroundColor: "black" }} className="FPSParent">
+        <div
+          data-v-b44cebd0=""
+          className="row"
+          style={{ justifyContent: "center" }}
+        >
+          <div className="mobileSliderFPS" style={{ height: "335px" }}>
+            <Slider
+              {...settings}
+              afterChange={(slide) => {
+                onGameSelect(games[slide]);
+              }}
+            >
+              {games.map((game) => {
+                return (
+                  <div
+                    data-v-e4caeaf8=""
+                    tabIndex="-1"
+                    data-index="0"
+                    aria-hidden="false"
+                    className="slick-slide slick-center"
+                    // onClick={() => onGameSelect(game)}
+                  >
+                    <div data-v-e4caeaf8="">
+                      <div
+                        data-v-b44cebd0=""
+                        data-v-e4caeaf8=""
+                        tabIndex="-1"
+                        className="slide"
+                      >
+                        <div
+                          data-v-b44cebd0=""
+                          data-v-e4caeaf8=""
+                          className={`content-div ${
+                            selectedGame.videoGameName === game.videoGameName
+                              ? "active"
+                              : ""
+                          }`}
+                        >
+                          <div
+                            data-v-b44cebd0=""
+                            data-v-e4caeaf8=""
+                            className="box"
+                          >
+                            <img
+                              onClick={() => onGameSelect(game)}
+                              data-v-b44cebd0=""
+                              data-v-e4caeaf8=""
+                              alt=""
+                              data-src="/assets/img/Cyberpunk_2077.71d10fd3.jpg"
+                              src={game.videoGameImgUrl}
+                              lazy="loaded"
+                              width="125"
+                              height="214"
+                              style={{
+                                margin: "auto",
+                                height: "100%",
+                                width: "100%",
+                                maxWidth: "200px",
+                              }}
+                            />
+                          </div>
+                        </div>
+                        <div
+                          data-v-b44cebd0=""
+                          data-v-e4caeaf8=""
+                          className="title active"
+                          style={{ textAlign: "center" }}
+                        >
+                          {game.videoGameName}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </Slider>
+          </div>
           <div data-v-b44cebd0="" className="col-12 find-product-div mt-5">
             <div
               data-v-3d1a4f76=""
@@ -157,21 +252,28 @@ const Fpslist = () => {
                       <span data-v-b44cebd0=""> 4K </span>
                     </div>
                     <div data-v-b44cebd0="" className="selectDiv">
-                      <div data-v-b44cebd0=""> 1080P </div>
-                      <div data-v-b44cebd0="" className="selectBox">
-                        <div data-v-b44cebd0="" className="select active">
-                          {" "}
-                          1080P{" "}
-                        </div>
-                        <div data-v-b44cebd0="" className="select">
-                          {" "}
-                          2K{" "}
-                        </div>
-                        <div data-v-b44cebd0="" className="select">
-                          {" "}
-                          4K{" "}
-                        </div>
-                      </div>
+                      <Dropdown onClick={toggle} isOpen={isOpen}>
+                        <DropdownToggle nav caret>
+                          {selectedResolution}
+                        </DropdownToggle>
+                        <DropdownMenu className="selectBox">
+                          <DropdownItem
+                            onClick={() => onResolutionSelect("1080")}
+                          >
+                            1080P
+                          </DropdownItem>
+                          <DropdownItem
+                            onClick={() => onResolutionSelect("2k")}
+                          >
+                            2K
+                          </DropdownItem>
+                          <DropdownItem
+                            onClick={() => onResolutionSelect("4k")}
+                          >
+                            4K
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </Dropdown>
                     </div>
                   </div>
                 </div>
