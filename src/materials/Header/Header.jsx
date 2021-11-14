@@ -60,153 +60,193 @@ const Header = () => {
             expand="md"
             // className={done ? " dnone" : "none"}
           >
-            <Container style={{ zIndex: 10 }}>
-              <NavbarBrand href="/home" target="_self">
+            <Container style={{ zIndex: 10 }} className="mobileFlex">
+              <NavbarBrand
+                href="/home"
+                target="_self"
+                className="bannerHolderDesc"
+              >
                 <img src={gigabyte} className="bannerImage" />
               </NavbarBrand>
-              <NavbarToggler onClick={onMobileToggle} />
-              <div className="navBar2-0"></div>
-              <Collapse isOpen={isMobileOpen} navbar>
-                <Nav className="mr-auto " navbar>
-                  <Dropdown
-                    nav
-                    inNavbar
-                    onMouseOver={() => onMouseEnter(setIsOpenProducts)}
-                    onMouseLeave={() => onMouseLeave(setIsOpenProducts)}
-                    isOpen={isOpenProducts}
-                  >
-                    <DropdownToggle nav caret>
-                      Продукція
-                    </DropdownToggle>
-                    <DropdownMenu right className="dropdown-fixed slideInDown">
-                      {groups.map((item, idx) => (
-                        <a href={`/category/${item.id}`} target="_self">
-                          <DropdownItem key={idx.id}>
-                            <img src={item.imageUrl}></img>
-                            <p className="groupTitle">{item.title}</p>
-                          </DropdownItem>
-                        </a>
-                      ))}
-                    </DropdownMenu>
-                  </Dropdown>
-                  <Dropdown
-                    nav
-                    inNavbar
-                    onMouseOver={() => onMouseEnter(setIsOpenInteresting)}
-                    onMouseLeave={() => onMouseLeave(setIsOpenInteresting)}
-                    isOpen={isOpenInteresting}
-                  >
-                    <DropdownToggle nav caret>
-                      Цікаве
-                    </DropdownToggle>
-                    <DropdownMenu
-                      right
-                      className="dropdown-fixed slideInDown slideInColumn"
+              {/* <div style={{ display: "flex" }}> */}
+                <NavbarToggler onClick={onMobileToggle} />
+                <div className="navBar2-0"></div>
+                <Collapse isOpen={isMobileOpen} navbar>
+                  <Nav className="mr-auto " navbar>
+                    <Dropdown
+                      nav
+                      inNavbar
+                      onMouseOver={() => onMouseEnter(setIsOpenProducts)}
+                      onMouseLeave={() => onMouseLeave(setIsOpenProducts)}
+                      isOpen={isOpenProducts}
                     >
-                      <DropdownItem>
-                        <a
-                          href="https://ru.aorus.com/news.php"
-                          target="_blank"
-                          className="link-nav-bar"
-                        >
-                          Новини
-                        </a>
-                      </DropdownItem>
-                      <DropdownItem>
-                        <a
-                          href="https://ru.aorus.com/blog.php"
-                          target="_blank"
-                          className="link-nav-bar"
-                        >
-                          Блог
-                        </a>
-                      </DropdownItem>
-                      <DropdownItem>
-                        <a
-                          href="https://ru.aorus.com/wallpaper.php"
-                          target="_blank"
-                          className="link-nav-bar"
-                        >
-                          Обої на рабочий стіл
-                        </a>
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </Dropdown>
-                  <Dropdown
-                    nav
-                    inNavbar
-                    onMouseOver={() => onMouseEnter(setIsOpenLinks)}
-                    onMouseLeave={() => onMouseLeave(setIsOpenLinks)}
-                    isOpen={isOpenLinks}
-                  >
-                    <DropdownToggle nav caret>
-                      Служба
-                    </DropdownToggle>
-                    <DropdownMenu
-                      right
-                      className="dropdown-fixed slideInDown slideInColumn"
+                      <DropdownToggle nav caret>
+                        Продукція
+                      </DropdownToggle>
+                      <DropdownMenu
+                        right
+                        className="dropdown-fixed slideInDown"
+                      >
+                        {groups.map((item, idx) => (
+                          <a href={`/category/${item.id}`} target="_self">
+                            <DropdownItem key={idx.id}>
+                              <img src={item.imageUrl}></img>
+                              <p className="groupTitle">{item.title}</p>
+                            </DropdownItem>
+                          </a>
+                        ))}
+                      </DropdownMenu>
+                    </Dropdown>
+                    <Dropdown
+                      nav
+                      inNavbar
+                      onMouseOver={() => onMouseEnter(setIsOpenInteresting)}
+                      onMouseLeave={() => onMouseLeave(setIsOpenInteresting)}
+                      isOpen={isOpenInteresting}
                     >
-                      <DropdownItem>
-                        <a
-                          href="https://member.aorus.com/ru/productwarranty"
-                          target="_blank"
-                          className="link-nav-bar"
-                        >
-                          Інформація о гарантії
-                        </a>
-                      </DropdownItem>
-                      <DropdownItem>
-                        <a href="" target="_blank" className="link-nav-bar">
-                          Реєстрація продукта
-                        </a>
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </Dropdown>
-                  <Dropdown
-                    nav
-                    inNavbar
-                    onMouseOver={() => onMouseEnter(setIsOpenOther)}
-                    onMouseLeave={() => onMouseLeave(setIsOpenOther)}
-                    isOpen={isOpenOther}
-                  >
-                    <DropdownToggle nav caret>
-                      Членство
-                    </DropdownToggle>
-                    <DropdownMenu right className="slideInDown slideInColumn">
-                      <DropdownItem>
-                        <a href="https://member.aorus.com/ru/whyjoin" target="_blank" className="link-nav-bar">
-                          Для чого треба приєднатися ?
-                        </a>
-                      </DropdownItem>
-                      <DropdownItem>
-                        <a href="https://member.aorus.com/ru/level" target="_blank" className="link-nav-bar">
-                          Рівні членства
-                        </a>
-                      </DropdownItem>
-                      <DropdownItem>
-                        <a href="https://member.aorus.com/ru/aboutpointrewards" target="_blank" className="link-nav-bar">
-                          Бали та нагороди AORUS
-                        </a>
-                      </DropdownItem>
-                      <DropdownItem>
-                        <a href="https://member.aorus.com/ru/achievement_badges" target="_blank" className="link-nav-bar">
-                          Знаки досягнень
-                        </a>
-                      </DropdownItem>
-                      <DropdownItem>
-                        <a href="https://member.aorus.com/ru/rankboard" target="_blank" className="link-nav-bar">
-                          Список Лідерів
-                        </a>
-                      </DropdownItem>
-                      <DropdownItem>
-                        <a href="https://member.aorus.com/ru/FAQ" target="_blank" className="link-nav-bar">
-                          FAQS для членів
-                        </a>
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </Dropdown>
-                </Nav>
-              </Collapse>
+                      <DropdownToggle nav caret>
+                        Цікаве
+                      </DropdownToggle>
+                      <DropdownMenu
+                        right
+                        className="dropdown-fixed slideInDown slideInColumn"
+                      >
+                        <DropdownItem>
+                          <a
+                            href="https://ru.aorus.com/news.php"
+                            target="_blank"
+                            className="link-nav-bar"
+                          >
+                            Новини
+                          </a>
+                        </DropdownItem>
+                        <DropdownItem>
+                          <a
+                            href="https://ru.aorus.com/blog.php"
+                            target="_blank"
+                            className="link-nav-bar"
+                          >
+                            Блог
+                          </a>
+                        </DropdownItem>
+                        <DropdownItem>
+                          <a
+                            href="https://ru.aorus.com/wallpaper.php"
+                            target="_blank"
+                            className="link-nav-bar"
+                          >
+                            Обої на рабочий стіл
+                          </a>
+                        </DropdownItem>
+                      </DropdownMenu>
+                    </Dropdown>
+                    <Dropdown
+                      nav
+                      inNavbar
+                      onMouseOver={() => onMouseEnter(setIsOpenLinks)}
+                      onMouseLeave={() => onMouseLeave(setIsOpenLinks)}
+                      isOpen={isOpenLinks}
+                    >
+                      <DropdownToggle nav caret>
+                        Служба
+                      </DropdownToggle>
+                      <DropdownMenu
+                        right
+                        className="dropdown-fixed slideInDown slideInColumn"
+                      >
+                        <DropdownItem>
+                          <a
+                            href="https://member.aorus.com/ru/productwarranty"
+                            target="_blank"
+                            className="link-nav-bar"
+                          >
+                            Інформація о гарантії
+                          </a>
+                        </DropdownItem>
+                        <DropdownItem>
+                          <a href="" target="_blank" className="link-nav-bar">
+                            Реєстрація продукта
+                          </a>
+                        </DropdownItem>
+                      </DropdownMenu>
+                    </Dropdown>
+                    <Dropdown
+                      nav
+                      inNavbar
+                      onMouseOver={() => onMouseEnter(setIsOpenOther)}
+                      onMouseLeave={() => onMouseLeave(setIsOpenOther)}
+                      isOpen={isOpenOther}
+                    >
+                      <DropdownToggle nav caret>
+                        Членство
+                      </DropdownToggle>
+                      <DropdownMenu right className="slideInDown slideInColumn">
+                        <DropdownItem>
+                          <a
+                            href="https://member.aorus.com/ru/whyjoin"
+                            target="_blank"
+                            className="link-nav-bar"
+                          >
+                            Для чого треба приєднатися ?
+                          </a>
+                        </DropdownItem>
+                        <DropdownItem>
+                          <a
+                            href="https://member.aorus.com/ru/level"
+                            target="_blank"
+                            className="link-nav-bar"
+                          >
+                            Рівні членства
+                          </a>
+                        </DropdownItem>
+                        <DropdownItem>
+                          <a
+                            href="https://member.aorus.com/ru/aboutpointrewards"
+                            target="_blank"
+                            className="link-nav-bar"
+                          >
+                            Бали та нагороди AORUS
+                          </a>
+                        </DropdownItem>
+                        <DropdownItem>
+                          <a
+                            href="https://member.aorus.com/ru/achievement_badges"
+                            target="_blank"
+                            className="link-nav-bar"
+                          >
+                            Знаки досягнень
+                          </a>
+                        </DropdownItem>
+                        <DropdownItem>
+                          <a
+                            href="https://member.aorus.com/ru/rankboard"
+                            target="_blank"
+                            className="link-nav-bar"
+                          >
+                            Список Лідерів
+                          </a>
+                        </DropdownItem>
+                        <DropdownItem>
+                          <a
+                            href="https://member.aorus.com/ru/FAQ"
+                            target="_blank"
+                            className="link-nav-bar"
+                          >
+                            FAQS для членів
+                          </a>
+                        </DropdownItem>
+                      </DropdownMenu>
+                    </Dropdown>
+                  </Nav>
+                </Collapse>
+                <NavbarBrand
+                  href="/home"
+                  target="_self"
+                  className="bannerHolderMob"
+                >
+                  <img src={gigabyte} className="bannerImage" />
+                </NavbarBrand>
+              {/* </div/> */}
               <div style={{ display: "flex", alignItems: "center" }}>
                 <NavItem>
                   <NavLink

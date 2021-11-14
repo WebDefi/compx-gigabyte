@@ -17,6 +17,9 @@ const ItemsList = () => {
 
   let groupObject = groups.find((group) => group.id == categoryId);
   let bannerImage = groupObject.banner_image_url;
+  let bannerActiveText = groupObject.banner_active_text;
+  let bannerActiveButton = groupObject.banner_active_button;
+  // console.log(bannerActiveText)
   // console.log(groups, categoryId);
   // console.log(
   //   groups.find((group) => group.id === parseInt(categoryId)),
@@ -74,11 +77,17 @@ const ItemsList = () => {
 
   return (
     <Fragment>
-      <Breadcrumbs />
+      <div className="breadcrumbsDesc">
+        <Breadcrumbs />
+      </div>
       <section class="product-cards" style={{ padding: "0" }}>
         <Container fluid style={{ padding: "0 0 60px " }}>
           <div className="banner-image-products">
-            <ProductsBanner bannerImg={bannerImage} />
+            <ProductsBanner
+              bannerImg={bannerImage}
+              activeText={bannerActiveText}
+              activeButton={bannerActiveButton}
+            />
             <div className="gradient-image"></div>
           </div>
           <Items

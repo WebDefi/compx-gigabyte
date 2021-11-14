@@ -57,7 +57,7 @@ export default class News extends Component {
         <div>
           <SectionContent title="новинки gigabyte" />
         </div>
-        <Container style={{ marginTop: "60px", maxHeight: "360px" }}>
+        <Container style={{ maxHeight: "360px" }}>
           <Slider {...settings}>
             {this.state.newsItems.map((item, idx) => {
               return (

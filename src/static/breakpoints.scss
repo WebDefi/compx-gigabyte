@@ -185,7 +185,12 @@
 
 @media only screen and (max-width: 790px) {
   .devicesSection {
-    padding-top: 100px;
+    padding-top: 0;
+  }
+  .homePageDevices {
+    .devicesSection {
+      padding-top: 140px;
+    }
   }
   .DevicesComponent {
     img {
@@ -290,7 +295,7 @@
     left: 10%;
   }
   .slick-next {
-    right: 10%;
+    right: 11%;
   }
   .container {
     .slick-slider {

@@ -57,7 +57,7 @@ export default class Sales extends Component {
         <div>
           <SectionContent title="акції gigabyte"></SectionContent>
         </div>
-        <Container style={{ marginTop: "60px" }}>
+        <Container style={{}}>
           <Slider {...settings}>
             {this.state.salesItems.map((item, idx) => {
               return (

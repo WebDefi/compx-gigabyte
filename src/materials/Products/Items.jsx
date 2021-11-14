@@ -19,6 +19,7 @@ import { sliderSettings } from "../Devices/Devices";
 import DevicesComponent from "../Devices/components/DevicesComponent";
 import deviceBg from "../../static/images/deviceBg.png";
 import groupService from "../../service/groupService";
+import Breadcrumbs from "../../common/Breacrumbs/Breadcrumbs";
 
 const Items = ({
   currentPage,
@@ -55,7 +56,7 @@ const Items = ({
         charValues:
           filters.length > 0 ? encodeURI(JSON.stringify(filters)) : "",
       };
-      const baseUrl = `https://${
+      const baseUrl = `http://${
         getConfig().API_ENDPOINT
       }/gigabyte/api/v1/items/${categoryId}`;
       if (queryStringParams.charValues === "")
@@ -98,6 +99,9 @@ const Items = ({
               })}
             </Slider>
           </Container>
+          <div className="breadcrumbsMob">
+            <Breadcrumbs />
+          </div>
         </div>
         {/* <div className="gradient"></div> */}
         <div class="products-section-container">

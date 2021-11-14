@@ -100,4 +100,14 @@
   .numberOfItems {
     display: flex;
   }
+  .breadcrumbsMob {
+    display: block;
+    position: relative;
+    .row {
+      padding: 0 !important;
+    }
+  }
+  .breadcrumbsDesc {
+    display: none;
+  }
 }

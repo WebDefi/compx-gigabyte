@@ -213,3 +213,18 @@
   flex-direction: column;
   left: 0;
 }
+
+.bannerHolderMob {
+  display: none;
+}
+@media screen and (max-width: 400px) {
+  .bannerHolderMob {
+    display: block;
+  }
+  .bannerHolderDesc {
+    display: none;
+  }
+  .mobileFlex {
+    justify-content: flex-start;
+  }
+}

@@ -8,7 +8,9 @@ const HomePage = () => {
   return (
     <div to="/main">
       <SliderAorus />
-      <Devices />
+      <div className="homePageDevices">
+        <Devices />
+      </div>
       <Sales />
       <News />
       <Gallery />
