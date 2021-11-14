@@ -56,7 +56,7 @@ const Items = ({
         charValues:
           filters.length > 0 ? encodeURI(JSON.stringify(filters)) : "",
       };
-      const baseUrl = `http://${
+      const baseUrl = `https://${
         getConfig().API_ENDPOINT
       }/gigabyte/api/v1/items/${categoryId}`;
       if (queryStringParams.charValues === "")
